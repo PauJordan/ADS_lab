@@ -42,13 +42,13 @@ end o_generic_sr;
 
 architecture o_generic_sr_arc of o_generic_sr is
 signal OE_s : std_logic;
--- signal  buf : std_logic_vector(Q_width - 1 downto 0);
+signal  buf : std_logic_vector(Q_width - 1 downto 0);
 
 begin
     process (clk)
         variable sr : std_logic_vector(Q_width - 1 downto 0);
         begin
-        if clk'event and clk='1' then
+        if rising_edge(clk) then
             if CE = '1' then
                 sr := sr(Q_width - 2 downto 0) & D;
             end if;
@@ -56,6 +56,7 @@ begin
                 Q <= sr;
             end if;
             OE_s <= OE;
+            buf <= sr;
         end if;
     end process;
    
