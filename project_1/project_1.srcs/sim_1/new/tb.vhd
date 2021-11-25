@@ -63,7 +63,16 @@ begin
             D <= test_data(i);
         end loop;
         e <= '1';
-        wait for 50 ns;
+        wait for 20 ns;
+        e <= '0';
+        wait for 20 ns;
+        e <= '1';
+        ce <= '0';
+        wait for 20 ns;
+        e <= '0';
+        wait for 20 ns;
+        e <= '1';
+        
         TbSimEnded <= '1';
         wait;
     end process;
