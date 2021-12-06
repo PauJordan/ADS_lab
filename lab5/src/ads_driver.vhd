@@ -30,7 +30,7 @@ entity daq_adc_controller is
     total_periods: integer := 16); -- during the next 16 periods of the reference clock signal
     Port (
     clk: in std_logic; -- 108 MHz  
-    resetn: in std_logic; -- active low
+    rst: in std_logic; -- active low
     sdata1, sdata2 : in std_logic; 
     ncs: out std_logic;
     sclk: out std_logic;
@@ -60,7 +60,7 @@ begin
     process(clk)
     begin
         if clk'event and clk='1' then --TODO increment clk
-            if resetn = '0' then -- if we press buton, we restart the counter
+            if rst = '1' then -- if we press buton, we restart the counter
                 clk_counter <= 0;
                 ncs_s <= '1';
                 sclk_s <= '1';
@@ -106,19 +106,6 @@ begin
            end if;
      end process;
      
-     --now that we have our sclk signal created what we need to do is the conversion process
---     process(clk)
---     begin
---     if clk'event and clk='1' then --TODO increment clk
---            if resetn = '0' then -- if we press buton, we restart the counter
---                clk_counter <= 0;
---                ncs_s <= '1';
---                sclk_s <= '1';
---                presc_counter <= 0;
---            else
---                as;
---     end process;
-
      
     shift_register_1 : o_generic_sr
     generic map ( Q_width => 15 )

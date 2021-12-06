@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Dec  6 13:44:06 2021" VIVADOVERSION="2019.1">
+
+  <SYSTEMINFO ARCH="artix7" DEVICE="7a100t" NAME="daq_top_hw_test" PACKAGE="csg324" SPEEDGRADE="-1"/>
+
+  <EXTERNALPORTS>
+    <PORT DIR="I" NAME="rst" SIGIS="undef" SIGNAME="External_Ports_rst">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="daq_adc_controller_0" PORT="rst"/>
+        <CONNECTION INSTANCE="virtual_gen_fun_0" PORT="rst"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="clk" SIGIS="undef" SIGNAME="External_Ports_clk">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="daq_adc_controller_0" PORT="clk"/>
+        <CONNECTION INSTANCE="virtual_gen_fun_0" PORT="clk"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="1" NAME="select_in" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_select_in">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="virtual_gen_fun_0" PORT="select_in"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="enable" SIGIS="undef" SIGNAME="External_Ports_enable">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="virtual_gen_fun_0" PORT="enable"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="11" NAME="data1" RIGHT="0" SIGIS="undef" SIGNAME="daq_adc_controller_0_data1">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="daq_adc_controller_0" PORT="data1"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="11" NAME="data2" RIGHT="0" SIGIS="undef" SIGNAME="daq_adc_controller_0_data2">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="daq_adc_controller_0" PORT="data2"/>
+      </CONNECTIONS>
+    </PORT>
+  </EXTERNALPORTS>
+
+  <EXTERNALINTERFACES/>
+
+  <MODULES>
+    <MODULE COREREVISION="1" FULLNAME="/daq_adc_controller_0" HWVERSION="1.0" INSTANCE="daq_adc_controller_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="daq_adc_controller" VLNV="xilinx.com:module_ref:daq_adc_controller:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="total_periods" VALUE="16"/>
+        <PARAMETER NAME="Component_Name" VALUE="daq_top_hw_test_daq_adc_controller_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="External_Ports_clk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="rst" SIGIS="rst" SIGNAME="External_Ports_rst">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="rst"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="sdata1" SIGIS="undef" SIGNAME="virtual_gen_fun_0_D1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="virtual_gen_fun_0" PORT="D1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="sdata2" SIGIS="undef" SIGNAME="virtual_gen_fun_0_D2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="virtual_gen_fun_0" PORT="D2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="ncs" SIGIS="undef" SIGNAME="daq_adc_controller_0_ncs">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="virtual_gen_fun_0" PORT="NCS"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="sclk" SIGIS="undef" SIGNAME="daq_adc_controller_0_sclk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="virtual_gen_fun_0" PORT="SCLK"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="11" NAME="data1" RIGHT="0" SIGIS="undef" SIGNAME="daq_adc_controller_0_data1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="data1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="11" NAME="data2" RIGHT="0" SIGIS="undef" SIGNAME="daq_adc_controller_0_data2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="data2"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/virtual_gen_fun_0" HWVERSION="1.0" INSTANCE="virtual_gen_fun_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="virtual_gen_fun" VLNV="xilinx.com:module_ref:virtual_gen_fun:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="daq_top_hw_test_virtual_gen_fun_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="External_Ports_clk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="rst" SIGIS="rst" SIGNAME="External_Ports_rst">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="rst"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="enable" SIGIS="undef" SIGNAME="External_Ports_enable">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="enable"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="1" NAME="select_in" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_select_in">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="select_in"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="SCLK" SIGIS="undef" SIGNAME="daq_adc_controller_0_sclk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="daq_adc_controller_0" PORT="sclk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="NCS" SIGIS="undef" SIGNAME="daq_adc_controller_0_ncs">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="daq_adc_controller_0" PORT="ncs"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="D1" SIGIS="undef" SIGNAME="virtual_gen_fun_0_D1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="daq_adc_controller_0" PORT="sdata1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="D2" SIGIS="undef" SIGNAME="virtual_gen_fun_0_D2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="daq_adc_controller_0" PORT="sdata2"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+  </MODULES>
+
+</EDKSYSTEM>

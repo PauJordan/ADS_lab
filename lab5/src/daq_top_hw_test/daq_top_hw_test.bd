@@ -1,0 +1,200 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x7347FB32D6232FE3",
+      "device": "xc7a100tcsg324-1",
+      "name": "daq_top_hw_test",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2019.1",
+      "validated": "true"
+    },
+    "design_tree": {
+      "daq_adc_controller_0": "",
+      "virtual_gen_fun_0": ""
+    },
+    "ports": {
+      "rst": {
+        "direction": "I"
+      },
+      "clk": {
+        "direction": "I"
+      },
+      "select_in": {
+        "direction": "I",
+        "left": "1",
+        "right": "0"
+      },
+      "enable": {
+        "direction": "I"
+      },
+      "data1": {
+        "direction": "O",
+        "left": "11",
+        "right": "0"
+      },
+      "data2": {
+        "direction": "O",
+        "left": "11",
+        "right": "0"
+      }
+    },
+    "components": {
+      "daq_adc_controller_0": {
+        "vlnv": "xilinx.com:module_ref:daq_adc_controller:1.0",
+        "xci_name": "daq_top_hw_test_daq_adc_controller_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "daq_adc_controller",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "rst",
+                "value_src": "constant"
+              }
+            }
+          },
+          "rst": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "sdata1": {
+            "direction": "I"
+          },
+          "sdata2": {
+            "direction": "I"
+          },
+          "ncs": {
+            "direction": "O"
+          },
+          "sclk": {
+            "direction": "O"
+          },
+          "data1": {
+            "direction": "O",
+            "left": "11",
+            "right": "0"
+          },
+          "data2": {
+            "direction": "O",
+            "left": "11",
+            "right": "0"
+          }
+        }
+      },
+      "virtual_gen_fun_0": {
+        "vlnv": "xilinx.com:module_ref:virtual_gen_fun:1.0",
+        "xci_name": "daq_top_hw_test_virtual_gen_fun_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "virtual_gen_fun",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "rst",
+                "value_src": "constant"
+              }
+            }
+          },
+          "rst": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "enable": {
+            "direction": "I"
+          },
+          "select_in": {
+            "direction": "I",
+            "left": "1",
+            "right": "0"
+          },
+          "SCLK": {
+            "direction": "I"
+          },
+          "NCS": {
+            "direction": "I"
+          },
+          "D1": {
+            "direction": "O"
+          },
+          "D2": {
+            "direction": "O"
+          }
+        }
+      }
+    },
+    "nets": {
+      "rst_1": {
+        "ports": [
+          "rst",
+          "daq_adc_controller_0/rst",
+          "virtual_gen_fun_0/rst"
+        ]
+      },
+      "clk_1": {
+        "ports": [
+          "clk",
+          "daq_adc_controller_0/clk",
+          "virtual_gen_fun_0/clk"
+        ]
+      },
+      "virtual_gen_fun_0_D1": {
+        "ports": [
+          "virtual_gen_fun_0/D1",
+          "daq_adc_controller_0/sdata1"
+        ]
+      },
+      "virtual_gen_fun_0_D2": {
+        "ports": [
+          "virtual_gen_fun_0/D2",
+          "daq_adc_controller_0/sdata2"
+        ]
+      },
+      "select_in_1": {
+        "ports": [
+          "select_in",
+          "virtual_gen_fun_0/select_in"
+        ]
+      },
+      "enable_1": {
+        "ports": [
+          "enable",
+          "virtual_gen_fun_0/enable"
+        ]
+      },
+      "daq_adc_controller_0_sclk": {
+        "ports": [
+          "daq_adc_controller_0/sclk",
+          "virtual_gen_fun_0/SCLK"
+        ]
+      },
+      "daq_adc_controller_0_ncs": {
+        "ports": [
+          "daq_adc_controller_0/ncs",
+          "virtual_gen_fun_0/NCS"
+        ]
+      },
+      "daq_adc_controller_0_data1": {
+        "ports": [
+          "daq_adc_controller_0/data1",
+          "data1"
+        ]
+      },
+      "daq_adc_controller_0_data2": {
+        "ports": [
+          "daq_adc_controller_0/data2",
+          "data2"
+        ]
+      }
+    }
+  }
+}

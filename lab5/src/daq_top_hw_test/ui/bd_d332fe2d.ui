@@ -1,0 +1,27 @@
+{
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0.19  2019-03-26 bk=1.5019 VDI=41 GEI=35 GUI=JA:9.0 non-TLS
+#  -string -flagsOSRD
+preplace port rst -pg 1 -lvl 0 -x 0 -y 90 -defaultsOSRD
+preplace port clk -pg 1 -lvl 0 -x 0 -y 70 -defaultsOSRD
+preplace port enable -pg 1 -lvl 0 -x 0 -y 190 -defaultsOSRD
+preplace portBus select_in -pg 1 -lvl 0 -x 0 -y 210 -defaultsOSRD
+preplace portBus data1 -pg 1 -lvl 3 -x 550 -y 110 -defaultsOSRD
+preplace portBus data2 -pg 1 -lvl 3 -x 550 -y 130 -defaultsOSRD
+preplace inst daq_adc_controller_0 -pg 1 -lvl 2 -x 400 -y 100 -defaultsOSRD
+preplace inst virtual_gen_fun_0 -pg 1 -lvl 1 -x 160 -y 200 -defaultsOSRD
+preplace netloc rst_1 1 0 2 20 90 NJ
+preplace netloc clk_1 1 0 2 30 70 NJ
+preplace netloc virtual_gen_fun_0_D1 1 1 1 270 110n
+preplace netloc virtual_gen_fun_0_D2 1 1 1 280 130n
+preplace netloc select_in_1 1 0 1 NJ 210
+preplace netloc enable_1 1 0 1 NJ 190
+preplace netloc daq_adc_controller_0_sclk 1 0 3 40 10 NJ 10 530
+preplace netloc daq_adc_controller_0_ncs 1 0 3 40 310 NJ 310 520
+preplace netloc daq_adc_controller_0_data1 1 2 1 NJ 110
+preplace netloc daq_adc_controller_0_data2 1 2 1 NJ 130
+levelinfo -pg 1 0 160 400 550
+pagesize -pg 1 -db -bbox -sgen -140 0 670 320
+"
+}
+0

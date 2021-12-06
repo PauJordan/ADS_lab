@@ -1,0 +1,9 @@
+{
+	"version": "1.0",
+	"modules": {
+		"daq_top_hw_test": {
+			"proto_instances": {
+			}
+		}
+	}
+}
