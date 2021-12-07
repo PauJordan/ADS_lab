@@ -1,61 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Root MajorVersion="0" MinorVersion="37">
-  <CompositeFile CompositeFileTopName="daq_top_hw_test" CanBeSetAsTop="false" CanDisplayChildGraph="true">
+  <CompositeFile CompositeFileTopName="daq_clk_adapter" CanBeSetAsTop="false" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1638874509"/>
-    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1638874509"/>
-    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1638874509"/>
-    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1638874509"/>
+    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1638871822"/>
+    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1638871822"/>
+    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1638871822"/>
+    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1638871822"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
-      <File Name="ip\daq_top_hw_test_daq_adc_controller_0_0\daq_top_hw_test_daq_adc_controller_0_0.xci" Type="IP">
-        <Instance HierarchyPath="daq_adc_controller_0"/>
+      <File Name="ip\daq_clk_adapter_clk_wiz_0_0\daq_clk_adapter_clk_wiz_0_0.xci" Type="IP">
+        <Instance HierarchyPath="clk_wiz_0"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
-      <File Name="ip\daq_top_hw_test_virtual_gen_fun_0_0\daq_top_hw_test_virtual_gen_fun_0_0.xci" Type="IP">
-        <Instance HierarchyPath="virtual_gen_fun_0"/>
-        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
-        <Library Name="xil_defaultlib"/>
-        <UsedIn Val="SYNTHESIS"/>
-        <UsedIn Val="IMPLEMENTATION"/>
-        <UsedIn Val="SIMULATION"/>
-      </File>
-      <File Name="synth\daq_top_hw_test.vhd" Type="VHDL">
+      <File Name="synth\daq_clk_adapter.vhd" Type="VHDL">
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>
       </File>
-      <File Name="sim\daq_top_hw_test.vhd" Type="VHDL">
+      <File Name="sim\daq_clk_adapter.vhd" Type="VHDL">
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SIMULATION"/>
       </File>
-      <File Name="daq_top_hw_test_ooc.xdc" Type="XDC">
+      <File Name="daq_clk_adapter_ooc.xdc" Type="XDC">
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="OUT_OF_CONTEXT"/>
       </File>
-      <File Name="hw_handoff\daq_top_hw_test.hwh" Type="HwHandoff">
+      <File Name="hw_handoff\daq_clk_adapter.hwh" Type="HwHandoff">
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="HW_HANDOFF"/>
       </File>
-      <File Name="hw_handoff\daq_top_hw_test_bd.tcl">
+      <File Name="hw_handoff\daq_clk_adapter_bd.tcl">
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="HW_HANDOFF"/>
       </File>
-      <File Name="synth\daq_top_hw_test.hwdef">
+      <File Name="synth\daq_clk_adapter.hwdef">
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="HW_HANDOFF"/>
       </File>
-      <File Name="sim\daq_top_hw_test.protoinst">
+      <File Name="sim\daq_clk_adapter.protoinst">
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SIMULATION"/>

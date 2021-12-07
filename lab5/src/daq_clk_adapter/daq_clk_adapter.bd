@@ -1,0 +1,86 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x3E5C25A5FB048A8B",
+      "device": "xc7a100tcsg324-1",
+      "name": "daq_clk_adapter",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2019.1",
+      "validated": "true"
+    },
+    "design_tree": {
+      "clk_wiz_0": ""
+    },
+    "ports": {
+      "CLK_in": {
+        "direction": "I"
+      },
+      "RST": {
+        "direction": "I"
+      },
+      "CLK_out": {
+        "direction": "O",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "/clk_wiz_0_clk_out1",
+            "value_src": "ip_prop"
+          },
+          "FREQ_HZ": {
+            "value": "108000000",
+            "value_src": "ip_prop"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "ip_prop"
+          }
+        }
+      }
+    },
+    "components": {
+      "clk_wiz_0": {
+        "vlnv": "xilinx.com:ip:clk_wiz:6.0",
+        "xci_name": "daq_clk_adapter_clk_wiz_0_0",
+        "parameters": {
+          "CLKOUT1_JITTER": {
+            "value": "127.691"
+          },
+          "CLKOUT1_PHASE_ERROR": {
+            "value": "97.646"
+          },
+          "CLKOUT1_REQUESTED_OUT_FREQ": {
+            "value": "108"
+          },
+          "MMCM_CLKFBOUT_MULT_F": {
+            "value": "10.125"
+          },
+          "MMCM_CLKOUT0_DIVIDE_F": {
+            "value": "9.375"
+          },
+          "USE_LOCKED": {
+            "value": "false"
+          }
+        }
+      }
+    },
+    "nets": {
+      "CLK_in_1": {
+        "ports": [
+          "CLK_in",
+          "clk_wiz_0/clk_in1"
+        ]
+      },
+      "RST_1": {
+        "ports": [
+          "RST",
+          "clk_wiz_0/reset"
+        ]
+      },
+      "clk_wiz_0_clk_out1": {
+        "ports": [
+          "clk_wiz_0/clk_out1",
+          "CLK_out"
+        ]
+      }
+    }
+  }
+}

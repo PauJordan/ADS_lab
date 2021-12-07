@@ -50,7 +50,10 @@ architecture beh of daq_vga_controller is
                PY : in unsigned(10 downto 0);
                RGB_in : in STD_LOGIC_VECTOR (11 downto 0);
                RGB_out : out STD_LOGIC_VECTOR (11 downto 0);
-               TIMING_IN : in STD_LOGIC);
+               TIMING_IN : in STD_LOGIC;
+                -- Trigger level
+                trigger_level   : in std_logic_vector (8 downto 0)
+            );
     end component;
 
   --vga test signals
@@ -66,6 +69,7 @@ begin
 
 	hsync <= VGA_HR_s;
 	vsync <= VGA_VS_s;
+	addr <= (others => '0');
 	
     RGB <= RGB_s when disp_s = '1' else (others => '0');
 
@@ -107,7 +111,9 @@ begin
             PY      => pixel_y_s,
             RGB_in  => data,
             RGB_out => RGB_s, -- Aqui es don agafem la imatge de prova
-            TIMING_IN => VGA_VS_s);
+            TIMING_IN => VGA_VS_s,
+            trigger_level => trigger_level
+            );
 
 
 end beh;

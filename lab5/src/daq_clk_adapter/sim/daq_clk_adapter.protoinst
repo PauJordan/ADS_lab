@@ -1,0 +1,9 @@
+{
+	"version": "1.0",
+	"modules": {
+		"daq_clk_adapter": {
+			"proto_instances": {
+			}
+		}
+	}
+}

@@ -2,10 +2,82 @@
   "design": {
     "design_info": {
       "boundary_crc": "0x0",
+      "device": "xc7a100tcsg324-1",
       "name": "complete_daq_hw_test",
       "synth_flow_mode": "Hierarchical",
       "tool_version": "2019.1"
     },
-    "design_tree": {}
+    "design_tree": {
+      "daq_top_0": ""
+    },
+    "components": {
+      "daq_top_0": {
+        "vlnv": "xilinx.com:module_ref:daq_top:1.0",
+        "xci_name": "complete_daq_hw_test_daq_top_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "daq_top",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "CLK": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "RSTN": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "trigger_n_p": {
+            "direction": "I"
+          },
+          "trigger_down": {
+            "direction": "I"
+          },
+          "trigger_up": {
+            "direction": "I"
+          },
+          "temp_down": {
+            "direction": "I"
+          },
+          "temp_up": {
+            "direction": "I"
+          },
+          "red": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "green": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "blue": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "hsync": {
+            "direction": "O"
+          },
+          "vsync": {
+            "direction": "O"
+          },
+          "ncs": {
+            "direction": "O"
+          },
+          "sclk": {
+            "direction": "O"
+          },
+          "sdata1": {
+            "direction": "I"
+          },
+          "sdata2": {
+            "direction": "I"
+          }
+        }
+      }
+    }
   }
 }

@@ -99,7 +99,10 @@ architecture daq_top_b_arc of daq_top is
             trigger_level   : out std_logic_vector (8 downto 0);
 
             -- Data input port
-            adc_data1       : in std_logic_vector (data_width - 1 downto 0)
+            adc_data1       : in std_logic_vector (data_width - 1 downto 0);
+            
+            -- VGA sync port
+            vsync           : in std_logic
         );
     end component;
 
@@ -121,6 +124,7 @@ architecture daq_top_b_arc of daq_top is
 
         -- VGA <-> Trigger Controller
         signal trigger_level : std_logic_vector (8 downto 0);
+        signal vsync_s      : std_logic;
 
         -- Memory Unit <-> Trigger Controller
         signal we : std_logic;
@@ -133,6 +137,7 @@ architecture daq_top_b_arc of daq_top is
 
 begin
     rst <= NOT RSTN;
+    vsync <= vsync_s;
 
     daq_vga_controller_1 : daq_vga_controller
     generic map (
@@ -146,7 +151,7 @@ begin
         RGB (7 downto 4) => green,
         RGB (3 downto 0) => blue,
         hsync => hsync,
-        vsync => vsync,
+        vsync => vsync_s,
         addr => addr_out,
         data => data_out,
         trigger_level => trigger_level
@@ -182,7 +187,8 @@ begin
         trigger_up => trigger_up,
         trigger_down => trigger_down,
         trigger_n_p => trigger_n_p,
-        adc_data1 => data1
+        adc_data1 => data1,
+        vsync => vsync_s
     );
 
     daq_adc_controller_1 : daq_adc_controller
