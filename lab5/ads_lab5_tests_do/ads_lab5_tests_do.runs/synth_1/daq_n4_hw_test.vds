@@ -1,0 +1,604 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Thu Dec  9 13:05:24 2021
+# Process ID: 15184
+# Current directory: C:/ads_lab5_tests_do/ads_lab5_tests_do.runs/synth_1
+# Command line: vivado.exe -log daq_n4_hw_test.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source daq_n4_hw_test.tcl
+# Log file: C:/ads_lab5_tests_do/ads_lab5_tests_do.runs/synth_1/daq_n4_hw_test.vds
+# Journal file: C:/ads_lab5_tests_do/ads_lab5_tests_do.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source daq_n4_hw_test.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2019.1/data/ip'.
+Command: synth_design -top daq_n4_hw_test -part xc7a100tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 8060 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 729.262 ; gain = 178.852
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'daq_n4_hw_test' [C:/ADS_do/lab5/src/daq_n4_hw_test.vhd:34]
+INFO: [Synth 8-3491] module 'daq_top' declared at 'C:/ADS_do/lab5/src/daq_top_do.vhd:19' bound to instance 'daq_top_1' of component 'daq_top' [C:/ADS_do/lab5/src/daq_n4_hw_test.vhd:81]
+INFO: [Synth 8-638] synthesizing module 'daq_top' [C:/ADS_do/lab5/src/daq_top_do.vhd:39]
+	Parameter addr_width bound to: 12 - type: integer 
+	Parameter data_width bound to: 12 - type: integer 
+INFO: [Synth 8-3491] module 'daq_vga_controller' declared at 'C:/ADS_do/lab5/src/vga_port_test.vhd:5' bound to instance 'daq_vga_controller_1' of component 'daq_vga_controller' [C:/ADS_do/lab5/src/daq_top_do.vhd:142]
+INFO: [Synth 8-638] synthesizing module 'daq_vga_controller' [C:/ADS_do/lab5/src/vga_port_test.vhd:26]
+	Parameter addr_width bound to: 12 - type: integer 
+	Parameter data_width bound to: 12 - type: integer 
+	Parameter h_pixels bound to: 1688 - type: integer 
+	Parameter h_sync bound to: 112 - type: integer 
+	Parameter h_start_pixel bound to: 360 - type: integer 
+	Parameter h_end_pixel bound to: 1640 - type: integer 
+	Parameter v_lines bound to: 1066 - type: integer 
+	Parameter v_sync bound to: 3 - type: integer 
+	Parameter v_start_line bound to: 41 - type: integer 
+	Parameter v_end_line bound to: 1065 - type: integer 
+	Parameter h_bits bound to: 11 - type: integer 
+	Parameter v_bits bound to: 11 - type: integer 
+INFO: [Synth 8-3491] module 'vga_sync_gen' declared at 'C:/ADS_do/lab5/src/vga_sync_gen.vhd:5' bound to instance 'vga_timing' of component 'vga_sync_gen' [C:/ADS_do/lab5/src/vga_port_test.vhd:86]
+INFO: [Synth 8-638] synthesizing module 'vga_sync_gen' [C:/ADS_do/lab5/src/vga_sync_gen.vhd:27]
+	Parameter h_pixels bound to: 1688 - type: integer 
+	Parameter h_sync bound to: 112 - type: integer 
+	Parameter h_start_pixel bound to: 360 - type: integer 
+	Parameter h_end_pixel bound to: 1640 - type: integer 
+	Parameter v_lines bound to: 1066 - type: integer 
+	Parameter v_sync bound to: 3 - type: integer 
+	Parameter v_start_line bound to: 41 - type: integer 
+	Parameter v_end_line bound to: 1065 - type: integer 
+	Parameter h_bits bound to: 11 - type: integer 
+	Parameter v_bits bound to: 11 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'vga_sync_gen' (1#1) [C:/ADS_do/lab5/src/vga_sync_gen.vhd:27]
+INFO: [Synth 8-3491] module 'cross_generator' declared at 'C:/ADS_do/lab5/src/cross_generator.vhd:5' bound to instance 'cross_overlay' of component 'cross_generator' [C:/ADS_do/lab5/src/vga_port_test.vhd:108]
+INFO: [Synth 8-638] synthesizing module 'cross_generator' [C:/ADS_do/lab5/src/cross_generator.vhd:16]
+INFO: [Synth 8-256] done synthesizing module 'cross_generator' (2#1) [C:/ADS_do/lab5/src/cross_generator.vhd:16]
+INFO: [Synth 8-256] done synthesizing module 'daq_vga_controller' (3#1) [C:/ADS_do/lab5/src/vga_port_test.vhd:26]
+	Parameter addr_width bound to: 12 - type: integer 
+	Parameter data_width bound to: 12 - type: integer 
+INFO: [Synth 8-3491] module 'sync_ram_dualport' declared at 'C:/ADS_do/lab5/src/sync_ram_dualport.vhd:5' bound to instance 'daq_memory_unit_1' of component 'sync_ram_dualport' [C:/ADS_do/lab5/src/daq_top_do.vhd:160]
+INFO: [Synth 8-638] synthesizing module 'sync_ram_dualport' [C:/ADS_do/lab5/src/sync_ram_dualport.vhd:20]
+	Parameter data_width bound to: 12 - type: integer 
+	Parameter addr_width bound to: 12 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'sync_ram_dualport' (4#1) [C:/ADS_do/lab5/src/sync_ram_dualport.vhd:20]
+WARNING: [Synth 8-5640] Port 'dummy' is missing in component declaration [C:/ADS_do/lab5/src/daq_top_do.vhd:82]
+	Parameter addr_width bound to: 12 - type: integer 
+	Parameter data_width bound to: 12 - type: integer 
+INFO: [Synth 8-3491] module 'daq_trigger_controller' declared at 'C:/ADS_do/lab5/src/daq_trigger_controller.vhd:31' bound to instance 'daq_trigger_controller_1' of component 'daq_trigger_controller' [C:/ADS_do/lab5/src/daq_top_do.vhd:175]
+INFO: [Synth 8-638] synthesizing module 'daq_trigger_controller' [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:61]
+	Parameter addr_width bound to: 12 - type: integer 
+	Parameter data_width bound to: 12 - type: integer 
+WARNING: [Synth 8-3848] Net last_vsync in module/entity daq_trigger_controller does not have driver. [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:91]
+INFO: [Synth 8-256] done synthesizing module 'daq_trigger_controller' (5#1) [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:61]
+WARNING: [Synth 8-5640] Port 'rst' is missing in component declaration [C:/ADS_do/lab5/src/daq_top_do.vhd:109]
+INFO: [Synth 8-3491] module 'daq_adc_controller' declared at 'C:/ADS_do/lab5/src/ads_driver.vhd:28' bound to instance 'daq_adc_controller_1' of component 'daq_adc_controller' [C:/ADS_do/lab5/src/daq_top_do.vhd:194]
+INFO: [Synth 8-638] synthesizing module 'daq_adc_controller' [C:/ADS_do/lab5/src/ads_driver.vhd:40]
+	Parameter total_periods bound to: 16 - type: integer 
+	Parameter Q_width bound to: 15 - type: integer 
+INFO: [Synth 8-3491] module 'o_generic_sr' declared at 'C:/ADS_do/lab5/src/o_generic_sr.vhd:34' bound to instance 'shift_register_1' of component 'o_generic_sr' [C:/ADS_do/lab5/src/ads_driver.vhd:110]
+INFO: [Synth 8-638] synthesizing module 'o_generic_sr' [C:/ADS_do/lab5/src/o_generic_sr.vhd:43]
+	Parameter Q_width bound to: 15 - type: integer 
+WARNING: [Synth 8-6014] Unused sequential element buf_reg was removed.  [C:/ADS_do/lab5/src/o_generic_sr.vhd:59]
+INFO: [Synth 8-256] done synthesizing module 'o_generic_sr' (6#1) [C:/ADS_do/lab5/src/o_generic_sr.vhd:43]
+INFO: [Synth 8-256] done synthesizing module 'daq_adc_controller' (7#1) [C:/ADS_do/lab5/src/ads_driver.vhd:40]
+INFO: [Synth 8-256] done synthesizing module 'daq_top' (8#1) [C:/ADS_do/lab5/src/daq_top_do.vhd:39]
+INFO: [Synth 8-3491] module 'virtual_gen_fun' declared at 'C:/ADS_do/lab5/src/virtual_dac.vhd:34' bound to instance 'virtual_gen_fun_1' of component 'virtual_gen_fun' [C:/ADS_do/lab5/src/daq_n4_hw_test.vhd:101]
+INFO: [Synth 8-638] synthesizing module 'virtual_gen_fun' [C:/ADS_do/lab5/src/virtual_dac.vhd:45]
+INFO: [Synth 8-3491] module 'gen_fun' declared at 'C:/ADS_do/lab5/src/gen_fun.vhd:7' bound to instance 'gen_fun_1' of component 'gen_fun' [C:/ADS_do/lab5/src/virtual_dac.vhd:64]
+INFO: [Synth 8-638] synthesizing module 'gen_fun' [C:/ADS_do/lab5/src/gen_fun.vhd:23]
+INFO: [Synth 8-256] done synthesizing module 'gen_fun' (9#1) [C:/ADS_do/lab5/src/gen_fun.vhd:23]
+WARNING: [Synth 8-614] signal 'rst' is read in the process but is not in the sensitivity list [C:/ADS_do/lab5/src/virtual_dac.vhd:73]
+INFO: [Synth 8-256] done synthesizing module 'virtual_gen_fun' (10#1) [C:/ADS_do/lab5/src/virtual_dac.vhd:45]
+INFO: [Synth 8-3491] module 'daq_clk_adapter' declared at 'C:/ADS_do/lab5/src/daq_clk_adapter/synth/daq_clk_adapter.vhd:14' bound to instance 'daq_clk_adapter_i' of component 'daq_clk_adapter' [C:/ADS_do/lab5/src/daq_n4_hw_test.vhd:113]
+INFO: [Synth 8-638] synthesizing module 'daq_clk_adapter' [C:/ADS_do/lab5/src/daq_clk_adapter/synth/daq_clk_adapter.vhd:26]
+INFO: [Synth 8-3491] module 'daq_clk_adapter_clk_wiz_0_0' declared at 'C:/ads_lab5_tests_do/ads_lab5_tests_do.runs/synth_1/.Xil/Vivado-15184-PAUPC1/realtime/daq_clk_adapter_clk_wiz_0_0_stub.vhdl:5' bound to instance 'clk_wiz_0' of component 'daq_clk_adapter_clk_wiz_0_0' [C:/ADS_do/lab5/src/daq_clk_adapter/synth/daq_clk_adapter.vhd:41]
+INFO: [Synth 8-638] synthesizing module 'daq_clk_adapter_clk_wiz_0_0' [C:/ads_lab5_tests_do/ads_lab5_tests_do.runs/synth_1/.Xil/Vivado-15184-PAUPC1/realtime/daq_clk_adapter_clk_wiz_0_0_stub.vhdl:14]
+INFO: [Synth 8-256] done synthesizing module 'daq_clk_adapter' (11#1) [C:/ADS_do/lab5/src/daq_clk_adapter/synth/daq_clk_adapter.vhd:26]
+INFO: [Synth 8-256] done synthesizing module 'daq_n4_hw_test' (12#1) [C:/ADS_do/lab5/src/daq_n4_hw_test.vhd:34]
+WARNING: [Synth 8-3331] design daq_adc_controller has unconnected port sdata2
+WARNING: [Synth 8-3331] design cross_generator has unconnected port RGB_in[11]
+WARNING: [Synth 8-3331] design cross_generator has unconnected port RGB_in[10]
+WARNING: [Synth 8-3331] design cross_generator has unconnected port RGB_in[9]
+WARNING: [Synth 8-3331] design cross_generator has unconnected port RGB_in[8]
+WARNING: [Synth 8-3331] design cross_generator has unconnected port RGB_in[7]
+WARNING: [Synth 8-3331] design cross_generator has unconnected port RGB_in[6]
+WARNING: [Synth 8-3331] design cross_generator has unconnected port RGB_in[5]
+WARNING: [Synth 8-3331] design cross_generator has unconnected port RGB_in[4]
+WARNING: [Synth 8-3331] design cross_generator has unconnected port RGB_in[3]
+WARNING: [Synth 8-3331] design cross_generator has unconnected port RGB_in[2]
+WARNING: [Synth 8-3331] design cross_generator has unconnected port RGB_in[1]
+WARNING: [Synth 8-3331] design cross_generator has unconnected port RGB_in[0]
+WARNING: [Synth 8-3331] design daq_top has unconnected port temp_down
+WARNING: [Synth 8-3331] design daq_top has unconnected port temp_up
+WARNING: [Synth 8-3331] design daq_n4_hw_test has unconnected port SW[15]
+WARNING: [Synth 8-3331] design daq_n4_hw_test has unconnected port SW[14]
+WARNING: [Synth 8-3331] design daq_n4_hw_test has unconnected port SW[13]
+WARNING: [Synth 8-3331] design daq_n4_hw_test has unconnected port SW[12]
+WARNING: [Synth 8-3331] design daq_n4_hw_test has unconnected port SW[11]
+WARNING: [Synth 8-3331] design daq_n4_hw_test has unconnected port SW[10]
+WARNING: [Synth 8-3331] design daq_n4_hw_test has unconnected port SW[9]
+WARNING: [Synth 8-3331] design daq_n4_hw_test has unconnected port SW[8]
+WARNING: [Synth 8-3331] design daq_n4_hw_test has unconnected port SW[7]
+WARNING: [Synth 8-3331] design daq_n4_hw_test has unconnected port SW[6]
+WARNING: [Synth 8-3331] design daq_n4_hw_test has unconnected port SW[5]
+WARNING: [Synth 8-3331] design daq_n4_hw_test has unconnected port SW[4]
+WARNING: [Synth 8-3331] design daq_n4_hw_test has unconnected port BTNR
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 793.711 ; gain = 243.301
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 793.711 ; gain = 243.301
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 793.711 ; gain = 243.301
+---------------------------------------------------------------------------------
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [c:/ADS_do/lab5/src/daq_clk_adapter/ip/daq_clk_adapter_clk_wiz_0_0/daq_clk_adapter_clk_wiz_0_0/daq_clk_adapter_clk_wiz_0_0_in_context.xdc] for cell 'daq_clk_adapter_i/clk_wiz_0'
+Finished Parsing XDC File [c:/ADS_do/lab5/src/daq_clk_adapter/ip/daq_clk_adapter_clk_wiz_0_0/daq_clk_adapter_clk_wiz_0_0/daq_clk_adapter_clk_wiz_0_0_in_context.xdc] for cell 'daq_clk_adapter_i/clk_wiz_0'
+Parsing XDC File [C:/ADS_do/lab5/xdc/nexys4.xdc]
+Finished Parsing XDC File [C:/ADS_do/lab5/xdc/nexys4.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/ADS_do/lab5/xdc/nexys4.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/daq_n4_hw_test_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/daq_n4_hw_test_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Parsing XDC File [C:/ads_lab5_tests_do/ads_lab5_tests_do.runs/synth_1/dont_touch.xdc]
+Finished Parsing XDC File [C:/ads_lab5_tests_do/ads_lab5_tests_do.runs/synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 927.570 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 927.570 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 927.570 ; gain = 377.160
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 927.570 ; gain = 377.160
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property IO_BUFFER_TYPE = NONE for CLK100MHZ. (constraint file  c:/ADS_do/lab5/src/daq_clk_adapter/ip/daq_clk_adapter_clk_wiz_0_0/daq_clk_adapter_clk_wiz_0_0/daq_clk_adapter_clk_wiz_0_0_in_context.xdc, line 3).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for CLK100MHZ. (constraint file  c:/ADS_do/lab5/src/daq_clk_adapter/ip/daq_clk_adapter_clk_wiz_0_0/daq_clk_adapter_clk_wiz_0_0/daq_clk_adapter_clk_wiz_0_0_in_context.xdc, line 4).
+Applied set_property DONT_TOUCH = true for daq_clk_adapter_i. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for daq_clk_adapter_i/clk_wiz_0. (constraint file  auto generated constraint, line ).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 927.570 ; gain = 377.160
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'button_state_reg' in module 'daq_trigger_controller'
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/ADS_do/lab5/src/gen_fun.vhd:68]
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                 iSTATE0 |                                0 |                               10
+                  iSTATE |                                1 |                               00
+*
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'button_state_reg' using encoding 'sequential' in module 'daq_trigger_controller'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 927.570 ; gain = 377.160
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 2     
+	   3 Input     12 Bit       Adders := 1     
+	   2 Input     11 Bit       Adders := 6     
+	   2 Input     10 Bit       Adders := 4     
+	   2 Input      9 Bit       Adders := 1     
+	   2 Input      4 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 2     
++---Registers : 
+	               32 Bit    Registers := 2     
+	               15 Bit    Registers := 3     
+	               12 Bit    Registers := 3     
+	               11 Bit    Registers := 4     
+	               10 Bit    Registers := 3     
+	                9 Bit    Registers := 2     
+	                4 Bit    Registers := 1     
+	                1 Bit    Registers := 31    
++---RAMs : 
+	              48K Bit         RAMs := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 2     
+	   2 Input     15 Bit        Muxes := 2     
+	   2 Input     12 Bit        Muxes := 3     
+	   2 Input      6 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 30    
+	   5 Input      1 Bit        Muxes := 1     
+	   3 Input      1 Bit        Muxes := 3     
+	   4 Input      1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module vga_sync_gen 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     11 Bit       Adders := 4     
++---Registers : 
+	               11 Bit    Registers := 2     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 4     
+Module cross_generator 
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input     12 Bit       Adders := 1     
+	   2 Input     10 Bit       Adders := 3     
++---Registers : 
+	               10 Bit    Registers := 1     
+Module daq_vga_controller 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input     12 Bit        Muxes := 1     
+Module sync_ram_dualport 
+Detailed RTL Component Info : 
++---Registers : 
+	               12 Bit    Registers := 1     
++---RAMs : 
+	              48K Bit         RAMs := 1     
+Module daq_trigger_controller 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     11 Bit       Adders := 2     
+	   2 Input     10 Bit       Adders := 1     
+	   2 Input      9 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 2     
++---Registers : 
+	               12 Bit    Registers := 1     
+	               11 Bit    Registers := 2     
+	               10 Bit    Registers := 2     
+	                9 Bit    Registers := 2     
+	                1 Bit    Registers := 18    
++---Muxes : 
+	   2 Input      6 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 15    
+Module o_generic_sr 
+Detailed RTL Component Info : 
++---Registers : 
+	               15 Bit    Registers := 2     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     15 Bit        Muxes := 2     
+Module daq_adc_controller 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 2     
++---Registers : 
+	               32 Bit    Registers := 2     
+	                1 Bit    Registers := 4     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 2     
+	   5 Input      1 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 8     
+	   3 Input      1 Bit        Muxes := 3     
+	   4 Input      1 Bit        Muxes := 1     
+Module gen_fun 
+Detailed RTL Component Info : 
++---Registers : 
+	               12 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input     12 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 2     
+Module virtual_gen_fun 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      4 Bit       Adders := 1     
++---Registers : 
+	               15 Bit    Registers := 1     
+	                4 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	   2 Input      4 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+WARNING: [Synth 8-3936] Found unconnected internal register 'daq_top_1/daq_adc_controller_1/shift_register_1/Q_reg' and it is trimmed from '15' to '12' bits. [C:/ADS_do/lab5/src/o_generic_sr.vhd:56]
+WARNING: [Synth 8-3331] design daq_n4_hw_test has unconnected port SW[15]
+WARNING: [Synth 8-3331] design daq_n4_hw_test has unconnected port SW[14]
+WARNING: [Synth 8-3331] design daq_n4_hw_test has unconnected port SW[13]
+WARNING: [Synth 8-3331] design daq_n4_hw_test has unconnected port SW[12]
+WARNING: [Synth 8-3331] design daq_n4_hw_test has unconnected port SW[11]
+WARNING: [Synth 8-3331] design daq_n4_hw_test has unconnected port SW[10]
+WARNING: [Synth 8-3331] design daq_n4_hw_test has unconnected port SW[9]
+WARNING: [Synth 8-3331] design daq_n4_hw_test has unconnected port SW[8]
+WARNING: [Synth 8-3331] design daq_n4_hw_test has unconnected port SW[7]
+WARNING: [Synth 8-3331] design daq_n4_hw_test has unconnected port SW[6]
+WARNING: [Synth 8-3331] design daq_n4_hw_test has unconnected port SW[5]
+WARNING: [Synth 8-3331] design daq_n4_hw_test has unconnected port SW[4]
+WARNING: [Synth 8-3331] design daq_n4_hw_test has unconnected port BTNR
+WARNING: [Synth 8-6014] Unused sequential element daq_top_1/daq_memory_unit_1/mem_reg was removed. 
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (p_0_out_inferred/\daq_top_1/daq_trigger_controller_1/trigger_level_s_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (p_0_out_inferred/\daq_top_1/daq_trigger_controller_1/trigger_level_s_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (p_0_out_inferred/\daq_top_1/daq_trigger_controller_1/trigger_level_s_reg[2] )
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin we with 1st driver pin 'daq_top_1/daq_trigger_controller_1/we_reg/Q' [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:104]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin we with 2nd driver pin 'GND' [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:104]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net we is connected to at least one constant driver which has been preserved, other driver is ignored [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:104]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin addr[10] with 1st driver pin 'daq_top_1/daq_trigger_controller_1/addr_reg[10]/Q' [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:105]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin addr[10] with 2nd driver pin 'GND' [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:105]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net addr[10] is connected to at least one constant driver which has been preserved, other driver is ignored [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:105]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin addr[9] with 1st driver pin 'daq_top_1/daq_trigger_controller_1/addr_reg[9]/Q' [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:105]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin addr[9] with 2nd driver pin 'GND' [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:105]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net addr[9] is connected to at least one constant driver which has been preserved, other driver is ignored [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:105]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin addr[8] with 1st driver pin 'daq_top_1/daq_trigger_controller_1/addr_reg[8]/Q' [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:105]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin addr[8] with 2nd driver pin 'GND' [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:105]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net addr[8] is connected to at least one constant driver which has been preserved, other driver is ignored [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:105]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin addr[7] with 1st driver pin 'daq_top_1/daq_trigger_controller_1/addr_reg[7]/Q' [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:105]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin addr[7] with 2nd driver pin 'GND' [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:105]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net addr[7] is connected to at least one constant driver which has been preserved, other driver is ignored [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:105]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin addr[6] with 1st driver pin 'daq_top_1/daq_trigger_controller_1/addr_reg[6]/Q' [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:105]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin addr[6] with 2nd driver pin 'GND' [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:105]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net addr[6] is connected to at least one constant driver which has been preserved, other driver is ignored [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:105]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin addr[5] with 1st driver pin 'daq_top_1/daq_trigger_controller_1/addr_reg[5]/Q' [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:105]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin addr[5] with 2nd driver pin 'GND' [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:105]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net addr[5] is connected to at least one constant driver which has been preserved, other driver is ignored [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:105]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin addr[4] with 1st driver pin 'daq_top_1/daq_trigger_controller_1/addr_reg[4]/Q' [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:105]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin addr[4] with 2nd driver pin 'GND' [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:105]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net addr[4] is connected to at least one constant driver which has been preserved, other driver is ignored [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:105]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin addr[3] with 1st driver pin 'daq_top_1/daq_trigger_controller_1/addr_reg[3]/Q' [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:105]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin addr[3] with 2nd driver pin 'GND' [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:105]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net addr[3] is connected to at least one constant driver which has been preserved, other driver is ignored [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:105]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin addr[2] with 1st driver pin 'daq_top_1/daq_trigger_controller_1/addr_reg[2]/Q' [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:105]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin addr[2] with 2nd driver pin 'GND' [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:105]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net addr[2] is connected to at least one constant driver which has been preserved, other driver is ignored [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:105]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin addr[1] with 1st driver pin 'daq_top_1/daq_trigger_controller_1/addr_reg[1]/Q' [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:105]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin addr[1] with 2nd driver pin 'GND' [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:105]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net addr[1] is connected to at least one constant driver which has been preserved, other driver is ignored [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:105]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin addr[0] with 1st driver pin 'daq_top_1/daq_trigger_controller_1/addr_reg[0]/Q' [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:105]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin addr[0] with 2nd driver pin 'GND' [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:105]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net addr[0] is connected to at least one constant driver which has been preserved, other driver is ignored [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:105]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin data[11] with 1st driver pin 'daq_top_1/daq_trigger_controller_1/data_reg[11]/Q' [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:106]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin data[11] with 2nd driver pin 'GND' [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:106]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net data[11] is connected to at least one constant driver which has been preserved, other driver is ignored [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:106]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin data[10] with 1st driver pin 'daq_top_1/daq_trigger_controller_1/data_reg[10]/Q' [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:106]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin data[10] with 2nd driver pin 'GND' [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:106]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net data[10] is connected to at least one constant driver which has been preserved, other driver is ignored [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:106]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin data[9] with 1st driver pin 'daq_top_1/daq_trigger_controller_1/data_reg[9]/Q' [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:106]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin data[9] with 2nd driver pin 'GND' [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:106]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net data[9] is connected to at least one constant driver which has been preserved, other driver is ignored [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:106]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin data[8] with 1st driver pin 'daq_top_1/daq_trigger_controller_1/data_reg[8]/Q' [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:106]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin data[8] with 2nd driver pin 'GND' [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:106]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net data[8] is connected to at least one constant driver which has been preserved, other driver is ignored [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:106]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin data[7] with 1st driver pin 'daq_top_1/daq_trigger_controller_1/data_reg[7]/Q' [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:106]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin data[7] with 2nd driver pin 'GND' [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:106]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net data[7] is connected to at least one constant driver which has been preserved, other driver is ignored [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:106]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin data[6] with 1st driver pin 'daq_top_1/daq_trigger_controller_1/data_reg[6]/Q' [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:106]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin data[6] with 2nd driver pin 'GND' [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:106]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net data[6] is connected to at least one constant driver which has been preserved, other driver is ignored [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:106]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin data[5] with 1st driver pin 'daq_top_1/daq_trigger_controller_1/data_reg[5]/Q' [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:106]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin data[5] with 2nd driver pin 'GND' [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:106]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net data[5] is connected to at least one constant driver which has been preserved, other driver is ignored [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:106]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin data[4] with 1st driver pin 'daq_top_1/daq_trigger_controller_1/data_reg[4]/Q' [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:106]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin data[4] with 2nd driver pin 'GND' [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:106]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net data[4] is connected to at least one constant driver which has been preserved, other driver is ignored [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:106]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin data[3] with 1st driver pin 'daq_top_1/daq_trigger_controller_1/data_reg[3]/Q' [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:106]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin data[3] with 2nd driver pin 'GND' [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:106]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net data[3] is connected to at least one constant driver which has been preserved, other driver is ignored [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:106]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin data[2] with 1st driver pin 'daq_top_1/daq_trigger_controller_1/data_reg[2]/Q' [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:106]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin data[2] with 2nd driver pin 'GND' [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:106]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net data[2] is connected to at least one constant driver which has been preserved, other driver is ignored [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:106]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin data[1] with 1st driver pin 'daq_top_1/daq_trigger_controller_1/data_reg[1]/Q' [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:106]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin data[1] with 2nd driver pin 'GND' [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:106]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net data[1] is connected to at least one constant driver which has been preserved, other driver is ignored [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:106]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin data[0] with 1st driver pin 'daq_top_1/daq_trigger_controller_1/data_reg[0]/Q' [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:106]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin data[0] with 2nd driver pin 'GND' [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:106]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net data[0] is connected to at least one constant driver which has been preserved, other driver is ignored [C:/ADS_do/lab5/src/daq_trigger_controller.vhd:106]
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 927.570 ; gain = 377.160
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5578] Moved timing constraint from pin 'daq_clk_adapter_i/clk_wiz_0/clk_out1' to pin 'daq_clk_adapter_i/clk_wiz_0/bbstub_clk_out1/O'
+INFO: [Synth 8-5819] Moved 1 constraints on hierarchical pins to their respective driving/loading pins
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 927.570 ; gain = 377.160
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:22 . Memory (MB): peak = 927.570 ; gain = 377.160
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 927.570 ; gain = 377.160
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 927.570 ; gain = 377.160
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 927.570 ; gain = 377.160
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 927.570 ; gain = 377.160
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 927.570 ; gain = 377.160
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 927.570 ; gain = 377.160
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 927.570 ; gain = 377.160
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+----------------------------+----------+
+|      |BlackBox name               |Instances |
++------+----------------------------+----------+
+|1     |daq_clk_adapter_clk_wiz_0_0 |         1|
++------+----------------------------+----------+
+
+Report Cell Usage: 
++------+-----------------------------------+------+
+|      |Cell                               |Count |
++------+-----------------------------------+------+
+|1     |daq_clk_adapter_clk_wiz_0_0_bbox_0 |     1|
+|2     |CARRY4                             |    14|
+|3     |LUT1                               |     7|
+|4     |LUT2                               |    27|
+|5     |LUT3                               |    11|
+|6     |LUT4                               |    24|
+|7     |LUT5                               |    29|
+|8     |LUT6                               |    48|
+|9     |FDRE                               |    78|
+|10    |FDSE                               |     1|
+|11    |IBUF                               |     5|
+|12    |OBUF                               |    14|
++------+-----------------------------------+------+
+
+Report Instance Areas: 
++------+-----------------------------+-----------------------+------+
+|      |Instance                     |Module                 |Cells |
++------+-----------------------------+-----------------------+------+
+|1     |top                          |                       |   259|
+|2     |  daq_clk_adapter_i          |daq_clk_adapter        |     1|
+|3     |  daq_top_1                  |daq_top                |   239|
+|4     |    daq_trigger_controller_1 |daq_trigger_controller |    78|
+|5     |    daq_vga_controller_1     |daq_vga_controller     |   161|
+|6     |      cross_overlay          |cross_generator        |    48|
+|7     |      vga_timing             |vga_sync_gen           |   113|
++------+-----------------------------+-----------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 927.570 ; gain = 377.160
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 72 critical warnings and 15 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:17 ; elapsed = 00:00:22 . Memory (MB): peak = 927.570 ; gain = 243.301
+Synthesis Optimization Complete : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 927.570 ; gain = 377.160
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 14 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 937.625 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+60 Infos, 48 Warnings, 72 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 937.625 ; gain = 643.578
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 937.625 ; gain = 0.000
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint 'C:/ads_lab5_tests_do/ads_lab5_tests_do.runs/synth_1/daq_n4_hw_test.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file daq_n4_hw_test_utilization_synth.rpt -pb daq_n4_hw_test_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Thu Dec  9 13:06:01 2021...

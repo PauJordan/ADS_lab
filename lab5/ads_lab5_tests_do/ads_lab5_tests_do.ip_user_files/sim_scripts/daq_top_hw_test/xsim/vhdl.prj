@@ -1,0 +1,6 @@
+vhdl xil_defaultlib  \
+"../../../bd/daq_top_hw_test/ip/daq_top_hw_test_daq_adc_controller_0_0/sim/daq_top_hw_test_daq_adc_controller_0_0.vhd" \
+"../../../bd/daq_top_hw_test/ip/daq_top_hw_test_virtual_gen_fun_0_0/sim/daq_top_hw_test_virtual_gen_fun_0_0.vhd" \
+"../../../bd/daq_top_hw_test/sim/daq_top_hw_test.vhd" \
+
+nosort
