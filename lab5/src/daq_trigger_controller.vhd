@@ -61,9 +61,12 @@ end daq_trigger_controller;
 architecture Behavioral of daq_trigger_controller is
     -- config
     constant rst_val : std_logic := '1';
-    constant max_trigger_level : integer := 4095;
+    constant max_signal_level : integer := 2**9 - 1;
     constant initial_trigger_level : integer := 256;
     constant trigger_button_chg_amount : integer := 16;
+    constant initial_sample_period_ticks : integer := 100;
+    constant max_sample_period_ticks : integer := 1000;
+    constant max_samples : integer := 1280;
 
     -- button_sync_p signals
     signal t1, t2, t3 : std_logic; -- Temporary signals for syncronization.
@@ -79,8 +82,21 @@ architecture Behavioral of daq_trigger_controller is
         positive_edge,
         negative_edge
     );
-    signal trigger_level_s : integer range 0 to max_trigger_level;
+    signal trigger_level_s : integer range 0 to max_signal_level;
     signal trigger_np_s : trigger_mode_t; -- zero positive edge, 1 negative edge.
+
+    -- trigger_p signals
+    signal trigger : std_logic;
+    signal last_value : integer range 0 to max_signal_level;
+    signal last_vsync : std_logic;
+    signal signal_level : integer range 0 to max_signal_level;
+
+    -- memwrite_p signals
+    signal sample_period : integer range 0 to max_sample_period_ticks;
+    signal period_counter : integer range 0 to max_sample_period_ticks;
+    signal sample_index : integer range 0 to max_samples;
+    
+
     
 begin
 -- Signal assignements
@@ -93,17 +109,19 @@ begin
     trigger_level <= std_logic_vector(to_unsigned(trigger_level_s, trigger_level'length)); 
     dummy(0) <= '0' when (trigger_np_s = positive_edge) else '1';
     
-    
+    -- Signal level
+    signal_level <= to_integer(unsigned(adc_data1(data_width - 1 downto data_width - 10)));
 
 -- Processes
     -- Button input signals syncronization process.
     button_sync_p : process(clk)
         variable debounce_counter : integer range 0 to (2**24 - 1);
     begin 
+    if rising_edge(clk) then    -- Read inputs
         if rst = rst_val then
             button_state <= debounce;
             debounce_counter := 0;
-        elsif rising_edge(clk) then    -- Read inputs
+        else
             t1 <= trigger_up;
             t2 <= trigger_down;
             t3 <= trigger_n_p;
@@ -155,20 +173,19 @@ begin
                 t_np_pressed <= '0';
                 button_state <= ready;
             end if;
-
-
         end if;
+    end if;
     end process button_sync_p;
 
     -- Trigger control process
 
     trigger_control_p : process(clk, rst)
     begin
+    if rising_edge(clk) then
         if rst = rst_val then
             trigger_level_s <= initial_trigger_level;
             trigger_np_s <= positive_edge;
-
-        elsif rising_edge(clk) then
+        else
             -- Trigger level position control. (up, down)
             if t_up_pressed = '1' then
                 trigger_level_s <= trigger_level_s + trigger_button_chg_amount;
@@ -189,9 +206,60 @@ begin
                     trigger_np_s <= positive_edge;
                 end if;
             end if;
-
-
         end if;
+    end if;
     end process trigger_control_p ;
+
+    -- trigger process
+    trigger_p: process(clk)
+    begin
+        if rising_edge(clk) then
+            if rst = rst_val then
+                last_value <= 0;
+                trigger <= '0';
+            else
+                if (vsync = '0' and last_vsync = '1') and trigger = '0' then
+                
+                    if ( (trigger_np_s = positive_edge) xor (signal_level >= trigger_level_s)) and ((trigger_np_s = positive_edge) xor (last_value < trigger_level_s)) then
+                        trigger <= '1';
+                    end if;
+                else
+                    trigger <= '0';
+                end if;
+                last_value <= signal_level;                
+            end if;
+        end if;
+    end process trigger_p;
+
+    -- memory write process
+    memwrite: process(clk)
+    begin
+        if rising_edge(clk) then
+            if rst = rst_val or trigger = '1' then
+                sample_period <= initial_sample_period_ticks;
+                period_counter <= 0;
+                sample_index <= 0;
+            else
+                if (period_counter = sample_period - 1) and (sample_index < max_samples ) then 
+                    period_counter <= 0;
+
+                    -- Memory write
+                    data <= adc_data1;
+                    addr <= std_logic_vector(to_unsigned(sample_index, addr'length));
+                    we <= '1';
+
+                    --Index update
+                    sample_index <= sample_index + 1;
+                    
+                else
+                    we <= '0';
+                    period_counter <= period_counter + 1;
+                end if;
+            end if;
+        end if;
+    end process memwrite;
+
+
+
 
 end Behavioral;

@@ -95,7 +95,7 @@ begin
                     oe <= '0';
                end if;
                
-               if clk_counter = 101 then
+               if clk_counter = 99 then
                     clk_counter <= 0;
                     presc_counter <= 0;
                else
