@@ -1,8 +1,8 @@
--- Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+-- Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
--- Tool Version: Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
--- Date        : Tue Dec  7 11:10:58 2021
--- Host        : PAUPC1 running 64-bit major release  (build 9200)
+-- Tool Version: Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
+-- Date        : Thu Dec  9 16:34:57 2021
+-- Host        : c5b1 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               c:/ADS_do/lab5/src/daq_clk_adapter/ip/daq_clk_adapter_clk_wiz_0_0/daq_clk_adapter_clk_wiz_0_0_sim_netlist.vhdl
 -- Design      : daq_clk_adapter_clk_wiz_0_0

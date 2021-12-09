@@ -1,0 +1,60 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"1.0",
+   "Default View_TopLeft":"-80,-20",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS-threadsafe
+#  -string -flagsOSRD
+preplace port sdata1 -pg 1 -lvl 0 -x -10 -y 400 -defaultsOSRD
+preplace port sdata2 -pg 1 -lvl 0 -x -10 -y 420 -defaultsOSRD
+preplace port ncs -pg 1 -lvl 3 -x 500 -y 380 -defaultsOSRD
+preplace port sclk -pg 1 -lvl 3 -x 500 -y 400 -defaultsOSRD
+preplace port nsync -pg 1 -lvl 3 -x 500 -y 120 -defaultsOSRD
+preplace port D1 -pg 1 -lvl 3 -x 500 -y 140 -defaultsOSRD
+preplace port D2 -pg 1 -lvl 3 -x 500 -y 160 -defaultsOSRD
+preplace port clk_out -pg 1 -lvl 3 -x 500 -y 100 -defaultsOSRD
+preplace port hsync -pg 1 -lvl 3 -x 500 -y 340 -defaultsOSRD
+preplace port vsync -pg 1 -lvl 3 -x 500 -y 360 -defaultsOSRD
+preplace port trigger_n_p -pg 1 -lvl 0 -x -10 -y 300 -defaultsOSRD
+preplace port trigger_down -pg 1 -lvl 0 -x -10 -y 320 -defaultsOSRD
+preplace port temp_down -pg 1 -lvl 0 -x -10 -y 360 -defaultsOSRD
+preplace port temp_up -pg 1 -lvl 0 -x -10 -y 380 -defaultsOSRD
+preplace port trigger_up -pg 1 -lvl 0 -x -10 -y 340 -defaultsOSRD
+preplace port reset -pg 1 -lvl 0 -x -10 -y 120 -defaultsOSRD
+preplace port enable -pg 1 -lvl 0 -x -10 -y 140 -defaultsOSRD
+preplace port GCLK -pg 1 -lvl 0 -x -10 -y 0 -defaultsOSRD
+preplace portBus red -pg 1 -lvl 3 -x 500 -y 280 -defaultsOSRD
+preplace portBus green -pg 1 -lvl 3 -x 500 -y 300 -defaultsOSRD
+preplace portBus blue -pg 1 -lvl 3 -x 500 -y 320 -defaultsOSRD
+preplace portBus select_in -pg 1 -lvl 0 -x -10 -y 160 -defaultsOSRD
+preplace inst clk_wiz_0 -pg 1 -lvl 1 -x 110 -y 60 -defaultsOSRD
+preplace inst gen_fun_top_0 -pg 1 -lvl 2 -x 350 -y 130 -defaultsOSRD
+preplace inst daq_top_0 -pg 1 -lvl 2 -x 350 -y 340 -defaultsOSRD
+preplace netloc select_in_1 1 0 2 NJ 160 NJ
+preplace netloc enable_1 1 0 2 NJ 140 NJ
+preplace netloc reset_1 1 0 2 NJ 120 210
+preplace netloc clk_wiz_0_clk_out1 1 1 1 200 60n
+preplace netloc gen_fun_top_0_clk_out 1 2 1 NJ 100
+preplace netloc gen_fun_top_0_nsync 1 2 1 NJ 120
+preplace netloc gen_fun_top_0_D1 1 2 1 NJ 140
+preplace netloc gen_fun_top_0_D2 1 2 1 NJ 160
+preplace netloc trigger_n_p_1 1 0 2 NJ 300 NJ
+preplace netloc sdata1_1 1 0 2 NJ 400 NJ
+preplace netloc sdata2_1 1 0 2 NJ 420 NJ
+preplace netloc trigger_down_1 1 0 2 NJ 320 NJ
+preplace netloc temp_down_1 1 0 2 NJ 360 NJ
+preplace netloc temp_up_1 1 0 2 NJ 380 NJ
+preplace netloc trigger_up_1 1 0 2 NJ 340 NJ
+preplace netloc daq_top_0_ncs 1 2 1 NJ 380
+preplace netloc daq_top_0_sclk 1 2 1 NJ 400
+preplace netloc daq_top_0_hsync 1 2 1 NJ 340
+preplace netloc daq_top_0_vsync 1 2 1 NJ 360
+preplace netloc daq_top_0_red 1 2 1 NJ 280
+preplace netloc daq_top_0_green 1 2 1 NJ 300
+preplace netloc daq_top_0_blue 1 2 1 NJ 320
+preplace netloc GCLK_1 1 0 1 10 0n
+levelinfo -pg 1 -10 110 350 500
+pagesize -pg 1 -db -bbox -sgen -150 -20 620 480
+"
+}
+

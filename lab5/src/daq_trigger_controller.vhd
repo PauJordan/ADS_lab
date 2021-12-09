@@ -86,6 +86,7 @@ architecture Behavioral of daq_trigger_controller is
     signal trigger_np_s : trigger_mode_t; -- zero positive edge, 1 negative edge.
 
     -- trigger_p signals
+    signal vsync_edge : std_logic;
     signal trigger : std_logic;
     signal last_value : integer range 0 to max_signal_level;
     signal last_vsync : std_logic;
@@ -100,14 +101,8 @@ architecture Behavioral of daq_trigger_controller is
     
 begin
 -- Signal assignements
-    -- Memory interface
-    we <= '0';
-    addr <= (others => '0');
-    data <= (others => '0');
-
     -- Triger level
     trigger_level <= std_logic_vector(to_unsigned(trigger_level_s, trigger_level'length)); 
-    dummy(0) <= '0' when (trigger_np_s = positive_edge) else '1';
     
     -- Signal level
     signal_level <= to_integer(unsigned(adc_data1(data_width - 1 downto data_width - 10)));
@@ -218,15 +213,21 @@ begin
                 last_value <= 0;
                 trigger <= '0';
             else
-                if (vsync = '0' and last_vsync = '1') and trigger = '0' then
+                if (vsync = '0' and last_vsync = '1') then
+                    vsync_edge <= '1';
+                end if;
                 
+                if vsync_edge = '1' and trigger = '0' then
                     if ( (trigger_np_s = positive_edge) xor (signal_level >= trigger_level_s)) and ((trigger_np_s = positive_edge) xor (last_value < trigger_level_s)) then
                         trigger <= '1';
+                        vsync_edge <= '0';
                     end if;
                 else
                     trigger <= '0';
                 end if;
-                last_value <= signal_level;                
+                
+                last_value <= signal_level;   
+                last_vsync <= vsync;             
             end if;
         end if;
     end process trigger_p;

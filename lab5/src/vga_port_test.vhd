@@ -34,8 +34,8 @@ architecture beh of daq_vga_controller is
               v_sync : integer := 2;
               v_start_line : integer := 31;
               v_end_line : integer := 511;
-              h_bits : integer := 10;
-              v_bits : integer := 10);
+              h_bits : integer := 12;
+              v_bits : integer := 12);
       	Port ( CLK, RST : in STD_LOGIC;
              E : in STD_LOGIC;
              HS : out STD_LOGIC;
@@ -46,8 +46,8 @@ architecture beh of daq_vga_controller is
   	end component;
 
   component cross_generator
-        Port ( PX : in unsigned(10 downto 0);
-               PY : in unsigned(10 downto 0);
+        Port ( PX : in unsigned(11 downto 0);
+               PY : in unsigned(11 downto 0);
                RGB_in : in STD_LOGIC_VECTOR (11 downto 0);
                RGB_out : out STD_LOGIC_VECTOR (11 downto 0);
                TIMING_IN : in STD_LOGIC;
@@ -58,31 +58,29 @@ architecture beh of daq_vga_controller is
 
   --vga test signals
     signal pixel_presc_s, disp_s, VGA_VS_s, VGA_HR_s : std_logic;
-    signal pixel_x_s, pixel_y_s : unsigned(10 downto 0);
-    signal RGB_s : std_logic_vector(11 downto 0);
-    signal dvp_test : std_logic_vector(7 downto 0);
+    signal pixel_x_s, pixel_y_s : unsigned(11 downto 0);
+    signal signal_rgb, RGB_s : std_logic_vector(11 downto 0);
     signal line_counter : integer range 0 to 1023;
-
+    
+    -- vga signal
+    signal signal_value : unsigned(8 downto 0);
+    
+  -- constants
+    constant rst_val : std_logic := '1';
+    constant signal_color : std_logic_vector (11 downto 0) := x"FF0";
+    constant black : std_logic_vector (11 downto 0) := (others => '0');
 
 begin
-
-
 	hsync <= VGA_HR_s;
 	vsync <= VGA_VS_s;
-	addr <= (others => '0');
+	
+    addr <=  std_logic_vector(pixel_x_s);
+    signal_value <= unsigned(data(11 downto 3));
+    
+	signal_rgb <= signal_color when pixel_y_s = signal_value else black;
 	
     RGB <= RGB_s when disp_s = '1' else (others => '0');
-
---	VGA_R <= ram_dout_s(7 downto 4);
---	VGA_G <= ram_dout_s(7 downto 4);
---	VGA_B <= ram_dout_s(7 downto 4);
---	ram_addrb_s(8 downto 0) <= std_logic_vector(pixel_x_s(9 downto 1));
---	ram_addrb_s(16 downto 9) <= std_logic_vector(pixel_y_s(8 downto 1));
---	ram_clkb_s <= CLK100MHZ;
---	ram_addra_s(8 downto 0) <= counter_x_s(9 downto 1);
---	ram_addra_s(16 downto 9) <= counter_y_s(8 downto 1);
---	ram_ena_s(0) <= counter_en_s;
-
+    
     vga_timing: vga_sync_gen 
     generic map (
         h_pixels  => 1688,
@@ -93,8 +91,8 @@ begin
         v_sync => 3,
         v_start_line => 41,
         v_end_line => 1065,
-        h_bits => 11,
-        v_bits => 11)
+        h_bits => 12,
+        v_bits => 12)
     port map ( 
         CLK           => clk,
         RST           => rst,
@@ -109,8 +107,8 @@ begin
     port map ( 
             PX      => pixel_x_s,
             PY      => pixel_y_s,
-            RGB_in  => data,
-            RGB_out => RGB_s, -- Aqui es don agafem la imatge de prova
+            RGB_in  => signal_rgb,
+            RGB_out => RGB_s, 
             TIMING_IN => VGA_VS_s,
             trigger_level => trigger_level
             );

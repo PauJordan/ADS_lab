@@ -1,0 +1,360 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0xC5EA44EF5D50B2A3",
+      "device": "xc7z020clg484-1",
+      "name": "daq_bd",
+      "rev_ctrl_bd_flag": "RevCtrlBdOff",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2020.2",
+      "validated": "true"
+    },
+    "design_tree": {
+      "clk_wiz_0": "",
+      "gen_fun_top_0": "",
+      "daq_top_0": ""
+    },
+    "ports": {
+      "sdata1": {
+        "direction": "I"
+      },
+      "sdata2": {
+        "direction": "I"
+      },
+      "ncs": {
+        "direction": "O"
+      },
+      "sclk": {
+        "direction": "O"
+      },
+      "nsync": {
+        "direction": "O"
+      },
+      "D1": {
+        "direction": "O"
+      },
+      "D2": {
+        "direction": "O"
+      },
+      "clk_out": {
+        "direction": "O"
+      },
+      "red": {
+        "direction": "O",
+        "left": "3",
+        "right": "0"
+      },
+      "green": {
+        "direction": "O",
+        "left": "3",
+        "right": "0"
+      },
+      "blue": {
+        "direction": "O",
+        "left": "3",
+        "right": "0"
+      },
+      "hsync": {
+        "direction": "O"
+      },
+      "vsync": {
+        "direction": "O"
+      },
+      "trigger_n_p": {
+        "direction": "I"
+      },
+      "trigger_down": {
+        "direction": "I"
+      },
+      "temp_down": {
+        "direction": "I"
+      },
+      "temp_up": {
+        "direction": "I"
+      },
+      "trigger_up": {
+        "direction": "I"
+      },
+      "reset": {
+        "direction": "I"
+      },
+      "enable": {
+        "direction": "I"
+      },
+      "select_in": {
+        "direction": "I",
+        "left": "1",
+        "right": "0"
+      },
+      "GCLK": {
+        "direction": "I"
+      }
+    },
+    "components": {
+      "clk_wiz_0": {
+        "vlnv": "xilinx.com:ip:clk_wiz:6.0",
+        "xci_name": "daq_bd_clk_wiz_0_0",
+        "parameters": {
+          "CLKOUT1_JITTER": {
+            "value": "127.691"
+          },
+          "CLKOUT1_PHASE_ERROR": {
+            "value": "97.646"
+          },
+          "CLKOUT1_REQUESTED_OUT_FREQ": {
+            "value": "108.000"
+          },
+          "MMCM_CLKFBOUT_MULT_F": {
+            "value": "10.125"
+          },
+          "MMCM_CLKOUT0_DIVIDE_F": {
+            "value": "9.375"
+          },
+          "USE_LOCKED": {
+            "value": "false"
+          },
+          "USE_RESET": {
+            "value": "false"
+          }
+        }
+      },
+      "gen_fun_top_0": {
+        "vlnv": "xilinx.com:user:gen_fun_top:1.0",
+        "xci_name": "daq_bd_gen_fun_top_0_0"
+      },
+      "daq_top_0": {
+        "vlnv": "xilinx.com:module_ref:daq_top:1.0",
+        "xci_name": "daq_bd_daq_top_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "daq_top",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "CLK": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "RSTN",
+                "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "108000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "RSTN": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "constant"
+              }
+            }
+          },
+          "trigger_n_p": {
+            "direction": "I"
+          },
+          "trigger_down": {
+            "direction": "I"
+          },
+          "trigger_up": {
+            "direction": "I"
+          },
+          "temp_down": {
+            "direction": "I"
+          },
+          "temp_up": {
+            "direction": "I"
+          },
+          "red": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "green": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "blue": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "hsync": {
+            "direction": "O"
+          },
+          "vsync": {
+            "direction": "O"
+          },
+          "ncs": {
+            "direction": "O"
+          },
+          "sclk": {
+            "direction": "O"
+          },
+          "sdata1": {
+            "direction": "I"
+          },
+          "sdata2": {
+            "direction": "I"
+          }
+        }
+      }
+    },
+    "nets": {
+      "select_in_1": {
+        "ports": [
+          "select_in",
+          "gen_fun_top_0/select_in"
+        ]
+      },
+      "enable_1": {
+        "ports": [
+          "enable",
+          "gen_fun_top_0/enable"
+        ]
+      },
+      "reset_1": {
+        "ports": [
+          "reset",
+          "gen_fun_top_0/reset",
+          "daq_top_0/RSTN"
+        ]
+      },
+      "clk_wiz_0_clk_out1": {
+        "ports": [
+          "clk_wiz_0/clk_out1",
+          "gen_fun_top_0/clk",
+          "daq_top_0/CLK"
+        ]
+      },
+      "gen_fun_top_0_clk_out": {
+        "ports": [
+          "gen_fun_top_0/clk_out",
+          "clk_out"
+        ]
+      },
+      "gen_fun_top_0_nsync": {
+        "ports": [
+          "gen_fun_top_0/nsync",
+          "nsync"
+        ]
+      },
+      "gen_fun_top_0_D1": {
+        "ports": [
+          "gen_fun_top_0/D1",
+          "D1"
+        ]
+      },
+      "gen_fun_top_0_D2": {
+        "ports": [
+          "gen_fun_top_0/D2",
+          "D2"
+        ]
+      },
+      "trigger_n_p_1": {
+        "ports": [
+          "trigger_n_p",
+          "daq_top_0/trigger_n_p"
+        ]
+      },
+      "sdata1_1": {
+        "ports": [
+          "sdata1",
+          "daq_top_0/sdata1"
+        ]
+      },
+      "sdata2_1": {
+        "ports": [
+          "sdata2",
+          "daq_top_0/sdata2"
+        ]
+      },
+      "trigger_down_1": {
+        "ports": [
+          "trigger_down",
+          "daq_top_0/trigger_down"
+        ]
+      },
+      "temp_down_1": {
+        "ports": [
+          "temp_down",
+          "daq_top_0/temp_down"
+        ]
+      },
+      "temp_up_1": {
+        "ports": [
+          "temp_up",
+          "daq_top_0/temp_up"
+        ]
+      },
+      "trigger_up_1": {
+        "ports": [
+          "trigger_up",
+          "daq_top_0/trigger_up"
+        ]
+      },
+      "daq_top_0_ncs": {
+        "ports": [
+          "daq_top_0/ncs",
+          "ncs"
+        ]
+      },
+      "daq_top_0_sclk": {
+        "ports": [
+          "daq_top_0/sclk",
+          "sclk"
+        ]
+      },
+      "daq_top_0_hsync": {
+        "ports": [
+          "daq_top_0/hsync",
+          "hsync"
+        ]
+      },
+      "daq_top_0_vsync": {
+        "ports": [
+          "daq_top_0/vsync",
+          "vsync"
+        ]
+      },
+      "daq_top_0_red": {
+        "ports": [
+          "daq_top_0/red",
+          "red"
+        ]
+      },
+      "daq_top_0_green": {
+        "ports": [
+          "daq_top_0/green",
+          "green"
+        ]
+      },
+      "daq_top_0_blue": {
+        "ports": [
+          "daq_top_0/blue",
+          "blue"
+        ]
+      },
+      "GCLK_1": {
+        "ports": [
+          "GCLK",
+          "clk_wiz_0/clk_in1"
+        ]
+      }
+    }
+  }
+}
