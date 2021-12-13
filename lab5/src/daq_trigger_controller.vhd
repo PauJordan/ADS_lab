@@ -5,13 +5,6 @@
 -- Create Date: 12/06/2021 03:05:30 PM
 -- Design Name: 
 -- Module Name: daq_trigger_controller - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
 -- Revision:
 -- Revision 0.01 - File Created
 -- Additional Comments:
@@ -22,11 +15,6 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
 
 entity daq_trigger_controller is
     Generic (
@@ -67,7 +55,8 @@ architecture Behavioral of daq_trigger_controller is
     constant initial_sample_period_ticks : integer := 100;
     constant max_sample_period_ticks : integer := 1000;
     constant max_samples : integer := 1280;
-
+    constant debounce_counter_max : integer := 2**23-1 ; --minimum number of clocks that we need to wait until the next press of the button is dected
+    
     -- button_sync_p signals
     signal t1, t2, t3 : std_logic; -- Temporary signals for syncronization.
     signal t_up_s, t_down_s, t_np_s : std_logic; -- Syncronized signals.
@@ -105,12 +94,12 @@ begin
     trigger_level <= std_logic_vector(to_unsigned(trigger_level_s, trigger_level'length)); 
     
     -- Signal level
-    signal_level <= to_integer(unsigned(adc_data1(data_width - 1 downto data_width - 10)));
+    signal_level <= to_integer(unsigned(adc_data1(data_width - 1 downto data_width - 9)));
 
 -- Processes
     -- Button input signals syncronization process.
     button_sync_p : process(clk)
-        variable debounce_counter : integer range 0 to (2**24 - 1);
+        variable debounce_counter : integer range 0 to debounce_counter_max;
     begin 
     if rising_edge(clk) then    -- Read inputs
         if rst = rst_val then
@@ -144,13 +133,16 @@ begin
                 button_state <= debounce;
                 debounce_counter := 0;
             elsif (button_state = debounce) then
-                if(debounce_counter < 2**24-1) then
+                -- we first check wether the time has passed, if it hasn't:
+                if(debounce_counter < debounce_counter_max) then
                     t_up_pressed <= '0';
                     t_down_pressed <= '0';
                     t_np_pressed <= '0';
 
                     button_state <= debounce;
                     debounce_counter := debounce_counter + 1;
+
+                -- if it has (we check if there is a button pressed or not):
                 elsif(t_up_s = '1' or t_down_s = '1' or t_np_s = '1') then
                     t_up_pressed <= t_up_s;
                     t_down_pressed <= t_down_s;
@@ -183,10 +175,10 @@ begin
         else
             -- Trigger level position control. (up, down)
             if t_up_pressed = '1' then
-                trigger_level_s <= trigger_level_s + trigger_button_chg_amount;
+                trigger_level_s <= trigger_level_s - trigger_button_chg_amount;
 
             elsif t_down_pressed = '1' then
-                trigger_level_s <= trigger_level_s - trigger_button_chg_amount;
+                trigger_level_s <= trigger_level_s + trigger_button_chg_amount;
 
             else 
                 trigger_level_s <= trigger_level_s;
@@ -216,9 +208,9 @@ begin
                 if (vsync = '0' and last_vsync = '1') then
                     vsync_edge <= '1';
                 end if;
-                
+
                 if vsync_edge = '1' and trigger = '0' then
-                    if ( (trigger_np_s = positive_edge) xor (signal_level >= trigger_level_s)) and ((trigger_np_s = positive_edge) xor (last_value < trigger_level_s)) then
+                    if ( (trigger_np_s = positive_edge) xor (signal_level >= trigger_level_s)) and ( (trigger_np_s = positive_edge) xor (last_value < trigger_level_s)) then
                         trigger <= '1';
                         vsync_edge <= '0';
                     end if;

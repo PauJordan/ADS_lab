@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "../../../../PO_PARA_local/0_Projectes/upc_ads_cache_speedtest"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"array": "c",
+			"hashtable": "c",
+			"string_view": "c",
+			"initializer_list": "c",
+			"ranges": "c",
+			"utility": "c"
+		}
+	}
+}
