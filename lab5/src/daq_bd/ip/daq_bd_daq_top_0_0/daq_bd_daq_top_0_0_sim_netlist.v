@@ -1,7 +1,7 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-// Date        : Thu Dec  9 20:19:25 2021
+// Date        : Mon Dec 13 17:50:21 2021
 // Host        : c5b1 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               c:/ADS_do/lab5/src/daq_bd/ip/daq_bd_daq_top_0_0/daq_bd_daq_top_0_0_sim_netlist.v
@@ -127,28 +127,28 @@ endmodule
 module daq_bd_daq_top_0_0_daq_adc_controller
    (ncs,
     sclk,
-    DI,
-    Q,
     S,
-    \Q_reg[10] ,
+    Q,
+    DI,
+    \Q_reg[9] ,
     CLK,
     trigger2_carry__0,
     sdata1);
   output ncs;
   output sclk;
-  output [3:0]DI;
+  output [3:0]S;
   output [11:0]Q;
-  output [1:0]S;
-  output [0:0]\Q_reg[10] ;
+  output [0:0]DI;
+  output [3:0]\Q_reg[9] ;
   input CLK;
   input [4:0]trigger2_carry__0;
   input sdata1;
 
   wire CLK;
-  wire [3:0]DI;
+  wire [0:0]DI;
   wire [11:0]Q;
-  wire [0:0]\Q_reg[10] ;
-  wire [1:0]S;
+  wire [3:0]\Q_reg[9] ;
+  wire [3:0]S;
   wire ce;
   wire ce1;
   wire ce17_in;
@@ -292,7 +292,7 @@ module daq_bd_daq_top_0_0_daq_adc_controller
   wire i__carry__2_i_6_n_0;
   wire i__carry__2_i_7_n_0;
   wire i__carry__2_i_8_n_0;
-  wire i__carry_i_1__0_n_0;
+  wire i__carry_i_1_n_0;
   wire i__carry_i_2__0_n_0;
   wire i__carry_i_3__0_n_0;
   wire i__carry_i_4__0_n_0;
@@ -1314,10 +1314,10 @@ module daq_bd_daq_top_0_0_daq_adc_controller
         .O(i__carry__2_i_8_n_0));
   LUT2 #(
     .INIT(4'hE)) 
-    i__carry_i_1__0
+    i__carry_i_1
        (.I0(sel0[6]),
         .I1(sel0[7]),
-        .O(i__carry_i_1__0_n_0));
+        .O(i__carry_i_1_n_0));
   LUT2 #(
     .INIT(4'hE)) 
     i__carry_i_2__0
@@ -2215,7 +2215,7 @@ module daq_bd_daq_top_0_0_daq_adc_controller
        (.CI(1'b0),
         .CO({\sclk_s2_inferred__0/i__carry_n_0 ,\sclk_s2_inferred__0/i__carry_n_1 ,\sclk_s2_inferred__0/i__carry_n_2 ,\sclk_s2_inferred__0/i__carry_n_3 }),
         .CYINIT(1'b1),
-        .DI({i__carry_i_1__0_n_0,i__carry_i_2__0_n_0,i__carry_i_3__0_n_0,i__carry_i_4__0_n_0}),
+        .DI({i__carry_i_1_n_0,i__carry_i_2__0_n_0,i__carry_i_3__0_n_0,i__carry_i_4__0_n_0}),
         .O(\NLW_sclk_s2_inferred__0/i__carry_O_UNCONNECTED [3:0]),
         .S({i__carry_i_5__0_n_0,i__carry_i_6__0_n_0,i__carry_i_7_n_0,i__carry_i_8_n_0}));
   (* COMPARATOR_THRESHOLD = "11" *) 
@@ -2344,7 +2344,7 @@ module daq_bd_daq_top_0_0_daq_adc_controller
         .DI(DI),
         .OE_s_reg_0(oe_reg_n_0),
         .Q(Q),
-        .\Q_reg[10]_0 (\Q_reg[10] ),
+        .\Q_reg[9]_0 (\Q_reg[9] ),
         .S(S),
         .ce(ce),
         .sdata1(sdata1),
@@ -2354,54 +2354,51 @@ endmodule
 (* ORIG_REF_NAME = "daq_top" *) 
 module daq_bd_daq_top_0_0_daq_top
    (VS_s_reg,
-    hsync,
     red,
     blue,
     ncs,
     sclk,
-    CLK,
+    hsync,
     RSTN,
+    CLK,
     trigger_down,
     trigger_n_p,
     trigger_up,
     sdata1);
   output VS_s_reg;
-  output hsync;
   output [0:0]red;
   output [0:0]blue;
   output ncs;
   output sclk;
-  input CLK;
+  output hsync;
   input RSTN;
+  input CLK;
   input trigger_down;
   input trigger_n_p;
   input trigger_up;
   input sdata1;
 
   wire CLK;
-  wire DISPLAY_E_s;
-  wire [8:1]PY;
-  wire RGB_out1;
+  wire [5:3]PY;
   wire RSTN;
   wire VS_s_reg;
   wire [10:0]addr_in;
   wire [11:2]addr_out;
   wire [0:0]blue;
+  wire daq_adc_controller_1_n_15;
   wire daq_adc_controller_1_n_16;
   wire daq_adc_controller_1_n_17;
   wire daq_adc_controller_1_n_18;
   wire daq_adc_controller_1_n_19;
   wire daq_adc_controller_1_n_2;
   wire daq_adc_controller_1_n_20;
+  wire daq_adc_controller_1_n_21;
+  wire daq_adc_controller_1_n_22;
   wire daq_adc_controller_1_n_3;
   wire daq_adc_controller_1_n_4;
   wire daq_adc_controller_1_n_5;
-  wire daq_adc_controller_1_n_6;
-  wire daq_memory_unit_1_n_0;
-  wire daq_memory_unit_1_n_1;
-  wire daq_memory_unit_1_n_2;
-  wire daq_trigger_controller_1_n_6;
-  wire daq_trigger_controller_1_n_7;
+  wire daq_trigger_controller_1_n_1;
+  wire [11:3]data;
   wire [11:0]data_in;
   wire hsync;
   wire ncs;
@@ -2409,77 +2406,66 @@ module daq_bd_daq_top_0_0_daq_top
   wire sclk;
   wire sdata1;
   wire [8:0]signal_level;
-  wire signal_rgb1;
   wire trigger_down;
   wire [8:4]trigger_level_s_reg;
   wire trigger_n_p;
   wire trigger_up;
   wire [1:0]\vga_timing/c_x_reg ;
-  wire [0:0]\vga_timing/c_y_reg ;
   wire we;
 
   daq_bd_daq_top_0_0_daq_adc_controller daq_adc_controller_1
        (.CLK(CLK),
-        .DI({daq_adc_controller_1_n_2,daq_adc_controller_1_n_3,daq_adc_controller_1_n_4,daq_adc_controller_1_n_5}),
-        .Q({daq_adc_controller_1_n_6,signal_level,daq_adc_controller_1_n_16,daq_adc_controller_1_n_17}),
-        .\Q_reg[10] (daq_adc_controller_1_n_20),
-        .S({daq_adc_controller_1_n_18,daq_adc_controller_1_n_19}),
+        .DI(daq_adc_controller_1_n_18),
+        .Q({signal_level,daq_adc_controller_1_n_15,daq_adc_controller_1_n_16,daq_adc_controller_1_n_17}),
+        .\Q_reg[9] ({daq_adc_controller_1_n_19,daq_adc_controller_1_n_20,daq_adc_controller_1_n_21,daq_adc_controller_1_n_22}),
+        .S({daq_adc_controller_1_n_2,daq_adc_controller_1_n_3,daq_adc_controller_1_n_4,daq_adc_controller_1_n_5}),
         .ncs(ncs),
         .sclk(sclk),
         .sdata1(sdata1),
         .trigger2_carry__0(trigger_level_s_reg));
   daq_bd_daq_top_0_0_sync_ram_dualport daq_memory_unit_1
        (.CLK(CLK),
-        .PY(PY),
         .Q(addr_in),
-        .S({daq_memory_unit_1_n_0,daq_memory_unit_1_n_1,daq_memory_unit_1_n_2}),
         .WEA(we),
         .addr_out({addr_out,\vga_timing/c_x_reg }),
-        .mem_reg_1_0(data_in),
-        .out(\vga_timing/c_y_reg ));
+        .data_out(data),
+        .mem_reg_1_0(data_in));
   daq_bd_daq_top_0_0_daq_trigger_controller daq_trigger_controller_1
        (.CLK(CLK),
-        .CO(RGB_out1),
-        .D({daq_adc_controller_1_n_6,signal_level,daq_adc_controller_1_n_16,daq_adc_controller_1_n_17}),
-        .DI({daq_adc_controller_1_n_2,daq_adc_controller_1_n_3,daq_adc_controller_1_n_4,daq_adc_controller_1_n_5}),
-        .DISPLAY_E_s(DISPLAY_E_s),
-        .PY(PY[8:3]),
+        .D({signal_level,daq_adc_controller_1_n_15,daq_adc_controller_1_n_16,daq_adc_controller_1_n_17}),
+        .DI(daq_adc_controller_1_n_18),
+        .PY(PY),
         .Q(trigger_level_s_reg),
         .RSTN(RSTN),
-        .S({daq_adc_controller_1_n_18,daq_adc_controller_1_n_19}),
+        .S({daq_adc_controller_1_n_2,daq_adc_controller_1_n_3,daq_adc_controller_1_n_4,daq_adc_controller_1_n_5}),
         .WEA(we),
         .\addr_reg[10]_0 (addr_in),
         .\data_reg[11]_0 (data_in),
         .last_vsync_reg_0(VS_s_reg),
-        .red(red),
-        .\red[3] (signal_rgb1),
+        .trigger2_carry__0_0({daq_adc_controller_1_n_19,daq_adc_controller_1_n_20,daq_adc_controller_1_n_21,daq_adc_controller_1_n_22}),
         .trigger_down(trigger_down),
-        .\trigger_level_s_reg[7]_0 ({daq_trigger_controller_1_n_6,daq_trigger_controller_1_n_7}),
+        .\trigger_level_s_reg[5]_0 (daq_trigger_controller_1_n_1),
         .trigger_n_p(trigger_n_p),
-        .trigger_reg_0(daq_adc_controller_1_n_20),
         .trigger_up(trigger_up));
   daq_bd_daq_top_0_0_daq_vga_controller daq_vga_controller_1
        (.CLK(CLK),
-        .CO(RGB_out1),
-        .DISPLAY_E_s(DISPLAY_E_s),
+        .Q(trigger_level_s_reg[8:6]),
         .RSTN(RSTN),
-        .S({daq_memory_unit_1_n_0,daq_memory_unit_1_n_1,daq_memory_unit_1_n_2}),
         .VS_s_reg(VS_s_reg),
         .addr_out({addr_out,\vga_timing/c_x_reg }),
         .blue(blue),
-        .\blue[3] ({daq_trigger_controller_1_n_6,daq_trigger_controller_1_n_7}),
         .\c_y_reg[8] (PY),
+        .data_out(data),
         .hsync(hsync),
-        .mem_reg_1(signal_rgb1),
-        .out(\vga_timing/c_y_reg ));
+        .red(red),
+        .\red[3] (daq_trigger_controller_1_n_1));
 endmodule
 
 (* ORIG_REF_NAME = "daq_trigger_controller" *) 
 module daq_bd_daq_top_0_0_daq_trigger_controller
    (WEA,
+    \trigger_level_s_reg[5]_0 ,
     Q,
-    \trigger_level_s_reg[7]_0 ,
-    red,
     \addr_reg[10]_0 ,
     \data_reg[11]_0 ,
     RSTN,
@@ -2488,18 +2474,14 @@ module daq_bd_daq_top_0_0_daq_trigger_controller
     trigger_n_p,
     trigger_up,
     last_vsync_reg_0,
-    DI,
+    trigger2_carry__0_0,
     S,
-    trigger_reg_0,
+    DI,
     PY,
-    D,
-    CO,
-    \red[3] ,
-    DISPLAY_E_s);
+    D);
   output [0:0]WEA;
+  output [0:0]\trigger_level_s_reg[5]_0 ;
   output [4:0]Q;
-  output [1:0]\trigger_level_s_reg[7]_0 ;
-  output [0:0]red;
   output [10:0]\addr_reg[10]_0 ;
   output [11:0]\data_reg[11]_0 ;
   input RSTN;
@@ -2508,41 +2490,66 @@ module daq_bd_daq_top_0_0_daq_trigger_controller
   input trigger_n_p;
   input trigger_up;
   input last_vsync_reg_0;
-  input [3:0]DI;
-  input [1:0]S;
-  input [0:0]trigger_reg_0;
-  input [5:0]PY;
+  input [3:0]trigger2_carry__0_0;
+  input [3:0]S;
+  input [0:0]DI;
+  input [2:0]PY;
   input [11:0]D;
-  input [0:0]CO;
-  input [0:0]\red[3] ;
-  input DISPLAY_E_s;
 
   wire CLK;
-  wire [0:0]CO;
   wire [11:0]D;
-  wire [3:0]DI;
-  wire DISPLAY_E_s;
+  wire [0:0]DI;
   wire FSM_sequential_button_state_i_1_n_0;
+  wire FSM_sequential_button_state_i_2_n_0;
   wire FSM_sequential_button_state_reg_n_0;
-  wire [5:0]PY;
+  wire [2:0]PY;
   wire [4:0]Q;
   wire RSTN;
-  wire [1:0]S;
+  wire [3:0]S;
   wire [0:0]WEA;
   wire \addr[10]_i_1_n_0 ;
   wire [10:0]\addr_reg[10]_0 ;
   wire button_state0__2;
   wire button_state10_out;
-  wire \button_sync_p.debounce_counter[0]_i_10_n_0 ;
-  wire \button_sync_p.debounce_counter[0]_i_11_n_0 ;
+  wire button_state1_carry__0_i_1_n_0;
+  wire button_state1_carry__0_i_2_n_0;
+  wire button_state1_carry__0_i_3_n_0;
+  wire button_state1_carry__0_i_4_n_0;
+  wire button_state1_carry__0_i_5_n_0;
+  wire button_state1_carry__0_i_6_n_0;
+  wire button_state1_carry__0_i_7_n_0;
+  wire button_state1_carry__0_i_8_n_0;
+  wire button_state1_carry__0_n_0;
+  wire button_state1_carry__0_n_1;
+  wire button_state1_carry__0_n_2;
+  wire button_state1_carry__0_n_3;
+  wire button_state1_carry__1_i_1_n_0;
+  wire button_state1_carry__1_i_2_n_0;
+  wire button_state1_carry__1_i_3_n_0;
+  wire button_state1_carry__1_i_4_n_0;
+  wire button_state1_carry__1_i_5_n_0;
+  wire button_state1_carry__1_i_6_n_0;
+  wire button_state1_carry__1_i_7_n_0;
+  wire button_state1_carry__1_n_0;
+  wire button_state1_carry__1_n_1;
+  wire button_state1_carry__1_n_2;
+  wire button_state1_carry__1_n_3;
+  wire button_state1_carry_i_1_n_0;
+  wire button_state1_carry_i_2_n_0;
+  wire button_state1_carry_i_3_n_0;
+  wire button_state1_carry_i_4_n_0;
+  wire button_state1_carry_i_5_n_0;
+  wire button_state1_carry_i_6_n_0;
+  wire button_state1_carry_i_7_n_0;
+  wire button_state1_carry_i_8_n_0;
+  wire button_state1_carry_n_0;
+  wire button_state1_carry_n_1;
+  wire button_state1_carry_n_2;
+  wire button_state1_carry_n_3;
   wire \button_sync_p.debounce_counter[0]_i_1_n_0 ;
-  wire \button_sync_p.debounce_counter[0]_i_4_n_0 ;
-  wire \button_sync_p.debounce_counter[0]_i_5_n_0 ;
+  wire \button_sync_p.debounce_counter[0]_i_2_n_0 ;
   wire \button_sync_p.debounce_counter[0]_i_6_n_0 ;
-  wire \button_sync_p.debounce_counter[0]_i_7_n_0 ;
-  wire \button_sync_p.debounce_counter[0]_i_8_n_0 ;
-  wire \button_sync_p.debounce_counter[0]_i_9_n_0 ;
-  wire [23:0]\button_sync_p.debounce_counter_reg ;
+  wire [22:0]\button_sync_p.debounce_counter_reg ;
   wire \button_sync_p.debounce_counter_reg[0]_i_3_n_0 ;
   wire \button_sync_p.debounce_counter_reg[0]_i_3_n_1 ;
   wire \button_sync_p.debounce_counter_reg[0]_i_3_n_2 ;
@@ -2567,10 +2574,8 @@ module daq_bd_daq_top_0_0_daq_trigger_controller
   wire \button_sync_p.debounce_counter_reg[16]_i_1_n_5 ;
   wire \button_sync_p.debounce_counter_reg[16]_i_1_n_6 ;
   wire \button_sync_p.debounce_counter_reg[16]_i_1_n_7 ;
-  wire \button_sync_p.debounce_counter_reg[20]_i_1_n_1 ;
   wire \button_sync_p.debounce_counter_reg[20]_i_1_n_2 ;
   wire \button_sync_p.debounce_counter_reg[20]_i_1_n_3 ;
-  wire \button_sync_p.debounce_counter_reg[20]_i_1_n_4 ;
   wire \button_sync_p.debounce_counter_reg[20]_i_1_n_5 ;
   wire \button_sync_p.debounce_counter_reg[20]_i_1_n_6 ;
   wire \button_sync_p.debounce_counter_reg[20]_i_1_n_7 ;
@@ -2591,8 +2596,7 @@ module daq_bd_daq_top_0_0_daq_trigger_controller
   wire \button_sync_p.debounce_counter_reg[8]_i_1_n_6 ;
   wire \button_sync_p.debounce_counter_reg[8]_i_1_n_7 ;
   wire [11:0]\data_reg[11]_0 ;
-  wire debounce_counter;
-  wire i__carry_i_1_n_0;
+  wire i__carry_i_1__0_n_0;
   wire i__carry_i_2_n_0;
   wire i__carry_i_3_n_0;
   wire i__carry_i_4_n_0;
@@ -2618,19 +2622,16 @@ module daq_bd_daq_top_0_0_daq_trigger_controller
   wire \period_counter[9]_i_1_n_0 ;
   wire \period_counter[9]_i_3_n_0 ;
   wire [9:0]period_counter_reg;
-  wire [0:0]red;
-  wire [0:0]\red[3] ;
   wire rst;
+  wire \sample_index[10]_i_1_n_0 ;
   wire \sample_index[10]_i_4_n_0 ;
   wire [10:0]sample_index_reg;
-  wire sample_period0;
   wire t1;
   wire t2;
   wire t3;
   wire t_down_edge;
   wire t_down_edge0;
   wire t_down_pressed_i_1_n_0;
-  wire t_down_pressed_i_2_n_0;
   wire t_down_pressed_reg_n_0;
   wire t_down_s;
   wire t_np_edge;
@@ -2639,15 +2640,15 @@ module daq_bd_daq_top_0_0_daq_trigger_controller
   wire t_np_s;
   wire t_up_edge;
   wire t_up_edge0;
+  wire t_up_pressed8_out;
   wire t_up_pressed_i_1_n_0;
   wire t_up_pressed_i_2_n_0;
   wire t_up_pressed_reg_n_0;
   wire t_up_s;
   wire trigger2;
   wire trigger21_in;
+  wire [3:0]trigger2_carry__0_0;
   wire trigger2_carry__0_i_2_n_0;
-  wire trigger2_carry_i_5_n_0;
-  wire trigger2_carry_i_6_n_0;
   wire trigger2_carry_n_0;
   wire trigger2_carry_n_1;
   wire trigger2_carry_n_2;
@@ -2658,18 +2659,20 @@ module daq_bd_daq_top_0_0_daq_trigger_controller
   wire trigger_i_1_n_0;
   wire \trigger_level_s[4]_i_1_n_0 ;
   wire \trigger_level_s[8]_i_1_n_0 ;
-  wire [1:0]\trigger_level_s_reg[7]_0 ;
+  wire [0:0]\trigger_level_s_reg[5]_0 ;
   wire trigger_n_p;
   wire trigger_np_s;
   wire trigger_np_s_i_1_n_0;
-  wire [0:0]trigger_reg_0;
   wire trigger_reg_n_0;
   wire trigger_up;
   wire vsync_edge_i_1_n_0;
-  wire vsync_edge_i_2_n_0;
   wire vsync_edge_reg_n_0;
   wire we_i_1_n_0;
-  wire [3:3]\NLW_button_sync_p.debounce_counter_reg[20]_i_1_CO_UNCONNECTED ;
+  wire [3:0]NLW_button_state1_carry_O_UNCONNECTED;
+  wire [3:0]NLW_button_state1_carry__0_O_UNCONNECTED;
+  wire [3:0]NLW_button_state1_carry__1_O_UNCONNECTED;
+  wire [3:2]\NLW_button_sync_p.debounce_counter_reg[20]_i_1_CO_UNCONNECTED ;
+  wire [3:3]\NLW_button_sync_p.debounce_counter_reg[20]_i_1_O_UNCONNECTED ;
   wire [3:0]NLW_period_counter1_carry_O_UNCONNECTED;
   wire [3:0]NLW_trigger2_carry_O_UNCONNECTED;
   wire [3:1]NLW_trigger2_carry__0_CO_UNCONNECTED;
@@ -2678,15 +2681,25 @@ module daq_bd_daq_top_0_0_daq_trigger_controller
   wire [3:0]\NLW_trigger2_inferred__1/i__carry_O_UNCONNECTED ;
 
   LUT6 #(
-    .INIT(64'h0000FFFF00000001)) 
+    .INIT(64'hFFFF000100000000)) 
     FSM_sequential_button_state_i_1
-       (.I0(\button_sync_p.debounce_counter[0]_i_4_n_0 ),
-        .I1(t_up_s),
-        .I2(t_np_s),
-        .I3(t_down_s),
-        .I4(\button_sync_p.debounce_counter[0]_i_5_n_0 ),
-        .I5(FSM_sequential_button_state_reg_n_0),
+       (.I0(button_state1_carry__1_n_0),
+        .I1(t_np_s),
+        .I2(t_down_s),
+        .I3(t_up_s),
+        .I4(FSM_sequential_button_state_reg_n_0),
+        .I5(FSM_sequential_button_state_i_2_n_0),
         .O(FSM_sequential_button_state_i_1_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair25" *) 
+  LUT5 #(
+    .INIT(32'h2222222A)) 
+    FSM_sequential_button_state_i_2
+       (.I0(RSTN),
+        .I1(FSM_sequential_button_state_reg_n_0),
+        .I2(t_up_edge),
+        .I3(t_down_edge),
+        .I4(t_np_edge),
+        .O(FSM_sequential_button_state_i_2_n_0));
   (* FSM_ENCODED_STATES = "iSTATE:1,iSTATE0:0" *) 
   FDRE FSM_sequential_button_state_reg
        (.C(CLK),
@@ -2694,32 +2707,22 @@ module daq_bd_daq_top_0_0_daq_trigger_controller
         .D(FSM_sequential_button_state_i_1_n_0),
         .Q(FSM_sequential_button_state_reg_n_0),
         .R(1'b0));
-  LUT6 #(
-    .INIT(64'h9009000000009009)) 
-    RGB_out1_carry_i_2
-       (.I0(PY[4]),
-        .I1(Q[3]),
-        .I2(PY[3]),
-        .I3(Q[2]),
-        .I4(Q[4]),
-        .I5(PY[5]),
-        .O(\trigger_level_s_reg[7]_0 [1]));
   LUT5 #(
-    .INIT(32'h41000041)) 
+    .INIT(32'h00009009)) 
     RGB_out1_carry_i_3
-       (.I0(PY[0]),
-        .I1(PY[1]),
+       (.I0(Q[1]),
+        .I1(PY[2]),
         .I2(Q[0]),
-        .I3(Q[1]),
-        .I4(PY[2]),
-        .O(\trigger_level_s_reg[7]_0 [0]));
+        .I3(PY[1]),
+        .I4(PY[0]),
+        .O(\trigger_level_s_reg[5]_0 ));
   LUT6 #(
-    .INIT(64'h00000000222A0000)) 
+    .INIT(64'h0000000002AA0000)) 
     \addr[10]_i_1 
        (.I0(period_counter19_in),
-        .I1(sample_index_reg[10]),
+        .I1(sample_index_reg[8]),
         .I2(sample_index_reg[9]),
-        .I3(sample_index_reg[8]),
+        .I3(sample_index_reg[10]),
         .I4(RSTN),
         .I5(trigger_reg_n_0),
         .O(\addr[10]_i_1_n_0 ));
@@ -2789,93 +2792,207 @@ module daq_bd_daq_top_0_0_daq_trigger_controller
         .D(sample_index_reg[9]),
         .Q(\addr_reg[10]_0 [9]),
         .R(1'b0));
-  LUT6 #(
-    .INIT(64'hFFFFFFFF11111110)) 
-    \button_sync_p.debounce_counter[0]_i_1 
-       (.I0(\button_sync_p.debounce_counter[0]_i_4_n_0 ),
-        .I1(FSM_sequential_button_state_reg_n_0),
-        .I2(t_down_s),
-        .I3(t_np_s),
-        .I4(t_up_s),
-        .I5(\button_sync_p.debounce_counter[0]_i_5_n_0 ),
-        .O(\button_sync_p.debounce_counter[0]_i_1_n_0 ));
-  LUT4 #(
-    .INIT(16'h7FFF)) 
-    \button_sync_p.debounce_counter[0]_i_10 
-       (.I0(\button_sync_p.debounce_counter_reg [11]),
-        .I1(\button_sync_p.debounce_counter_reg [10]),
-        .I2(\button_sync_p.debounce_counter_reg [9]),
-        .I3(\button_sync_p.debounce_counter_reg [8]),
-        .O(\button_sync_p.debounce_counter[0]_i_10_n_0 ));
-  LUT4 #(
-    .INIT(16'h7FFF)) 
-    \button_sync_p.debounce_counter[0]_i_11 
-       (.I0(\button_sync_p.debounce_counter_reg [4]),
+  (* COMPARATOR_THRESHOLD = "11" *) 
+  CARRY4 button_state1_carry
+       (.CI(1'b0),
+        .CO({button_state1_carry_n_0,button_state1_carry_n_1,button_state1_carry_n_2,button_state1_carry_n_3}),
+        .CYINIT(1'b0),
+        .DI({button_state1_carry_i_1_n_0,button_state1_carry_i_2_n_0,button_state1_carry_i_3_n_0,button_state1_carry_i_4_n_0}),
+        .O(NLW_button_state1_carry_O_UNCONNECTED[3:0]),
+        .S({button_state1_carry_i_5_n_0,button_state1_carry_i_6_n_0,button_state1_carry_i_7_n_0,button_state1_carry_i_8_n_0}));
+  (* COMPARATOR_THRESHOLD = "11" *) 
+  CARRY4 button_state1_carry__0
+       (.CI(button_state1_carry_n_0),
+        .CO({button_state1_carry__0_n_0,button_state1_carry__0_n_1,button_state1_carry__0_n_2,button_state1_carry__0_n_3}),
+        .CYINIT(1'b0),
+        .DI({button_state1_carry__0_i_1_n_0,button_state1_carry__0_i_2_n_0,button_state1_carry__0_i_3_n_0,button_state1_carry__0_i_4_n_0}),
+        .O(NLW_button_state1_carry__0_O_UNCONNECTED[3:0]),
+        .S({button_state1_carry__0_i_5_n_0,button_state1_carry__0_i_6_n_0,button_state1_carry__0_i_7_n_0,button_state1_carry__0_i_8_n_0}));
+  LUT2 #(
+    .INIT(4'h7)) 
+    button_state1_carry__0_i_1
+       (.I0(\button_sync_p.debounce_counter_reg [14]),
+        .I1(\button_sync_p.debounce_counter_reg [15]),
+        .O(button_state1_carry__0_i_1_n_0));
+  LUT2 #(
+    .INIT(4'h7)) 
+    button_state1_carry__0_i_2
+       (.I0(\button_sync_p.debounce_counter_reg [12]),
+        .I1(\button_sync_p.debounce_counter_reg [13]),
+        .O(button_state1_carry__0_i_2_n_0));
+  LUT2 #(
+    .INIT(4'h7)) 
+    button_state1_carry__0_i_3
+       (.I0(\button_sync_p.debounce_counter_reg [10]),
+        .I1(\button_sync_p.debounce_counter_reg [11]),
+        .O(button_state1_carry__0_i_3_n_0));
+  LUT2 #(
+    .INIT(4'h7)) 
+    button_state1_carry__0_i_4
+       (.I0(\button_sync_p.debounce_counter_reg [8]),
+        .I1(\button_sync_p.debounce_counter_reg [9]),
+        .O(button_state1_carry__0_i_4_n_0));
+  LUT2 #(
+    .INIT(4'h8)) 
+    button_state1_carry__0_i_5
+       (.I0(\button_sync_p.debounce_counter_reg [14]),
+        .I1(\button_sync_p.debounce_counter_reg [15]),
+        .O(button_state1_carry__0_i_5_n_0));
+  LUT2 #(
+    .INIT(4'h8)) 
+    button_state1_carry__0_i_6
+       (.I0(\button_sync_p.debounce_counter_reg [12]),
+        .I1(\button_sync_p.debounce_counter_reg [13]),
+        .O(button_state1_carry__0_i_6_n_0));
+  LUT2 #(
+    .INIT(4'h8)) 
+    button_state1_carry__0_i_7
+       (.I0(\button_sync_p.debounce_counter_reg [10]),
+        .I1(\button_sync_p.debounce_counter_reg [11]),
+        .O(button_state1_carry__0_i_7_n_0));
+  LUT2 #(
+    .INIT(4'h8)) 
+    button_state1_carry__0_i_8
+       (.I0(\button_sync_p.debounce_counter_reg [8]),
+        .I1(\button_sync_p.debounce_counter_reg [9]),
+        .O(button_state1_carry__0_i_8_n_0));
+  (* COMPARATOR_THRESHOLD = "11" *) 
+  CARRY4 button_state1_carry__1
+       (.CI(button_state1_carry__0_n_0),
+        .CO({button_state1_carry__1_n_0,button_state1_carry__1_n_1,button_state1_carry__1_n_2,button_state1_carry__1_n_3}),
+        .CYINIT(1'b0),
+        .DI({button_state1_carry__1_i_1_n_0,button_state1_carry__1_i_2_n_0,button_state1_carry__1_i_3_n_0,button_state1_carry__1_i_4_n_0}),
+        .O(NLW_button_state1_carry__1_O_UNCONNECTED[3:0]),
+        .S({\button_sync_p.debounce_counter_reg [22],button_state1_carry__1_i_5_n_0,button_state1_carry__1_i_6_n_0,button_state1_carry__1_i_7_n_0}));
+  LUT1 #(
+    .INIT(2'h1)) 
+    button_state1_carry__1_i_1
+       (.I0(\button_sync_p.debounce_counter_reg [22]),
+        .O(button_state1_carry__1_i_1_n_0));
+  LUT2 #(
+    .INIT(4'h7)) 
+    button_state1_carry__1_i_2
+       (.I0(\button_sync_p.debounce_counter_reg [20]),
+        .I1(\button_sync_p.debounce_counter_reg [21]),
+        .O(button_state1_carry__1_i_2_n_0));
+  LUT2 #(
+    .INIT(4'h7)) 
+    button_state1_carry__1_i_3
+       (.I0(\button_sync_p.debounce_counter_reg [18]),
+        .I1(\button_sync_p.debounce_counter_reg [19]),
+        .O(button_state1_carry__1_i_3_n_0));
+  LUT2 #(
+    .INIT(4'h7)) 
+    button_state1_carry__1_i_4
+       (.I0(\button_sync_p.debounce_counter_reg [16]),
+        .I1(\button_sync_p.debounce_counter_reg [17]),
+        .O(button_state1_carry__1_i_4_n_0));
+  LUT2 #(
+    .INIT(4'h8)) 
+    button_state1_carry__1_i_5
+       (.I0(\button_sync_p.debounce_counter_reg [20]),
+        .I1(\button_sync_p.debounce_counter_reg [21]),
+        .O(button_state1_carry__1_i_5_n_0));
+  LUT2 #(
+    .INIT(4'h8)) 
+    button_state1_carry__1_i_6
+       (.I0(\button_sync_p.debounce_counter_reg [18]),
+        .I1(\button_sync_p.debounce_counter_reg [19]),
+        .O(button_state1_carry__1_i_6_n_0));
+  LUT2 #(
+    .INIT(4'h8)) 
+    button_state1_carry__1_i_7
+       (.I0(\button_sync_p.debounce_counter_reg [16]),
+        .I1(\button_sync_p.debounce_counter_reg [17]),
+        .O(button_state1_carry__1_i_7_n_0));
+  LUT2 #(
+    .INIT(4'h7)) 
+    button_state1_carry_i_1
+       (.I0(\button_sync_p.debounce_counter_reg [6]),
         .I1(\button_sync_p.debounce_counter_reg [7]),
-        .I2(\button_sync_p.debounce_counter_reg [1]),
-        .I3(\button_sync_p.debounce_counter_reg [5]),
-        .O(\button_sync_p.debounce_counter[0]_i_11_n_0 ));
+        .O(button_state1_carry_i_1_n_0));
+  LUT2 #(
+    .INIT(4'h7)) 
+    button_state1_carry_i_2
+       (.I0(\button_sync_p.debounce_counter_reg [4]),
+        .I1(\button_sync_p.debounce_counter_reg [5]),
+        .O(button_state1_carry_i_2_n_0));
+  LUT2 #(
+    .INIT(4'h7)) 
+    button_state1_carry_i_3
+       (.I0(\button_sync_p.debounce_counter_reg [2]),
+        .I1(\button_sync_p.debounce_counter_reg [3]),
+        .O(button_state1_carry_i_3_n_0));
+  LUT2 #(
+    .INIT(4'h7)) 
+    button_state1_carry_i_4
+       (.I0(\button_sync_p.debounce_counter_reg [0]),
+        .I1(\button_sync_p.debounce_counter_reg [1]),
+        .O(button_state1_carry_i_4_n_0));
+  LUT2 #(
+    .INIT(4'h8)) 
+    button_state1_carry_i_5
+       (.I0(\button_sync_p.debounce_counter_reg [6]),
+        .I1(\button_sync_p.debounce_counter_reg [7]),
+        .O(button_state1_carry_i_5_n_0));
+  LUT2 #(
+    .INIT(4'h8)) 
+    button_state1_carry_i_6
+       (.I0(\button_sync_p.debounce_counter_reg [4]),
+        .I1(\button_sync_p.debounce_counter_reg [5]),
+        .O(button_state1_carry_i_6_n_0));
+  LUT2 #(
+    .INIT(4'h8)) 
+    button_state1_carry_i_7
+       (.I0(\button_sync_p.debounce_counter_reg [2]),
+        .I1(\button_sync_p.debounce_counter_reg [3]),
+        .O(button_state1_carry_i_7_n_0));
+  LUT2 #(
+    .INIT(4'h8)) 
+    button_state1_carry_i_8
+       (.I0(\button_sync_p.debounce_counter_reg [0]),
+        .I1(\button_sync_p.debounce_counter_reg [1]),
+        .O(button_state1_carry_i_8_n_0));
+  LUT5 #(
+    .INIT(32'hFF04FFFF)) 
+    \button_sync_p.debounce_counter[0]_i_1 
+       (.I0(button_state1_carry__1_n_0),
+        .I1(button_state10_out),
+        .I2(FSM_sequential_button_state_reg_n_0),
+        .I3(button_state0__2),
+        .I4(RSTN),
+        .O(\button_sync_p.debounce_counter[0]_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h2)) 
     \button_sync_p.debounce_counter[0]_i_2 
-       (.I0(\button_sync_p.debounce_counter[0]_i_4_n_0 ),
+       (.I0(button_state1_carry__1_n_0),
         .I1(FSM_sequential_button_state_reg_n_0),
-        .O(debounce_counter));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFFFFF7FFF)) 
-    \button_sync_p.debounce_counter[0]_i_4 
-       (.I0(\button_sync_p.debounce_counter_reg [23]),
-        .I1(\button_sync_p.debounce_counter_reg [22]),
-        .I2(\button_sync_p.debounce_counter_reg [21]),
-        .I3(\button_sync_p.debounce_counter_reg [20]),
-        .I4(\button_sync_p.debounce_counter[0]_i_7_n_0 ),
-        .I5(\button_sync_p.debounce_counter[0]_i_8_n_0 ),
-        .O(\button_sync_p.debounce_counter[0]_i_4_n_0 ));
+        .O(\button_sync_p.debounce_counter[0]_i_2_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair26" *) 
-  LUT5 #(
-    .INIT(32'hAAA8FFFF)) 
+  LUT3 #(
+    .INIT(8'hFE)) 
+    \button_sync_p.debounce_counter[0]_i_4 
+       (.I0(t_up_s),
+        .I1(t_down_s),
+        .I2(t_np_s),
+        .O(button_state10_out));
+  (* SOFT_HLUTNM = "soft_lutpair25" *) 
+  LUT4 #(
+    .INIT(16'hFE00)) 
     \button_sync_p.debounce_counter[0]_i_5 
-       (.I0(FSM_sequential_button_state_reg_n_0),
+       (.I0(t_np_edge),
         .I1(t_down_edge),
-        .I2(t_np_edge),
-        .I3(t_up_edge),
-        .I4(RSTN),
-        .O(\button_sync_p.debounce_counter[0]_i_5_n_0 ));
+        .I2(t_up_edge),
+        .I3(FSM_sequential_button_state_reg_n_0),
+        .O(button_state0__2));
   LUT1 #(
     .INIT(2'h1)) 
     \button_sync_p.debounce_counter[0]_i_6 
        (.I0(\button_sync_p.debounce_counter_reg [0]),
         .O(\button_sync_p.debounce_counter[0]_i_6_n_0 ));
-  LUT5 #(
-    .INIT(32'hFFFF7FFF)) 
-    \button_sync_p.debounce_counter[0]_i_7 
-       (.I0(\button_sync_p.debounce_counter_reg [16]),
-        .I1(\button_sync_p.debounce_counter_reg [17]),
-        .I2(\button_sync_p.debounce_counter_reg [18]),
-        .I3(\button_sync_p.debounce_counter_reg [19]),
-        .I4(\button_sync_p.debounce_counter[0]_i_9_n_0 ),
-        .O(\button_sync_p.debounce_counter[0]_i_7_n_0 ));
-  LUT6 #(
-    .INIT(64'hFBFFFFFFFFFFFFFF)) 
-    \button_sync_p.debounce_counter[0]_i_8 
-       (.I0(\button_sync_p.debounce_counter[0]_i_10_n_0 ),
-        .I1(\button_sync_p.debounce_counter_reg [0]),
-        .I2(\button_sync_p.debounce_counter[0]_i_11_n_0 ),
-        .I3(\button_sync_p.debounce_counter_reg [6]),
-        .I4(\button_sync_p.debounce_counter_reg [2]),
-        .I5(\button_sync_p.debounce_counter_reg [3]),
-        .O(\button_sync_p.debounce_counter[0]_i_8_n_0 ));
-  LUT4 #(
-    .INIT(16'h7FFF)) 
-    \button_sync_p.debounce_counter[0]_i_9 
-       (.I0(\button_sync_p.debounce_counter_reg [15]),
-        .I1(\button_sync_p.debounce_counter_reg [14]),
-        .I2(\button_sync_p.debounce_counter_reg [13]),
-        .I3(\button_sync_p.debounce_counter_reg [12]),
-        .O(\button_sync_p.debounce_counter[0]_i_9_n_0 ));
   FDRE \button_sync_p.debounce_counter_reg[0] 
        (.C(CLK),
-        .CE(debounce_counter),
+        .CE(\button_sync_p.debounce_counter[0]_i_2_n_0 ),
         .D(\button_sync_p.debounce_counter_reg[0]_i_3_n_7 ),
         .Q(\button_sync_p.debounce_counter_reg [0]),
         .R(\button_sync_p.debounce_counter[0]_i_1_n_0 ));
@@ -2889,19 +3006,19 @@ module daq_bd_daq_top_0_0_daq_trigger_controller
         .S({\button_sync_p.debounce_counter_reg [3:1],\button_sync_p.debounce_counter[0]_i_6_n_0 }));
   FDRE \button_sync_p.debounce_counter_reg[10] 
        (.C(CLK),
-        .CE(debounce_counter),
+        .CE(\button_sync_p.debounce_counter[0]_i_2_n_0 ),
         .D(\button_sync_p.debounce_counter_reg[8]_i_1_n_5 ),
         .Q(\button_sync_p.debounce_counter_reg [10]),
         .R(\button_sync_p.debounce_counter[0]_i_1_n_0 ));
   FDRE \button_sync_p.debounce_counter_reg[11] 
        (.C(CLK),
-        .CE(debounce_counter),
+        .CE(\button_sync_p.debounce_counter[0]_i_2_n_0 ),
         .D(\button_sync_p.debounce_counter_reg[8]_i_1_n_4 ),
         .Q(\button_sync_p.debounce_counter_reg [11]),
         .R(\button_sync_p.debounce_counter[0]_i_1_n_0 ));
   FDRE \button_sync_p.debounce_counter_reg[12] 
        (.C(CLK),
-        .CE(debounce_counter),
+        .CE(\button_sync_p.debounce_counter[0]_i_2_n_0 ),
         .D(\button_sync_p.debounce_counter_reg[12]_i_1_n_7 ),
         .Q(\button_sync_p.debounce_counter_reg [12]),
         .R(\button_sync_p.debounce_counter[0]_i_1_n_0 ));
@@ -2915,25 +3032,25 @@ module daq_bd_daq_top_0_0_daq_trigger_controller
         .S(\button_sync_p.debounce_counter_reg [15:12]));
   FDRE \button_sync_p.debounce_counter_reg[13] 
        (.C(CLK),
-        .CE(debounce_counter),
+        .CE(\button_sync_p.debounce_counter[0]_i_2_n_0 ),
         .D(\button_sync_p.debounce_counter_reg[12]_i_1_n_6 ),
         .Q(\button_sync_p.debounce_counter_reg [13]),
         .R(\button_sync_p.debounce_counter[0]_i_1_n_0 ));
   FDRE \button_sync_p.debounce_counter_reg[14] 
        (.C(CLK),
-        .CE(debounce_counter),
+        .CE(\button_sync_p.debounce_counter[0]_i_2_n_0 ),
         .D(\button_sync_p.debounce_counter_reg[12]_i_1_n_5 ),
         .Q(\button_sync_p.debounce_counter_reg [14]),
         .R(\button_sync_p.debounce_counter[0]_i_1_n_0 ));
   FDRE \button_sync_p.debounce_counter_reg[15] 
        (.C(CLK),
-        .CE(debounce_counter),
+        .CE(\button_sync_p.debounce_counter[0]_i_2_n_0 ),
         .D(\button_sync_p.debounce_counter_reg[12]_i_1_n_4 ),
         .Q(\button_sync_p.debounce_counter_reg [15]),
         .R(\button_sync_p.debounce_counter[0]_i_1_n_0 ));
   FDRE \button_sync_p.debounce_counter_reg[16] 
        (.C(CLK),
-        .CE(debounce_counter),
+        .CE(\button_sync_p.debounce_counter[0]_i_2_n_0 ),
         .D(\button_sync_p.debounce_counter_reg[16]_i_1_n_7 ),
         .Q(\button_sync_p.debounce_counter_reg [16]),
         .R(\button_sync_p.debounce_counter[0]_i_1_n_0 ));
@@ -2947,75 +3064,69 @@ module daq_bd_daq_top_0_0_daq_trigger_controller
         .S(\button_sync_p.debounce_counter_reg [19:16]));
   FDRE \button_sync_p.debounce_counter_reg[17] 
        (.C(CLK),
-        .CE(debounce_counter),
+        .CE(\button_sync_p.debounce_counter[0]_i_2_n_0 ),
         .D(\button_sync_p.debounce_counter_reg[16]_i_1_n_6 ),
         .Q(\button_sync_p.debounce_counter_reg [17]),
         .R(\button_sync_p.debounce_counter[0]_i_1_n_0 ));
   FDRE \button_sync_p.debounce_counter_reg[18] 
        (.C(CLK),
-        .CE(debounce_counter),
+        .CE(\button_sync_p.debounce_counter[0]_i_2_n_0 ),
         .D(\button_sync_p.debounce_counter_reg[16]_i_1_n_5 ),
         .Q(\button_sync_p.debounce_counter_reg [18]),
         .R(\button_sync_p.debounce_counter[0]_i_1_n_0 ));
   FDRE \button_sync_p.debounce_counter_reg[19] 
        (.C(CLK),
-        .CE(debounce_counter),
+        .CE(\button_sync_p.debounce_counter[0]_i_2_n_0 ),
         .D(\button_sync_p.debounce_counter_reg[16]_i_1_n_4 ),
         .Q(\button_sync_p.debounce_counter_reg [19]),
         .R(\button_sync_p.debounce_counter[0]_i_1_n_0 ));
   FDRE \button_sync_p.debounce_counter_reg[1] 
        (.C(CLK),
-        .CE(debounce_counter),
+        .CE(\button_sync_p.debounce_counter[0]_i_2_n_0 ),
         .D(\button_sync_p.debounce_counter_reg[0]_i_3_n_6 ),
         .Q(\button_sync_p.debounce_counter_reg [1]),
         .R(\button_sync_p.debounce_counter[0]_i_1_n_0 ));
   FDRE \button_sync_p.debounce_counter_reg[20] 
        (.C(CLK),
-        .CE(debounce_counter),
+        .CE(\button_sync_p.debounce_counter[0]_i_2_n_0 ),
         .D(\button_sync_p.debounce_counter_reg[20]_i_1_n_7 ),
         .Q(\button_sync_p.debounce_counter_reg [20]),
         .R(\button_sync_p.debounce_counter[0]_i_1_n_0 ));
   (* ADDER_THRESHOLD = "11" *) 
   CARRY4 \button_sync_p.debounce_counter_reg[20]_i_1 
        (.CI(\button_sync_p.debounce_counter_reg[16]_i_1_n_0 ),
-        .CO({\NLW_button_sync_p.debounce_counter_reg[20]_i_1_CO_UNCONNECTED [3],\button_sync_p.debounce_counter_reg[20]_i_1_n_1 ,\button_sync_p.debounce_counter_reg[20]_i_1_n_2 ,\button_sync_p.debounce_counter_reg[20]_i_1_n_3 }),
+        .CO({\NLW_button_sync_p.debounce_counter_reg[20]_i_1_CO_UNCONNECTED [3:2],\button_sync_p.debounce_counter_reg[20]_i_1_n_2 ,\button_sync_p.debounce_counter_reg[20]_i_1_n_3 }),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O({\button_sync_p.debounce_counter_reg[20]_i_1_n_4 ,\button_sync_p.debounce_counter_reg[20]_i_1_n_5 ,\button_sync_p.debounce_counter_reg[20]_i_1_n_6 ,\button_sync_p.debounce_counter_reg[20]_i_1_n_7 }),
-        .S(\button_sync_p.debounce_counter_reg [23:20]));
+        .O({\NLW_button_sync_p.debounce_counter_reg[20]_i_1_O_UNCONNECTED [3],\button_sync_p.debounce_counter_reg[20]_i_1_n_5 ,\button_sync_p.debounce_counter_reg[20]_i_1_n_6 ,\button_sync_p.debounce_counter_reg[20]_i_1_n_7 }),
+        .S({1'b0,\button_sync_p.debounce_counter_reg [22:20]}));
   FDRE \button_sync_p.debounce_counter_reg[21] 
        (.C(CLK),
-        .CE(debounce_counter),
+        .CE(\button_sync_p.debounce_counter[0]_i_2_n_0 ),
         .D(\button_sync_p.debounce_counter_reg[20]_i_1_n_6 ),
         .Q(\button_sync_p.debounce_counter_reg [21]),
         .R(\button_sync_p.debounce_counter[0]_i_1_n_0 ));
   FDRE \button_sync_p.debounce_counter_reg[22] 
        (.C(CLK),
-        .CE(debounce_counter),
+        .CE(\button_sync_p.debounce_counter[0]_i_2_n_0 ),
         .D(\button_sync_p.debounce_counter_reg[20]_i_1_n_5 ),
         .Q(\button_sync_p.debounce_counter_reg [22]),
         .R(\button_sync_p.debounce_counter[0]_i_1_n_0 ));
-  FDRE \button_sync_p.debounce_counter_reg[23] 
-       (.C(CLK),
-        .CE(debounce_counter),
-        .D(\button_sync_p.debounce_counter_reg[20]_i_1_n_4 ),
-        .Q(\button_sync_p.debounce_counter_reg [23]),
-        .R(\button_sync_p.debounce_counter[0]_i_1_n_0 ));
   FDRE \button_sync_p.debounce_counter_reg[2] 
        (.C(CLK),
-        .CE(debounce_counter),
+        .CE(\button_sync_p.debounce_counter[0]_i_2_n_0 ),
         .D(\button_sync_p.debounce_counter_reg[0]_i_3_n_5 ),
         .Q(\button_sync_p.debounce_counter_reg [2]),
         .R(\button_sync_p.debounce_counter[0]_i_1_n_0 ));
   FDRE \button_sync_p.debounce_counter_reg[3] 
        (.C(CLK),
-        .CE(debounce_counter),
+        .CE(\button_sync_p.debounce_counter[0]_i_2_n_0 ),
         .D(\button_sync_p.debounce_counter_reg[0]_i_3_n_4 ),
         .Q(\button_sync_p.debounce_counter_reg [3]),
         .R(\button_sync_p.debounce_counter[0]_i_1_n_0 ));
   FDRE \button_sync_p.debounce_counter_reg[4] 
        (.C(CLK),
-        .CE(debounce_counter),
+        .CE(\button_sync_p.debounce_counter[0]_i_2_n_0 ),
         .D(\button_sync_p.debounce_counter_reg[4]_i_1_n_7 ),
         .Q(\button_sync_p.debounce_counter_reg [4]),
         .R(\button_sync_p.debounce_counter[0]_i_1_n_0 ));
@@ -3029,25 +3140,25 @@ module daq_bd_daq_top_0_0_daq_trigger_controller
         .S(\button_sync_p.debounce_counter_reg [7:4]));
   FDRE \button_sync_p.debounce_counter_reg[5] 
        (.C(CLK),
-        .CE(debounce_counter),
+        .CE(\button_sync_p.debounce_counter[0]_i_2_n_0 ),
         .D(\button_sync_p.debounce_counter_reg[4]_i_1_n_6 ),
         .Q(\button_sync_p.debounce_counter_reg [5]),
         .R(\button_sync_p.debounce_counter[0]_i_1_n_0 ));
   FDRE \button_sync_p.debounce_counter_reg[6] 
        (.C(CLK),
-        .CE(debounce_counter),
+        .CE(\button_sync_p.debounce_counter[0]_i_2_n_0 ),
         .D(\button_sync_p.debounce_counter_reg[4]_i_1_n_5 ),
         .Q(\button_sync_p.debounce_counter_reg [6]),
         .R(\button_sync_p.debounce_counter[0]_i_1_n_0 ));
   FDRE \button_sync_p.debounce_counter_reg[7] 
        (.C(CLK),
-        .CE(debounce_counter),
+        .CE(\button_sync_p.debounce_counter[0]_i_2_n_0 ),
         .D(\button_sync_p.debounce_counter_reg[4]_i_1_n_4 ),
         .Q(\button_sync_p.debounce_counter_reg [7]),
         .R(\button_sync_p.debounce_counter[0]_i_1_n_0 ));
   FDRE \button_sync_p.debounce_counter_reg[8] 
        (.C(CLK),
-        .CE(debounce_counter),
+        .CE(\button_sync_p.debounce_counter[0]_i_2_n_0 ),
         .D(\button_sync_p.debounce_counter_reg[8]_i_1_n_7 ),
         .Q(\button_sync_p.debounce_counter_reg [8]),
         .R(\button_sync_p.debounce_counter[0]_i_1_n_0 ));
@@ -3061,7 +3172,7 @@ module daq_bd_daq_top_0_0_daq_trigger_controller
         .S(\button_sync_p.debounce_counter_reg [11:8]));
   FDRE \button_sync_p.debounce_counter_reg[9] 
        (.C(CLK),
-        .CE(debounce_counter),
+        .CE(\button_sync_p.debounce_counter[0]_i_2_n_0 ),
         .D(\button_sync_p.debounce_counter_reg[8]_i_1_n_6 ),
         .Q(\button_sync_p.debounce_counter_reg [9]),
         .R(\button_sync_p.debounce_counter[0]_i_1_n_0 ));
@@ -3137,19 +3248,12 @@ module daq_bd_daq_top_0_0_daq_trigger_controller
         .D(D[9]),
         .Q(\data_reg[11]_0 [9]),
         .R(1'b0));
-  LUT3 #(
-    .INIT(8'hE0)) 
-    \green[0]_INST_0 
-       (.I0(CO),
-        .I1(\red[3] ),
-        .I2(DISPLAY_E_s),
-        .O(red));
   LUT2 #(
     .INIT(4'h2)) 
-    i__carry_i_1
+    i__carry_i_1__0
        (.I0(Q[4]),
         .I1(last_value[8]),
-        .O(i__carry_i_1_n_0));
+        .O(i__carry_i_1__0_n_0));
   LUT4 #(
     .INIT(16'h2F02)) 
     i__carry_i_2
@@ -3175,18 +3279,18 @@ module daq_bd_daq_top_0_0_daq_trigger_controller
   LUT4 #(
     .INIT(16'h9009)) 
     i__carry_i_5
-       (.I0(last_value[7]),
-        .I1(Q[3]),
-        .I2(last_value[6]),
-        .I3(Q[2]),
+       (.I0(Q[2]),
+        .I1(last_value[6]),
+        .I2(Q[3]),
+        .I3(last_value[7]),
         .O(i__carry_i_5_n_0));
   LUT4 #(
     .INIT(16'h9009)) 
     i__carry_i_6
-       (.I0(last_value[5]),
-        .I1(Q[1]),
-        .I2(last_value[4]),
-        .I3(Q[0]),
+       (.I0(Q[0]),
+        .I1(last_value[4]),
+        .I2(Q[1]),
+        .I3(last_value[5]),
         .O(i__carry_i_6_n_0));
   FDRE last_t_down_s_reg
        (.C(CLK),
@@ -3208,31 +3312,31 @@ module daq_bd_daq_top_0_0_daq_trigger_controller
   FDRE \last_value_reg[4] 
        (.C(CLK),
         .CE(1'b1),
-        .D(D[6]),
+        .D(D[7]),
         .Q(last_value[4]),
         .R(rst));
   FDRE \last_value_reg[5] 
        (.C(CLK),
         .CE(1'b1),
-        .D(D[7]),
+        .D(D[8]),
         .Q(last_value[5]),
         .R(rst));
   FDRE \last_value_reg[6] 
        (.C(CLK),
         .CE(1'b1),
-        .D(D[8]),
+        .D(D[9]),
         .Q(last_value[6]),
         .R(rst));
   FDRE \last_value_reg[7] 
        (.C(CLK),
         .CE(1'b1),
-        .D(D[9]),
+        .D(D[10]),
         .Q(last_value[7]),
         .R(rst));
   FDRE \last_value_reg[8] 
        (.C(CLK),
         .CE(1'b1),
-        .D(D[10]),
+        .D(D[11]),
         .Q(last_value[8]),
         .R(rst));
   FDRE last_vsync_reg
@@ -3254,11 +3358,11 @@ module daq_bd_daq_top_0_0_daq_trigger_controller
        (.I0(period_counter_reg[9]),
         .O(period_counter1_carry_i_1_n_0));
   LUT3 #(
-    .INIT(8'h10)) 
+    .INIT(8'h02)) 
     period_counter1_carry_i_2
-       (.I0(period_counter_reg[8]),
-        .I1(period_counter_reg[7]),
-        .I2(period_counter_reg[6]),
+       (.I0(period_counter_reg[6]),
+        .I1(period_counter_reg[8]),
+        .I2(period_counter_reg[7]),
         .O(period_counter1_carry_i_2_n_0));
   LUT3 #(
     .INIT(8'h04)) 
@@ -3268,25 +3372,25 @@ module daq_bd_daq_top_0_0_daq_trigger_controller
         .I2(period_counter_reg[3]),
         .O(period_counter1_carry_i_3_n_0));
   LUT3 #(
-    .INIT(8'h40)) 
+    .INIT(8'h20)) 
     period_counter1_carry_i_4
-       (.I0(period_counter_reg[2]),
-        .I1(period_counter_reg[1]),
-        .I2(period_counter_reg[0]),
+       (.I0(period_counter_reg[0]),
+        .I1(period_counter_reg[2]),
+        .I2(period_counter_reg[1]),
         .O(period_counter1_carry_i_4_n_0));
   LUT1 #(
     .INIT(2'h1)) 
     \period_counter[0]_i_1 
        (.I0(period_counter_reg[0]),
         .O(p_0_in__0[0]));
-  (* SOFT_HLUTNM = "soft_lutpair35" *) 
+  (* SOFT_HLUTNM = "soft_lutpair34" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \period_counter[1]_i_1 
        (.I0(period_counter_reg[0]),
         .I1(period_counter_reg[1]),
         .O(p_0_in__0[1]));
-  (* SOFT_HLUTNM = "soft_lutpair35" *) 
+  (* SOFT_HLUTNM = "soft_lutpair34" *) 
   LUT3 #(
     .INIT(8'h78)) 
     \period_counter[2]_i_1 
@@ -3294,7 +3398,7 @@ module daq_bd_daq_top_0_0_daq_trigger_controller
         .I1(period_counter_reg[1]),
         .I2(period_counter_reg[2]),
         .O(p_0_in__0[2]));
-  (* SOFT_HLUTNM = "soft_lutpair28" *) 
+  (* SOFT_HLUTNM = "soft_lutpair29" *) 
   LUT4 #(
     .INIT(16'h7F80)) 
     \period_counter[3]_i_1 
@@ -3303,7 +3407,7 @@ module daq_bd_daq_top_0_0_daq_trigger_controller
         .I2(period_counter_reg[2]),
         .I3(period_counter_reg[3]),
         .O(p_0_in__0[3]));
-  (* SOFT_HLUTNM = "soft_lutpair28" *) 
+  (* SOFT_HLUTNM = "soft_lutpair29" *) 
   LUT5 #(
     .INIT(32'h7FFF8000)) 
     \period_counter[4]_i_1 
@@ -3323,14 +3427,14 @@ module daq_bd_daq_top_0_0_daq_trigger_controller
         .I4(period_counter_reg[4]),
         .I5(period_counter_reg[5]),
         .O(p_0_in__0[5]));
-  (* SOFT_HLUTNM = "soft_lutpair36" *) 
+  (* SOFT_HLUTNM = "soft_lutpair33" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \period_counter[6]_i_1 
        (.I0(\period_counter[9]_i_3_n_0 ),
         .I1(period_counter_reg[6]),
         .O(p_0_in__0[6]));
-  (* SOFT_HLUTNM = "soft_lutpair36" *) 
+  (* SOFT_HLUTNM = "soft_lutpair33" *) 
   LUT3 #(
     .INIT(8'h78)) 
     \period_counter[7]_i_1 
@@ -3338,7 +3442,7 @@ module daq_bd_daq_top_0_0_daq_trigger_controller
         .I1(period_counter_reg[6]),
         .I2(period_counter_reg[7]),
         .O(p_0_in__0[7]));
-  (* SOFT_HLUTNM = "soft_lutpair29" *) 
+  (* SOFT_HLUTNM = "soft_lutpair28" *) 
   LUT4 #(
     .INIT(16'h7F80)) 
     \period_counter[8]_i_1 
@@ -3348,16 +3452,16 @@ module daq_bd_daq_top_0_0_daq_trigger_controller
         .I3(period_counter_reg[8]),
         .O(p_0_in__0[8]));
   LUT6 #(
-    .INIT(64'hDDFDDDFDDDFDFDFD)) 
+    .INIT(64'hDDDDDDFDFDFDFDFD)) 
     \period_counter[9]_i_1 
        (.I0(RSTN),
         .I1(trigger_reg_n_0),
         .I2(period_counter19_in),
-        .I3(sample_index_reg[10]),
+        .I3(sample_index_reg[8]),
         .I4(sample_index_reg[9]),
-        .I5(sample_index_reg[8]),
+        .I5(sample_index_reg[10]),
         .O(\period_counter[9]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair29" *) 
+  (* SOFT_HLUTNM = "soft_lutpair28" *) 
   LUT5 #(
     .INIT(32'h7FFF8000)) 
     \period_counter[9]_i_2 
@@ -3447,13 +3551,13 @@ module daq_bd_daq_top_0_0_daq_trigger_controller
     \sample_index[10]_i_1 
        (.I0(trigger_reg_n_0),
         .I1(RSTN),
-        .O(sample_period0));
+        .O(\sample_index[10]_i_1_n_0 ));
   LUT4 #(
-    .INIT(16'h1F00)) 
+    .INIT(16'h5700)) 
     \sample_index[10]_i_2 
-       (.I0(sample_index_reg[8]),
+       (.I0(sample_index_reg[10]),
         .I1(sample_index_reg[9]),
-        .I2(sample_index_reg[10]),
+        .I2(sample_index_reg[8]),
         .I3(period_counter19_in),
         .O(period_counter0));
   LUT6 #(
@@ -3476,14 +3580,14 @@ module daq_bd_daq_top_0_0_daq_trigger_controller
         .I4(sample_index_reg[2]),
         .I5(sample_index_reg[4]),
         .O(\sample_index[10]_i_4_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair37" *) 
+  (* SOFT_HLUTNM = "soft_lutpair36" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \sample_index[1]_i_1 
        (.I0(sample_index_reg[0]),
         .I1(sample_index_reg[1]),
         .O(p_0_in__1[1]));
-  (* SOFT_HLUTNM = "soft_lutpair37" *) 
+  (* SOFT_HLUTNM = "soft_lutpair36" *) 
   LUT3 #(
     .INIT(8'h78)) 
     \sample_index[2]_i_1 
@@ -3491,7 +3595,7 @@ module daq_bd_daq_top_0_0_daq_trigger_controller
         .I1(sample_index_reg[1]),
         .I2(sample_index_reg[2]),
         .O(p_0_in__1[2]));
-  (* SOFT_HLUTNM = "soft_lutpair30" *) 
+  (* SOFT_HLUTNM = "soft_lutpair31" *) 
   LUT4 #(
     .INIT(16'h7F80)) 
     \sample_index[3]_i_1 
@@ -3500,7 +3604,7 @@ module daq_bd_daq_top_0_0_daq_trigger_controller
         .I2(sample_index_reg[2]),
         .I3(sample_index_reg[3]),
         .O(p_0_in__1[3]));
-  (* SOFT_HLUTNM = "soft_lutpair30" *) 
+  (* SOFT_HLUTNM = "soft_lutpair31" *) 
   LUT5 #(
     .INIT(32'h7FFF8000)) 
     \sample_index[4]_i_1 
@@ -3520,14 +3624,14 @@ module daq_bd_daq_top_0_0_daq_trigger_controller
         .I4(sample_index_reg[4]),
         .I5(sample_index_reg[5]),
         .O(p_0_in__1[5]));
-  (* SOFT_HLUTNM = "soft_lutpair38" *) 
+  (* SOFT_HLUTNM = "soft_lutpair35" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \sample_index[6]_i_1 
        (.I0(\sample_index[10]_i_4_n_0 ),
         .I1(sample_index_reg[6]),
         .O(p_0_in__1[6]));
-  (* SOFT_HLUTNM = "soft_lutpair38" *) 
+  (* SOFT_HLUTNM = "soft_lutpair35" *) 
   LUT3 #(
     .INIT(8'h78)) 
     \sample_index[7]_i_1 
@@ -3535,7 +3639,7 @@ module daq_bd_daq_top_0_0_daq_trigger_controller
         .I1(sample_index_reg[6]),
         .I2(sample_index_reg[7]),
         .O(p_0_in__1[7]));
-  (* SOFT_HLUTNM = "soft_lutpair31" *) 
+  (* SOFT_HLUTNM = "soft_lutpair30" *) 
   LUT4 #(
     .INIT(16'h7F80)) 
     \sample_index[8]_i_1 
@@ -3544,7 +3648,7 @@ module daq_bd_daq_top_0_0_daq_trigger_controller
         .I2(sample_index_reg[7]),
         .I3(sample_index_reg[8]),
         .O(p_0_in__1[8]));
-  (* SOFT_HLUTNM = "soft_lutpair31" *) 
+  (* SOFT_HLUTNM = "soft_lutpair30" *) 
   LUT5 #(
     .INIT(32'h7FFF8000)) 
     \sample_index[9]_i_1 
@@ -3559,67 +3663,67 @@ module daq_bd_daq_top_0_0_daq_trigger_controller
         .CE(period_counter0),
         .D(p_0_in__1[0]),
         .Q(sample_index_reg[0]),
-        .R(sample_period0));
+        .R(\sample_index[10]_i_1_n_0 ));
   FDRE \sample_index_reg[10] 
        (.C(CLK),
         .CE(period_counter0),
         .D(p_0_in__1[10]),
         .Q(sample_index_reg[10]),
-        .R(sample_period0));
+        .R(\sample_index[10]_i_1_n_0 ));
   FDRE \sample_index_reg[1] 
        (.C(CLK),
         .CE(period_counter0),
         .D(p_0_in__1[1]),
         .Q(sample_index_reg[1]),
-        .R(sample_period0));
+        .R(\sample_index[10]_i_1_n_0 ));
   FDRE \sample_index_reg[2] 
        (.C(CLK),
         .CE(period_counter0),
         .D(p_0_in__1[2]),
         .Q(sample_index_reg[2]),
-        .R(sample_period0));
+        .R(\sample_index[10]_i_1_n_0 ));
   FDRE \sample_index_reg[3] 
        (.C(CLK),
         .CE(period_counter0),
         .D(p_0_in__1[3]),
         .Q(sample_index_reg[3]),
-        .R(sample_period0));
+        .R(\sample_index[10]_i_1_n_0 ));
   FDRE \sample_index_reg[4] 
        (.C(CLK),
         .CE(period_counter0),
         .D(p_0_in__1[4]),
         .Q(sample_index_reg[4]),
-        .R(sample_period0));
+        .R(\sample_index[10]_i_1_n_0 ));
   FDRE \sample_index_reg[5] 
        (.C(CLK),
         .CE(period_counter0),
         .D(p_0_in__1[5]),
         .Q(sample_index_reg[5]),
-        .R(sample_period0));
+        .R(\sample_index[10]_i_1_n_0 ));
   FDRE \sample_index_reg[6] 
        (.C(CLK),
         .CE(period_counter0),
         .D(p_0_in__1[6]),
         .Q(sample_index_reg[6]),
-        .R(sample_period0));
+        .R(\sample_index[10]_i_1_n_0 ));
   FDRE \sample_index_reg[7] 
        (.C(CLK),
         .CE(period_counter0),
         .D(p_0_in__1[7]),
         .Q(sample_index_reg[7]),
-        .R(sample_period0));
+        .R(\sample_index[10]_i_1_n_0 ));
   FDRE \sample_index_reg[8] 
        (.C(CLK),
         .CE(period_counter0),
         .D(p_0_in__1[8]),
         .Q(sample_index_reg[8]),
-        .R(sample_period0));
+        .R(\sample_index[10]_i_1_n_0 ));
   FDRE \sample_index_reg[9] 
        (.C(CLK),
         .CE(period_counter0),
         .D(p_0_in__1[9]),
         .Q(sample_index_reg[9]),
-        .R(sample_period0));
+        .R(\sample_index[10]_i_1_n_0 ));
   FDRE t1_reg
        (.C(CLK),
         .CE(RSTN),
@@ -3638,7 +3742,6 @@ module daq_bd_daq_top_0_0_daq_trigger_controller
         .D(trigger_n_p),
         .Q(t3),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair33" *) 
   LUT2 #(
     .INIT(4'h2)) 
     t_down_edge_i_1
@@ -3651,25 +3754,16 @@ module daq_bd_daq_top_0_0_daq_trigger_controller
         .D(t_down_edge0),
         .Q(t_down_edge),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair32" *) 
-  LUT4 #(
-    .INIT(16'h888A)) 
-    t_down_pressed_i_1
-       (.I0(t_down_pressed_i_2_n_0),
-        .I1(\button_sync_p.debounce_counter[0]_i_5_n_0 ),
-        .I2(\button_sync_p.debounce_counter[0]_i_4_n_0 ),
-        .I3(FSM_sequential_button_state_reg_n_0),
-        .O(t_down_pressed_i_1_n_0));
   LUT6 #(
-    .INIT(64'hACAFFFFFACA00000)) 
-    t_down_pressed_i_2
-       (.I0(t_up_edge),
-        .I1(t_down_s),
-        .I2(button_state0__2),
-        .I3(button_state10_out),
-        .I4(RSTN),
-        .I5(t_down_pressed_reg_n_0),
-        .O(t_down_pressed_i_2_n_0));
+    .INIT(64'h00000000EEE222E2)) 
+    t_down_pressed_i_1
+       (.I0(t_down_pressed_reg_n_0),
+        .I1(t_up_pressed_i_2_n_0),
+        .I2(t_down_s),
+        .I3(button_state0__2),
+        .I4(t_up_edge),
+        .I5(t_up_pressed8_out),
+        .O(t_down_pressed_i_1_n_0));
   FDRE t_down_pressed_reg
        (.C(CLK),
         .CE(1'b1),
@@ -3689,23 +3783,15 @@ module daq_bd_daq_top_0_0_daq_trigger_controller
         .Q(t_np_edge),
         .R(1'b0));
   LUT6 #(
-    .INIT(64'hAA00AA00AA00AAE2)) 
+    .INIT(64'h000000E2AAAAAAAA)) 
     t_np_pressed_i_1
        (.I0(t_np_pressed),
         .I1(button_state10_out),
         .I2(t_np_s),
-        .I3(\button_sync_p.debounce_counter[0]_i_5_n_0 ),
-        .I4(\button_sync_p.debounce_counter[0]_i_4_n_0 ),
-        .I5(FSM_sequential_button_state_reg_n_0),
+        .I3(FSM_sequential_button_state_reg_n_0),
+        .I4(button_state1_carry__1_n_0),
+        .I5(FSM_sequential_button_state_i_2_n_0),
         .O(t_np_pressed_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair33" *) 
-  LUT3 #(
-    .INIT(8'hFE)) 
-    t_np_pressed_i_2
-       (.I0(t_down_s),
-        .I1(t_np_s),
-        .I2(t_up_s),
-        .O(button_state10_out));
   FDRE t_np_pressed_reg
        (.C(CLK),
         .CE(1'b1),
@@ -3730,34 +3816,36 @@ module daq_bd_daq_top_0_0_daq_trigger_controller
         .D(t_up_edge0),
         .Q(t_up_edge),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair32" *) 
-  LUT4 #(
-    .INIT(16'h888A)) 
-    t_up_pressed_i_1
-       (.I0(t_up_pressed_i_2_n_0),
-        .I1(\button_sync_p.debounce_counter[0]_i_5_n_0 ),
-        .I2(\button_sync_p.debounce_counter[0]_i_4_n_0 ),
-        .I3(FSM_sequential_button_state_reg_n_0),
-        .O(t_up_pressed_i_1_n_0));
   LUT6 #(
-    .INIT(64'hACAFFFFFACA00000)) 
-    t_up_pressed_i_2
-       (.I0(t_up_edge),
-        .I1(t_up_s),
-        .I2(button_state0__2),
-        .I3(button_state10_out),
-        .I4(RSTN),
-        .I5(t_up_pressed_reg_n_0),
-        .O(t_up_pressed_i_2_n_0));
+    .INIT(64'h00000000EEE222E2)) 
+    t_up_pressed_i_1
+       (.I0(t_up_pressed_reg_n_0),
+        .I1(t_up_pressed_i_2_n_0),
+        .I2(t_up_s),
+        .I3(button_state0__2),
+        .I4(t_up_edge),
+        .I5(t_up_pressed8_out),
+        .O(t_up_pressed_i_1_n_0));
   (* SOFT_HLUTNM = "soft_lutpair26" *) 
-  LUT4 #(
-    .INIT(16'hFE00)) 
+  LUT5 #(
+    .INIT(32'hFFFE0000)) 
+    t_up_pressed_i_2
+       (.I0(t_up_s),
+        .I1(t_down_s),
+        .I2(t_np_s),
+        .I3(button_state0__2),
+        .I4(RSTN),
+        .O(t_up_pressed_i_2_n_0));
+  LUT6 #(
+    .INIT(64'h01000100FF000000)) 
     t_up_pressed_i_3
-       (.I0(t_up_edge),
-        .I1(t_np_edge),
-        .I2(t_down_edge),
-        .I3(FSM_sequential_button_state_reg_n_0),
-        .O(button_state0__2));
+       (.I0(t_np_edge),
+        .I1(t_down_edge),
+        .I2(t_up_edge),
+        .I3(RSTN),
+        .I4(button_state1_carry__1_n_0),
+        .I5(FSM_sequential_button_state_reg_n_0),
+        .O(t_up_pressed8_out));
   FDRE t_up_pressed_reg
        (.C(CLK),
         .CE(1'b1),
@@ -3775,66 +3863,49 @@ module daq_bd_daq_top_0_0_daq_trigger_controller
        (.CI(1'b0),
         .CO({trigger2_carry_n_0,trigger2_carry_n_1,trigger2_carry_n_2,trigger2_carry_n_3}),
         .CYINIT(1'b1),
-        .DI(DI),
+        .DI(trigger2_carry__0_0),
         .O(NLW_trigger2_carry_O_UNCONNECTED[3:0]),
-        .S({trigger2_carry_i_5_n_0,trigger2_carry_i_6_n_0,S}));
+        .S(S));
   (* COMPARATOR_THRESHOLD = "11" *) 
   CARRY4 trigger2_carry__0
        (.CI(trigger2_carry_n_0),
         .CO({NLW_trigger2_carry__0_CO_UNCONNECTED[3:1],trigger21_in}),
         .CYINIT(1'b0),
-        .DI({1'b0,1'b0,1'b0,trigger_reg_0}),
+        .DI({1'b0,1'b0,1'b0,DI}),
         .O(NLW_trigger2_carry__0_O_UNCONNECTED[3:0]),
         .S({1'b0,1'b0,1'b0,trigger2_carry__0_i_2_n_0}));
   LUT2 #(
     .INIT(4'h9)) 
     trigger2_carry__0_i_2
        (.I0(Q[4]),
-        .I1(D[10]),
+        .I1(D[11]),
         .O(trigger2_carry__0_i_2_n_0));
-  LUT4 #(
-    .INIT(16'h9009)) 
-    trigger2_carry_i_5
-       (.I0(Q[3]),
-        .I1(D[9]),
-        .I2(D[8]),
-        .I3(Q[2]),
-        .O(trigger2_carry_i_5_n_0));
-  LUT4 #(
-    .INIT(16'h9009)) 
-    trigger2_carry_i_6
-       (.I0(Q[1]),
-        .I1(D[7]),
-        .I2(D[6]),
-        .I3(Q[0]),
-        .O(trigger2_carry_i_6_n_0));
   (* COMPARATOR_THRESHOLD = "11" *) 
   CARRY4 \trigger2_inferred__1/i__carry 
        (.CI(1'b0),
         .CO({\NLW_trigger2_inferred__1/i__carry_CO_UNCONNECTED [3],trigger2,\trigger2_inferred__1/i__carry_n_2 ,\trigger2_inferred__1/i__carry_n_3 }),
         .CYINIT(1'b0),
-        .DI({1'b0,i__carry_i_1_n_0,i__carry_i_2_n_0,i__carry_i_3_n_0}),
+        .DI({1'b0,i__carry_i_1__0_n_0,i__carry_i_2_n_0,i__carry_i_3_n_0}),
         .O(\NLW_trigger2_inferred__1/i__carry_O_UNCONNECTED [3:0]),
         .S({1'b0,i__carry_i_4_n_0,i__carry_i_5_n_0,i__carry_i_6_n_0}));
-  (* SOFT_HLUTNM = "soft_lutpair25" *) 
   LUT5 #(
-    .INIT(32'h20000002)) 
+    .INIT(32'h00810000)) 
     trigger_i_1
-       (.I0(vsync_edge_reg_n_0),
-        .I1(trigger_reg_n_0),
-        .I2(trigger21_in),
-        .I3(trigger_np_s),
-        .I4(trigger2),
+       (.I0(trigger21_in),
+        .I1(trigger_np_s),
+        .I2(trigger2),
+        .I3(trigger_reg_n_0),
+        .I4(vsync_edge_reg_n_0),
         .O(trigger_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair34" *) 
+  (* SOFT_HLUTNM = "soft_lutpair32" *) 
   LUT1 #(
     .INIT(2'h1)) 
     \trigger_level_s[4]_i_1 
        (.I0(Q[0]),
         .O(\trigger_level_s[4]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair34" *) 
+  (* SOFT_HLUTNM = "soft_lutpair32" *) 
   LUT3 #(
-    .INIT(8'h69)) 
+    .INIT(8'h96)) 
     \trigger_level_s[5]_i_1 
        (.I0(t_up_pressed_reg_n_0),
         .I1(Q[1]),
@@ -3842,21 +3913,21 @@ module daq_bd_daq_top_0_0_daq_trigger_controller
         .O(p_0_in[5]));
   (* SOFT_HLUTNM = "soft_lutpair27" *) 
   LUT4 #(
-    .INIT(16'h7E81)) 
+    .INIT(16'hBD42)) 
     \trigger_level_s[6]_i_1 
-       (.I0(Q[0]),
-        .I1(Q[1]),
-        .I2(t_up_pressed_reg_n_0),
+       (.I0(t_up_pressed_reg_n_0),
+        .I1(Q[0]),
+        .I2(Q[1]),
         .I3(Q[2]),
         .O(p_0_in[6]));
   (* SOFT_HLUTNM = "soft_lutpair27" *) 
   LUT5 #(
-    .INIT(32'h7FFE8001)) 
+    .INIT(32'hBFFD4002)) 
     \trigger_level_s[7]_i_1 
-       (.I0(Q[1]),
-        .I1(Q[0]),
-        .I2(Q[2]),
-        .I3(t_up_pressed_reg_n_0),
+       (.I0(t_up_pressed_reg_n_0),
+        .I1(Q[1]),
+        .I2(Q[0]),
+        .I3(Q[2]),
         .I4(Q[3]),
         .O(p_0_in[7]));
   LUT2 #(
@@ -3866,13 +3937,13 @@ module daq_bd_daq_top_0_0_daq_trigger_controller
         .I1(t_down_pressed_reg_n_0),
         .O(\trigger_level_s[8]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h7FFFFFFE80000001)) 
+    .INIT(64'hBFFFFFFD40000002)) 
     \trigger_level_s[8]_i_2 
-       (.I0(Q[3]),
-        .I1(Q[1]),
+       (.I0(t_up_pressed_reg_n_0),
+        .I1(Q[2]),
         .I2(Q[0]),
-        .I3(Q[2]),
-        .I4(t_up_pressed_reg_n_0),
+        .I3(Q[1]),
+        .I4(Q[3]),
         .I5(Q[4]),
         .O(p_0_in[8]));
   FDRE \trigger_level_s_reg[4] 
@@ -3924,24 +3995,14 @@ module daq_bd_daq_top_0_0_daq_trigger_controller
         .Q(trigger_reg_n_0),
         .R(rst));
   LUT5 #(
-    .INIT(32'h5F5F1000)) 
+    .INIT(32'h00AEAAAA)) 
     vsync_edge_i_1
-       (.I0(vsync_edge_i_2_n_0),
-        .I1(last_vsync_reg_0),
-        .I2(RSTN),
-        .I3(last_vsync),
-        .I4(vsync_edge_reg_n_0),
+       (.I0(vsync_edge_reg_n_0),
+        .I1(last_vsync),
+        .I2(last_vsync_reg_0),
+        .I3(trigger_i_1_n_0),
+        .I4(RSTN),
         .O(vsync_edge_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair25" *) 
-  LUT5 #(
-    .INIT(32'h00008100)) 
-    vsync_edge_i_2
-       (.I0(trigger21_in),
-        .I1(trigger_np_s),
-        .I2(trigger2),
-        .I3(vsync_edge_reg_n_0),
-        .I4(trigger_reg_n_0),
-        .O(vsync_edge_i_2_n_0));
   FDRE vsync_edge_reg
        (.C(CLK),
         .CE(1'b1),
@@ -3949,13 +4010,13 @@ module daq_bd_daq_top_0_0_daq_trigger_controller
         .Q(vsync_edge_reg_n_0),
         .R(1'b0));
   LUT6 #(
-    .INIT(64'h888BBBBB88888888)) 
+    .INIT(64'h8B8B8BBB88888888)) 
     we_i_1
        (.I0(WEA),
-        .I1(sample_period0),
-        .I2(sample_index_reg[8]),
+        .I1(\sample_index[10]_i_1_n_0 ),
+        .I2(sample_index_reg[10]),
         .I3(sample_index_reg[9]),
-        .I4(sample_index_reg[10]),
+        .I4(sample_index_reg[8]),
         .I5(period_counter19_in),
         .O(we_i_1_n_0));
   FDRE we_reg
@@ -3969,64 +4030,64 @@ endmodule
 (* ORIG_REF_NAME = "daq_vga_controller" *) 
 module daq_bd_daq_top_0_0_daq_vga_controller
    (addr_out,
-    out,
-    CO,
-    mem_reg_1,
     hsync,
     VS_s_reg,
-    DISPLAY_E_s,
     \c_y_reg[8] ,
+    red,
     blue,
     CLK,
-    \blue[3] ,
-    S,
-    RSTN);
+    \red[3] ,
+    RSTN,
+    Q,
+    data_out);
   output [11:0]addr_out;
-  output [0:0]out;
-  output [0:0]CO;
-  output [0:0]mem_reg_1;
   output hsync;
   output VS_s_reg;
-  output DISPLAY_E_s;
-  output [7:0]\c_y_reg[8] ;
+  output [2:0]\c_y_reg[8] ;
+  output [0:0]red;
   output [0:0]blue;
   input CLK;
-  input [1:0]\blue[3] ;
-  input [2:0]S;
+  input [0:0]\red[3] ;
   input RSTN;
+  input [2:0]Q;
+  input [8:0]data_out;
 
   wire CLK;
-  wire [0:0]CO;
-  wire DISPLAY_E_s;
   wire [11:9]PY;
+  wire [2:0]Q;
+  wire RGB_out1;
   wire RSTN;
-  wire [2:0]S;
   wire VS_s_reg;
   wire [11:0]addr_out;
   wire [0:0]blue;
-  wire [1:0]\blue[3] ;
-  wire [7:0]\c_y_reg[8] ;
+  wire [2:0]\c_y_reg[8] ;
+  wire [8:0]data_out;
   wire hsync;
-  wire [0:0]mem_reg_1;
-  wire [0:0]out;
+  wire [0:0]red;
+  wire [0:0]\red[3] ;
+  wire signal_rgb1;
   wire signal_rgb1_carry_i_1_n_0;
   wire signal_rgb1_carry_n_1;
   wire signal_rgb1_carry_n_2;
   wire signal_rgb1_carry_n_3;
+  wire vga_timing_n_14;
+  wire vga_timing_n_15;
   wire vga_timing_n_19;
+  wire vga_timing_n_20;
+  wire vga_timing_n_21;
   wire [3:0]NLW_signal_rgb1_carry_O_UNCONNECTED;
 
   daq_bd_daq_top_0_0_cross_generator cross_overlay
-       (.CO(CO),
+       (.CO(RGB_out1),
         .O(PY),
-        .S({\blue[3] ,vga_timing_n_19}));
+        .S({vga_timing_n_14,\red[3] ,vga_timing_n_15}));
   CARRY4 signal_rgb1_carry
        (.CI(1'b0),
-        .CO({mem_reg_1,signal_rgb1_carry_n_1,signal_rgb1_carry_n_2,signal_rgb1_carry_n_3}),
+        .CO({signal_rgb1,signal_rgb1_carry_n_1,signal_rgb1_carry_n_2,signal_rgb1_carry_n_3}),
         .CYINIT(1'b1),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O(NLW_signal_rgb1_carry_O_UNCONNECTED[3:0]),
-        .S({signal_rgb1_carry_i_1_n_0,S}));
+        .S({signal_rgb1_carry_i_1_n_0,vga_timing_n_19,vga_timing_n_20,vga_timing_n_21}));
   LUT3 #(
     .INIT(8'h01)) 
     signal_rgb1_carry_i_1
@@ -4036,36 +4097,39 @@ module daq_bd_daq_top_0_0_daq_vga_controller
         .O(signal_rgb1_carry_i_1_n_0));
   daq_bd_daq_top_0_0_vga_sync_gen vga_timing
        (.CLK(CLK),
-        .CO(CO),
-        .DISPLAY_E_s(DISPLAY_E_s),
+        .CO(signal_rgb1),
         .O(PY),
+        .Q(Q),
         .RSTN(RSTN),
         .S(addr_out[1]),
         .VS_s_reg_0(VS_s_reg),
         .addr_out(addr_out[11:2]),
         .blue(blue),
         .\c_x_reg[0]_0 (addr_out[0]),
-        .\c_y_reg[0]_0 (vga_timing_n_19),
         .\c_y_reg[8]_0 (\c_y_reg[8] ),
+        .data_out(data_out),
         .hsync(hsync),
-        .out(out));
+        .mem_reg_1({vga_timing_n_19,vga_timing_n_20,vga_timing_n_21}),
+        .red(red),
+        .\red[3] (RGB_out1),
+        .\trigger_level_s_reg[6] ({vga_timing_n_14,vga_timing_n_15}));
 endmodule
 
 (* ORIG_REF_NAME = "o_generic_sr" *) 
 module daq_bd_daq_top_0_0_o_generic_sr
-   (DI,
+   (S,
     Q,
-    S,
-    \Q_reg[10]_0 ,
+    DI,
+    \Q_reg[9]_0 ,
     OE_s_reg_0,
     CLK,
     trigger2_carry__0,
     ce,
     sdata1);
-  output [3:0]DI;
+  output [3:0]S;
   output [11:0]Q;
-  output [1:0]S;
-  output [0:0]\Q_reg[10]_0 ;
+  output [0:0]DI;
+  output [3:0]\Q_reg[9]_0 ;
   input OE_s_reg_0;
   input CLK;
   input [4:0]trigger2_carry__0;
@@ -4073,13 +4137,13 @@ module daq_bd_daq_top_0_0_o_generic_sr
   input sdata1;
 
   wire CLK;
-  wire [3:0]DI;
+  wire [0:0]DI;
   wire OE_s;
   wire OE_s_reg_0;
   wire [11:0]Q;
   wire \Q[11]_i_1_n_0 ;
-  wire [0:0]\Q_reg[10]_0 ;
-  wire [1:0]S;
+  wire [3:0]\Q_reg[9]_0 ;
+  wire [3:0]S;
   wire ce;
   wire [11:0]p_1_in;
   wire sdata1;
@@ -4341,64 +4405,76 @@ module daq_bd_daq_top_0_0_o_generic_sr
   LUT2 #(
     .INIT(4'h2)) 
     trigger2_carry__0_i_1
-       (.I0(Q[10]),
+       (.I0(Q[11]),
         .I1(trigger2_carry__0[4]),
-        .O(\Q_reg[10]_0 ));
+        .O(DI));
   LUT4 #(
     .INIT(16'h2F02)) 
     trigger2_carry_i_1
-       (.I0(Q[8]),
+       (.I0(Q[9]),
         .I1(trigger2_carry__0[2]),
         .I2(trigger2_carry__0[3]),
-        .I3(Q[9]),
-        .O(DI[3]));
+        .I3(Q[10]),
+        .O(\Q_reg[9]_0 [3]));
   LUT4 #(
     .INIT(16'h2F02)) 
     trigger2_carry_i_2
-       (.I0(Q[6]),
+       (.I0(Q[7]),
         .I1(trigger2_carry__0[0]),
         .I2(trigger2_carry__0[1]),
-        .I3(Q[7]),
-        .O(DI[2]));
+        .I3(Q[8]),
+        .O(\Q_reg[9]_0 [2]));
   LUT2 #(
     .INIT(4'hE)) 
     trigger2_carry_i_3
-       (.I0(Q[4]),
-        .I1(Q[5]),
-        .O(DI[1]));
+       (.I0(Q[5]),
+        .I1(Q[6]),
+        .O(\Q_reg[9]_0 [1]));
   LUT2 #(
     .INIT(4'hE)) 
     trigger2_carry_i_4
-       (.I0(Q[2]),
-        .I1(Q[3]),
-        .O(DI[0]));
+       (.I0(Q[3]),
+        .I1(Q[4]),
+        .O(\Q_reg[9]_0 [0]));
+  LUT4 #(
+    .INIT(16'h9009)) 
+    trigger2_carry_i_5
+       (.I0(Q[9]),
+        .I1(trigger2_carry__0[2]),
+        .I2(Q[10]),
+        .I3(trigger2_carry__0[3]),
+        .O(S[3]));
+  LUT4 #(
+    .INIT(16'h9009)) 
+    trigger2_carry_i_6
+       (.I0(Q[7]),
+        .I1(trigger2_carry__0[0]),
+        .I2(Q[8]),
+        .I3(trigger2_carry__0[1]),
+        .O(S[2]));
   LUT2 #(
     .INIT(4'h1)) 
     trigger2_carry_i_7
        (.I0(Q[5]),
-        .I1(Q[4]),
+        .I1(Q[6]),
         .O(S[1]));
   LUT2 #(
     .INIT(4'h1)) 
     trigger2_carry_i_8
        (.I0(Q[3]),
-        .I1(Q[2]),
+        .I1(Q[4]),
         .O(S[0]));
 endmodule
 
 (* ORIG_REF_NAME = "sync_ram_dualport" *) 
 module daq_bd_daq_top_0_0_sync_ram_dualport
-   (S,
-    PY,
-    out,
+   (data_out,
     CLK,
     WEA,
     Q,
     addr_out,
     mem_reg_1_0);
-  output [2:0]S;
-  input [7:0]PY;
-  input [0:0]out;
+  output [8:0]data_out;
   input CLK;
   input [0:0]WEA;
   input [10:0]Q;
@@ -4406,17 +4482,14 @@ module daq_bd_daq_top_0_0_sync_ram_dualport
   input [11:0]mem_reg_1_0;
 
   wire CLK;
-  wire [7:0]PY;
   wire [10:0]Q;
-  wire [2:0]S;
   wire [0:0]WEA;
   wire [11:0]addr_out;
-  wire [11:3]data;
+  wire [8:0]data_out;
   wire mem_reg_0_n_65;
   wire mem_reg_0_n_66;
   wire mem_reg_0_n_67;
   wire [11:0]mem_reg_1_0;
-  wire [0:0]out;
   wire NLW_mem_reg_0_CASCADEOUTA_UNCONNECTED;
   wire NLW_mem_reg_0_CASCADEOUTB_UNCONNECTED;
   wire NLW_mem_reg_0_DBITERR_UNCONNECTED;
@@ -4627,9 +4700,9 @@ module daq_bd_daq_top_0_0_sync_ram_dualport
         .DIPADIP({1'b0,1'b0,1'b0,mem_reg_1_0[8]}),
         .DIPBDIP({1'b0,1'b0,1'b0,1'b1}),
         .DOADO(NLW_mem_reg_0_DOADO_UNCONNECTED[31:0]),
-        .DOBDO({NLW_mem_reg_0_DOBDO_UNCONNECTED[31:8],data[7:3],mem_reg_0_n_65,mem_reg_0_n_66,mem_reg_0_n_67}),
+        .DOBDO({NLW_mem_reg_0_DOBDO_UNCONNECTED[31:8],data_out[4:0],mem_reg_0_n_65,mem_reg_0_n_66,mem_reg_0_n_67}),
         .DOPADOP(NLW_mem_reg_0_DOPADOP_UNCONNECTED[3:0]),
-        .DOPBDOP({NLW_mem_reg_0_DOPBDOP_UNCONNECTED[3:1],data[8]}),
+        .DOPBDOP({NLW_mem_reg_0_DOPBDOP_UNCONNECTED[3:1],data_out[5]}),
         .ECCPARITY(NLW_mem_reg_0_ECCPARITY_UNCONNECTED[7:0]),
         .ENARDEN(WEA),
         .ENBWREN(1'b1),
@@ -4757,7 +4830,7 @@ module daq_bd_daq_top_0_0_sync_ram_dualport
         .DIPADIP({1'b0,1'b0}),
         .DIPBDIP({1'b0,1'b0}),
         .DOADO(NLW_mem_reg_1_DOADO_UNCONNECTED[15:0]),
-        .DOBDO({NLW_mem_reg_1_DOBDO_UNCONNECTED[15:3],data[11:9]}),
+        .DOBDO({NLW_mem_reg_1_DOBDO_UNCONNECTED[15:3],data_out[8:6]}),
         .DOPADOP(NLW_mem_reg_1_DOPADOP_UNCONNECTED[1:0]),
         .DOPBDOP(NLW_mem_reg_1_DOPBDOP_UNCONNECTED[1:0]),
         .ENARDEN(WEA),
@@ -4770,36 +4843,6 @@ module daq_bd_daq_top_0_0_sync_ram_dualport
         .RSTREGB(1'b0),
         .WEA({WEA,1'b1}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0}));
-  LUT6 #(
-    .INIT(64'h9009000000009009)) 
-    signal_rgb1_carry_i_2
-       (.I0(PY[6]),
-        .I1(data[10]),
-        .I2(PY[5]),
-        .I3(data[9]),
-        .I4(PY[7]),
-        .I5(data[11]),
-        .O(S[2]));
-  LUT6 #(
-    .INIT(64'h9009000000009009)) 
-    signal_rgb1_carry_i_3
-       (.I0(PY[3]),
-        .I1(data[7]),
-        .I2(PY[2]),
-        .I3(data[6]),
-        .I4(PY[4]),
-        .I5(data[8]),
-        .O(S[1]));
-  LUT6 #(
-    .INIT(64'h0990000000000990)) 
-    signal_rgb1_carry_i_4
-       (.I0(PY[0]),
-        .I1(data[4]),
-        .I2(out),
-        .I3(data[3]),
-        .I4(PY[1]),
-        .I5(data[5]),
-        .O(S[0]));
 endmodule
 
 (* ORIG_REF_NAME = "vga_sync_gen" *) 
@@ -4809,29 +4852,35 @@ module daq_bd_daq_top_0_0_vga_sync_gen
     addr_out,
     hsync,
     VS_s_reg_0,
-    DISPLAY_E_s,
-    out,
+    \trigger_level_s_reg[6] ,
     O,
-    \c_y_reg[0]_0 ,
+    mem_reg_1,
     \c_y_reg[8]_0 ,
+    red,
     blue,
     CLK,
     RSTN,
-    CO);
+    Q,
+    data_out,
+    CO,
+    \red[3] );
   output \c_x_reg[0]_0 ;
   output [0:0]S;
   output [9:0]addr_out;
   output hsync;
   output VS_s_reg_0;
-  output DISPLAY_E_s;
-  output [0:0]out;
+  output [1:0]\trigger_level_s_reg[6] ;
   output [2:0]O;
-  output [0:0]\c_y_reg[0]_0 ;
-  output [7:0]\c_y_reg[8]_0 ;
+  output [2:0]mem_reg_1;
+  output [2:0]\c_y_reg[8]_0 ;
+  output [0:0]red;
   output [0:0]blue;
   input CLK;
   input RSTN;
+  input [2:0]Q;
+  input [8:0]data_out;
   input [0:0]CO;
+  input [0:0]\red[3] ;
 
   wire CLK;
   wire [0:0]CO;
@@ -4869,9 +4918,9 @@ module daq_bd_daq_top_0_0_vga_sync_gen
   wire DISPLAY_E_s2_carry_n_1;
   wire DISPLAY_E_s2_carry_n_2;
   wire DISPLAY_E_s2_carry_n_3;
-  wire DISPLAY_E_s34_in;
   wire DISPLAY_E_s_i_1_n_0;
   wire DISPLAY_E_s_i_2_n_0;
+  wire DISPLAY_E_s_i_3_n_0;
   wire DISPLAY_E_s_i_4_n_0;
   wire DISPLAY_E_s_i_5_n_0;
   wire DISPLAY_E_s_i_6_n_0;
@@ -4879,6 +4928,7 @@ module daq_bd_daq_top_0_0_vga_sync_gen
   wire HS_s_i_2_n_0;
   wire HS_s_i_3_n_0;
   wire HS_s_i_4_n_0;
+  wire HS_s_i_5_n_0;
   wire [2:0]O;
   wire PIXEL_X_carry__0_i_1_n_0;
   wire PIXEL_X_carry__0_i_2_n_0;
@@ -4895,7 +4945,8 @@ module daq_bd_daq_top_0_0_vga_sync_gen
   wire PIXEL_X_carry_n_1;
   wire PIXEL_X_carry_n_2;
   wire PIXEL_X_carry_n_3;
-  wire [0:0]PY;
+  wire [8:0]PY;
+  wire [2:0]Q;
   wire RGB_out1_carry_i_10_n_0;
   wire RGB_out1_carry_i_11_n_0;
   wire RGB_out1_carry_i_12_n_0;
@@ -4923,25 +4974,20 @@ module daq_bd_daq_top_0_0_vga_sync_gen
   wire VS_s_i_4_n_0;
   wire VS_s_i_5_n_0;
   wire VS_s_i_6_n_0;
-  wire VS_s_i_7_n_0;
   wire VS_s_reg_0;
   wire [9:0]addr_out;
   wire [0:0]blue;
   wire c_x0;
-  wire \c_x[0]_i_1_n_0 ;
-  wire \c_x[0]_i_3_n_0 ;
-  wire \c_x[0]_i_4_n_0 ;
-  wire \c_x[0]_i_5_n_0 ;
-  wire \c_x[0]_i_6_n_0 ;
+  wire \c_x[0]_i_2_n_0 ;
   wire \c_x_reg[0]_0 ;
-  wire \c_x_reg[0]_i_2_n_0 ;
-  wire \c_x_reg[0]_i_2_n_1 ;
-  wire \c_x_reg[0]_i_2_n_2 ;
-  wire \c_x_reg[0]_i_2_n_3 ;
-  wire \c_x_reg[0]_i_2_n_4 ;
-  wire \c_x_reg[0]_i_2_n_5 ;
-  wire \c_x_reg[0]_i_2_n_6 ;
-  wire \c_x_reg[0]_i_2_n_7 ;
+  wire \c_x_reg[0]_i_1_n_0 ;
+  wire \c_x_reg[0]_i_1_n_1 ;
+  wire \c_x_reg[0]_i_1_n_2 ;
+  wire \c_x_reg[0]_i_1_n_3 ;
+  wire \c_x_reg[0]_i_1_n_4 ;
+  wire \c_x_reg[0]_i_1_n_5 ;
+  wire \c_x_reg[0]_i_1_n_6 ;
+  wire \c_x_reg[0]_i_1_n_7 ;
   wire \c_x_reg[4]_i_1_n_0 ;
   wire \c_x_reg[4]_i_1_n_1 ;
   wire \c_x_reg[4]_i_1_n_2 ;
@@ -4961,8 +5007,7 @@ module daq_bd_daq_top_0_0_vga_sync_gen
   wire \c_y[0]_i_1_n_0 ;
   wire \c_y[0]_i_4_n_0 ;
   wire \c_y[0]_i_6_n_0 ;
-  wire [11:1]c_y_reg;
-  wire [0:0]\c_y_reg[0]_0 ;
+  wire [11:0]c_y_reg;
   wire \c_y_reg[0]_i_3_n_0 ;
   wire \c_y_reg[0]_i_3_n_1 ;
   wire \c_y_reg[0]_i_3_n_2 ;
@@ -4979,7 +5024,7 @@ module daq_bd_daq_top_0_0_vga_sync_gen
   wire \c_y_reg[4]_i_1_n_5 ;
   wire \c_y_reg[4]_i_1_n_6 ;
   wire \c_y_reg[4]_i_1_n_7 ;
-  wire [7:0]\c_y_reg[8]_0 ;
+  wire [2:0]\c_y_reg[8]_0 ;
   wire \c_y_reg[8]_i_1_n_1 ;
   wire \c_y_reg[8]_i_1_n_2 ;
   wire \c_y_reg[8]_i_1_n_3 ;
@@ -4987,8 +5032,12 @@ module daq_bd_daq_top_0_0_vga_sync_gen
   wire \c_y_reg[8]_i_1_n_5 ;
   wire \c_y_reg[8]_i_1_n_6 ;
   wire \c_y_reg[8]_i_1_n_7 ;
+  wire [8:0]data_out;
   wire hsync;
-  wire [0:0]out;
+  wire [2:0]mem_reg_1;
+  wire [0:0]red;
+  wire [0:0]\red[3] ;
+  wire [1:0]\trigger_level_s_reg[6] ;
   wire [3:0]NLW_DISPLAY_E_s1_carry_O_UNCONNECTED;
   wire [3:2]NLW_DISPLAY_E_s1_carry__0_CO_UNCONNECTED;
   wire [3:0]NLW_DISPLAY_E_s1_carry__0_O_UNCONNECTED;
@@ -5049,14 +5098,14 @@ module daq_bd_daq_top_0_0_vga_sync_gen
   LUT2 #(
     .INIT(4'h1)) 
     DISPLAY_E_s1_carry_i_3
-       (.I0(c_y_reg[1]),
-        .I1(out),
+       (.I0(c_y_reg[0]),
+        .I1(c_y_reg[1]),
         .O(DISPLAY_E_s1_carry_i_3_n_0));
   LUT2 #(
     .INIT(4'h1)) 
     DISPLAY_E_s1_carry_i_4
-       (.I0(c_y_reg[7]),
-        .I1(c_y_reg[6]),
+       (.I0(c_y_reg[6]),
+        .I1(c_y_reg[7]),
         .O(DISPLAY_E_s1_carry_i_4_n_0));
   LUT2 #(
     .INIT(4'h2)) 
@@ -5073,7 +5122,7 @@ module daq_bd_daq_top_0_0_vga_sync_gen
   LUT2 #(
     .INIT(4'h2)) 
     DISPLAY_E_s1_carry_i_7
-       (.I0(out),
+       (.I0(c_y_reg[0]),
         .I1(c_y_reg[1]),
         .O(DISPLAY_E_s1_carry_i_7_n_0));
   (* COMPARATOR_THRESHOLD = "11" *) 
@@ -5095,14 +5144,14 @@ module daq_bd_daq_top_0_0_vga_sync_gen
   LUT2 #(
     .INIT(4'hE)) 
     DISPLAY_E_s2_carry__0_i_1
-       (.I0(c_y_reg[11]),
-        .I1(c_y_reg[10]),
+       (.I0(c_y_reg[10]),
+        .I1(c_y_reg[11]),
         .O(DISPLAY_E_s2_carry__0_i_1_n_0));
   LUT2 #(
     .INIT(4'hE)) 
     DISPLAY_E_s2_carry__0_i_2
-       (.I0(c_y_reg[9]),
-        .I1(c_y_reg[8]),
+       (.I0(c_y_reg[8]),
+        .I1(c_y_reg[9]),
         .O(DISPLAY_E_s2_carry__0_i_2_n_0));
   LUT2 #(
     .INIT(4'h1)) 
@@ -5137,8 +5186,8 @@ module daq_bd_daq_top_0_0_vga_sync_gen
   LUT2 #(
     .INIT(4'h1)) 
     DISPLAY_E_s2_carry_i_4
-       (.I0(c_y_reg[7]),
-        .I1(c_y_reg[6]),
+       (.I0(c_y_reg[6]),
+        .I1(c_y_reg[7]),
         .O(DISPLAY_E_s2_carry_i_4_n_0));
   LUT2 #(
     .INIT(4'h2)) 
@@ -5155,64 +5204,65 @@ module daq_bd_daq_top_0_0_vga_sync_gen
   LUT2 #(
     .INIT(4'h2)) 
     DISPLAY_E_s2_carry_i_7
-       (.I0(out),
+       (.I0(c_y_reg[0]),
         .I1(c_y_reg[1]),
         .O(DISPLAY_E_s2_carry_i_7_n_0));
-  LUT5 #(
-    .INIT(32'hBA8A8A8A)) 
+  LUT6 #(
+    .INIT(64'hFFFF08FF00000800)) 
     DISPLAY_E_s_i_1
-       (.I0(DISPLAY_E_s),
-        .I1(c_x0),
-        .I2(RSTN),
-        .I3(DISPLAY_E_s_i_2_n_0),
-        .I4(DISPLAY_E_s34_in),
+       (.I0(DISPLAY_E_s1),
+        .I1(DISPLAY_E_s_i_2_n_0),
+        .I2(DISPLAY_E_s_i_3_n_0),
+        .I3(RSTN),
+        .I4(c_x0),
+        .I5(DISPLAY_E_s),
         .O(DISPLAY_E_s_i_1_n_0));
   LUT6 #(
-    .INIT(64'h0808080800080808)) 
+    .INIT(64'h00000000777777F7)) 
     DISPLAY_E_s_i_2
-       (.I0(DISPLAY_E_s1),
-        .I1(DISPLAY_E_s2),
-        .I2(c_x_reg__0[11]),
-        .I3(c_x_reg__0[9]),
-        .I4(c_x_reg__0[10]),
-        .I5(DISPLAY_E_s_i_4_n_0),
+       (.I0(c_x_reg__0[9]),
+        .I1(c_x_reg__0[10]),
+        .I2(DISPLAY_E_s_i_4_n_0),
+        .I3(c_x_reg__0[8]),
+        .I4(c_x_reg__0[7]),
+        .I5(c_x_reg__0[11]),
         .O(DISPLAY_E_s_i_2_n_0));
   LUT6 #(
-    .INIT(64'hFFFFFFFEFFFEFFFE)) 
+    .INIT(64'h5555555555555777)) 
     DISPLAY_E_s_i_3
-       (.I0(DISPLAY_E_s_i_5_n_0),
-        .I1(c_x_reg__0[10]),
-        .I2(c_x_reg__0[11]),
-        .I3(c_x_reg__0[9]),
-        .I4(c_x_reg__0[8]),
-        .I5(c_x_reg__0[7]),
-        .O(DISPLAY_E_s34_in));
+       (.I0(DISPLAY_E_s2),
+        .I1(c_x_reg__0[11]),
+        .I2(DISPLAY_E_s_i_5_n_0),
+        .I3(c_x_reg__0[8]),
+        .I4(c_x_reg__0[9]),
+        .I5(c_x_reg__0[10]),
+        .O(DISPLAY_E_s_i_3_n_0));
   LUT6 #(
-    .INIT(64'h1010101110101010)) 
+    .INIT(64'h0111FFFFFFFFFFFF)) 
     DISPLAY_E_s_i_4
-       (.I0(c_x_reg__0[8]),
-        .I1(c_x_reg__0[7]),
+       (.I0(c_x_reg__0[3]),
+        .I1(c_x_reg__0[4]),
         .I2(DISPLAY_E_s_i_6_n_0),
-        .I3(c_x_reg__0[4]),
-        .I4(c_x_reg__0[3]),
-        .I5(\c_x[0]_i_6_n_0 ),
+        .I3(\c_x_reg[0]_0 ),
+        .I4(c_x_reg__0[6]),
+        .I5(c_x_reg__0[5]),
         .O(DISPLAY_E_s_i_4_n_0));
   LUT6 #(
-    .INIT(64'h8080800080808080)) 
+    .INIT(64'hEEEEEEEAAAAAAAAA)) 
     DISPLAY_E_s_i_5
-       (.I0(c_x_reg__0[5]),
+       (.I0(c_x_reg__0[7]),
         .I1(c_x_reg__0[6]),
-        .I2(c_x_reg__0[8]),
-        .I3(c_x_reg__0[4]),
+        .I2(c_x_reg__0[4]),
+        .I3(\c_y[0]_i_6_n_0 ),
         .I4(c_x_reg__0[3]),
-        .I5(\c_x[0]_i_6_n_0 ),
+        .I5(c_x_reg__0[5]),
         .O(DISPLAY_E_s_i_5_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair39" *) 
+  (* SOFT_HLUTNM = "soft_lutpair37" *) 
   LUT2 #(
-    .INIT(4'h7)) 
+    .INIT(4'h8)) 
     DISPLAY_E_s_i_6
-       (.I0(c_x_reg__0[5]),
-        .I1(c_x_reg__0[6]),
+       (.I0(S),
+        .I1(c_x_reg__0[2]),
         .O(DISPLAY_E_s_i_6_n_0));
   FDRE DISPLAY_E_s_reg
        (.C(CLK),
@@ -5220,48 +5270,50 @@ module daq_bd_daq_top_0_0_vga_sync_gen
         .D(DISPLAY_E_s_i_1_n_0),
         .Q(DISPLAY_E_s),
         .R(1'b0));
-  LUT6 #(
-    .INIT(64'h00000000FFFFFEFF)) 
+  LUT2 #(
+    .INIT(4'hB)) 
     HS_s_i_1
-       (.I0(hsync),
-        .I1(HS_s_i_2_n_0),
-        .I2(c_x_reg__0[11]),
-        .I3(HS_s_i_3_n_0),
-        .I4(HS_s_i_4_n_0),
-        .I5(\c_x[0]_i_1_n_0 ),
+       (.I0(c_x0),
+        .I1(RSTN),
         .O(HS_s_i_1_n_0));
   LUT6 #(
-    .INIT(64'h8000000000000000)) 
+    .INIT(64'hFFFFFFFFFFFFFFEA)) 
     HS_s_i_2
-       (.I0(c_x_reg__0[5]),
-        .I1(c_x_reg__0[6]),
-        .I2(c_x_reg__0[3]),
-        .I3(S),
-        .I4(c_x_reg__0[2]),
-        .I5(\c_x_reg[0]_0 ),
+       (.I0(HS_s_i_3_n_0),
+        .I1(c_x_reg__0[5]),
+        .I2(HS_s_i_4_n_0),
+        .I3(c_x_reg__0[11]),
+        .I4(HS_s_i_5_n_0),
+        .I5(hsync),
         .O(HS_s_i_2_n_0));
   LUT2 #(
-    .INIT(4'h1)) 
+    .INIT(4'hE)) 
     HS_s_i_3
+       (.I0(c_x_reg__0[9]),
+        .I1(c_x_reg__0[10]),
+        .O(HS_s_i_3_n_0));
+  LUT6 #(
+    .INIT(64'hAAAAAAAA80000000)) 
+    HS_s_i_4
+       (.I0(c_x_reg__0[6]),
+        .I1(c_x_reg__0[2]),
+        .I2(S),
+        .I3(\c_x_reg[0]_0 ),
+        .I4(c_x_reg__0[3]),
+        .I5(c_x_reg__0[4]),
+        .O(HS_s_i_4_n_0));
+  LUT2 #(
+    .INIT(4'hE)) 
+    HS_s_i_5
        (.I0(c_x_reg__0[7]),
         .I1(c_x_reg__0[8]),
-        .O(HS_s_i_3_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair40" *) 
-  LUT5 #(
-    .INIT(32'hFEEEEEEE)) 
-    HS_s_i_4
-       (.I0(c_x_reg__0[10]),
-        .I1(c_x_reg__0[9]),
-        .I2(c_x_reg__0[5]),
-        .I3(c_x_reg__0[6]),
-        .I4(c_x_reg__0[4]),
-        .O(HS_s_i_4_n_0));
+        .O(HS_s_i_5_n_0));
   FDRE HS_s_reg
        (.C(CLK),
         .CE(1'b1),
-        .D(HS_s_i_1_n_0),
+        .D(HS_s_i_2_n_0),
         .Q(hsync),
-        .R(1'b0));
+        .R(HS_s_i_1_n_0));
   (* ADDER_THRESHOLD = "35" *) 
   CARRY4 PIXEL_X_carry
        (.CI(1'b0),
@@ -5351,13 +5403,23 @@ module daq_bd_daq_top_0_0_vga_sync_gen
     RGB_out1_carry_i_16
        (.I0(c_y_reg[1]),
         .O(RGB_out1_carry_i_16_n_0));
+  LUT6 #(
+    .INIT(64'h9009000000009009)) 
+    RGB_out1_carry_i_2
+       (.I0(PY[6]),
+        .I1(Q[0]),
+        .I2(Q[2]),
+        .I3(PY[8]),
+        .I4(Q[1]),
+        .I5(PY[7]),
+        .O(\trigger_level_s_reg[6] [1]));
   LUT3 #(
-    .INIT(8'h04)) 
+    .INIT(8'h02)) 
     RGB_out1_carry_i_4
-       (.I0(\c_y_reg[8]_0 [1]),
-        .I1(out),
-        .I2(\c_y_reg[8]_0 [0]),
-        .O(\c_y_reg[0]_0 ));
+       (.I0(c_y_reg[0]),
+        .I1(PY[2]),
+        .I2(PY[1]),
+        .O(\trigger_level_s_reg[6] [0]));
   (* ADDER_THRESHOLD = "35" *) 
   CARRY4 RGB_out1_carry_i_5
        (.CI(RGB_out1_carry_i_6_n_0),
@@ -5372,15 +5434,15 @@ module daq_bd_daq_top_0_0_vga_sync_gen
         .CO({RGB_out1_carry_i_6_n_0,RGB_out1_carry_i_6_n_1,RGB_out1_carry_i_6_n_2,RGB_out1_carry_i_6_n_3}),
         .CYINIT(1'b0),
         .DI({c_y_reg[8:6],1'b0}),
-        .O(\c_y_reg[8]_0 [7:4]),
+        .O({PY[8:6],\c_y_reg[8]_0 [2]}),
         .S({RGB_out1_carry_i_11_n_0,RGB_out1_carry_i_12_n_0,RGB_out1_carry_i_13_n_0,c_y_reg[5]}));
   (* ADDER_THRESHOLD = "35" *) 
   CARRY4 RGB_out1_carry_i_7
        (.CI(1'b0),
         .CO({RGB_out1_carry_i_7_n_0,RGB_out1_carry_i_7_n_1,RGB_out1_carry_i_7_n_2,RGB_out1_carry_i_7_n_3}),
-        .CYINIT(out),
+        .CYINIT(c_y_reg[0]),
         .DI({c_y_reg[4],1'b0,c_y_reg[2:1]}),
-        .O(\c_y_reg[8]_0 [3:0]),
+        .O({\c_y_reg[8]_0 [1:0],PY[2:1]}),
         .S({RGB_out1_carry_i_14_n_0,c_y_reg[3],RGB_out1_carry_i_15_n_0,RGB_out1_carry_i_16_n_0}));
   LUT1 #(
     .INIT(2'h1)) 
@@ -5393,169 +5455,131 @@ module daq_bd_daq_top_0_0_vga_sync_gen
        (.I0(c_y_reg[10]),
         .O(RGB_out1_carry_i_9_n_0));
   LUT6 #(
-    .INIT(64'h00AA0EAA00000000)) 
+    .INIT(64'h00A000A000A0E0A0)) 
     VS_s_i_1
        (.I0(VS_s_reg_0),
         .I1(VS_s0),
-        .I2(VS_s_i_3_n_0),
+        .I2(RSTN),
         .I3(c_x0),
-        .I4(c_y_reg[11]),
-        .I5(RSTN),
+        .I4(VS_s_i_3_n_0),
+        .I5(c_y_reg[11]),
         .O(VS_s_i_1_n_0));
   LUT5 #(
     .INIT(32'hFFFFFFFE)) 
     VS_s_i_2
-       (.I0(VS_s_i_4_n_0),
-        .I1(c_y_reg[3]),
-        .I2(c_y_reg[4]),
-        .I3(c_y_reg[5]),
-        .I4(c_y_reg[2]),
+       (.I0(c_y_reg[3]),
+        .I1(c_y_reg[4]),
+        .I2(c_y_reg[2]),
+        .I3(VS_s_i_4_n_0),
+        .I4(VS_s_i_5_n_0),
         .O(VS_s0));
   LUT6 #(
-    .INIT(64'hFFFEFEFE00000000)) 
+    .INIT(64'hAAAAAAAAAAAAAAA8)) 
     VS_s_i_3
-       (.I0(VS_s_i_5_n_0),
-        .I1(VS_s_i_6_n_0),
-        .I2(VS_s_i_7_n_0),
-        .I3(c_y_reg[4]),
-        .I4(c_y_reg[5]),
-        .I5(c_y_reg[10]),
-        .O(VS_s_i_3_n_0));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFFFFFFFFE)) 
-    VS_s_i_4
-       (.I0(c_y_reg[11]),
-        .I1(c_y_reg[10]),
-        .I2(c_y_reg[1]),
-        .I3(VS_s_i_7_n_0),
-        .I4(c_y_reg[9]),
-        .I5(c_y_reg[8]),
-        .O(VS_s_i_4_n_0));
-  LUT5 #(
-    .INIT(32'h88888880)) 
-    VS_s_i_5
-       (.I0(c_y_reg[3]),
-        .I1(c_y_reg[5]),
-        .I2(c_y_reg[1]),
-        .I3(c_y_reg[2]),
-        .I4(out),
-        .O(VS_s_i_5_n_0));
-  LUT2 #(
-    .INIT(4'hE)) 
-    VS_s_i_6
-       (.I0(c_y_reg[9]),
+       (.I0(c_y_reg[10]),
         .I1(c_y_reg[8]),
-        .O(VS_s_i_6_n_0));
-  LUT2 #(
-    .INIT(4'hE)) 
-    VS_s_i_7
+        .I2(c_y_reg[7]),
+        .I3(VS_s_i_6_n_0),
+        .I4(c_y_reg[9]),
+        .I5(c_y_reg[6]),
+        .O(VS_s_i_3_n_0));
+  LUT4 #(
+    .INIT(16'hFFFE)) 
+    VS_s_i_4
+       (.I0(c_y_reg[10]),
+        .I1(c_y_reg[9]),
+        .I2(c_y_reg[1]),
+        .I3(c_y_reg[11]),
+        .O(VS_s_i_4_n_0));
+  LUT4 #(
+    .INIT(16'hFFFE)) 
+    VS_s_i_5
        (.I0(c_y_reg[6]),
-        .I1(c_y_reg[7]),
-        .O(VS_s_i_7_n_0));
+        .I1(c_y_reg[5]),
+        .I2(c_y_reg[8]),
+        .I3(c_y_reg[7]),
+        .O(VS_s_i_5_n_0));
+  LUT6 #(
+    .INIT(64'hAAAAAAAA88888880)) 
+    VS_s_i_6
+       (.I0(c_y_reg[5]),
+        .I1(c_y_reg[3]),
+        .I2(c_y_reg[2]),
+        .I3(c_y_reg[0]),
+        .I4(c_y_reg[1]),
+        .I5(c_y_reg[4]),
+        .O(VS_s_i_6_n_0));
   FDRE VS_s_reg
        (.C(CLK),
         .CE(1'b1),
         .D(VS_s_i_1_n_0),
         .Q(VS_s_reg_0),
         .R(1'b0));
+  (* SOFT_HLUTNM = "soft_lutpair38" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \blue[0]_INST_0 
        (.I0(DISPLAY_E_s),
-        .I1(CO),
+        .I1(\red[3] ),
         .O(blue));
-  LUT6 #(
-    .INIT(64'hFFFF5540FFFFFFFF)) 
-    \c_x[0]_i_1 
-       (.I0(\c_x[0]_i_3_n_0 ),
-        .I1(c_x_reg__0[7]),
-        .I2(\c_x[0]_i_4_n_0 ),
-        .I3(c_x_reg__0[8]),
-        .I4(c_x_reg__0[11]),
-        .I5(RSTN),
-        .O(\c_x[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair40" *) 
-  LUT2 #(
-    .INIT(4'h7)) 
-    \c_x[0]_i_3 
-       (.I0(c_x_reg__0[9]),
-        .I1(c_x_reg__0[10]),
-        .O(\c_x[0]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair39" *) 
-  LUT5 #(
-    .INIT(32'hFEEEFEFE)) 
-    \c_x[0]_i_4 
-       (.I0(c_x_reg__0[6]),
-        .I1(c_x_reg__0[5]),
-        .I2(c_x_reg__0[4]),
-        .I3(c_x_reg__0[3]),
-        .I4(\c_x[0]_i_6_n_0 ),
-        .O(\c_x[0]_i_4_n_0 ));
   LUT1 #(
     .INIT(2'h1)) 
-    \c_x[0]_i_5 
+    \c_x[0]_i_2 
        (.I0(\c_x_reg[0]_0 ),
-        .O(\c_x[0]_i_5_n_0 ));
-  LUT3 #(
-    .INIT(8'h7F)) 
-    \c_x[0]_i_6 
-       (.I0(\c_x_reg[0]_0 ),
-        .I1(c_x_reg__0[2]),
-        .I2(S),
-        .O(\c_x[0]_i_6_n_0 ));
+        .O(\c_x[0]_i_2_n_0 ));
   FDRE \c_x_reg[0] 
        (.C(CLK),
         .CE(1'b1),
-        .D(\c_x_reg[0]_i_2_n_7 ),
+        .D(\c_x_reg[0]_i_1_n_7 ),
         .Q(\c_x_reg[0]_0 ),
-        .R(\c_x[0]_i_1_n_0 ));
+        .R(HS_s_i_1_n_0));
   (* ADDER_THRESHOLD = "11" *) 
-  CARRY4 \c_x_reg[0]_i_2 
+  CARRY4 \c_x_reg[0]_i_1 
        (.CI(1'b0),
-        .CO({\c_x_reg[0]_i_2_n_0 ,\c_x_reg[0]_i_2_n_1 ,\c_x_reg[0]_i_2_n_2 ,\c_x_reg[0]_i_2_n_3 }),
+        .CO({\c_x_reg[0]_i_1_n_0 ,\c_x_reg[0]_i_1_n_1 ,\c_x_reg[0]_i_1_n_2 ,\c_x_reg[0]_i_1_n_3 }),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b1}),
-        .O({\c_x_reg[0]_i_2_n_4 ,\c_x_reg[0]_i_2_n_5 ,\c_x_reg[0]_i_2_n_6 ,\c_x_reg[0]_i_2_n_7 }),
-        .S({c_x_reg__0[3:2],S,\c_x[0]_i_5_n_0 }));
+        .O({\c_x_reg[0]_i_1_n_4 ,\c_x_reg[0]_i_1_n_5 ,\c_x_reg[0]_i_1_n_6 ,\c_x_reg[0]_i_1_n_7 }),
+        .S({c_x_reg__0[3:2],S,\c_x[0]_i_2_n_0 }));
   FDRE \c_x_reg[10] 
        (.C(CLK),
         .CE(1'b1),
         .D(\c_x_reg[8]_i_1_n_5 ),
         .Q(c_x_reg__0[10]),
-        .R(\c_x[0]_i_1_n_0 ));
+        .R(HS_s_i_1_n_0));
   FDRE \c_x_reg[11] 
        (.C(CLK),
         .CE(1'b1),
         .D(\c_x_reg[8]_i_1_n_4 ),
         .Q(c_x_reg__0[11]),
-        .R(\c_x[0]_i_1_n_0 ));
+        .R(HS_s_i_1_n_0));
   FDRE \c_x_reg[1] 
        (.C(CLK),
         .CE(1'b1),
-        .D(\c_x_reg[0]_i_2_n_6 ),
+        .D(\c_x_reg[0]_i_1_n_6 ),
         .Q(S),
-        .R(\c_x[0]_i_1_n_0 ));
+        .R(HS_s_i_1_n_0));
   FDRE \c_x_reg[2] 
        (.C(CLK),
         .CE(1'b1),
-        .D(\c_x_reg[0]_i_2_n_5 ),
+        .D(\c_x_reg[0]_i_1_n_5 ),
         .Q(c_x_reg__0[2]),
-        .R(\c_x[0]_i_1_n_0 ));
+        .R(HS_s_i_1_n_0));
   FDRE \c_x_reg[3] 
        (.C(CLK),
         .CE(1'b1),
-        .D(\c_x_reg[0]_i_2_n_4 ),
+        .D(\c_x_reg[0]_i_1_n_4 ),
         .Q(c_x_reg__0[3]),
-        .R(\c_x[0]_i_1_n_0 ));
+        .R(HS_s_i_1_n_0));
   FDRE \c_x_reg[4] 
        (.C(CLK),
         .CE(1'b1),
         .D(\c_x_reg[4]_i_1_n_7 ),
         .Q(c_x_reg__0[4]),
-        .R(\c_x[0]_i_1_n_0 ));
+        .R(HS_s_i_1_n_0));
   (* ADDER_THRESHOLD = "11" *) 
   CARRY4 \c_x_reg[4]_i_1 
-       (.CI(\c_x_reg[0]_i_2_n_0 ),
+       (.CI(\c_x_reg[0]_i_1_n_0 ),
         .CO({\c_x_reg[4]_i_1_n_0 ,\c_x_reg[4]_i_1_n_1 ,\c_x_reg[4]_i_1_n_2 ,\c_x_reg[4]_i_1_n_3 }),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
@@ -5566,25 +5590,25 @@ module daq_bd_daq_top_0_0_vga_sync_gen
         .CE(1'b1),
         .D(\c_x_reg[4]_i_1_n_6 ),
         .Q(c_x_reg__0[5]),
-        .R(\c_x[0]_i_1_n_0 ));
+        .R(HS_s_i_1_n_0));
   FDRE \c_x_reg[6] 
        (.C(CLK),
         .CE(1'b1),
         .D(\c_x_reg[4]_i_1_n_5 ),
         .Q(c_x_reg__0[6]),
-        .R(\c_x[0]_i_1_n_0 ));
+        .R(HS_s_i_1_n_0));
   FDRE \c_x_reg[7] 
        (.C(CLK),
         .CE(1'b1),
         .D(\c_x_reg[4]_i_1_n_4 ),
         .Q(c_x_reg__0[7]),
-        .R(\c_x[0]_i_1_n_0 ));
+        .R(HS_s_i_1_n_0));
   FDRE \c_x_reg[8] 
        (.C(CLK),
         .CE(1'b1),
         .D(\c_x_reg[8]_i_1_n_7 ),
         .Q(c_x_reg__0[8]),
-        .R(\c_x[0]_i_1_n_0 ));
+        .R(HS_s_i_1_n_0));
   (* ADDER_THRESHOLD = "11" *) 
   CARRY4 \c_x_reg[8]_i_1 
        (.CI(\c_x_reg[4]_i_1_n_0 ),
@@ -5598,56 +5622,52 @@ module daq_bd_daq_top_0_0_vga_sync_gen
         .CE(1'b1),
         .D(\c_x_reg[8]_i_1_n_6 ),
         .Q(c_x_reg__0[9]),
-        .R(\c_x[0]_i_1_n_0 ));
-  LUT5 #(
-    .INIT(32'hF5D5D5D5)) 
+        .R(HS_s_i_1_n_0));
+  LUT4 #(
+    .INIT(16'hE0FF)) 
     \c_y[0]_i_1 
-       (.I0(RSTN),
-        .I1(c_y_reg[11]),
+       (.I0(c_y_reg[11]),
+        .I1(VS_s_i_3_n_0),
         .I2(c_x0),
-        .I3(\c_y[0]_i_4_n_0 ),
-        .I4(c_y_reg[10]),
+        .I3(RSTN),
         .O(\c_y[0]_i_1_n_0 ));
-  LUT6 #(
-    .INIT(64'hFEEEAAAAAAAAAAAA)) 
+  LUT5 #(
+    .INIT(32'hEEEAAAAA)) 
     \c_y[0]_i_2 
        (.I0(c_x_reg__0[11]),
-        .I1(c_x_reg__0[8]),
-        .I2(\c_x[0]_i_4_n_0 ),
-        .I3(c_x_reg__0[7]),
-        .I4(c_x_reg__0[10]),
-        .I5(c_x_reg__0[9]),
+        .I1(c_x_reg__0[10]),
+        .I2(\c_y[0]_i_4_n_0 ),
+        .I3(c_x_reg__0[8]),
+        .I4(c_x_reg__0[9]),
         .O(c_x0));
   LUT6 #(
-    .INIT(64'hFFFEAAAAAAAAAAAA)) 
+    .INIT(64'hAAAAAAAAAAA88888)) 
     \c_y[0]_i_4 
-       (.I0(\c_y[0]_i_6_n_0 ),
-        .I1(out),
-        .I2(c_y_reg[2]),
-        .I3(c_y_reg[1]),
-        .I4(c_y_reg[5]),
-        .I5(c_y_reg[3]),
+       (.I0(c_x_reg__0[7]),
+        .I1(c_x_reg__0[6]),
+        .I2(c_x_reg__0[3]),
+        .I3(\c_y[0]_i_6_n_0 ),
+        .I4(c_x_reg__0[4]),
+        .I5(c_x_reg__0[5]),
         .O(\c_y[0]_i_4_n_0 ));
   LUT1 #(
     .INIT(2'h1)) 
     \c_y[0]_i_5 
-       (.I0(out),
-        .O(PY));
-  LUT6 #(
-    .INIT(64'hFFFFFFFEFFFEFFFE)) 
+       (.I0(c_y_reg[0]),
+        .O(PY[0]));
+  (* SOFT_HLUTNM = "soft_lutpair37" *) 
+  LUT3 #(
+    .INIT(8'h80)) 
     \c_y[0]_i_6 
-       (.I0(c_y_reg[9]),
-        .I1(c_y_reg[8]),
-        .I2(c_y_reg[6]),
-        .I3(c_y_reg[7]),
-        .I4(c_y_reg[4]),
-        .I5(c_y_reg[5]),
+       (.I0(S),
+        .I1(\c_x_reg[0]_0 ),
+        .I2(c_x_reg__0[2]),
         .O(\c_y[0]_i_6_n_0 ));
   FDRE \c_y_reg[0] 
        (.C(CLK),
         .CE(c_x0),
         .D(\c_y_reg[0]_i_3_n_7 ),
-        .Q(out),
+        .Q(c_y_reg[0]),
         .R(\c_y[0]_i_1_n_0 ));
   (* ADDER_THRESHOLD = "11" *) 
   CARRY4 \c_y_reg[0]_i_3 
@@ -5656,7 +5676,7 @@ module daq_bd_daq_top_0_0_vga_sync_gen
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b1}),
         .O({\c_y_reg[0]_i_3_n_4 ,\c_y_reg[0]_i_3_n_5 ,\c_y_reg[0]_i_3_n_6 ,\c_y_reg[0]_i_3_n_7 }),
-        .S({c_y_reg[3:1],PY}));
+        .S({c_y_reg[3:1],PY[0]}));
   FDRE \c_y_reg[10] 
        (.C(CLK),
         .CE(c_x0),
@@ -5739,6 +5759,44 @@ module daq_bd_daq_top_0_0_vga_sync_gen
         .D(\c_y_reg[8]_i_1_n_6 ),
         .Q(c_y_reg[9]),
         .R(\c_y[0]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair38" *) 
+  LUT3 #(
+    .INIT(8'hA8)) 
+    \green[0]_INST_0 
+       (.I0(DISPLAY_E_s),
+        .I1(CO),
+        .I2(\red[3] ),
+        .O(red));
+  LUT6 #(
+    .INIT(64'h9009000000009009)) 
+    signal_rgb1_carry_i_2
+       (.I0(PY[6]),
+        .I1(data_out[6]),
+        .I2(data_out[8]),
+        .I3(PY[8]),
+        .I4(data_out[7]),
+        .I5(PY[7]),
+        .O(mem_reg_1[2]));
+  LUT6 #(
+    .INIT(64'h9009000000009009)) 
+    signal_rgb1_carry_i_3
+       (.I0(\c_y_reg[8]_0 [0]),
+        .I1(data_out[3]),
+        .I2(data_out[5]),
+        .I3(\c_y_reg[8]_0 [2]),
+        .I4(data_out[4]),
+        .I5(\c_y_reg[8]_0 [1]),
+        .O(mem_reg_1[1]));
+  LUT6 #(
+    .INIT(64'h6006000000006006)) 
+    signal_rgb1_carry_i_4
+       (.I0(c_y_reg[0]),
+        .I1(data_out[0]),
+        .I2(data_out[2]),
+        .I3(PY[2]),
+        .I4(data_out[1]),
+        .I5(PY[1]),
+        .O(mem_reg_1[0]));
 endmodule
 `ifndef GLBL
 `define GLBL

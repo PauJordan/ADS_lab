@@ -39,10 +39,7 @@ entity daq_trigger_controller is
         adc_data1       : in std_logic_vector (data_width - 1 downto 0);
 
         -- VGA sync port
-        vsync           : in std_logic;
-
-        -- Debug dummy output;
-        dummy : out std_logic_vector (2 downto 0)
+        vsync           : in std_logic
     );
 end daq_trigger_controller;
 
