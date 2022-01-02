@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "C:/ads_lab5_project_do/ads_lab5_project_do.runs/synth_1/lab5_bd_wrapper.tcl"
+  variable script "C:/Users/pixi4/UNI/ADS/ADS_lab/lab5/ads_lab5_project_do/ads_lab5_project_do.runs/synth_1/lab5_bd_wrapper.tcl"
   variable category "vivado_synth"
 }
 
@@ -70,6 +70,8 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
+set_param checkpoint.writeSynthRtdsInDcp 1
+set_param synth.incrementalSynthesisCache C:/Users/pixi4/UNI/ADS/ADS_lab/lab5/ads_lab5_project_do/.Xil/Vivado-21344-Eva/incrSyn
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
@@ -79,30 +81,29 @@ set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property webtalk.parent_dir C:/ads_lab5_project_do/ads_lab5_project_do.cache/wt [current_project]
-set_property parent.project_path C:/ads_lab5_project_do/ads_lab5_project_do.xpr [current_project]
+set_property webtalk.parent_dir C:/Users/pixi4/UNI/ADS/ADS_lab/lab5/ads_lab5_project_do/ads_lab5_project_do.cache/wt [current_project]
+set_property parent.project_path C:/Users/pixi4/UNI/ADS/ADS_lab/lab5/ads_lab5_project_do/ads_lab5_project_do.xpr [current_project]
 set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
-set_property board_part em.avnet.com:zed:part0:1.4 [current_project]
 set_property ip_repo_paths {
-  c:/ADS_do/lab5/ip_repo_p5
-  c:/ADS/ipcores/ip_repo
+  c:/Users/pixi4/UNI/ADS/ADS_lab/lab5/ADS_do/lab5/ip_repo_p5
+  c:/Users/pixi4/UNI/ADS/ADS_lab/lab5/ADS/ipcores/ip_repo
 } [current_project]
 update_ip_catalog
-set_property ip_output_repo c:/ads_lab5_project_do/ads_lab5_project_do.cache/ip [current_project]
+set_property ip_output_repo c:/Users/pixi4/UNI/ADS/ADS_lab/lab5/ads_lab5_project_do/ads_lab5_project_do.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_vhdl -library xil_defaultlib c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/hdl/lab5_bd_wrapper.vhd
-add_files C:/ads_lab5_project_do/ads_lab5_project_do.srcs/sources_1/bd/lab5_bd/lab5_bd.bd
-set_property used_in_implementation false [get_files -all c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_processing_system7_0_0/lab5_bd_processing_system7_0_0.xdc]
-set_property used_in_implementation false [get_files -all c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_rst_ps7_0_100M_0/lab5_bd_rst_ps7_0_100M_0_board.xdc]
-set_property used_in_implementation false [get_files -all c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_rst_ps7_0_100M_0/lab5_bd_rst_ps7_0_100M_0.xdc]
-set_property used_in_implementation false [get_files -all c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_rst_ps7_0_100M_0/lab5_bd_rst_ps7_0_100M_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_gen_fun_top_0_1/src/test_gen_fun.xdc]
-set_property used_in_implementation false [get_files -all c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_auto_pc_0/lab5_bd_auto_pc_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/lab5_bd_ooc.xdc]
+read_vhdl -library xil_defaultlib C:/Users/pixi4/UNI/ADS/ADS_lab/lab5/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/hdl/lab5_bd_wrapper.vhd
+add_files C:/Users/pixi4/UNI/ADS/ADS_lab/lab5/ads_lab5_project_do/ads_lab5_project_do.srcs/sources_1/bd/lab5_bd/lab5_bd.bd
+set_property used_in_implementation false [get_files -all c:/Users/pixi4/UNI/ADS/ADS_lab/lab5/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_processing_system7_0_0/lab5_bd_processing_system7_0_0.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/pixi4/UNI/ADS/ADS_lab/lab5/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_rst_ps7_0_100M_0/lab5_bd_rst_ps7_0_100M_0_board.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/pixi4/UNI/ADS/ADS_lab/lab5/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_rst_ps7_0_100M_0/lab5_bd_rst_ps7_0_100M_0.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/pixi4/UNI/ADS/ADS_lab/lab5/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_rst_ps7_0_100M_0/lab5_bd_rst_ps7_0_100M_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/pixi4/UNI/ADS/ADS_lab/lab5/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_auto_pc_0/lab5_bd_auto_pc_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/pixi4/UNI/ADS/ADS_lab/lab5/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_gen_fun_top_0_1/src/test_gen_fun.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/pixi4/UNI/ADS/ADS_lab/lab5/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/lab5_bd_ooc.xdc]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -113,8 +114,8 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc C:/ADS_do/lab5/xdc/lab5_dac.xdc
-set_property used_in_implementation false [get_files C:/ADS_do/lab5/xdc/lab5_dac.xdc]
+read_xdc C:/Users/pixi4/UNI/ADS/ADS_lab/lab5/ads_lab5_project_do/ads_lab5_project_do.srcs/constrs_1/imports/xdc/lab5_dac.xdc
+set_property used_in_implementation false [get_files C:/Users/pixi4/UNI/ADS/ADS_lab/lab5/ads_lab5_project_do/ads_lab5_project_do.srcs/constrs_1/imports/xdc/lab5_dac.xdc]
 
 read_xdc dont_touch.xdc
 set_property used_in_implementation false [get_files dont_touch.xdc]

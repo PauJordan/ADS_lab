@@ -1,0 +1,360 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Thu Dec 16 17:02:54 2021
+# Process ID: 7912
+# Current directory: C:/ads_lab5_project_do/ads_lab5_project_do.runs/lab5_bd_lab5_axi_do_0_0_synth_1
+# Command line: vivado.exe -log lab5_bd_lab5_axi_do_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source lab5_bd_lab5_axi_do_0_0.tcl
+# Log file: C:/ads_lab5_project_do/ads_lab5_project_do.runs/lab5_bd_lab5_axi_do_0_0_synth_1/lab5_bd_lab5_axi_do_0_0.vds
+# Journal file: C:/ads_lab5_project_do/ads_lab5_project_do.runs/lab5_bd_lab5_axi_do_0_0_synth_1\vivado.jou
+#-----------------------------------------------------------
+source lab5_bd_lab5_axi_do_0_0.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/ADS_do/lab5/ip_repo_p5'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/ADS/ipcores/ip_repo'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2020.2/data/ip'.
+Command: synth_design -top lab5_bd_lab5_axi_do_0_0 -part xc7z020clg484-1 -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Device 21-403] Loading part xc7z020clg484-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 10860
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1108.633 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'lab5_bd_lab5_axi_do_0_0' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_lab5_axi_do_0_0/synth/lab5_bd_lab5_axi_do_0_0.vhd:96]
+	Parameter C_S00_AXI_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_S00_AXI_ADDR_WIDTH bound to: 4 - type: integer 
+INFO: [Synth 8-3491] module 'lab5_axi_do_v1_0' declared at 'c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ipshared/f042/hdl/lab5_axi_do_v1_0.vhd:5' bound to instance 'U0' of component 'lab5_axi_do_v1_0' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_lab5_axi_do_0_0/synth/lab5_bd_lab5_axi_do_0_0.vhd:174]
+INFO: [Synth 8-638] synthesizing module 'lab5_axi_do_v1_0' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ipshared/f042/hdl/lab5_axi_do_v1_0.vhd:59]
+	Parameter C_S00_AXI_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_S00_AXI_ADDR_WIDTH bound to: 4 - type: integer 
+	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_S_AXI_ADDR_WIDTH bound to: 4 - type: integer 
+INFO: [Synth 8-3491] module 'lab5_axi_do_v1_0_S00_AXI' declared at 'c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ipshared/f042/hdl/lab5_axi_do_v1_0_S00_AXI.vhd:5' bound to instance 'lab5_axi_do_v1_0_S00_AXI_inst' of component 'lab5_axi_do_v1_0_S00_AXI' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ipshared/f042/hdl/lab5_axi_do_v1_0.vhd:108]
+INFO: [Synth 8-638] synthesizing module 'lab5_axi_do_v1_0_S00_AXI' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ipshared/f042/hdl/lab5_axi_do_v1_0_S00_AXI.vhd:95]
+	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_S_AXI_ADDR_WIDTH bound to: 4 - type: integer 
+INFO: [Synth 8-226] default block is never used [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ipshared/f042/hdl/lab5_axi_do_v1_0_S00_AXI.vhd:255]
+INFO: [Synth 8-226] default block is never used [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ipshared/f042/hdl/lab5_axi_do_v1_0_S00_AXI.vhd:385]
+INFO: [Synth 8-3491] module 'daq_top' declared at 'c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/daq_top_do.vhd:19' bound to instance 'daq_top_1' of component 'daq_top' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ipshared/f042/hdl/lab5_axi_do_v1_0_S00_AXI.vhd:419]
+INFO: [Synth 8-638] synthesizing module 'daq_top' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/daq_top_do.vhd:39]
+	Parameter addr_width bound to: 12 - type: integer 
+	Parameter data_width bound to: 12 - type: integer 
+INFO: [Synth 8-3491] module 'daq_vga_controller' declared at 'c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/vga_port_test.vhd:5' bound to instance 'daq_vga_controller_1' of component 'daq_vga_controller' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/daq_top_do.vhd:142]
+INFO: [Synth 8-638] synthesizing module 'daq_vga_controller' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/vga_port_test.vhd:26]
+	Parameter addr_width bound to: 12 - type: integer 
+	Parameter data_width bound to: 12 - type: integer 
+	Parameter h_pixels bound to: 1688 - type: integer 
+	Parameter h_sync bound to: 112 - type: integer 
+	Parameter h_start_pixel bound to: 360 - type: integer 
+	Parameter h_end_pixel bound to: 1640 - type: integer 
+	Parameter v_lines bound to: 1066 - type: integer 
+	Parameter v_sync bound to: 3 - type: integer 
+	Parameter v_start_line bound to: 41 - type: integer 
+	Parameter v_end_line bound to: 1065 - type: integer 
+	Parameter h_bits bound to: 12 - type: integer 
+	Parameter v_bits bound to: 12 - type: integer 
+INFO: [Synth 8-3491] module 'vga_sync_gen' declared at 'c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/vga_sync_gen.vhd:5' bound to instance 'vga_timing' of component 'vga_sync_gen' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/vga_port_test.vhd:84]
+INFO: [Synth 8-638] synthesizing module 'vga_sync_gen' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/vga_sync_gen.vhd:27]
+	Parameter h_pixels bound to: 1688 - type: integer 
+	Parameter h_sync bound to: 112 - type: integer 
+	Parameter h_start_pixel bound to: 360 - type: integer 
+	Parameter h_end_pixel bound to: 1640 - type: integer 
+	Parameter v_lines bound to: 1066 - type: integer 
+	Parameter v_sync bound to: 3 - type: integer 
+	Parameter v_start_line bound to: 41 - type: integer 
+	Parameter v_end_line bound to: 1065 - type: integer 
+	Parameter h_bits bound to: 12 - type: integer 
+	Parameter v_bits bound to: 12 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'vga_sync_gen' (1#1) [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/vga_sync_gen.vhd:27]
+INFO: [Synth 8-3491] module 'cross_generator' declared at 'c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/cross_generator.vhd:5' bound to instance 'cross_overlay' of component 'cross_generator' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/vga_port_test.vhd:106]
+INFO: [Synth 8-638] synthesizing module 'cross_generator' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/cross_generator.vhd:16]
+INFO: [Synth 8-256] done synthesizing module 'cross_generator' (2#1) [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/cross_generator.vhd:16]
+INFO: [Synth 8-256] done synthesizing module 'daq_vga_controller' (3#1) [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/vga_port_test.vhd:26]
+	Parameter addr_width bound to: 12 - type: integer 
+	Parameter data_width bound to: 12 - type: integer 
+INFO: [Synth 8-3491] module 'sync_ram_dualport' declared at 'c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/sync_ram_dualport.vhd:5' bound to instance 'daq_memory_unit_1' of component 'sync_ram_dualport' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/daq_top_do.vhd:160]
+INFO: [Synth 8-638] synthesizing module 'sync_ram_dualport' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/sync_ram_dualport.vhd:20]
+	Parameter data_width bound to: 12 - type: integer 
+	Parameter addr_width bound to: 12 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'sync_ram_dualport' (4#1) [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/sync_ram_dualport.vhd:20]
+	Parameter addr_width bound to: 12 - type: integer 
+	Parameter data_width bound to: 12 - type: integer 
+INFO: [Synth 8-3491] module 'daq_trigger_controller' declared at 'c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/daq_trigger_controller.vhd:19' bound to instance 'daq_trigger_controller_1' of component 'daq_trigger_controller' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/daq_top_do.vhd:175]
+INFO: [Synth 8-638] synthesizing module 'daq_trigger_controller' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/daq_trigger_controller.vhd:46]
+	Parameter addr_width bound to: 12 - type: integer 
+	Parameter data_width bound to: 12 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'daq_trigger_controller' (5#1) [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/daq_trigger_controller.vhd:46]
+WARNING: [Synth 8-5640] Port 'rst' is missing in component declaration [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/daq_top_do.vhd:109]
+INFO: [Synth 8-3491] module 'daq_adc_controller' declared at 'c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/ads_driver.vhd:28' bound to instance 'daq_adc_controller_1' of component 'daq_adc_controller' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/daq_top_do.vhd:194]
+INFO: [Synth 8-638] synthesizing module 'daq_adc_controller' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/ads_driver.vhd:40]
+	Parameter total_periods bound to: 16 - type: integer 
+	Parameter Q_width bound to: 15 - type: integer 
+INFO: [Synth 8-3491] module 'o_generic_sr' declared at 'c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/o_generic_sr.vhd:34' bound to instance 'shift_register_1' of component 'o_generic_sr' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/ads_driver.vhd:110]
+INFO: [Synth 8-638] synthesizing module 'o_generic_sr' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/o_generic_sr.vhd:43]
+	Parameter Q_width bound to: 15 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'o_generic_sr' (6#1) [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/o_generic_sr.vhd:43]
+INFO: [Synth 8-256] done synthesizing module 'daq_adc_controller' (7#1) [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/ads_driver.vhd:40]
+INFO: [Synth 8-256] done synthesizing module 'daq_top' (8#1) [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/daq_top_do.vhd:39]
+INFO: [Synth 8-256] done synthesizing module 'lab5_axi_do_v1_0_S00_AXI' (9#1) [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ipshared/f042/hdl/lab5_axi_do_v1_0_S00_AXI.vhd:95]
+INFO: [Synth 8-256] done synthesizing module 'lab5_axi_do_v1_0' (10#1) [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ipshared/f042/hdl/lab5_axi_do_v1_0.vhd:59]
+INFO: [Synth 8-256] done synthesizing module 'lab5_bd_lab5_axi_do_0_0' (11#1) [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_lab5_axi_do_0_0/synth/lab5_bd_lab5_axi_do_0_0.vhd:96]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1162.668 ; gain = 54.035
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1162.668 ; gain = 54.035
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1162.668 ; gain = 54.035
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.018 . Memory (MB): peak = 1162.668 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1268.305 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.032 . Memory (MB): peak = 1268.320 ; gain = 0.016
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 1268.320 ; gain = 159.688
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg484-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 1268.320 ; gain = 159.688
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 1268.320 ; gain = 159.688
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'button_state_reg' in module 'daq_trigger_controller'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                 iSTATE0 |                                0 |                               10
+                  iSTATE |                                1 |                               00
+*
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'button_state_reg' using encoding 'sequential' in module 'daq_trigger_controller'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1268.320 ; gain = 159.688
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   32 Bit       Adders := 2     
+	   2 Input   12 Bit       Adders := 2     
+	   2 Input   11 Bit       Adders := 2     
+	   2 Input   10 Bit       Adders := 1     
+	   2 Input    9 Bit       Adders := 2     
++---XORs : 
+	   2 Input      1 Bit         XORs := 2     
++---Registers : 
+	               32 Bit    Registers := 7     
+	               15 Bit    Registers := 2     
+	               12 Bit    Registers := 3     
+	               11 Bit    Registers := 1     
+	               10 Bit    Registers := 2     
+	                9 Bit    Registers := 2     
+	                4 Bit    Registers := 2     
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 34    
++---RAMs : 
+	              48K Bit	(4096 X 12 bit)          RAMs := 1     
++---Muxes : 
+	   2 Input   32 Bit        Muxes := 6     
+	   4 Input   32 Bit        Muxes := 5     
+	   2 Input   15 Bit        Muxes := 2     
+	   2 Input   12 Bit        Muxes := 2     
+	   3 Input   12 Bit        Muxes := 1     
+	   2 Input    9 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 32    
+	   5 Input    1 Bit        Muxes := 1     
+	   3 Input    1 Bit        Muxes := 3     
+	   4 Input    1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1268.320 ; gain = 159.688
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Preliminary Mapping	Report (see note below)
++------------------------+----------------------------------------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name             | RTL Object                                                           | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++------------------------+----------------------------------------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|lab5_bd_lab5_axi_do_0_0 | U0/lab5_axi_do_v1_0_S00_AXI_inst/daq_top_1/daq_memory_unit_1/mem_reg | 4 K x 12(READ_FIRST)   | W |   | 4 K x 12(WRITE_FIRST)  |   | R | Port A and B     | 1      | 1      | 
++------------------------+----------------------------------------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1268.320 ; gain = 159.688
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1268.320 ; gain = 159.688
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Final Mapping	Report
++------------------------+----------------------------------------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name             | RTL Object                                                           | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++------------------------+----------------------------------------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|lab5_bd_lab5_axi_do_0_0 | U0/lab5_axi_do_v1_0_S00_AXI_inst/daq_top_1/daq_memory_unit_1/mem_reg | 4 K x 12(READ_FIRST)   | W |   | 4 K x 12(WRITE_FIRST)  |   | R | Port A and B     | 1      | 1      | 
++------------------------+----------------------------------------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-7052] The timing for the instance U0/lab5_axi_do_v1_0_S00_AXI_inst/daq_top_1/daq_memory_unit_1/mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance U0/lab5_axi_do_v1_0_S00_AXI_inst/daq_top_1/daq_memory_unit_1/mem_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1275.703 ; gain = 167.070
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1282.934 ; gain = 174.301
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1282.934 ; gain = 174.301
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 1282.934 ; gain = 174.301
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 1282.934 ; gain = 174.301
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 1282.941 ; gain = 174.309
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 1282.941 ; gain = 174.309
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |CARRY4   |    63|
+|2     |LUT1     |    28|
+|3     |LUT2     |   169|
+|4     |LUT3     |    30|
+|5     |LUT4     |    83|
+|6     |LUT5     |    19|
+|7     |LUT6     |    74|
+|8     |RAMB18E1 |     1|
+|9     |RAMB36E1 |     1|
+|10    |FDRE     |   383|
+|11    |FDSE     |     4|
++------+---------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 1282.941 ; gain = 174.309
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:20 ; elapsed = 00:00:26 . Memory (MB): peak = 1282.941 ; gain = 68.656
+Synthesis Optimization Complete : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 1282.941 ; gain = 174.309
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.016 . Memory (MB): peak = 1295.941 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 65 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1300.188 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+56 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:33 ; elapsed = 00:00:55 . Memory (MB): peak = 1300.188 ; gain = 191.555
+INFO: [Common 17-1381] The checkpoint 'C:/ads_lab5_project_do/ads_lab5_project_do.runs/lab5_bd_lab5_axi_do_0_0_synth_1/lab5_bd_lab5_axi_do_0_0.dcp' has been generated.
+WARNING: [Common 17-576] 'use_project_ipc' is deprecated. This option is deprecated and no longer used.
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP lab5_bd_lab5_axi_do_0_0, cache-ID = f19ddca7ecb7e184
+INFO: [Coretcl 2-1174] Renamed 10 cell refs.
+INFO: [Common 17-1381] The checkpoint 'C:/ads_lab5_project_do/ads_lab5_project_do.runs/lab5_bd_lab5_axi_do_0_0_synth_1/lab5_bd_lab5_axi_do_0_0.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file lab5_bd_lab5_axi_do_0_0_utilization_synth.rpt -pb lab5_bd_lab5_axi_do_0_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Thu Dec 16 17:03:56 2021...
