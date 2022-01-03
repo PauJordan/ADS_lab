@@ -219,9 +219,10 @@ begin
                 last_value <= 0;
                 trigger <= '0';
             else
-                if (vsync = '0' and last_vsync = '1') then --when there has been a rising edge
+                if (vsync = '0' and last_vsync = '1') then --when there has been a falling edge
                 -- the data acquisition must start when the vsync signal is at level 0 (assigment)
-                    vsync_edge <= '1';
+                    vsync_edge <= '1'
+                    -- we have defined our internal signal because it is not only that the vsync is a zero, but that there has been a falling edge
                 end if;
 
                 if vsync_edge = '1' and trigger = '0' then
@@ -240,7 +241,6 @@ begin
     end process trigger_p;
 
     -- memory write process
-    -- the memory only is capable of storing one capture of the input signal (assigment)
     memwrite: process(clk)
     begin
         if rising_edge(clk) then
