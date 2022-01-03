@@ -1,16 +1,8 @@
 ----------------------------------------------------------------------------------
--- Company: 
 -- Engineer: 
--- 
 -- Create Date: 12/06/2021 03:05:30 PM
--- Design Name: 
 -- Module Name: daq_trigger_controller - Behavioral
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
 ----------------------------------------------------------------------------------
-
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
@@ -18,8 +10,8 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity daq_trigger_controller is
     Generic (
-        addr_width : natural := 12;
-        data_width : natural := 12
+        addr_width : natural := 12; -- i en tot cas no hauria de ser 11? (assigment ) -> In the system to be designed the data width is 12 bits and the address width is 11 bits (
+        data_width : natural := 12  -- SI AIXO HA DE CONCOARDAR AMB EL DE syn_ram_dualport donat pel profe no ho fa!
     );
     Port (
         clk, rst        : in std_logic;
@@ -81,7 +73,7 @@ architecture Behavioral of daq_trigger_controller is
     -- memwrite_p signals
     signal sample_period : integer range 0 to max_sample_period_ticks;
     signal period_counter : integer range 0 to max_sample_period_ticks;
-    signal sample_index : integer range 0 to max_samples;
+    signal sample_index : integer range 0 to max_samples; -- its all the positions that the memory array will have to store the values from the adc
     
 
     
@@ -247,20 +239,20 @@ begin
             if rst = rst_val or trigger = '1' then
                 sample_period <= initial_sample_period_ticks;
                 period_counter <= 0;
-                sample_index <= 0;
+                sample_index <= 0; -- the sample index allows us to 
             else
                 if (period_counter = sample_period - 1) and (sample_index < max_samples ) then 
                     period_counter <= 0;
 
                     -- Memory write
-                    data <= adc_data1;
-                    addr <= std_logic_vector(to_unsigned(sample_index, addr'length));
+                    data <= adc_data1; --we send to the memory data_in the value that we have in the adc at that moment
+                    addr <= std_logic_vector(to_unsigned(sample_index, addr'length)); --we save the value in the position that we want based on the number of the current sample that we are storing
                     we <= '1'; --write enable signal of the memory; we write in it the values that we have just defined: data and addr
 
                     --Index update
-                    sample_index <= sample_index + 1;
+                    sample_index <= sample_index + 1; --we increase the position in the memory for the next sample to be saved
                     
-                else
+                else -- if we have arrived at the max of the memory AND ¿?
                     we <= '0';
                     period_counter <= period_counter + 1;
                 end if;
