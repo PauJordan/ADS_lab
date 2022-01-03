@@ -2,23 +2,14 @@
 # Vivado v2021.1.1 (64-bit)
 # SW Build 3286242 on Wed Jul 28 13:10:47 MDT 2021
 # IP Build 3279568 on Wed Jul 28 16:48:48 MDT 2021
-# Start of session at: Sun Jan  2 19:42:38 2022
-# Process ID: 21344
-# Current directory: C:/Users/pixi4/UNI/ADS/ADS_lab/lab5/ads_lab5_project_do
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent50272 C:\Users\pixi4\UNI\ADS\ADS_lab\lab5\ads_lab5_project_do\ads_lab5_project_do.xpr
-# Log file: C:/Users/pixi4/UNI/ADS/ADS_lab/lab5/ads_lab5_project_do/vivado.log
-# Journal file: C:/Users/pixi4/UNI/ADS/ADS_lab/lab5/ads_lab5_project_do\vivado.jou
+# Start of session at: Mon Jan  3 10:13:10 2022
+# Process ID: 37676
+# Current directory: C:/Users/pixi4/MEE/ADS/ADS_lab/lab5/ads_lab5_project_do
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent43496 C:\Users\pixi4\MEE\ADS\ADS_lab\lab5\ads_lab5_project_do\ads_lab5_project_do.xpr
+# Log file: C:/Users/pixi4/MEE/ADS/ADS_lab/lab5/ads_lab5_project_do/vivado.log
+# Journal file: C:/Users/pixi4/MEE/ADS/ADS_lab/lab5/ads_lab5_project_do\vivado.jou
 #-----------------------------------------------------------
 start_gui
-open_project C:/Users/pixi4/UNI/ADS/ADS_lab/lab5/ads_lab5_project_do/ads_lab5_project_do.xpr
+open_project C:/Users/pixi4/MEE/ADS/ADS_lab/lab5/ads_lab5_project_do/ads_lab5_project_do.xpr
+synth_design -rtl -rtl_skip_mlo -name rtl_1
 update_compile_order -fileset sources_1
-add_files -fileset constrs_1 -norecurse C:/Users/pixi4/UNI/ADS/ADS_lab/lab5/xdc/lab5_dac.xdc
-import_files -fileset constrs_1 C:/Users/pixi4/UNI/ADS/ADS_lab/lab5/xdc/lab5_dac.xdc
-file mkdir C:/Users/pixi4/UNI/ADS/ADS_lab/lab5/ADS_do/lab5/xdc
-synth_design -rtl -rtl_skip_mlo -name rtl_1
-export_ip_user_files -of_objects  [get_files C:/Users/pixi4/UNI/ADS/ADS_lab/lab5/ADS_do/lab5/xdc/lab5_dac.xdc] -no_script -reset -force -quiet
-remove_files  -fileset constrs_1 C:/Users/pixi4/UNI/ADS/ADS_lab/lab5/ADS_do/lab5/xdc/lab5_dac.xdc
-synth_design -rtl -rtl_skip_mlo -name rtl_1
-reset_run synth_1
-launch_runs impl_1 -to_step write_bitstream -jobs 12
-wait_on_run impl_1

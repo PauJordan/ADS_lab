@@ -1,12 +1,15 @@
+-- En este vhdl lo que nos permite es saber en que coordenada de la zona visible de la pantalla estamos.
+
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
+
 
 entity vga_sync_gen is
     generic (
         h_pixels : integer := 800; -- Numero total cicles horitzontals
         h_sync : integer := 96; -- Amplada en pixels pols horitzontal
-        h_start_pixel : integer := 144; --a on comença temps de display
+        h_start_pixel : integer := 144; --a on comenca temps de display
         h_end_pixel : integer := 784; -- el primer que no pertany a temps de display
         v_lines : integer := 521; --Numero de linies total
         v_sync : integer := 2; --Amplada en linies pols vertical

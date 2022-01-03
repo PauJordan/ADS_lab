@@ -16,7 +16,7 @@ set rt::rc [catch {
     set rt::cmdEcho 0
     rt::set_parameter writeXmsg true
     rt::set_parameter enableParallelHelperSpawn true
-    set ::env(RT_TMP) "C:/Users/pixi4/UNI/ADS/ADS_lab/lab5/ads_lab5_project_do/.Xil/Vivado-21344-Eva/realtime/tmp"
+    set ::env(RT_TMP) "C:/Users/pixi4/MEE/ADS/ADS_lab/lab5/ads_lab5_project_do/.Xil/Vivado-37676-Eva/realtime/tmp"
     if { [ info exists ::env(RT_TMP) ] } {
       file delete -force $::env(RT_TMP)
       file mkdir $::env(RT_TMP)
@@ -35,20 +35,20 @@ set rt::rc [catch {
     set rt::useElabCache false
     if {$rt::useElabCache == false} {
       rt::read_verilog -sv -include {
-    c:/Users/pixi4/UNI/ADS/ADS_lab/lab5/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ipshared/34f8/hdl
-    c:/Users/pixi4/UNI/ADS/ADS_lab/lab5/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ipshared/ec67/hdl
+    c:/Users/pixi4/MEE/ADS/ADS_lab/lab5/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ipshared/34f8/hdl
+    c:/Users/pixi4/MEE/ADS/ADS_lab/lab5/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ipshared/ec67/hdl
   } {
       C:/Xilinx/Vivado/2021.1/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv
       C:/Xilinx/Vivado/2021.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv
     }
       rt::read_vhdl -lib xil_defaultlib {
-      C:/Users/pixi4/UNI/ADS/ADS_lab/lab5/ads_lab5_project_do/.Xil/Vivado-21344-Eva/realtime/lab5_bd_processing_system7_0_0_stub.vhdl
-      C:/Users/pixi4/UNI/ADS/ADS_lab/lab5/ads_lab5_project_do/.Xil/Vivado-21344-Eva/realtime/lab5_bd_rst_ps7_0_100M_0_stub.vhdl
-      C:/Users/pixi4/UNI/ADS/ADS_lab/lab5/ads_lab5_project_do/.Xil/Vivado-21344-Eva/realtime/lab5_bd_lab5_axi_do_0_0_stub.vhdl
-      C:/Users/pixi4/UNI/ADS/ADS_lab/lab5/ads_lab5_project_do/.Xil/Vivado-21344-Eva/realtime/lab5_bd_auto_pc_0_stub.vhdl
-      C:/Users/pixi4/UNI/ADS/ADS_lab/lab5/ads_lab5_project_do/.Xil/Vivado-21344-Eva/realtime/lab5_bd_gen_fun_top_0_1_stub.vhdl
-      c:/Users/pixi4/UNI/ADS/ADS_lab/lab5/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/synth/lab5_bd.vhd
-      C:/Users/pixi4/UNI/ADS/ADS_lab/lab5/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/hdl/lab5_bd_wrapper.vhd
+      C:/Users/pixi4/MEE/ADS/ADS_lab/lab5/ads_lab5_project_do/.Xil/Vivado-37676-Eva/realtime/lab5_bd_processing_system7_0_0_stub.vhdl
+      C:/Users/pixi4/MEE/ADS/ADS_lab/lab5/ads_lab5_project_do/.Xil/Vivado-37676-Eva/realtime/lab5_bd_rst_ps7_0_100M_0_stub.vhdl
+      C:/Users/pixi4/MEE/ADS/ADS_lab/lab5/ads_lab5_project_do/.Xil/Vivado-37676-Eva/realtime/lab5_bd_lab5_axi_do_0_0_stub.vhdl
+      C:/Users/pixi4/MEE/ADS/ADS_lab/lab5/ads_lab5_project_do/.Xil/Vivado-37676-Eva/realtime/lab5_bd_auto_pc_0_stub.vhdl
+      C:/Users/pixi4/MEE/ADS/ADS_lab/lab5/ads_lab5_project_do/.Xil/Vivado-37676-Eva/realtime/lab5_bd_gen_fun_top_0_1_stub.vhdl
+      c:/Users/pixi4/MEE/ADS/ADS_lab/lab5/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/synth/lab5_bd.vhd
+      C:/Users/pixi4/MEE/ADS/ADS_lab/lab5/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/hdl/lab5_bd_wrapper.vhd
     }
       rt::read_vhdl -lib xpm C:/Xilinx/Vivado/2021.1/data/ip/xpm/xpm_VCOMP.vhd
       rt::filesetChecksum
@@ -70,7 +70,7 @@ set rt::rc [catch {
     rt::set_parameter webTalkPath {}
     rt::set_parameter synthDebugLog false
     rt::set_parameter printModuleName false
-    rt::set_parameter enableSplitFlowPath "C:/Users/pixi4/UNI/ADS/ADS_lab/lab5/ads_lab5_project_do/.Xil/Vivado-21344-Eva/"
+    rt::set_parameter enableSplitFlowPath "C:/Users/pixi4/MEE/ADS/ADS_lab/lab5/ads_lab5_project_do/.Xil/Vivado-37676-Eva/"
     set ok_to_delete_rt_tmp true 
     if { [rt::get_parameter parallelDebug] } { 
        set ok_to_delete_rt_tmp false 

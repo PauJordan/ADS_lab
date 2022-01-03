@@ -47,8 +47,8 @@ architecture Behavioral of daq_trigger_controller is
     -- config
     constant rst_val : std_logic := '1';
     constant max_signal_level : integer := 2**9 - 1;
-    constant initial_trigger_level : integer := 256;
-    constant trigger_button_chg_amount : integer := 16;
+    constant initial_trigger_level : integer := 256; --Initial value defined by the lab assigment
+    constant trigger_button_chg_amount : integer := 16; -- Increase defined by the lab assigment.
     constant initial_sample_period_ticks : integer := 100;
     constant max_sample_period_ticks : integer := 1000;
     constant max_samples : integer := 1280;
@@ -73,7 +73,7 @@ architecture Behavioral of daq_trigger_controller is
 
     -- trigger_p signals
     signal vsync_edge : std_logic;
-    signal trigger : std_logic;
+    signal trigger : std_logic; --? Indicates that we have to show something
     signal last_value : integer range 0 to max_signal_level;
     signal last_vsync : std_logic;
     signal signal_level : integer range 0 to max_signal_level;
@@ -95,6 +95,9 @@ begin
 
 -- Processes
     -- Button input signals syncronization process.
+    -- The process allows us to detect whether we have a push in the button, and assign the value to our internal signal to work with it in another process
+    -- We have added a required minimum time so as to detect that a button push has been done in reality and not confuse it with a MISSING_PARAULA signal.
+    -- The required minimum time is counted by the debounce_counter
     button_sync_p : process(clk)
         variable debounce_counter : integer range 0 to debounce_counter_max;
     begin 
@@ -102,35 +105,44 @@ begin
         if rst = rst_val then
             button_state <= debounce;
             debounce_counter := 0;
-        else
-            t1 <= trigger_up;
-            t2 <= trigger_down;
-            t3 <= trigger_n_p;
+        else -- if we do not have a reset we set the inputs to our internal signals
+            t1 <= trigger_up; --button up
+            t2 <= trigger_down; --button down
+            t3 <= trigger_n_p; --button stop
 
             -- Write outputs
-            t_up_s <= t1;
+            -- ¿? but are internal signals?
+            t_up_s <= t1; 
             t_down_s <= t2;
             t_np_s <= t3;
 
             -- Write delayed
+            -- ¿?
             last_t_up_s <= t_up_s;
             last_t_down_s <= t_down_s;
             last_t_np_s <= last_t_np_s;
 
-            --Edge detect                
-            t_up_edge <= t_up_s and not last_t_up_s;
+            --Edge detect   
+            -- it will be an edge if the actual state (high/low) its not the same as the previous one             
+            t_up_edge <= t_up_s and not last_t_up_s; 
             t_down_edge <= t_down_s and not last_t_down_s;
             t_np_edge <= t_np_s and not last_t_np_s;
 
-            if(button_state = ready and (t_up_edge = '1' or t_down_edge = '1' or t_np_edge = '1')) then
+            if(button_state = ready and (t_up_edge = '1' or t_down_edge = '1' or t_np_edge = '1')) then 
+            --if we are ready and we have a rising edge on any of the buttons we inidcate with our internal signal
+            --that the button has been pressed
                 t_up_pressed <= t_up_edge;
                 t_down_pressed <= t_up_edge;
                 t_np_pressed <= t_np_pressed;
                 
+                -- then we define the state of the button to debounce and we initialize the counter of "pulsations"
                 button_state <= debounce;
                 debounce_counter := 0;
-            elsif (button_state = debounce) then
-                -- we first check wether the time has passed, if it hasn't:
+
+            elsif (button_state = debounce) then --if we have the inidcative that the button has been pulsated
+
+                --we first check wether the time has passed (we have set a minimum time that the button must be pushed so as to set that is a "real" push), 
+                --if it hasn't, we act as the button has not been pushed:
                 if(debounce_counter < debounce_counter_max) then
                     t_up_pressed <= '0';
                     t_down_pressed <= '0';
@@ -140,18 +152,18 @@ begin
                     debounce_counter := debounce_counter + 1;
 
                 -- if it has (we check if there is a button pressed or not):
-                elsif(t_up_s = '1' or t_down_s = '1' or t_np_s = '1') then
+                elsif(t_up_s = '1' or t_down_s = '1' or t_np_s = '1') then -- we recheck the state of the buttons and assign it to our signals
                     t_up_pressed <= t_up_s;
                     t_down_pressed <= t_down_s;
                     t_np_pressed <= t_np_s;
 
                     button_state <= debounce;
-                    debounce_counter := 0;
+                    debounce_counter := 0; -- we reset the time counter
                 else 
-                    button_state <= ready;
+                    button_state <= ready; --otherwise we set that we are ready (meaning waiting) for a push of any button
                     
                 end if;
-            else
+            else --we would get here when we are in the ready state, therefore the values of the buttons must be zero and we should be waiting for the next button push, then ready state
                 t_up_pressed <= '0';
                 t_down_pressed <= '0';
                 t_np_pressed <= '0';
@@ -166,24 +178,29 @@ begin
     trigger_control_p : process(clk, rst)
     begin
     if rising_edge(clk) then
-        if rst = rst_val then
+        if rst = rst_val then --we set the default values that are a initial trigger of 256, half of the signal screen area and a positive edge trigger
             trigger_level_s <= initial_trigger_level;
             trigger_np_s <= positive_edge;
         else
             -- Trigger level position control. (up, down)
-            if t_up_pressed = '1' then
-                trigger_level_s <= trigger_level_s - trigger_button_chg_amount;
+            if t_up_pressed = '1' then 
+            --if we want to increase the trigger level, we 
+                trigger_level_s <= trigger_level_s - trigger_button_chg_amount; --! NO HAURIA DE SER SUMA?
 
             elsif t_down_pressed = '1' then
+            --if we want to decrease the trigger level
                 trigger_level_s <= trigger_level_s + trigger_button_chg_amount;
 
             else 
+            -- if no button is pressed we mantain the previous trigger level
                 trigger_level_s <= trigger_level_s;
 
             end if;
 
             -- Trigger mode control. (positive, negative)
             if t_np_pressed = '1' then
+            -- this button allows us to change the edge from the actual state to the opposite one, so we check which is the actual state
+            -- and set the opposite.
                 if trigger_np_s = positive_edge then
                     trigger_np_s <= negative_edge;
                 else
@@ -202,7 +219,8 @@ begin
                 last_value <= 0;
                 trigger <= '0';
             else
-                if (vsync = '0' and last_vsync = '1') then
+                if (vsync = '0' and last_vsync = '1') then --when there has been a rising edge
+                -- the data acquisition must start when the vsync signal is at level 0 (assigment)
                     vsync_edge <= '1';
                 end if;
 
@@ -222,6 +240,7 @@ begin
     end process trigger_p;
 
     -- memory write process
+    -- the memory only is capable of storing one capture of the input signal (assigment)
     memwrite: process(clk)
     begin
         if rising_edge(clk) then
@@ -236,7 +255,7 @@ begin
                     -- Memory write
                     data <= adc_data1;
                     addr <= std_logic_vector(to_unsigned(sample_index, addr'length));
-                    we <= '1';
+                    we <= '1'; --write enable signal of the memory; we write in it the values that we have just defined: data and addr
 
                     --Index update
                     sample_index <= sample_index + 1;
