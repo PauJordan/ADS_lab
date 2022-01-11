@@ -26,6 +26,8 @@ entity lab5_axi_do_v1_0_S00_AXI is
         -- ADC ports
         ncs, sclk           : out std_logic;
         sdata1, sdata2      : in std_logic;
+        
+
 		-- User ports ends
 		-- Do not modify the ports beyond this line
 
@@ -142,7 +144,13 @@ architecture arch_imp of lab5_axi_do_v1_0_S00_AXI is
 
         -- ADC ports
         ncs, sclk           : out std_logic;
-        sdata1, sdata2      : in std_logic
+        sdata1, sdata2      : in std_logic;
+        
+        -- Temperature management
+        alarm : in std_logic;
+        temperature : in std_logic_vector (11 downto 0);
+        t_temperature : in std_logic_vector (11 downto 0)
+        
 
     );
     end component;
@@ -433,7 +441,10 @@ begin
             sdata1 => sdata1,
             sdata2 => sdata2,
             ncs => ncs,
-            sclk => sclk
+            sclk => sclk,
+            alarm => slv_reg0(24),
+            temperature => slv_reg0(23 downto 12),
+            t_temperature => slv_reg0(11 downto 0)
         );
 	-- User logic ends
 

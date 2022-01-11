@@ -10,7 +10,7 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity daq_trigger_controller is
     Generic (
-        addr_width : natural := 12; -- i en tot cas no hauria de ser 11? (assigment ) -> In the system to be designed the data width is 12 bits and the address width is 11 bits (
+        addr_width : natural := 11; -- i en tot cas no hauria de ser 11? (assigment ) -> In the system to be designed the data width is 12 bits and the address width is 11 bits (
         data_width : natural := 12  -- SI AIXO HA DE CONCOARDAR AMB EL DE syn_ram_dualport donat pel profe no ho fa!
     );
     Port (
@@ -65,7 +65,7 @@ architecture Behavioral of daq_trigger_controller is
 
     -- trigger_p signals
     signal vsync_edge : std_logic;
-    signal trigger : std_logic; --? Indicates that we have to show something
+    signal trigger : std_logic; -- Indicates that the trigger condition has been met, and the counters are reset.
     signal last_value : integer range 0 to max_signal_level;
     signal last_vsync : std_logic;
     signal signal_level : integer range 0 to max_signal_level;
@@ -213,7 +213,7 @@ begin
             else
                 if (vsync = '0' and last_vsync = '1') then --when there has been a falling edge
                 -- the data acquisition must start when the vsync signal is at level 0 (assigment)
-                    vsync_edge <= '1'
+                    vsync_edge <= '1';
                     -- we have defined our internal signal because it is not only that the vsync is a zero, but that there has been a falling edge
                 end if;
 

@@ -31,7 +31,12 @@ entity daq_top is
 
         -- ADC ports
         ncs, sclk           : out std_logic;
-        sdata1, sdata2      : in std_logic
+        sdata1, sdata2      : in std_logic;
+        
+        -- Temperature management
+        alarm : in std_logic;
+        temperature : in std_logic_vector (11 downto 0);
+        t_temperature : in std_logic_vector (11 downto 0)
 
     );
 end daq_top;
@@ -55,7 +60,12 @@ architecture daq_top_b_arc of daq_top is
             data            : in std_logic_vector (data_width - 1 downto 0);
 
             -- Trigger level
-            trigger_level   : in std_logic_vector (8 downto 0)
+            trigger_level   : in std_logic_vector (8 downto 0);
+            
+            -- Temperature management
+           alarm : in std_logic;
+           temperature : in std_logic_vector (11 downto 0);
+           t_temperature : in std_logic_vector (11 downto 0)
         );
     end component;
     
@@ -108,12 +118,14 @@ architecture daq_top_b_arc of daq_top is
 
     component daq_adc_controller
         Port (
-            clk		        : in std_logic;
+            clk, rst        : in std_logic;
             sdata1, sdata2  : in std_logic;
             ncs, sclk       : out std_logic;
             data1, data2    : out std_logic_vector (11 downto 0)
         );
     end component;
+        
+    
 -- Signal Declarations
     signal rst : std_logic;
     
@@ -154,7 +166,11 @@ begin
         vsync => vsync_s,
         addr => addr_out,
         data => data_out,
-        trigger_level => trigger_level
+        trigger_level => trigger_level,
+        alarm => alarm,
+        temperature => temperature,
+        t_temperature => t_temperature
+        
     );
 
     daq_memory_unit_1 : sync_ram_dualport
@@ -194,6 +210,7 @@ begin
     daq_adc_controller_1 : daq_adc_controller
     port map (
         clk => CLK,
+        rst => rst,
         ncs => ncs,
         sclk => sclk,
         sdata1 => sdata1,
@@ -201,5 +218,6 @@ begin
         data1 => data1,
         data2 => open
     );
+    
 
 end daq_top_b_arc;

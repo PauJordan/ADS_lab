@@ -2,7 +2,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
-entity cross_generator is
+entity signal_plotter is
     Port ( PX : in unsigned(11 downto 0);
            PY : in unsigned(11 downto 0);
            RGB_in : in STD_LOGIC_VECTOR (11 downto 0);
@@ -11,9 +11,9 @@ entity cross_generator is
             -- Trigger level
             trigger_level   : in std_logic_vector (8 downto 0)
         );
-end cross_generator;
+end signal_plotter;
 
-architecture cross_generator_arc of cross_generator is
+architecture signal_plotter_arc of signal_plotter is
 
 signal trigger_level_s : unsigned(8 downto 0); 
 
@@ -24,4 +24,4 @@ begin
 
     RGB_out <= (others => '1') when  PY = trigger_level_s else (RGB_in) ;
 
-end cross_generator_arc;
+end signal_plotter_arc;

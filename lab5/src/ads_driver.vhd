@@ -29,8 +29,7 @@ entity daq_adc_controller is
     generic (
     total_periods: integer := 16); -- during the next 16 periods of the reference clock signal
     Port (
-    clk: in std_logic; -- 108 MHz  
-    rst: in std_logic; -- active low
+    clk, rst: in std_logic; -- 108 MHz  
     sdata1, sdata2 : in std_logic; 
     ncs: out std_logic;
     sclk: out std_logic;

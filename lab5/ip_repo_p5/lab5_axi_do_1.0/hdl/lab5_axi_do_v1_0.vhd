@@ -27,6 +27,7 @@ entity lab5_axi_do_v1_0 is
         -- ADC ports
         ncs, sclk           : out std_logic;
         sdata1, sdata2      : in std_logic;
+        
 		-- User ports ends
 		-- Do not modify the ports beyond this line
 
