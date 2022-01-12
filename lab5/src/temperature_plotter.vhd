@@ -5,15 +5,15 @@ use IEEE.NUMERIC_STD.ALL;
 entity temperature_plotter is
     generic(
         --threshold display -> it does have a width of 35 lines
-        threshold_y_start : integer := 540
-        threshold_y_finish: integer := 575
+        threshold_y_start : integer := 540;
+        threshold_y_finish: integer := 575;
         
         --temperature bar display -> it does have a width of 30 lines
-        temp_bar_y_start : integer := 542
-        temp_bar_y_finish : integer := 572
+        temp_bar_y_start : integer := 542;
+        temp_bar_y_finish : integer := 572;
         temp_bar_x_start : integer := 0
 
-    )
+    );
     Port ( RGB_in : in STD_LOGIC_VECTOR (11 downto 0);
            PX : in unsigned (11 downto 0);
            PY : in unsigned (11 downto 0);
@@ -24,10 +24,16 @@ entity temperature_plotter is
 end temperature_plotter;
 
 architecture temperature_plotter_arc of temperature_plotter is
-    signal RGB_internal : STD_LOGIC_VECTOR (11 downto 0));
+    signal RGB_internal : STD_LOGIC_VECTOR (11 downto 0);
 -- The idea here is that this component get the rgb that must be plotted from the signal plotter, and if we are not in the range
 -- that we are interested in for plotting the monotoring application we will take the input and set it to the ouput,
 -- but if we are, we are going to modify the RBG that we have at the input properly depending on the conditions
+constant red : std_logic_vector (11 downto 0) := x"F00";
+constant blue : std_logic_vector (11 downto 0) := x"00F";
+constant green : std_logic_vector (11 downto 0) := x"0F0";
+begin
+
+prova : process(PY, PX)
 begin
     RGB_out <= RGB_internal_out
     if PY < threshold_y_start or PY > threshold_y_finish then -- we are not in the range of plotting the temperature monitoring
