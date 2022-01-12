@@ -23,7 +23,6 @@ entity daq_n4_hw_test is
            BTNU : in std_logic;
            BTND : in std_logic;
            BTNC : in std_logic;
-           BTNR : in std_logic;
            VGA_R : out std_logic_vector (3 downto 0);
            VGA_G : out std_logic_vector (3 downto 0);
            VGA_B : out std_logic_vector (3 downto 0);
@@ -64,7 +63,7 @@ architecture Behavioral of daq_n4_hw_test is
         D2 : out std_logic);
     end component;
 
-    component daq_clk_adapter is
+    component clock_adapter_bd is
         port (
           CLK_in : in STD_LOGIC;
           RST : in STD_LOGIC;
@@ -110,7 +109,7 @@ begin
             D2 => d2
         );
 
-    daq_clk_adapter_i: daq_clk_adapter
+    daq_clk_adapter_i: clock_adapter_bd
         port map (
          CLK_in => CLK100MHZ,
          CLK_out => clk,

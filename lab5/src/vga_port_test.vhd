@@ -50,16 +50,13 @@ architecture beh of daq_vga_controller is
              DISPLAY_E : out STD_LOGIC);
   	end component;
 
-  component signal_plotter
+  component threshold_plotter
         Port ( PX : in unsigned(11 downto 0);
                PY : in unsigned(11 downto 0);
                RGB_in : in STD_LOGIC_VECTOR (11 downto 0);
                RGB_out : out STD_LOGIC_VECTOR (11 downto 0);
-               TIMING_IN : in STD_LOGIC;
                 -- Trigger level
-                trigger_level   : in std_logic_vector (8 downto 0)
-
-            
+               trigger_level   : in std_logic_vector (8 downto 0)
             );
     end component;
     
@@ -86,11 +83,10 @@ architecture beh of daq_vga_controller is
     
     -- constants
     constant rst_val : std_logic := '1';
-    constant signal_color : std_logic_vector (11 downto 0) := x"FF0";
     constant black : std_logic_vector (11 downto 0) := (others => '0');
    
     -- interconnects:
-       --  signal_plotter <-> temperature_plotter
+       --  threshold_plotter <-> temperature_plotter
     signal i_RGB : std_logic_vector(11 downto 0);    
      
 
@@ -127,7 +123,7 @@ begin
         PIXEL_Y => pixel_y_s,
         DISPLAY_E => disp_s);
                                   
-    signal_plotter_1 : signal_plotter 
+    signal_plotter_1 : threshold_plotter 
     port map ( 
             PX      => pixel_x_s,
             PY      => pixel_y_s,
