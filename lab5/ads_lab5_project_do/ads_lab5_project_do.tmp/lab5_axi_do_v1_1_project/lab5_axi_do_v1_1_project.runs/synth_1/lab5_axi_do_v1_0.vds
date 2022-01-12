@@ -1,0 +1,103 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Tue Jan 11 20:16:20 2022
+# Process ID: 48140
+# Current directory: c:/ads_lab5_project_do/ads_lab5_project_do.tmp/lab5_axi_do_v1_1_project/lab5_axi_do_v1_1_project.runs/synth_1
+# Command line: vivado.exe -log lab5_axi_do_v1_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source lab5_axi_do_v1_0.tcl
+# Log file: c:/ads_lab5_project_do/ads_lab5_project_do.tmp/lab5_axi_do_v1_1_project/lab5_axi_do_v1_1_project.runs/synth_1/lab5_axi_do_v1_0.vds
+# Journal file: c:/ads_lab5_project_do/ads_lab5_project_do.tmp/lab5_axi_do_v1_1_project/lab5_axi_do_v1_1_project.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source lab5_axi_do_v1_0.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/ADS_do/lab5/ip_repo_p5'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/ADS/ipcores/ip_repo'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2020.2/data/ip'.
+WARNING: [IP_Flow 19-4995] The host OS only allows 260 characters in a normal path. The IP cache path is more than 80 characters. If you experience issues with IP caching, please consider changing the IP cache to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter. 
+Current IP cache path is c:/ads_lab5_project_do/ads_lab5_project_do.tmp/lab5_axi_do_v1_1_project/lab5_axi_do_v1_1_project.cache/ip 
+Command: synth_design -top lab5_axi_do_v1_0 -part xc7z020clg484-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 32016
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1095.664 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'lab5_axi_do_v1_0' [c:/ADS_do/lab5/ip_repo_p5/lab5_axi_do_1.0/hdl/lab5_axi_do_v1_0.vhd:60]
+	Parameter C_S00_AXI_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_S00_AXI_ADDR_WIDTH bound to: 4 - type: integer 
+	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_S_AXI_ADDR_WIDTH bound to: 4 - type: integer 
+INFO: [Synth 8-3491] module 'lab5_axi_do_v1_0_S00_AXI' declared at 'c:/ADS_do/lab5/ip_repo_p5/lab5_axi_do_1.0/hdl/lab5_axi_do_v1_0_S00_AXI.vhd:5' bound to instance 'lab5_axi_do_v1_0_S00_AXI_inst' of component 'lab5_axi_do_v1_0_S00_AXI' [c:/ADS_do/lab5/ip_repo_p5/lab5_axi_do_1.0/hdl/lab5_axi_do_v1_0.vhd:109]
+INFO: [Synth 8-638] synthesizing module 'lab5_axi_do_v1_0_S00_AXI' [c:/ADS_do/lab5/ip_repo_p5/lab5_axi_do_1.0/hdl/lab5_axi_do_v1_0_S00_AXI.vhd:97]
+	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_S_AXI_ADDR_WIDTH bound to: 4 - type: integer 
+INFO: [Synth 8-226] default block is never used [c:/ADS_do/lab5/ip_repo_p5/lab5_axi_do_1.0/hdl/lab5_axi_do_v1_0_S00_AXI.vhd:263]
+INFO: [Synth 8-226] default block is never used [c:/ADS_do/lab5/ip_repo_p5/lab5_axi_do_1.0/hdl/lab5_axi_do_v1_0_S00_AXI.vhd:393]
+INFO: [Synth 8-3491] module 'daq_top' declared at 'c:/ADS_do/lab5/src/daq_top_do.vhd:19' bound to instance 'daq_top_1' of component 'daq_top' [c:/ADS_do/lab5/ip_repo_p5/lab5_axi_do_1.0/hdl/lab5_axi_do_v1_0_S00_AXI.vhd:427]
+INFO: [Synth 8-638] synthesizing module 'daq_top' [c:/ADS_do/lab5/src/daq_top_do.vhd:44]
+	Parameter addr_width bound to: 12 - type: integer 
+	Parameter data_width bound to: 12 - type: integer 
+INFO: [Synth 8-3491] module 'daq_vga_controller' declared at 'c:/ADS_do/lab5/src/vga_port_test.vhd:5' bound to instance 'daq_vga_controller_1' of component 'daq_vga_controller' [c:/ADS_do/lab5/src/daq_top_do.vhd:154]
+INFO: [Synth 8-638] synthesizing module 'daq_vga_controller' [c:/ADS_do/lab5/src/vga_port_test.vhd:31]
+	Parameter addr_width bound to: 12 - type: integer 
+	Parameter data_width bound to: 12 - type: integer 
+	Parameter h_pixels bound to: 1688 - type: integer 
+	Parameter h_sync bound to: 112 - type: integer 
+	Parameter h_start_pixel bound to: 360 - type: integer 
+	Parameter h_end_pixel bound to: 1640 - type: integer 
+	Parameter v_lines bound to: 1066 - type: integer 
+	Parameter v_sync bound to: 3 - type: integer 
+	Parameter v_start_line bound to: 41 - type: integer 
+	Parameter v_end_line bound to: 1065 - type: integer 
+	Parameter h_bits bound to: 12 - type: integer 
+	Parameter v_bits bound to: 12 - type: integer 
+INFO: [Synth 8-3491] module 'vga_sync_gen' declared at 'c:/ADS_do/lab5/src/vga_sync_gen.vhd:8' bound to instance 'vga_timing' of component 'vga_sync_gen' [c:/ADS_do/lab5/src/vga_port_test.vhd:108]
+INFO: [Synth 8-638] synthesizing module 'vga_sync_gen' [c:/ADS_do/lab5/src/vga_sync_gen.vhd:30]
+	Parameter h_pixels bound to: 1688 - type: integer 
+	Parameter h_sync bound to: 112 - type: integer 
+	Parameter h_start_pixel bound to: 360 - type: integer 
+	Parameter h_end_pixel bound to: 1640 - type: integer 
+	Parameter v_lines bound to: 1066 - type: integer 
+	Parameter v_sync bound to: 3 - type: integer 
+	Parameter v_start_line bound to: 41 - type: integer 
+	Parameter v_end_line bound to: 1065 - type: integer 
+	Parameter h_bits bound to: 12 - type: integer 
+	Parameter v_bits bound to: 12 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'vga_sync_gen' (1#1) [c:/ADS_do/lab5/src/vga_sync_gen.vhd:30]
+INFO: [Synth 8-3491] module 'signal_plotter' declared at 'c:/ADS_do/lab5/src/cross_generator.vhd:5' bound to instance 'signal_plotter_1' of component 'signal_plotter' [c:/ADS_do/lab5/src/vga_port_test.vhd:130]
+INFO: [Synth 8-638] synthesizing module 'signal_plotter' [c:/ADS_do/lab5/src/cross_generator.vhd:16]
+INFO: [Synth 8-256] done synthesizing module 'signal_plotter' (2#1) [c:/ADS_do/lab5/src/cross_generator.vhd:16]
+INFO: [Synth 8-3491] module 'temperature_plotter' declared at 'c:/ADS_do/lab5/src/temperature_plotter.vhd:28' bound to instance 'temperature_plotter_1' of component 'temperature_plotter' [c:/ADS_do/lab5/src/vga_port_test.vhd:140]
+INFO: [Synth 8-638] synthesizing module 'temperature_plotter' [c:/ADS_do/lab5/src/temperature_plotter.vhd:38]
+INFO: [Synth 8-256] done synthesizing module 'temperature_plotter' (3#1) [c:/ADS_do/lab5/src/temperature_plotter.vhd:38]
+INFO: [Synth 8-256] done synthesizing module 'daq_vga_controller' (4#1) [c:/ADS_do/lab5/src/vga_port_test.vhd:31]
+	Parameter addr_width bound to: 12 - type: integer 
+	Parameter data_width bound to: 12 - type: integer 
+INFO: [Synth 8-3491] module 'sync_ram_dualport' declared at 'c:/ADS_do/lab5/src/sync_ram_dualport.vhd:5' bound to instance 'daq_memory_unit_1' of component 'sync_ram_dualport' [c:/ADS_do/lab5/src/daq_top_do.vhd:176]
+INFO: [Synth 8-638] synthesizing module 'sync_ram_dualport' [c:/ADS_do/lab5/src/sync_ram_dualport.vhd:22]
+	Parameter data_width bound to: 12 - type: integer 
+	Parameter addr_width bound to: 12 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'sync_ram_dualport' (5#1) [c:/ADS_do/lab5/src/sync_ram_dualport.vhd:22]
+	Parameter addr_width bound to: 12 - type: integer 
+	Parameter data_width bound to: 12 - type: integer 
+INFO: [Synth 8-3491] module 'daq_trigger_controller' declared at 'c:/ADS_do/lab5/src/daq_trigger_controller.vhd:11' bound to instance 'daq_trigger_controller_1' of component 'daq_trigger_controller' [c:/ADS_do/lab5/src/daq_top_do.vhd:191]
+INFO: [Synth 8-638] synthesizing module 'daq_trigger_controller' [c:/ADS_do/lab5/src/daq_trigger_controller.vhd:38]
+	Parameter addr_width bound to: 12 - type: integer 
+	Parameter data_width bound to: 12 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'daq_trigger_controller' (6#1) [c:/ADS_do/lab5/src/daq_trigger_controller.vhd:38]
+INFO: [Synth 8-3491] module 'daq_adc_controller' declared at 'c:/ADS_do/lab5/src/ads_driver.vhd:28' bound to instance 'daq_adc_controller_1' of component 'daq_adc_controller' [c:/ADS_do/lab5/src/daq_top_do.vhd:210]
+INFO: [Synth 8-638] synthesizing module 'daq_adc_controller' [c:/ADS_do/lab5/src/ads_driver.vhd:39]
+	Parameter total_periods bound to: 16 - type: integer 
+	Parameter Q_width bound to: 15 - type: integer 
+INFO: [Synth 8-3491] module 'o_generic_sr' declared at 'c:/ADS_do/lab5/src/o_generic_sr.vhd:25' bound to instance 'shift_register_1' of component 'o_generic_sr' [c:/ADS_do/lab5/src/ads_driver.vhd:109]
+INFO: [Synth 8-638] synthesizing module 'o_generic_sr' [c:/ADS_do/lab5/src/o_generic_sr.vhd:34]
+	Parameter Q_width bound to: 15 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'o_generic_sr' (7#1) [c:/ADS_do/lab5/src/o_generic_sr.vhd:34]
+INFO: [Synth 8-256] done synthesizing module 'daq_adc_controller' (8#1) [c:/ADS_do/lab5/src/ads_driver.vhd:39]
+INFO: [Synth 8-256] done synthesizing module 'daq_top' (9#1) [c:/ADS_do/lab5/src/daq_top_do.vhd:44]
+INFO: [Synth 8-256] done synthesizing module 'lab5_axi_do_v1_0_S00_AXI' (10#1) [c:/ADS_do/lab5/ip_repo_p5/lab5_axi_do_1.0/hdl/lab5_axi_do_v1_0_S00_AXI.vhd:97]
+INFO: [Synth 8-256] done synthesizing module 'lab5_axi_do_v1_0' (11#1) [c:/ADS_do/lab5/ip_repo_p5/lab5_axi_do_1.0/hdl/lab5_axi_do_v1_0.vhd:60]
