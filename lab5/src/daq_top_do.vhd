@@ -36,7 +36,11 @@ entity daq_top is
         -- Temperature management
         alarm : in std_logic;
         temperature : in std_logic_vector (11 downto 0);
-        t_temperature : in std_logic_vector (11 downto 0)
+        t_temperature : in std_logic_vector (11 downto 0);
+
+        -- Scaling
+        y_scale_select : in std_logic_vector (1 downto 0);
+        x_scale_select : in std_logic_vector (1 downto 0)
 
     );
 end daq_top;
@@ -65,7 +69,10 @@ architecture daq_top_b_arc of daq_top is
             -- Temperature management
            alarm : in std_logic;
            temperature : in std_logic_vector (11 downto 0);
-           t_temperature : in std_logic_vector (11 downto 0)
+           t_temperature : in std_logic_vector (11 downto 0);
+
+           -- Scaling
+           y_scale_select : in std_logic_vector (1 downto 0)
         );
     end component;
     
@@ -169,7 +176,8 @@ begin
         trigger_level => trigger_level,
         alarm => alarm,
         temperature => temperature,
-        t_temperature => t_temperature
+        t_temperature => t_temperature,
+        y_scale_select => y_scale_select
         
     );
 

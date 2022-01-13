@@ -24,7 +24,10 @@ entity daq_vga_controller is
         -- Temperature managment
         alarm : in STD_LOGIC;
         temperature : in STD_LOGIC_VECTOR (11 downto 0);
-        t_temperature : in STD_LOGIC_VECTOR (11 downto 0)
+        t_temperature : in STD_LOGIC_VECTOR (11 downto 0);
+
+        -- Scaling
+        y_scale_select : in std_logic_vector (1 downto 0)
 );
 end daq_vga_controller;
 
@@ -60,6 +63,17 @@ architecture beh of daq_vga_controller is
             );
     end component;
     
+      component signal_plotter
+        Port ( PX : in unsigned(11 downto 0);
+               PY : in unsigned(11 downto 0);
+               RGB_in : in STD_LOGIC_VECTOR (11 downto 0);
+               RGB_out : out STD_LOGIC_VECTOR (11 downto 0);
+                -- Trigger level
+               signal_data   : in std_logic_vector (11 downto 0);
+               vertical_scale : in unsigned (1 downto 0)
+            );
+    end component;
+    
     component temperature_plotter
     Port ( RGB_in : in STD_LOGIC_VECTOR (11 downto 0);
            PX : in unsigned (11 downto 0);
@@ -75,7 +89,7 @@ architecture beh of daq_vga_controller is
   --vga test signals
     signal pixel_presc_s, disp_s, VGA_VS_s, VGA_HR_s : std_logic;
     signal pixel_x_s, pixel_y_s : unsigned(11 downto 0);
-    signal signal_rgb, RGB_s : std_logic_vector(11 downto 0);
+    signal RGB_s : std_logic_vector(11 downto 0);
     signal line_counter : integer range 0 to 1023;
     
     -- vga signal
@@ -86,8 +100,10 @@ architecture beh of daq_vga_controller is
     constant black : std_logic_vector (11 downto 0) := (others => '0');
    
     -- interconnects:
+        -- signal_plotter <-> threshold_plotter
+    signal i_rgb_1 : std_logic_vector(11 downto 0);
        --  threshold_plotter <-> temperature_plotter
-    signal i_RGB : std_logic_vector(11 downto 0);    
+    signal i_rgb_2 : std_logic_vector(11 downto 0);    
      
 
 begin
@@ -95,9 +111,7 @@ begin
 	vsync <= VGA_VS_s;
 	
     addr <=  std_logic_vector(pixel_x_s);
-    signal_value <= unsigned(data(11 downto 3));
-    
-	signal_rgb <= signal_color when (pixel_y_s = signal_value and alarm = '0' ) else black;
+	
 	
     RGB <= RGB_s when disp_s = '1' else (others => '0');
     
@@ -122,14 +136,23 @@ begin
         PIXEL_X => pixel_x_s,
         PIXEL_Y => pixel_y_s,
         DISPLAY_E => disp_s);
-                                  
-    signal_plotter_1 : threshold_plotter 
+   
+    signal_plotter_1 : signal_plotter 
     port map ( 
             PX      => pixel_x_s,
             PY      => pixel_y_s,
-            RGB_in  => signal_rgb,
-            RGB_out => i_RGB, 
-            TIMING_IN => VGA_VS_s,
+            RGB_in  => black,
+            RGB_out => i_RGB_1, 
+            signal_data => data,
+            vertical_scale => unsigned(y_scale_select)
+            );                     
+    
+    threshold_plotter_1 : threshold_plotter 
+    port map ( 
+            PX      => pixel_x_s,
+            PY      => pixel_y_s,
+            RGB_in  => i_rgb_1,
+            RGB_out => i_RGB_2, 
             trigger_level => trigger_level
             );
 
@@ -137,7 +160,7 @@ begin
     port map (
             PX      => pixel_x_s,
             PY      => pixel_y_s,
-            RGB_in  => i_RGB,
+            RGB_in  => i_RGB_2,
             RGB_out => RGB_s,
             alarm  => alarm,
             temperature => temperature,

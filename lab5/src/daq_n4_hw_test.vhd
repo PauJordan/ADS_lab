@@ -46,7 +46,16 @@ architecture Behavioral of daq_n4_hw_test is
 
         -- ADC ports
         ncs, sclk           : out std_logic;
-        sdata1, sdata2      : in std_logic
+        sdata1, sdata2      : in std_logic;
+        
+        -- Temperature management
+        alarm : in std_logic;
+        temperature : in std_logic_vector (11 downto 0);
+        t_temperature : in std_logic_vector (11 downto 0);
+
+        -- Scaling
+        y_scale_select : in std_logic_vector (1 downto 0);
+        x_scale_select : in std_logic_vector (1 downto 0)
 
     );
     end component;
@@ -94,7 +103,13 @@ begin
             sdata1 => d1,
             sdata2 => d2,
             ncs => ncs,
-            sclk => sclk
+            sclk => sclk,
+            alarm => SW(15),
+            temperature => x"040",
+            t_temperature => x"050",
+            y_scale_select => SW(3 downto 2),
+            x_scale_select => SW(5 downto 4)
+            
         );
     
     virtual_gen_fun_1 : virtual_gen_fun
