@@ -1,6 +1,6 @@
 ----------------------------------------------------------------------------------
 -- Company: ADS//UPC
--- Engineer: Eva Maria Deltor, Pau Jordan Oliveres
+-- Engineer: Eva Maria Deltor, Pau Jordan Oliveras
 -- 
 -- Create Date: 22.11.2021 19:00:52
 -- Design Name: 

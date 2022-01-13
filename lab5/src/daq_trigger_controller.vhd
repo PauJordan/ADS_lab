@@ -10,8 +10,8 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity daq_trigger_controller is
     Generic (
-        addr_width : natural := 11; -- i en tot cas no hauria de ser 11? (assigment ) -> In the system to be designed the data width is 12 bits and the address width is 11 bits (
-        data_width : natural := 12  -- SI AIXO HA DE CONCOARDAR AMB EL DE syn_ram_dualport donat pel profe no ho fa!
+        addr_width : natural := 11; 
+        data_width : natural := 12 
     );
     Port (
         clk, rst        : in std_logic;
@@ -26,12 +26,17 @@ entity daq_trigger_controller is
         trigger_down    : in std_logic;
         trigger_n_p     : in std_logic;
         trigger_level   : out std_logic_vector (8 downto 0);
+        mode_indicator  : out std_logic_vector (3 downto 0);
 
         -- Data input port
         adc_data1       : in std_logic_vector (data_width - 1 downto 0);
 
         -- VGA sync port
-        vsync           : in std_logic
+        vsync           : in std_logic;
+
+        -- Scaling
+        y_scale_select : out std_logic_vector (2 downto 0)
+
     );
 end daq_trigger_controller;
 
@@ -45,15 +50,30 @@ architecture Behavioral of daq_trigger_controller is
     constant max_sample_period_ticks : integer := 1000;
     constant max_samples : integer := 1280;
     constant debounce_counter_max : integer := 2**23-1 ; --minimum number of clocks that we need to wait until the next press of the button is dected
-    
+    constant initial_y_scale : unsigned := "011";
+    constant initial_x_scale : integer := 100;
+    constant x_scale_chg_amount : integer := 25;
+    -- components
+    component button_frontend
+        Generic (
+            debounce_period : integer := 2**24-1;
+            continous_press_period : integer := 2*23-1
+        );
+        Port ( btn_in : in std_logic;
+               btn_out : out std_logic;
+               clk, rst : in std_logic);
+    end component;
+
     -- button_sync_p signals
-    signal t1, t2, t3 : std_logic; -- Temporary signals for syncronization.
-    signal t_up_s, t_down_s, t_np_s : std_logic; -- Syncronized signals.
-    signal last_t_up_s, last_t_down_s, last_t_np_s : std_logic; -- Delayed signals for edge detection.
-    signal t_up_edge, t_down_edge, t_np_edge : std_logic; -- Edge detect signals.
     signal t_up_pressed, t_down_pressed, t_np_pressed : std_logic; -- Button press signals.
-    type button_state_t is ( ready, active, debounce );
-    signal button_state : button_state_t;
+
+    -- button ui
+    type select_mode_t is (
+        edge_select,
+        trigger_level_modify,
+        y_scale_modify,
+        x_scale_modify
+    );
 
     -- trigger_control_p signals
     type trigger_mode_t is (
@@ -62,6 +82,8 @@ architecture Behavioral of daq_trigger_controller is
     );
     signal trigger_level_s : integer range 0 to max_signal_level;
     signal trigger_np_s : trigger_mode_t; -- zero positive edge, 1 negative edge.
+    signal select_mode : integer range 0 to 3;
+    signal y_scale_s : unsigned ( 2 downto 0);
 
     -- trigger_p signals
     signal vsync_edge : std_logic;
@@ -85,85 +107,18 @@ begin
     -- Signal level
     signal_level <= to_integer(unsigned(adc_data1(data_width - 1 downto data_width - 9)));
 
+    -- Yscale
+    y_scale_select <= std_logic_vector(y_scale_s);
+
+    -- Select mode indicator
+    with select_mode select mode_indicator <=
+        "0001" when 0,
+        "0010" when 1,
+        "0100" when 2,
+        "1000" when 3,
+        "0000" when others;
+
 -- Processes
-    -- Button input signals syncronization process.
-    -- The process allows us to detect whether we have a push in the button, and assign the value to our internal signal to work with it in another process
-    -- We have added a required minimum time so as to detect that a button push has been done in reality and not confuse it with a MISSING_PARAULA signal.
-    -- The required minimum time is counted by the debounce_counter
-    button_sync_p : process(clk)
-        variable debounce_counter : integer range 0 to debounce_counter_max;
-    begin 
-    if rising_edge(clk) then    -- Read inputs
-        if rst = rst_val then
-            button_state <= debounce;
-            debounce_counter := 0;
-        else -- if we do not have a reset we set the inputs to our internal signals
-            t1 <= trigger_up; --button up
-            t2 <= trigger_down; --button down
-            t3 <= trigger_n_p; --button stop
-
-            -- Write outputs
-            -- ¿? but are internal signals?
-            t_up_s <= t1; 
-            t_down_s <= t2;
-            t_np_s <= t3;
-
-            -- Write delayed
-            -- ¿?
-            last_t_up_s <= t_up_s;
-            last_t_down_s <= t_down_s;
-            last_t_np_s <= last_t_np_s;
-
-            --Edge detect   
-            -- it will be an edge if the actual state (high/low) its not the same as the previous one             
-            t_up_edge <= t_up_s and not last_t_up_s; 
-            t_down_edge <= t_down_s and not last_t_down_s;
-            t_np_edge <= t_np_s and not last_t_np_s;
-
-            if(button_state = ready and (t_up_edge = '1' or t_down_edge = '1' or t_np_edge = '1')) then 
-            --if we are ready and we have a rising edge on any of the buttons we inidcate with our internal signal
-            --that the button has been pressed
-                t_up_pressed <= t_up_edge;
-                t_down_pressed <= t_up_edge;
-                t_np_pressed <= t_np_pressed;
-                
-                -- then we define the state of the button to debounce and we initialize the counter of "pulsations"
-                button_state <= debounce;
-                debounce_counter := 0;
-
-            elsif (button_state = debounce) then --if we have the inidcative that the button has been pulsated
-
-                --we first check wether the time has passed (we have set a minimum time that the button must be pushed so as to set that is a "real" push), 
-                --if it hasn't, we act as the button has not been pushed:
-                if(debounce_counter < debounce_counter_max) then
-                    t_up_pressed <= '0';
-                    t_down_pressed <= '0';
-                    t_np_pressed <= '0';
-
-                    button_state <= debounce;
-                    debounce_counter := debounce_counter + 1;
-
-                -- if it has (we check if there is a button pressed or not):
-                elsif(t_up_s = '1' or t_down_s = '1' or t_np_s = '1') then -- we recheck the state of the buttons and assign it to our signals
-                    t_up_pressed <= t_up_s;
-                    t_down_pressed <= t_down_s;
-                    t_np_pressed <= t_np_s;
-
-                    button_state <= debounce;
-                    debounce_counter := 0; -- we reset the time counter
-                else 
-                    button_state <= ready; --otherwise we set that we are ready (meaning waiting) for a push of any button
-                    
-                end if;
-            else --we would get here when we are in the ready state, therefore the values of the buttons must be zero and we should be waiting for the next button push, then ready state
-                t_up_pressed <= '0';
-                t_down_pressed <= '0';
-                t_np_pressed <= '0';
-                button_state <= ready;
-            end if;
-        end if;
-    end if;
-    end process button_sync_p;
 
     -- Trigger control process
 
@@ -173,30 +128,63 @@ begin
         if rst = rst_val then --we set the default values that are a initial trigger of 256, half of the signal screen area and a positive edge trigger
             trigger_level_s <= initial_trigger_level;
             trigger_np_s <= positive_edge;
+            sample_period <= initial_sample_period_ticks;
+            y_scale_s <= initial_y_scale;
+            select_mode <= 0;
         else
-            -- Trigger level position control. (up, down)
-            if t_up_pressed = '1' then 
-            --if we want to increase the trigger level, we 
-                trigger_level_s <= trigger_level_s - trigger_button_chg_amount; --! NO HAURIA DE SER SUMA?
 
-            elsif t_down_pressed = '1' then
-            --if we want to decrease the trigger level
-                trigger_level_s <= trigger_level_s + trigger_button_chg_amount;
+            case select_mode is
 
-            else 
-            -- if no button is pressed we mantain the previous trigger level
-                trigger_level_s <= trigger_level_s;
+                when 0 => -- Trigger polarity control. (positive edge, negative edge)
+                    if t_up_pressed = '1' then
+                        
+                        trigger_np_s <= positive_edge;
 
-            end if;
+                    elsif t_down_pressed = '1' then
 
-            -- Trigger mode control. (positive, negative)
+                        trigger_np_s <= negative_edge;
+
+                    end if; 
+
+                when 1 => -- Trigger level position control. (up, down)
+                    if t_up_pressed = '1' and trigger_level_s <= max_signal_level - trigger_button_chg_amount then 
+                        --if we want to increase the trigger level, we 
+                            trigger_level_s <= trigger_level_s + trigger_button_chg_amount; 
+            
+                    elsif t_down_pressed = '1' and trigger_level_s >= 0 + trigger_button_chg_amount then
+                    --if we want to decrease the trigger level
+                        trigger_level_s <= trigger_level_s - trigger_button_chg_amount;
+                    end if; -- if no button is pressed we mantain the previous trigger level
+
+                when 2 => 
+                    if t_up_pressed = '1' and y_scale_s < y_scale_s'high then
+                        
+                        y_scale_s <= y_scale_s + 1;
+
+                    elsif t_down_pressed = '1' and y_scale_s > y_scale_s'low then
+
+                        y_scale_s <= y_scale_s - 1;
+
+                    end if;
+                
+                when 3 => 
+                    if t_up_pressed = '1' and sample_period <= max_sample_period_ticks - x_scale_chg_amount then
+                        
+                        sample_period <= sample_period + x_scale_chg_amount;
+
+                    elsif t_down_pressed = '1' and sample_period >= 25 + x_scale_chg_amount then
+
+                        sample_period <= sample_period - x_scale_chg_amount;
+
+                    end if; 
+            end case;  
+
+            -- Select mode change
             if t_np_pressed = '1' then
-            -- this button allows us to change the edge from the actual state to the opposite one, so we check which is the actual state
-            -- and set the opposite.
-                if trigger_np_s = positive_edge then
-                    trigger_np_s <= negative_edge;
+                if(select_mode < 3) then
+                    select_mode <= select_mode + 1;
                 else
-                    trigger_np_s <= positive_edge;
+                    select_mode <= 0;
                 end if;
             end if;
         end if;
@@ -237,7 +225,6 @@ begin
     begin
         if rising_edge(clk) then
             if rst = rst_val or trigger = '1' then
-                sample_period <= initial_sample_period_ticks;
                 period_counter <= 0;
                 sample_index <= 0; -- the sample index allows us to 
             else
@@ -260,7 +247,35 @@ begin
         end if;
     end process memwrite;
 
+    -- component mapping
 
+    bf_1 : button_frontend
+    Port Map (
+        clk => clk,
+        rst => rst,
+        btn_in => trigger_up,
+        btn_out => t_up_pressed
+    );
+
+    bf_2 : button_frontend
+    Port Map (
+        clk => clk,
+        rst => rst,
+        btn_in => trigger_down,
+        btn_out => t_down_pressed
+    );
+
+    bf_3 : button_frontend
+    Generic Map (
+        debounce_period => 2**24 - 1,
+        continous_press_period => 2**24 -1
+    )
+    Port Map (
+        clk => clk,
+        rst => rst,
+        btn_in => trigger_n_p,
+        btn_out => t_np_pressed
+    );
 
 
 end Behavioral;

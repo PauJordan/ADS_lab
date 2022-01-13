@@ -27,7 +27,7 @@ entity daq_vga_controller is
         t_temperature : in STD_LOGIC_VECTOR (11 downto 0);
 
         -- Scaling
-        y_scale_select : in std_logic_vector (1 downto 0)
+        y_scale_select : in std_logic_vector (2 downto 0)
 );
 end daq_vga_controller;
 
@@ -59,7 +59,8 @@ architecture beh of daq_vga_controller is
                RGB_in : in STD_LOGIC_VECTOR (11 downto 0);
                RGB_out : out STD_LOGIC_VECTOR (11 downto 0);
                 -- Trigger level
-               trigger_level   : in std_logic_vector (8 downto 0)
+               trigger_level   : in std_logic_vector (8 downto 0);
+               vertical_scale : in unsigned (2 downto 0)
             );
     end component;
     
@@ -68,9 +69,10 @@ architecture beh of daq_vga_controller is
                PY : in unsigned(11 downto 0);
                RGB_in : in STD_LOGIC_VECTOR (11 downto 0);
                RGB_out : out STD_LOGIC_VECTOR (11 downto 0);
+               alarm : in std_logic;
                 -- Trigger level
                signal_data   : in std_logic_vector (11 downto 0);
-               vertical_scale : in unsigned (1 downto 0)
+               vertical_scale : in unsigned (2 downto 0)
             );
     end component;
     
@@ -141,19 +143,21 @@ begin
     port map ( 
             PX      => pixel_x_s,
             PY      => pixel_y_s,
-            RGB_in  => black,
-            RGB_out => i_RGB_1, 
+            RGB_in  => i_RGB_1,
+            RGB_out => i_RGB_2, 
             signal_data => data,
-            vertical_scale => unsigned(y_scale_select)
+            vertical_scale => unsigned(y_scale_select),
+            alarm => alarm
             );                     
     
     threshold_plotter_1 : threshold_plotter 
     port map ( 
             PX      => pixel_x_s,
             PY      => pixel_y_s,
-            RGB_in  => i_rgb_1,
-            RGB_out => i_RGB_2, 
-            trigger_level => trigger_level
+            RGB_in  => black,
+            RGB_out => i_rgb_1, 
+            trigger_level => trigger_level,
+            vertical_scale => unsigned(y_scale_select)
             );
 
     temperature_plotter_1 : temperature_plotter

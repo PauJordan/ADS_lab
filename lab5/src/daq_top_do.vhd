@@ -21,9 +21,9 @@ entity daq_top is
         CLK                 : in std_logic;
         RSTN                : in std_logic;
 
-        -- Trigger control buttons input
+        -- UI
         trigger_n_p, trigger_down,  trigger_up: in std_logic;
-        temp_down, temp_up  : in std_logic;
+        mode_indicator  : out std_logic_vector (3 downto 0);
 
         -- VGA signals
         red, green, blue    : out std_logic_vector (3 downto 0);
@@ -36,11 +36,7 @@ entity daq_top is
         -- Temperature management
         alarm : in std_logic;
         temperature : in std_logic_vector (11 downto 0);
-        t_temperature : in std_logic_vector (11 downto 0);
-
-        -- Scaling
-        y_scale_select : in std_logic_vector (1 downto 0);
-        x_scale_select : in std_logic_vector (1 downto 0)
+        t_temperature : in std_logic_vector (11 downto 0)
 
     );
 end daq_top;
@@ -72,7 +68,8 @@ architecture daq_top_b_arc of daq_top is
            t_temperature : in std_logic_vector (11 downto 0);
 
            -- Scaling
-           y_scale_select : in std_logic_vector (1 downto 0)
+           y_scale_select : in std_logic_vector (2 downto 0)
+
         );
     end component;
     
@@ -114,12 +111,16 @@ architecture daq_top_b_arc of daq_top is
             trigger_down    : in std_logic;
             trigger_n_p     : in std_logic;
             trigger_level   : out std_logic_vector (8 downto 0);
+            mode_indicator  : out std_logic_vector (3 downto 0);
 
             -- Data input port
             adc_data1       : in std_logic_vector (data_width - 1 downto 0);
             
             -- VGA sync port
-            vsync           : in std_logic
+            vsync           : in std_logic;
+            
+            -- Scaling
+            y_scale_select : out std_logic_vector (2 downto 0)
         );
     end component;
 
@@ -131,7 +132,7 @@ architecture daq_top_b_arc of daq_top is
             data1, data2    : out std_logic_vector (11 downto 0)
         );
     end component;
-        
+    
     
 -- Signal Declarations
     signal rst : std_logic;
@@ -142,6 +143,7 @@ architecture daq_top_b_arc of daq_top is
         signal data_out : std_logic_vector (11 downto 0);
 
         -- VGA <-> Trigger Controller
+        signal y_scale_select : std_logic_vector (2 downto 0);
         signal trigger_level : std_logic_vector (8 downto 0);
         signal vsync_s      : std_logic;
 
@@ -212,7 +214,8 @@ begin
         trigger_down => trigger_down,
         trigger_n_p => trigger_n_p,
         adc_data1 => data1,
-        vsync => vsync_s
+        vsync => vsync_s,
+        mode_indicator => mode_indicator
     );
 
     daq_adc_controller_1 : daq_adc_controller

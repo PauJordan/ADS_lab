@@ -14,25 +14,30 @@ entity signal_plotter is
            RGB_out : out STD_LOGIC_VECTOR (11 downto 0);
            signal_data : in std_logic_vector(11 downto 0);
            alarm : in STD_LOGIC;
-           vertical_scale : in unsigned (1 downto 0)
+           vertical_scale : in unsigned (2 downto 0)
         );
 end signal_plotter;
 
 architecture signal_plotter_arc of signal_plotter is
-
-    constant signal_color : std_logic_vector (11 downto 0) := x"222";
+    constant zeros : std_logic_vector (15 downto 0) := x"0000";
+    constant signal_color : std_logic_vector (11 downto 0) := x"FF0";
     constant divisions_color : std_logic_vector (11 downto 0) := x"222";
     constant offset : integer range 0 to 1023 := 511;
-    
-    signal signal_lsb : natural range 0 to 3;
-    signal signal_pixels : unsigned (pixels_width - 1 downto 0);
+    signal signal_padded : std_logic_vector (19 downto 0);
+    signal signal_scaled : unsigned (19 downto 0);
+    signal signal_pixels : unsigned (19 downto 0);
     signal rgb_i : std_logic_vector (11 downto 0);
 begin
-    signal_lsb <= to_integer(vertical_scale);
-    rgb_i <= divisions_color when ((PY < offset and unsigned(PY(y_divisions_bits downto 0)) = 0) or (unsigned(PX(x_divisions_bits downto 0)) = 0)) else RGB_in;
-
-    signal_pixels <= offset - unsigned(signal_data(pixels_width + signal_lsb - 1 downto signal_lsb));
-
-    RGB_out <= signal_color when (PY = signal_pixels and alarm = '0' ) else rgb_i;
+    
+    rgb_i <= divisions_color when ((PY <= offset + 1 and unsigned(PY(y_divisions_bits downto 0)) = 0) or (PY <= offset and unsigned(PX(x_divisions_bits downto 0)) = 0)) else RGB_in;
+    
+    signal_padded <= x"00" & signal_data;
+    
+    signal_scaled <= shift_right(unsigned(signal_padded),  to_integer(vertical_scale));
+    
+    
+    signal_pixels <= (offset - signal_scaled);
+    
+    RGB_out <= signal_color when (PY = signal_pixels and signal_scaled < offset and alarm = '0' ) else rgb_i;
 
 end signal_plotter_arc;

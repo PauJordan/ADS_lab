@@ -27,7 +27,8 @@ entity daq_n4_hw_test is
            VGA_G : out std_logic_vector (3 downto 0);
            VGA_B : out std_logic_vector (3 downto 0);
            VGA_HS : out std_logic;
-           VGA_VS : out std_logic);
+           VGA_VS : out std_logic;
+           LED : out std_logic_vector (3 downto 0));
 end daq_n4_hw_test;
 
 architecture Behavioral of daq_n4_hw_test is
@@ -38,7 +39,7 @@ architecture Behavioral of daq_n4_hw_test is
 
         -- Trigger control buttons input
         trigger_n_p, trigger_down,  trigger_up: in std_logic;
-        temp_down, temp_up  : in std_logic;
+        mode_indicator  : out std_logic_vector (3 downto 0);
 
         -- VGA signals
         red, green, blue    : out std_logic_vector (3 downto 0);
@@ -51,11 +52,9 @@ architecture Behavioral of daq_n4_hw_test is
         -- Temperature management
         alarm : in std_logic;
         temperature : in std_logic_vector (11 downto 0);
-        t_temperature : in std_logic_vector (11 downto 0);
+        t_temperature : in std_logic_vector (11 downto 0)
 
-        -- Scaling
-        y_scale_select : in std_logic_vector (1 downto 0);
-        x_scale_select : in std_logic_vector (1 downto 0)
+
 
     );
     end component;
@@ -93,8 +92,6 @@ begin
             trigger_n_p => BTNC,
             trigger_up => BTNU,
             trigger_down => BTND,
-            temp_down => '0',
-            temp_up => '0',
             red => VGA_R,
             green => VGA_G,
             blue => VGA_B,
@@ -107,9 +104,7 @@ begin
             alarm => SW(15),
             temperature => x"040",
             t_temperature => x"050",
-            y_scale_select => SW(3 downto 2),
-            x_scale_select => SW(5 downto 4)
-            
+            mode_indicator => LED   
         );
     
     virtual_gen_fun_1 : virtual_gen_fun
