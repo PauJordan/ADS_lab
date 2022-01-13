@@ -3,8 +3,8 @@
 // Tool Version: Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
 // Date        : Thu Dec 16 17:03:52 2021
 // Host        : c5b1 running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode synth_stub
-//               c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_processing_system7_0_0/lab5_bd_processing_system7_0_0_stub.v
+// Command     : write_verilog -force -mode synth_stub -rename_top lab5_bd_processing_system7_0_0 -prefix
+//               lab5_bd_processing_system7_0_0_ lab5_bd_processing_system7_0_0_stub.v
 // Design      : lab5_bd_processing_system7_0_0
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7z020clg484-1

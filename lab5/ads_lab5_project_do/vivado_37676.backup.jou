@@ -1,0 +1,15 @@
+#-----------------------------------------------------------
+# Vivado v2021.1.1 (64-bit)
+# SW Build 3286242 on Wed Jul 28 13:10:47 MDT 2021
+# IP Build 3279568 on Wed Jul 28 16:48:48 MDT 2021
+# Start of session at: Mon Jan  3 10:13:10 2022
+# Process ID: 37676
+# Current directory: C:/Users/pixi4/MEE/ADS/ADS_lab/lab5/ads_lab5_project_do
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent43496 C:\Users\pixi4\MEE\ADS\ADS_lab\lab5\ads_lab5_project_do\ads_lab5_project_do.xpr
+# Log file: C:/Users/pixi4/MEE/ADS/ADS_lab/lab5/ads_lab5_project_do/vivado.log
+# Journal file: C:/Users/pixi4/MEE/ADS/ADS_lab/lab5/ads_lab5_project_do\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/pixi4/MEE/ADS/ADS_lab/lab5/ads_lab5_project_do/ads_lab5_project_do.xpr
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+update_compile_order -fileset sources_1
