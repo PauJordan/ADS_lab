@@ -157,13 +157,14 @@ begin
                     end if; -- if no button is pressed we mantain the previous trigger level
 
                 when 2 => 
-                    if t_up_pressed = '1' and y_scale_s < y_scale_s'high then
+                    if t_up_pressed = '1' and y_scale_s > 0 then
                         
-                        y_scale_s <= y_scale_s + 1;
-
-                    elsif t_down_pressed = '1' and y_scale_s > y_scale_s'low then
-
                         y_scale_s <= y_scale_s - 1;
+                        
+
+                    elsif t_down_pressed = '1'  and y_scale_s < 7 then
+
+                        y_scale_s <= y_scale_s + 1;
 
                     end if;
                 
@@ -250,6 +251,10 @@ begin
     -- component mapping
 
     bf_1 : button_frontend
+    Generic Map (
+        debounce_period => 2**24 - 1,
+        continous_press_period => 2**24 - 1
+    )
     Port Map (
         clk => clk,
         rst => rst,
@@ -258,6 +263,10 @@ begin
     );
 
     bf_2 : button_frontend
+        Generic Map (
+        debounce_period => 2**24 - 1,
+        continous_press_period => 2**24 -1
+    )
     Port Map (
         clk => clk,
         rst => rst,

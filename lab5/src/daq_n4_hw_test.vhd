@@ -28,7 +28,7 @@ entity daq_n4_hw_test is
            VGA_B : out std_logic_vector (3 downto 0);
            VGA_HS : out std_logic;
            VGA_VS : out std_logic;
-           LED : out std_logic_vector (3 downto 0));
+           LED : out std_logic_vector (15 downto 0));
 end daq_n4_hw_test;
 
 architecture Behavioral of daq_n4_hw_test is
@@ -40,6 +40,7 @@ architecture Behavioral of daq_n4_hw_test is
         -- Trigger control buttons input
         trigger_n_p, trigger_down,  trigger_up: in std_logic;
         mode_indicator  : out std_logic_vector (3 downto 0);
+        y_scale_select : out std_logic_vector (2 downto 0);
 
         -- VGA signals
         red, green, blue    : out std_logic_vector (3 downto 0);
@@ -84,7 +85,7 @@ architecture Behavioral of daq_n4_hw_test is
     signal d1, d2, ncs, sclk : std_logic; -- virtual DA
     
 begin
-
+    LED(12 downto 4) <= (others => '0');
     daq_top_1 : daq_top
         port map (
             CLK => clk,
@@ -104,7 +105,8 @@ begin
             alarm => SW(15),
             temperature => x"040",
             t_temperature => x"050",
-            mode_indicator => LED   
+            mode_indicator => LED(3 downto 0),
+            y_scale_select => LED(15 downto 13)   
         );
     
     virtual_gen_fun_1 : virtual_gen_fun
