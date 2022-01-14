@@ -21,3 +21,11 @@ platform generate -domains
 platform active {ads_lab5_pp_2_do}
 platform config -updatehw {C:/ads_lab5_project_do/lab5_bd_wrapper.xsa}
 platform generate -domains 
+platform config -updatehw {C:/ads_lab5_project_do/lab5_bd_wrapper.xsa}
+platform generate -domains 
+platform config -updatehw {C:/ads_lab5_project_do/lab5_bd_wrapper.xsa}
+platform generate -domains 
+platform config -updatehw {C:/ads_lab5_project_do/lab5_bd_wrapper.xsa}
+platform generate -domains 
+platform config -updatehw {C:/ads_lab5_project_do/lab5_bd_wrapper.xsa}
+platform generate -domains 

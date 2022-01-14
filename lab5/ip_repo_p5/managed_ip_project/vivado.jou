@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Tue Jan 11 15:39:09 2022
+# Process ID: 88744
+# Current directory: C:/ADS_do/lab5/ip_repo_p5/managed_ip_project
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent91688 C:\ADS_do\lab5\ip_repo_p5\managed_ip_project\managed_ip_project.xpr
+# Log file: C:/ADS_do/lab5/ip_repo_p5/managed_ip_project/vivado.log
+# Journal file: C:/ADS_do/lab5/ip_repo_p5/managed_ip_project\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/ADS_do/lab5/ip_repo_p5/managed_ip_project/managed_ip_project.xpr

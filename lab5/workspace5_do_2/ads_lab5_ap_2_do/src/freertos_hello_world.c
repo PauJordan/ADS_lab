@@ -88,15 +88,17 @@ static void ui_task( void *pvParameters )
 		//Read buttons
 		uint32_t data = XGpio_DiscreteRead(&Gpio, 1);
 
+		xil_printf( "data = %d\r\n", data);
+
 		uint8_t btnr = !!(data & 0x01);
-		uint8_t btnl = !!(data & 0x10);
+		uint8_t btnl = !!(data & 0x02);
 
 		if(btnr){ //If button was pressed
 			if(threshold < 80){
 				threshold++; //if below upper limit.
 			}
 		}
-		else if(btnl){
+		if(btnl){
 			if(threshold > 0){
 				threshold--;
 			}

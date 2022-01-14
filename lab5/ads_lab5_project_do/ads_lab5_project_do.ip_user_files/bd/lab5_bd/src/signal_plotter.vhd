@@ -22,15 +22,14 @@ architecture signal_plotter_arc of signal_plotter is
     constant zeros : std_logic_vector (15 downto 0) := x"0000";
     constant signal_color : std_logic_vector (11 downto 0) := x"FF0";
     constant divisions_color : std_logic_vector (11 downto 0) := x"222";
-    constant offset_up : natural := 256;
-    constant offset : natural := 768;
+    constant offset : integer range 0 to 1023 := 511;
     signal signal_padded : std_logic_vector (19 downto 0);
     signal signal_scaled : unsigned (19 downto 0);
     signal signal_pixels : unsigned (19 downto 0);
     signal rgb_i : std_logic_vector (11 downto 0);
 begin
     
-    rgb_i <= divisions_color when (PY <= offset and PY >= offset_up ) and ((unsigned(PY(y_divisions_bits downto 0)) = 0) or (unsigned(PX(x_divisions_bits downto 0)) = 0)) else RGB_in;
+    rgb_i <= divisions_color when ((PY <= offset + 1 and unsigned(PY(y_divisions_bits downto 0)) = 0) or (PY <= offset and unsigned(PX(x_divisions_bits downto 0)) = 0)) else RGB_in;
     
     signal_padded <= x"00" & signal_data;
     
@@ -39,6 +38,6 @@ begin
     
     signal_pixels <= (offset - signal_scaled);
     
-    RGB_out <= signal_color when (PY <= offset and PY >= offset_up ) and (PY = signal_pixels and signal_scaled < offset and alarm = '0' ) else rgb_i;
+    RGB_out <= signal_color when (PY = signal_pixels and signal_scaled < offset and alarm = '0' ) else rgb_i;
 
 end signal_plotter_arc;

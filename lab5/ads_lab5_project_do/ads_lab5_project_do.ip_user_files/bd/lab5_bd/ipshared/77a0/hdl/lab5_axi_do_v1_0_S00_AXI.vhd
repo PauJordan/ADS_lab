@@ -17,7 +17,8 @@ entity lab5_axi_do_v1_0_S00_AXI is
 	port (
 		-- Users to add ports here
         trigger_n_p, trigger_down,  trigger_up: in std_logic;
-        mode_indicator  : out std_logic_vector (3 downto 0);
+        temp_down, temp_up  : in std_logic;
+
         -- VGA signals
         red, green, blue    : out std_logic_vector (3 downto 0);
         hsync, vsync        : out std_logic;
@@ -135,7 +136,8 @@ architecture arch_imp of lab5_axi_do_v1_0_S00_AXI is
 
         -- Trigger control buttons input
         trigger_n_p, trigger_down,  trigger_up: in std_logic;
-		mode_indicator  : out std_logic_vector (3 downto 0);
+        temp_down, temp_up  : in std_logic;
+
         -- VGA signals
         red, green, blue    : out std_logic_vector (3 downto 0);
         hsync, vsync        : out std_logic;
@@ -429,6 +431,8 @@ begin
             trigger_n_p => trigger_n_p,
             trigger_up => trigger_up,
             trigger_down => trigger_down,
+            temp_down => temp_down,
+            temp_up => temp_up,
             red => red,
             green => green,
             blue => blue,
@@ -438,7 +442,6 @@ begin
             sdata2 => sdata2,
             ncs => ncs,
             sclk => sclk,
-            mode_indicator => mode_indicator,
             alarm => slv_reg0(24),
             temperature => slv_reg0(23 downto 12),
             t_temperature => slv_reg0(11 downto 0)
