@@ -1,8 +1,5 @@
 verilog xil_defaultlib --include "C:/Xilinx/Vivado/2020.2/data/xilinx_vip/include" --include "../../../../ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ipshared/ec67/hdl" --include "../../../../ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ipshared/34f8/hdl" \
-"../../../bd/lab5_bd/ip/lab5_bd_processing_system7_0_0/sim/lab5_bd_processing_system7_0_0.v" \
-"../../../bd/lab5_bd/ip/lab5_bd_xbar_0/sim/lab5_bd_xbar_0.v" \
 "../../../bd/lab5_bd/ip/lab5_bd_xlconcat_0_0/sim/lab5_bd_xlconcat_0_0.v" \
-"../../../bd/lab5_bd/ip/lab5_bd_auto_pc_0/sim/lab5_bd_auto_pc_0.v" \
 
 verilog xil_defaultlib "glbl.v"
 

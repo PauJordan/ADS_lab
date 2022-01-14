@@ -143,8 +143,8 @@ begin
     port map ( 
             PX      => pixel_x_s,
             PY      => pixel_y_s,
-            RGB_in  => i_RGB_1,
-            RGB_out => i_RGB_2, 
+            RGB_in  => black,
+            RGB_out => i_RGB_1, 
             signal_data => data,
             vertical_scale => unsigned(y_scale_select),
             alarm => alarm
@@ -154,8 +154,8 @@ begin
     port map ( 
             PX      => pixel_x_s,
             PY      => pixel_y_s,
-            RGB_in  => black,
-            RGB_out => i_rgb_1, 
+            RGB_in  => i_RGB_1,
+            RGB_out => i_RGB_2, 
             trigger_level => trigger_level,
             vertical_scale => unsigned(y_scale_select)
             );

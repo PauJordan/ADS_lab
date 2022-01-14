@@ -1,7 +1,7 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-// Date        : Tue Jan 11 20:18:28 2022
+// Date        : Fri Jan 14 18:11:10 2022
 // Host        : c5b1 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
 //               c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_lab5_axi_do_0_1/lab5_bd_lab5_axi_do_0_1_stub.v
@@ -15,17 +15,16 @@
 // Please paste the declaration into a Verilog source file or add the file as an additional source.
 (* x_core_info = "lab5_axi_do_v1_0,Vivado 2020.2" *)
 module lab5_bd_lab5_axi_do_0_1(trigger_n_p, trigger_down, trigger_up, 
-  temp_down, temp_up, red, green, blue, hsync, vsync, ncs, sclk, sdata1, sdata2, s00_axi_aclk, 
+  mode_indicator, red, green, blue, hsync, vsync, ncs, sclk, sdata1, sdata2, s00_axi_aclk, 
   s00_axi_aresetn, s00_axi_awaddr, s00_axi_awprot, s00_axi_awvalid, s00_axi_awready, 
   s00_axi_wdata, s00_axi_wstrb, s00_axi_wvalid, s00_axi_wready, s00_axi_bresp, 
   s00_axi_bvalid, s00_axi_bready, s00_axi_araddr, s00_axi_arprot, s00_axi_arvalid, 
   s00_axi_arready, s00_axi_rdata, s00_axi_rresp, s00_axi_rvalid, s00_axi_rready)
-/* synthesis syn_black_box black_box_pad_pin="trigger_n_p,trigger_down,trigger_up,temp_down,temp_up,red[3:0],green[3:0],blue[3:0],hsync,vsync,ncs,sclk,sdata1,sdata2,s00_axi_aclk,s00_axi_aresetn,s00_axi_awaddr[3:0],s00_axi_awprot[2:0],s00_axi_awvalid,s00_axi_awready,s00_axi_wdata[31:0],s00_axi_wstrb[3:0],s00_axi_wvalid,s00_axi_wready,s00_axi_bresp[1:0],s00_axi_bvalid,s00_axi_bready,s00_axi_araddr[3:0],s00_axi_arprot[2:0],s00_axi_arvalid,s00_axi_arready,s00_axi_rdata[31:0],s00_axi_rresp[1:0],s00_axi_rvalid,s00_axi_rready" */;
+/* synthesis syn_black_box black_box_pad_pin="trigger_n_p,trigger_down,trigger_up,mode_indicator[3:0],red[3:0],green[3:0],blue[3:0],hsync,vsync,ncs,sclk,sdata1,sdata2,s00_axi_aclk,s00_axi_aresetn,s00_axi_awaddr[3:0],s00_axi_awprot[2:0],s00_axi_awvalid,s00_axi_awready,s00_axi_wdata[31:0],s00_axi_wstrb[3:0],s00_axi_wvalid,s00_axi_wready,s00_axi_bresp[1:0],s00_axi_bvalid,s00_axi_bready,s00_axi_araddr[3:0],s00_axi_arprot[2:0],s00_axi_arvalid,s00_axi_arready,s00_axi_rdata[31:0],s00_axi_rresp[1:0],s00_axi_rvalid,s00_axi_rready" */;
   input trigger_n_p;
   input trigger_down;
   input trigger_up;
-  input temp_down;
-  input temp_up;
+  output [3:0]mode_indicator;
   output [3:0]red;
   output [3:0]green;
   output [3:0]blue;

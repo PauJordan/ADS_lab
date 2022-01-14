@@ -1,12 +1,12 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x771E4DFEFB017BA7",
+      "boundary_crc": "0x956F6AA0849C664B",
       "device": "xc7z020clg484-1",
       "gen_directory": "../../../../ads_lab5_project_do.gen/sources_1/bd/lab5_bd",
       "name": "lab5_bd",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
-      "synth_flow_mode": "None",
+      "synth_flow_mode": "Hierarchical",
       "tool_version": "2020.2",
       "validated": "true"
     },
@@ -163,6 +163,18 @@
       },
       "temp_down": {
         "direction": "I"
+      },
+      "leds": {
+        "type": "data",
+        "direction": "O",
+        "left": "3",
+        "right": "0",
+        "parameters": {
+          "LAYERED_METADATA": {
+            "value": "undef",
+            "value_src": "default"
+          }
+        }
       }
     },
     "components": {
@@ -1420,6 +1432,12 @@
           }
         },
         "interface_nets": {
+          "s00_couplers_to_xbar": {
+            "interface_ports": [
+              "s00_couplers/M_AXI",
+              "xbar/S00_AXI"
+            ]
+          },
           "ps7_0_axi_periph_to_s00_couplers": {
             "interface_ports": [
               "S00_AXI",
@@ -1430,12 +1448,6 @@
             "interface_ports": [
               "M00_AXI",
               "m00_couplers/M_AXI"
-            ]
-          },
-          "s00_couplers_to_xbar": {
-            "interface_ports": [
-              "s00_couplers/M_AXI",
-              "xbar/S00_AXI"
             ]
           },
           "xbar_to_m00_couplers": {
@@ -1514,25 +1526,13 @@
         "inst_hier_path": "xlconcat_0"
       },
       "lab5_axi_do_0": {
-        "vlnv": "ALU:user:lab5_axi_do:1.4",
+        "vlnv": "UPC:user:lab5_axi_do:2.2",
         "xci_name": "lab5_bd_lab5_axi_do_0_1",
         "xci_path": "ip\\lab5_bd_lab5_axi_do_0_1\\lab5_bd_lab5_axi_do_0_1.xci",
         "inst_hier_path": "lab5_axi_do_0"
       }
     },
     "interface_nets": {
-      "ps7_0_axi_periph_M01_AXI": {
-        "interface_ports": [
-          "ps7_0_axi_periph/M01_AXI",
-          "axi_gpio_0/S_AXI"
-        ]
-      },
-      "processing_system7_0_FIXED_IO": {
-        "interface_ports": [
-          "FIXED_IO",
-          "processing_system7_0/FIXED_IO"
-        ]
-      },
       "processing_system7_0_DDR": {
         "interface_ports": [
           "DDR",
@@ -1549,6 +1549,18 @@
         "interface_ports": [
           "ps7_0_axi_periph/M00_AXI",
           "lab5_axi_do_0/S00_AXI"
+        ]
+      },
+      "processing_system7_0_FIXED_IO": {
+        "interface_ports": [
+          "FIXED_IO",
+          "processing_system7_0/FIXED_IO"
+        ]
+      },
+      "ps7_0_axi_periph_M01_AXI": {
+        "interface_ports": [
+          "ps7_0_axi_periph/M01_AXI",
+          "axi_gpio_0/S_AXI"
         ]
       }
     },
@@ -1714,6 +1726,12 @@
         "ports": [
           "temp_down",
           "xlconcat_0/In1"
+        ]
+      },
+      "lab5_axi_do_0_mode_indicator": {
+        "ports": [
+          "lab5_axi_do_0/mode_indicator",
+          "leds"
         ]
       }
     },

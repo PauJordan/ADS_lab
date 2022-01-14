@@ -1,7 +1,7 @@
 --Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
---Date        : Thu Jan 13 20:27:04 2022
+--Date        : Fri Jan 14 18:08:06 2022
 --Host        : c5b1 running 64-bit major release  (build 9200)
 --Command     : generate_target lab5_bd_wrapper.bd
 --Design      : lab5_bd_wrapper
@@ -41,6 +41,7 @@ entity lab5_bd_wrapper is
     enable : in STD_LOGIC;
     green : out STD_LOGIC_VECTOR ( 3 downto 0 );
     hsync : out STD_LOGIC;
+    leds : out STD_LOGIC_VECTOR ( 3 downto 0 );
     ncs : out STD_LOGIC;
     nsync : out STD_LOGIC;
     red : out STD_LOGIC_VECTOR ( 3 downto 0 );
@@ -80,12 +81,8 @@ architecture STRUCTURE of lab5_bd_wrapper is
     reset : in STD_LOGIC;
     enable : in STD_LOGIC;
     select_in : in STD_LOGIC_VECTOR ( 1 downto 0 );
-    FIXED_IO_mio : inout STD_LOGIC_VECTOR ( 53 downto 0 );
-    FIXED_IO_ddr_vrn : inout STD_LOGIC;
-    FIXED_IO_ddr_vrp : inout STD_LOGIC;
-    FIXED_IO_ps_srstb : inout STD_LOGIC;
-    FIXED_IO_ps_clk : inout STD_LOGIC;
-    FIXED_IO_ps_porb : inout STD_LOGIC;
+    temp_up : in STD_LOGIC;
+    temp_down : in STD_LOGIC;
     DDR_cas_n : inout STD_LOGIC;
     DDR_cke : inout STD_LOGIC;
     DDR_ck_n : inout STD_LOGIC;
@@ -101,8 +98,13 @@ architecture STRUCTURE of lab5_bd_wrapper is
     DDR_dq : inout STD_LOGIC_VECTOR ( 31 downto 0 );
     DDR_dqs_n : inout STD_LOGIC_VECTOR ( 3 downto 0 );
     DDR_dqs_p : inout STD_LOGIC_VECTOR ( 3 downto 0 );
-    temp_up : in STD_LOGIC;
-    temp_down : in STD_LOGIC
+    FIXED_IO_mio : inout STD_LOGIC_VECTOR ( 53 downto 0 );
+    FIXED_IO_ddr_vrn : inout STD_LOGIC;
+    FIXED_IO_ddr_vrp : inout STD_LOGIC;
+    FIXED_IO_ps_srstb : inout STD_LOGIC;
+    FIXED_IO_ps_clk : inout STD_LOGIC;
+    FIXED_IO_ps_porb : inout STD_LOGIC;
+    leds : out STD_LOGIC_VECTOR ( 3 downto 0 )
   );
   end component lab5_bd;
 begin
@@ -136,6 +138,7 @@ lab5_bd_i: component lab5_bd
       enable => enable,
       green(3 downto 0) => green(3 downto 0),
       hsync => hsync,
+      leds(3 downto 0) => leds(3 downto 0),
       ncs => ncs,
       nsync => nsync,
       red(3 downto 0) => red(3 downto 0),

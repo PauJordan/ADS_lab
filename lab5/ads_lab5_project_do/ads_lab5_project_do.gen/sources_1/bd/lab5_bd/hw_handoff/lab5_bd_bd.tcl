@@ -169,6 +169,7 @@ proc create_root_design { parentCell } {
   set enable [ create_bd_port -dir I enable ]
   set green [ create_bd_port -dir O -from 3 -to 0 green ]
   set hsync [ create_bd_port -dir O hsync ]
+  set leds [ create_bd_port -dir O -from 3 -to 0 -type data leds ]
   set ncs [ create_bd_port -dir O ncs ]
   set nsync [ create_bd_port -dir O nsync ]
   set red [ create_bd_port -dir O -from 3 -to 0 red ]
@@ -196,7 +197,7 @@ proc create_root_design { parentCell } {
   set gen_fun_top_0 [ create_bd_cell -type ip -vlnv xilinx.com:user:gen_fun_top:1.0 gen_fun_top_0 ]
 
   # Create instance: lab5_axi_do_0, and set properties
-  set lab5_axi_do_0 [ create_bd_cell -type ip -vlnv ALU:user:lab5_axi_do:1.4 lab5_axi_do_0 ]
+  set lab5_axi_do_0 [ create_bd_cell -type ip -vlnv UPC:user:lab5_axi_do:2.2 lab5_axi_do_0 ]
 
   # Create instance: processing_system7_0, and set properties
   set processing_system7_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:processing_system7:5.5 processing_system7_0 ]
@@ -622,6 +623,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net lab5_axi_do_0_blue [get_bd_ports blue] [get_bd_pins lab5_axi_do_0/blue]
   connect_bd_net -net lab5_axi_do_0_green [get_bd_ports green] [get_bd_pins lab5_axi_do_0/green]
   connect_bd_net -net lab5_axi_do_0_hsync [get_bd_ports hsync] [get_bd_pins lab5_axi_do_0/hsync]
+  connect_bd_net -net lab5_axi_do_0_mode_indicator [get_bd_ports leds] [get_bd_pins lab5_axi_do_0/mode_indicator]
   connect_bd_net -net lab5_axi_do_0_ncs [get_bd_ports ncs] [get_bd_pins lab5_axi_do_0/ncs]
   connect_bd_net -net lab5_axi_do_0_red [get_bd_ports red] [get_bd_pins lab5_axi_do_0/red]
   connect_bd_net -net lab5_axi_do_0_sclk [get_bd_ports sclk] [get_bd_pins lab5_axi_do_0/sclk]

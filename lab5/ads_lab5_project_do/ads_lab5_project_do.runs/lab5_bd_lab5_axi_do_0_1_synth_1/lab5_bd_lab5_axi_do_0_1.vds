@@ -2,8 +2,8 @@
 # Vivado v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Tue Jan 11 20:17:36 2022
-# Process ID: 59008
+# Start of session at: Fri Jan 14 18:10:16 2022
+# Process ID: 96276
 # Current directory: C:/ads_lab5_project_do/ads_lab5_project_do.runs/lab5_bd_lab5_axi_do_0_1_synth_1
 # Command line: vivado.exe -log lab5_bd_lab5_axi_do_0_1.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source lab5_bd_lab5_axi_do_0_1.tcl
 # Log file: C:/ads_lab5_project_do/ads_lab5_project_do.runs/lab5_bd_lab5_axi_do_0_1_synth_1/lab5_bd_lab5_axi_do_0_1.vds
@@ -21,31 +21,32 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020
 INFO: [Device 21-403] Loading part xc7z020clg484-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 55604
+INFO: [Synth 8-7075] Helper process launched with PID 69444
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1116.434 ; gain = 0.000
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1117.539 ; gain = 0.000
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'lab5_bd_lab5_axi_do_0_1' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_lab5_axi_do_0_1/synth/lab5_bd_lab5_axi_do_0_1.vhd:96]
+INFO: [Synth 8-638] synthesizing module 'lab5_bd_lab5_axi_do_0_1' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_lab5_axi_do_0_1/synth/lab5_bd_lab5_axi_do_0_1.vhd:95]
 	Parameter C_S00_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_S00_AXI_ADDR_WIDTH bound to: 4 - type: integer 
-INFO: [Synth 8-3491] module 'lab5_axi_do_v1_0' declared at 'c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ipshared/7e21/hdl/lab5_axi_do_v1_0.vhd:5' bound to instance 'U0' of component 'lab5_axi_do_v1_0' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_lab5_axi_do_0_1/synth/lab5_bd_lab5_axi_do_0_1.vhd:174]
-INFO: [Synth 8-638] synthesizing module 'lab5_axi_do_v1_0' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ipshared/7e21/hdl/lab5_axi_do_v1_0.vhd:60]
+INFO: [Synth 8-3491] module 'lab5_axi_do_v1_0' declared at 'c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ipshared/a337/hdl/lab5_axi_do_v1_0.vhd:5' bound to instance 'U0' of component 'lab5_axi_do_v1_0' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_lab5_axi_do_0_1/synth/lab5_bd_lab5_axi_do_0_1.vhd:172]
+INFO: [Synth 8-638] synthesizing module 'lab5_axi_do_v1_0' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ipshared/a337/hdl/lab5_axi_do_v1_0.vhd:60]
 	Parameter C_S00_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_S00_AXI_ADDR_WIDTH bound to: 4 - type: integer 
 	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_S_AXI_ADDR_WIDTH bound to: 4 - type: integer 
-INFO: [Synth 8-3491] module 'lab5_axi_do_v1_0_S00_AXI' declared at 'c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ipshared/7e21/hdl/lab5_axi_do_v1_0_S00_AXI.vhd:5' bound to instance 'lab5_axi_do_v1_0_S00_AXI_inst' of component 'lab5_axi_do_v1_0_S00_AXI' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ipshared/7e21/hdl/lab5_axi_do_v1_0.vhd:109]
-INFO: [Synth 8-638] synthesizing module 'lab5_axi_do_v1_0_S00_AXI' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ipshared/7e21/hdl/lab5_axi_do_v1_0_S00_AXI.vhd:97]
+INFO: [Synth 8-3491] module 'lab5_axi_do_v1_0_S00_AXI' declared at 'c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ipshared/a337/hdl/lab5_axi_do_v1_0_S00_AXI.vhd:5' bound to instance 'lab5_axi_do_v1_0_S00_AXI_inst' of component 'lab5_axi_do_v1_0_S00_AXI' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ipshared/a337/hdl/lab5_axi_do_v1_0.vhd:109]
+INFO: [Synth 8-638] synthesizing module 'lab5_axi_do_v1_0_S00_AXI' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ipshared/a337/hdl/lab5_axi_do_v1_0_S00_AXI.vhd:96]
 	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_S_AXI_ADDR_WIDTH bound to: 4 - type: integer 
-INFO: [Synth 8-226] default block is never used [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ipshared/7e21/hdl/lab5_axi_do_v1_0_S00_AXI.vhd:263]
-INFO: [Synth 8-226] default block is never used [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ipshared/7e21/hdl/lab5_axi_do_v1_0_S00_AXI.vhd:393]
-INFO: [Synth 8-3491] module 'daq_top' declared at 'c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/daq_top_do.vhd:19' bound to instance 'daq_top_1' of component 'daq_top' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ipshared/7e21/hdl/lab5_axi_do_v1_0_S00_AXI.vhd:427]
-INFO: [Synth 8-638] synthesizing module 'daq_top' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/daq_top_do.vhd:44]
+INFO: [Synth 8-226] default block is never used [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ipshared/a337/hdl/lab5_axi_do_v1_0_S00_AXI.vhd:261]
+INFO: [Synth 8-226] default block is never used [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ipshared/a337/hdl/lab5_axi_do_v1_0_S00_AXI.vhd:391]
+WARNING: [Synth 8-5640] Port 'y_scale_select' is missing in component declaration [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ipshared/a337/hdl/lab5_axi_do_v1_0_S00_AXI.vhd:131]
+INFO: [Synth 8-3491] module 'daq_top' declared at 'c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/daq_top_do.vhd:19' bound to instance 'daq_top_1' of component 'daq_top' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ipshared/a337/hdl/lab5_axi_do_v1_0_S00_AXI.vhd:425]
+INFO: [Synth 8-638] synthesizing module 'daq_top' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/daq_top_do.vhd:45]
 	Parameter addr_width bound to: 12 - type: integer 
 	Parameter data_width bound to: 12 - type: integer 
-INFO: [Synth 8-3491] module 'daq_vga_controller' declared at 'c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/vga_port_test.vhd:5' bound to instance 'daq_vga_controller_1' of component 'daq_vga_controller' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/daq_top_do.vhd:154]
-INFO: [Synth 8-638] synthesizing module 'daq_vga_controller' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/vga_port_test.vhd:31]
+INFO: [Synth 8-3491] module 'daq_vga_controller' declared at 'c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/vga_port_test.vhd:5' bound to instance 'daq_vga_controller_1' of component 'daq_vga_controller' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/daq_top_do.vhd:165]
+INFO: [Synth 8-638] synthesizing module 'daq_vga_controller' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/vga_port_test.vhd:34]
 	Parameter addr_width bound to: 12 - type: integer 
 	Parameter data_width bound to: 12 - type: integer 
 	Parameter h_pixels bound to: 1688 - type: integer 
@@ -58,7 +59,7 @@ INFO: [Synth 8-638] synthesizing module 'daq_vga_controller' [c:/ads_lab5_projec
 	Parameter v_end_line bound to: 1065 - type: integer 
 	Parameter h_bits bound to: 12 - type: integer 
 	Parameter v_bits bound to: 12 - type: integer 
-INFO: [Synth 8-3491] module 'vga_sync_gen' declared at 'c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/vga_sync_gen.vhd:8' bound to instance 'vga_timing' of component 'vga_sync_gen' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/vga_port_test.vhd:106]
+INFO: [Synth 8-3491] module 'vga_sync_gen' declared at 'c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/vga_sync_gen.vhd:8' bound to instance 'vga_timing' of component 'vga_sync_gen' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/vga_port_test.vhd:120]
 INFO: [Synth 8-638] synthesizing module 'vga_sync_gen' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/vga_sync_gen.vhd:30]
 	Parameter h_pixels bound to: 1688 - type: integer 
 	Parameter h_sync bound to: 112 - type: integer 
@@ -71,91 +72,112 @@ INFO: [Synth 8-638] synthesizing module 'vga_sync_gen' [c:/ads_lab5_project_do/a
 	Parameter h_bits bound to: 12 - type: integer 
 	Parameter v_bits bound to: 12 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'vga_sync_gen' (1#1) [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/vga_sync_gen.vhd:30]
-INFO: [Synth 8-3491] module 'signal_plotter' declared at 'c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/cross_generator.vhd:5' bound to instance 'signal_plotter_1' of component 'signal_plotter' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/vga_port_test.vhd:128]
-INFO: [Synth 8-638] synthesizing module 'signal_plotter' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/cross_generator.vhd:16]
-INFO: [Synth 8-256] done synthesizing module 'signal_plotter' (2#1) [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/cross_generator.vhd:16]
-INFO: [Synth 8-3491] module 'temperature_plotter' declared at 'c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/temperature_plotter.vhd:28' bound to instance 'temperature_plotter_1' of component 'temperature_plotter' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/vga_port_test.vhd:138]
-INFO: [Synth 8-638] synthesizing module 'temperature_plotter' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/temperature_plotter.vhd:38]
-INFO: [Synth 8-256] done synthesizing module 'temperature_plotter' (3#1) [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/temperature_plotter.vhd:38]
-INFO: [Synth 8-256] done synthesizing module 'daq_vga_controller' (4#1) [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/vga_port_test.vhd:31]
+INFO: [Synth 8-3491] module 'signal_plotter' declared at 'c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/signal_plotter.vhd:5' bound to instance 'signal_plotter_1' of component 'signal_plotter' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/vga_port_test.vhd:142]
+INFO: [Synth 8-638] synthesizing module 'signal_plotter' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/signal_plotter.vhd:21]
+	Parameter pixels_width bound to: 9 - type: integer 
+	Parameter y_divisions_bits bound to: 5 - type: integer 
+	Parameter x_divisions_bits bound to: 5 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'signal_plotter' (2#1) [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/signal_plotter.vhd:21]
+INFO: [Synth 8-3491] module 'threshold_plotter' declared at 'c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/cross_generator.vhd:5' bound to instance 'threshold_plotter_1' of component 'threshold_plotter' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/vga_port_test.vhd:153]
+INFO: [Synth 8-638] synthesizing module 'threshold_plotter' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/cross_generator.vhd:16]
+INFO: [Synth 8-256] done synthesizing module 'threshold_plotter' (3#1) [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/cross_generator.vhd:16]
+INFO: [Synth 8-3491] module 'temperature_plotter' declared at 'c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/temperature_plotter.vhd:5' bound to instance 'temperature_plotter_1' of component 'temperature_plotter' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/vga_port_test.vhd:163]
+INFO: [Synth 8-638] synthesizing module 'temperature_plotter' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/temperature_plotter.vhd:26]
+	Parameter threshold_y_start bound to: 798 - type: integer 
+	Parameter threshold_y_finish bound to: 833 - type: integer 
+	Parameter temp_bar_y_start bound to: 798 - type: integer 
+	Parameter temp_bar_y_finish bound to: 828 - type: integer 
+	Parameter temp_bar_x_start bound to: 0 - type: integer 
+WARNING: [Synth 8-614] signal 'RGB_internal_out' is read in the process but is not in the sensitivity list [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/temperature_plotter.vhd:36]
+WARNING: [Synth 8-614] signal 'RGB_in' is read in the process but is not in the sensitivity list [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/temperature_plotter.vhd:36]
+WARNING: [Synth 8-614] signal 't_temperature' is read in the process but is not in the sensitivity list [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/temperature_plotter.vhd:36]
+WARNING: [Synth 8-614] signal 'temperature' is read in the process but is not in the sensitivity list [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/temperature_plotter.vhd:36]
+WARNING: [Synth 8-614] signal 'alarm' is read in the process but is not in the sensitivity list [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/temperature_plotter.vhd:36]
+INFO: [Synth 8-256] done synthesizing module 'temperature_plotter' (4#1) [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/temperature_plotter.vhd:26]
+INFO: [Synth 8-256] done synthesizing module 'daq_vga_controller' (5#1) [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/vga_port_test.vhd:34]
 	Parameter addr_width bound to: 12 - type: integer 
 	Parameter data_width bound to: 12 - type: integer 
-INFO: [Synth 8-3491] module 'sync_ram_dualport' declared at 'c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/sync_ram_dualport.vhd:5' bound to instance 'daq_memory_unit_1' of component 'sync_ram_dualport' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/daq_top_do.vhd:176]
+INFO: [Synth 8-3491] module 'sync_ram_dualport' declared at 'c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/sync_ram_dualport.vhd:5' bound to instance 'daq_memory_unit_1' of component 'sync_ram_dualport' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/daq_top_do.vhd:188]
 INFO: [Synth 8-638] synthesizing module 'sync_ram_dualport' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/sync_ram_dualport.vhd:22]
 	Parameter data_width bound to: 12 - type: integer 
 	Parameter addr_width bound to: 12 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'sync_ram_dualport' (5#1) [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/sync_ram_dualport.vhd:22]
+INFO: [Synth 8-256] done synthesizing module 'sync_ram_dualport' (6#1) [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/sync_ram_dualport.vhd:22]
 	Parameter addr_width bound to: 12 - type: integer 
 	Parameter data_width bound to: 12 - type: integer 
-INFO: [Synth 8-3491] module 'daq_trigger_controller' declared at 'c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/daq_trigger_controller.vhd:11' bound to instance 'daq_trigger_controller_1' of component 'daq_trigger_controller' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/daq_top_do.vhd:191]
-INFO: [Synth 8-638] synthesizing module 'daq_trigger_controller' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/daq_trigger_controller.vhd:38]
+INFO: [Synth 8-3491] module 'daq_trigger_controller' declared at 'c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/daq_trigger_controller.vhd:11' bound to instance 'daq_trigger_controller_1' of component 'daq_trigger_controller' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/daq_top_do.vhd:203]
+INFO: [Synth 8-638] synthesizing module 'daq_trigger_controller' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/daq_trigger_controller.vhd:43]
 	Parameter addr_width bound to: 12 - type: integer 
 	Parameter data_width bound to: 12 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'daq_trigger_controller' (6#1) [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/daq_trigger_controller.vhd:38]
-INFO: [Synth 8-3491] module 'daq_adc_controller' declared at 'c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/ads_driver.vhd:28' bound to instance 'daq_adc_controller_1' of component 'daq_adc_controller' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/daq_top_do.vhd:210]
+INFO: [Synth 8-226] default block is never used [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/daq_trigger_controller.vhd:114]
+	Parameter debounce_period bound to: 16777215 - type: integer 
+	Parameter continous_press_period bound to: 16777215 - type: integer 
+INFO: [Synth 8-3491] module 'button_frontend' declared at 'c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/button_frontend.vhd:26' bound to instance 'bf_1' of component 'button_frontend' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/daq_trigger_controller.vhd:253]
+INFO: [Synth 8-638] synthesizing module 'button_frontend' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/button_frontend.vhd:36]
+	Parameter debounce_period bound to: 16777215 - type: integer 
+	Parameter continous_press_period bound to: 16777215 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'button_frontend' (7#1) [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/button_frontend.vhd:36]
+	Parameter debounce_period bound to: 16777215 - type: integer 
+	Parameter continous_press_period bound to: 16777215 - type: integer 
+INFO: [Synth 8-3491] module 'button_frontend' declared at 'c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/button_frontend.vhd:26' bound to instance 'bf_2' of component 'button_frontend' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/daq_trigger_controller.vhd:265]
+	Parameter debounce_period bound to: 16777215 - type: integer 
+	Parameter continous_press_period bound to: 16777215 - type: integer 
+INFO: [Synth 8-3491] module 'button_frontend' declared at 'c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/button_frontend.vhd:26' bound to instance 'bf_3' of component 'button_frontend' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/daq_trigger_controller.vhd:277]
+INFO: [Synth 8-256] done synthesizing module 'daq_trigger_controller' (8#1) [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/daq_trigger_controller.vhd:43]
+INFO: [Synth 8-3491] module 'daq_adc_controller' declared at 'c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/ads_driver.vhd:28' bound to instance 'daq_adc_controller_1' of component 'daq_adc_controller' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/daq_top_do.vhd:224]
 INFO: [Synth 8-638] synthesizing module 'daq_adc_controller' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/ads_driver.vhd:39]
 	Parameter total_periods bound to: 16 - type: integer 
 	Parameter Q_width bound to: 15 - type: integer 
 INFO: [Synth 8-3491] module 'o_generic_sr' declared at 'c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/o_generic_sr.vhd:25' bound to instance 'shift_register_1' of component 'o_generic_sr' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/ads_driver.vhd:109]
 INFO: [Synth 8-638] synthesizing module 'o_generic_sr' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/o_generic_sr.vhd:34]
 	Parameter Q_width bound to: 15 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'o_generic_sr' (7#1) [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/o_generic_sr.vhd:34]
-INFO: [Synth 8-256] done synthesizing module 'daq_adc_controller' (8#1) [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/ads_driver.vhd:39]
-INFO: [Synth 8-256] done synthesizing module 'daq_top' (9#1) [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/daq_top_do.vhd:44]
-INFO: [Synth 8-256] done synthesizing module 'lab5_axi_do_v1_0_S00_AXI' (10#1) [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ipshared/7e21/hdl/lab5_axi_do_v1_0_S00_AXI.vhd:97]
-INFO: [Synth 8-256] done synthesizing module 'lab5_axi_do_v1_0' (11#1) [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ipshared/7e21/hdl/lab5_axi_do_v1_0.vhd:60]
-INFO: [Synth 8-256] done synthesizing module 'lab5_bd_lab5_axi_do_0_1' (12#1) [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_lab5_axi_do_0_1/synth/lab5_bd_lab5_axi_do_0_1.vhd:96]
+INFO: [Synth 8-256] done synthesizing module 'o_generic_sr' (9#1) [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/o_generic_sr.vhd:34]
+INFO: [Synth 8-256] done synthesizing module 'daq_adc_controller' (10#1) [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/ads_driver.vhd:39]
+INFO: [Synth 8-256] done synthesizing module 'daq_top' (11#1) [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/src/daq_top_do.vhd:45]
+INFO: [Synth 8-256] done synthesizing module 'lab5_axi_do_v1_0_S00_AXI' (12#1) [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ipshared/a337/hdl/lab5_axi_do_v1_0_S00_AXI.vhd:96]
+INFO: [Synth 8-256] done synthesizing module 'lab5_axi_do_v1_0' (13#1) [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ipshared/a337/hdl/lab5_axi_do_v1_0.vhd:60]
+INFO: [Synth 8-256] done synthesizing module 'lab5_bd_lab5_axi_do_0_1' (14#1) [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_lab5_axi_do_0_1/synth/lab5_bd_lab5_axi_do_0_1.vhd:95]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1164.438 ; gain = 48.004
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1164.246 ; gain = 46.707
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1164.438 ; gain = 48.004
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1164.246 ; gain = 46.707
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1164.438 ; gain = 48.004
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1164.246 ; gain = 46.707
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.018 . Memory (MB): peak = 1164.438 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.023 . Memory (MB): peak = 1164.246 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1271.734 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1271.137 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.032 . Memory (MB): peak = 1271.809 ; gain = 0.074
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.036 . Memory (MB): peak = 1271.152 ; gain = 0.016
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:11 . Memory (MB): peak = 1271.809 ; gain = 155.375
+Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1271.152 ; gain = 153.613
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:11 . Memory (MB): peak = 1271.809 ; gain = 155.375
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1271.152 ; gain = 153.613
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1271.809 ; gain = 155.375
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1271.152 ; gain = 153.613
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-802] inferred FSM for state register 'button_state_reg' in module 'daq_trigger_controller'
----------------------------------------------------------------------------------------------------
-                   State |                     New Encoding |                Previous Encoding 
----------------------------------------------------------------------------------------------------
-                 iSTATE0 |                                0 |                               10
-                  iSTATE |                                1 |                               00
-*
----------------------------------------------------------------------------------------------------
-INFO: [Synth 8-3354] encoded FSM with state register 'button_state_reg' using encoding 'sequential' in module 'daq_trigger_controller'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1271.809 ; gain = 155.375
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1271.152 ; gain = 153.613
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -163,10 +185,14 @@ Start RTL Component Statistics
 Detailed RTL Component Info : 
 +---Adders : 
 	   2 Input   32 Bit       Adders := 2     
+	   2 Input   20 Bit       Adders := 1     
+	   2 Input   18 Bit       Adders := 1     
 	   2 Input   12 Bit       Adders := 2     
 	   2 Input   11 Bit       Adders := 2     
-	   2 Input   10 Bit       Adders := 1     
+	   2 Input   10 Bit       Adders := 3     
 	   2 Input    9 Bit       Adders := 2     
+	   2 Input    3 Bit       Adders := 1     
+	   2 Input    2 Bit       Adders := 1     
 +---XORs : 
 	   2 Input      1 Bit         XORs := 2     
 +---Registers : 
@@ -177,21 +203,24 @@ Detailed RTL Component Info :
 	               10 Bit    Registers := 2     
 	                9 Bit    Registers := 2     
 	                4 Bit    Registers := 2     
-	                2 Bit    Registers := 2     
-	                1 Bit    Registers := 34    
+	                3 Bit    Registers := 1     
+	                2 Bit    Registers := 3     
+	                1 Bit    Registers := 37    
 +---RAMs : 
 	              48K Bit	(4096 X 12 bit)          RAMs := 1     
 +---Muxes : 
 	   2 Input   32 Bit        Muxes := 6     
 	   4 Input   32 Bit        Muxes := 5     
 	   2 Input   15 Bit        Muxes := 2     
-	   2 Input   12 Bit        Muxes := 2     
-	   3 Input   12 Bit        Muxes := 1     
+	   2 Input   12 Bit        Muxes := 7     
+	   3 Input   12 Bit        Muxes := 2     
+	   2 Input   10 Bit        Muxes := 1     
 	   2 Input    9 Bit        Muxes := 1     
-	   2 Input    1 Bit        Muxes := 32    
+	   4 Input    4 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 39    
+	   4 Input    1 Bit        Muxes := 5     
 	   5 Input    1 Bit        Muxes := 1     
 	   3 Input    1 Bit        Muxes := 3     
-	   4 Input    1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -208,7 +237,7 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 1271.809 ; gain = 155.375
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1271.152 ; gain = 153.613
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -229,13 +258,13 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 1271.809 ; gain = 155.375
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 1271.152 ; gain = 153.613
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 1271.809 ; gain = 155.375
+Finished Timing Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 1271.152 ; gain = 153.613
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -257,7 +286,7 @@ Start Technology Mapping
 INFO: [Synth 8-7052] The timing for the instance U0/lab5_axi_do_v1_0_S00_AXI_inst/daq_top_1/daq_memory_unit_1/mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Synth 8-7052] The timing for the instance U0/lab5_axi_do_v1_0_S00_AXI_inst/daq_top_1/daq_memory_unit_1/mem_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1276.434 ; gain = 160.000
+Finished Technology Mapping : Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 1289.387 ; gain = 171.848
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -275,37 +304,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:25 ; elapsed = 00:00:25 . Memory (MB): peak = 1285.656 ; gain = 169.223
+Finished IO Insertion : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1294.262 ; gain = 176.723
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:25 ; elapsed = 00:00:25 . Memory (MB): peak = 1285.656 ; gain = 169.223
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1294.262 ; gain = 176.723
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:25 ; elapsed = 00:00:25 . Memory (MB): peak = 1285.656 ; gain = 169.223
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1294.262 ; gain = 176.723
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:25 ; elapsed = 00:00:25 . Memory (MB): peak = 1285.656 ; gain = 169.223
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1294.262 ; gain = 176.723
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:25 ; elapsed = 00:00:25 . Memory (MB): peak = 1285.703 ; gain = 169.270
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1294.262 ; gain = 176.723
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:25 ; elapsed = 00:00:25 . Memory (MB): peak = 1285.703 ; gain = 169.270
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:27 ; elapsed = 00:00:27 . Memory (MB): peak = 1294.262 ; gain = 176.723
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -321,42 +350,39 @@ Report Cell Usage:
 +------+---------+------+
 |      |Cell     |Count |
 +------+---------+------+
-|1     |CARRY4   |    63|
-|2     |LUT1     |    28|
+|1     |CARRY4   |    83|
+|2     |LUT1     |    96|
 |3     |LUT2     |   200|
-|4     |LUT3     |    33|
-|5     |LUT4     |    55|
-|6     |LUT5     |    24|
-|7     |LUT6     |   105|
+|4     |LUT3     |    45|
+|5     |LUT4     |    73|
+|6     |LUT5     |   101|
+|7     |LUT6     |   176|
 |8     |RAMB18E1 |     1|
 |9     |RAMB36E1 |     1|
-|10    |FDRE     |   383|
-|11    |FDSE     |     4|
+|10    |FDRE     |   373|
+|11    |FDSE     |    81|
 +------+---------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:25 ; elapsed = 00:00:25 . Memory (MB): peak = 1285.703 ; gain = 169.270
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:27 ; elapsed = 00:00:27 . Memory (MB): peak = 1294.262 ; gain = 176.723
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:17 ; elapsed = 00:00:23 . Memory (MB): peak = 1285.703 ; gain = 61.898
-Synthesis Optimization Complete : Time (s): cpu = 00:00:25 ; elapsed = 00:00:25 . Memory (MB): peak = 1285.703 ; gain = 169.270
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:19 ; elapsed = 00:00:25 . Memory (MB): peak = 1294.262 ; gain = 69.816
+Synthesis Optimization Complete : Time (s): cpu = 00:00:27 ; elapsed = 00:00:27 . Memory (MB): peak = 1294.262 ; gain = 176.723
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.016 . Memory (MB): peak = 1297.777 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 65 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.024 . Memory (MB): peak = 1306.328 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 85 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1297.777 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1306.328 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-59 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+66 Infos, 6 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:30 ; elapsed = 00:00:46 . Memory (MB): peak = 1297.777 ; gain = 181.344
-INFO: [Common 17-1381] The checkpoint 'C:/ads_lab5_project_do/ads_lab5_project_do.runs/lab5_bd_lab5_axi_do_0_1_synth_1/lab5_bd_lab5_axi_do_0_1.dcp' has been generated.
-WARNING: [Common 17-576] 'use_project_ipc' is deprecated. This option is deprecated and no longer used.
-INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP lab5_bd_lab5_axi_do_0_1, cache-ID = 120cbfeb19aa7fb2
-INFO: [Coretcl 2-1174] Renamed 10 cell refs.
+synth_design: Time (s): cpu = 00:00:32 ; elapsed = 00:00:48 . Memory (MB): peak = 1306.328 ; gain = 188.789
+INFO: [Coretcl 2-1174] Renamed 15 cell refs.
 INFO: [Common 17-1381] The checkpoint 'C:/ads_lab5_project_do/ads_lab5_project_do.runs/lab5_bd_lab5_axi_do_0_1_synth_1/lab5_bd_lab5_axi_do_0_1.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file lab5_bd_lab5_axi_do_0_1_utilization_synth.rpt -pb lab5_bd_lab5_axi_do_0_1_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Tue Jan 11 20:18:28 2022...
+INFO: [Common 17-206] Exiting Vivado at Fri Jan 14 18:11:10 2022...

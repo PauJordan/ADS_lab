@@ -1,7 +1,7 @@
 --Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
---Date        : Thu Jan 13 20:06:13 2022
+--Date        : Fri Jan 14 18:08:06 2022
 --Host        : c5b1 running 64-bit major release  (build 9200)
 --Command     : generate_target lab5_bd.bd
 --Design      : lab5_bd
@@ -1128,6 +1128,7 @@ entity lab5_bd is
     enable : in STD_LOGIC;
     green : out STD_LOGIC_VECTOR ( 3 downto 0 );
     hsync : out STD_LOGIC;
+    leds : out STD_LOGIC_VECTOR ( 3 downto 0 );
     ncs : out STD_LOGIC;
     nsync : out STD_LOGIC;
     red : out STD_LOGIC_VECTOR ( 3 downto 0 );
@@ -1144,7 +1145,7 @@ entity lab5_bd is
     vsync : out STD_LOGIC
   );
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of lab5_bd : entity is "lab5_bd,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=lab5_bd,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=12,numReposBlks=8,numNonXlnxBlks=1,numHierBlks=4,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=4,da_board_cnt=1,da_clkrst_cnt=1,da_ps7_cnt=1,synth_mode=Global}";
+  attribute CORE_GENERATION_INFO of lab5_bd : entity is "lab5_bd,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=lab5_bd,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=12,numReposBlks=8,numNonXlnxBlks=1,numHierBlks=4,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=5,da_board_cnt=1,da_clkrst_cnt=1,da_ps7_cnt=1,synth_mode=OOC_per_IP}";
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of lab5_bd : entity is "lab5_bd.hwdef";
 end lab5_bd;
@@ -1284,8 +1285,7 @@ architecture STRUCTURE of lab5_bd is
     trigger_n_p : in STD_LOGIC;
     trigger_down : in STD_LOGIC;
     trigger_up : in STD_LOGIC;
-    temp_down : in STD_LOGIC;
-    temp_up : in STD_LOGIC;
+    mode_indicator : out STD_LOGIC_VECTOR ( 3 downto 0 );
     red : out STD_LOGIC_VECTOR ( 3 downto 0 );
     green : out STD_LOGIC_VECTOR ( 3 downto 0 );
     blue : out STD_LOGIC_VECTOR ( 3 downto 0 );
@@ -1326,6 +1326,7 @@ architecture STRUCTURE of lab5_bd is
   signal lab5_axi_do_0_blue : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal lab5_axi_do_0_green : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal lab5_axi_do_0_hsync : STD_LOGIC;
+  signal lab5_axi_do_0_mode_indicator : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal lab5_axi_do_0_ncs : STD_LOGIC;
   signal lab5_axi_do_0_red : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal lab5_axi_do_0_sclk : STD_LOGIC;
@@ -1472,6 +1473,8 @@ architecture STRUCTURE of lab5_bd is
   attribute X_INTERFACE_INFO of DDR_dqs_n : signal is "xilinx.com:interface:ddrx:1.0 DDR DQS_N";
   attribute X_INTERFACE_INFO of DDR_dqs_p : signal is "xilinx.com:interface:ddrx:1.0 DDR DQS_P";
   attribute X_INTERFACE_INFO of FIXED_IO_mio : signal is "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO MIO";
+  attribute X_INTERFACE_INFO of leds : signal is "xilinx.com:signal:data:1.0 DATA.LEDS DATA";
+  attribute X_INTERFACE_PARAMETER of leds : signal is "XIL_INTERFACENAME DATA.LEDS, LAYERED_METADATA undef";
 begin
   D1 <= gen_fun_top_0_D1;
   D2 <= gen_fun_top_0_D2;
@@ -1480,6 +1483,7 @@ begin
   enable_1 <= enable;
   green(3 downto 0) <= lab5_axi_do_0_green(3 downto 0);
   hsync <= lab5_axi_do_0_hsync;
+  leds(3 downto 0) <= lab5_axi_do_0_mode_indicator(3 downto 0);
   ncs <= lab5_axi_do_0_ncs;
   nsync <= gen_fun_top_0_nsync;
   red(3 downto 0) <= lab5_axi_do_0_red(3 downto 0);
@@ -1533,6 +1537,7 @@ lab5_axi_do_0: component lab5_bd_lab5_axi_do_0_1
       blue(3 downto 0) => lab5_axi_do_0_blue(3 downto 0),
       green(3 downto 0) => lab5_axi_do_0_green(3 downto 0),
       hsync => lab5_axi_do_0_hsync,
+      mode_indicator(3 downto 0) => lab5_axi_do_0_mode_indicator(3 downto 0),
       ncs => lab5_axi_do_0_ncs,
       red(3 downto 0) => lab5_axi_do_0_red(3 downto 0),
       s00_axi_aclk => processing_system7_0_FCLK_CLK0,
@@ -1559,8 +1564,6 @@ lab5_axi_do_0: component lab5_bd_lab5_axi_do_0_1
       sclk => lab5_axi_do_0_sclk,
       sdata1 => sdata1_1,
       sdata2 => sdata2_1,
-      temp_down => temp_down_1,
-      temp_up => temp_up_1,
       trigger_down => trigger_down_1,
       trigger_n_p => trigger_n_p_1,
       trigger_up => trigger_up_1,

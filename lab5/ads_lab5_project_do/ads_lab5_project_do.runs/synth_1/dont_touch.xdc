@@ -21,9 +21,6 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==lab5_bd_ps7
 # IP: bd/lab5_bd/ip/lab5_bd_gen_fun_top_0_1/lab5_bd_gen_fun_top_0_1.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==lab5_bd_gen_fun_top_0_1 || ORIG_REF_NAME==lab5_bd_gen_fun_top_0_1} -quiet] -quiet
 
-# IP: c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_gen_fun_top_0_1/src/sin10K/sin10K.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==sin10K || ORIG_REF_NAME==sin10K} -quiet] -quiet
-
 # IP: bd/lab5_bd/ip/lab5_bd_axi_gpio_0_0/lab5_bd_axi_gpio_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==lab5_bd_axi_gpio_0_0 || ORIG_REF_NAME==lab5_bd_axi_gpio_0_0} -quiet] -quiet
 
@@ -35,27 +32,5 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==lab5_bd_lab
 
 # IP: bd/lab5_bd/ip/lab5_bd_auto_pc_0/lab5_bd_auto_pc_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==lab5_bd_auto_pc_0 || ORIG_REF_NAME==lab5_bd_auto_pc_0} -quiet] -quiet
-
-# XDC: c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_processing_system7_0_0/lab5_bd_processing_system7_0_0.xdc
-set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==lab5_bd_processing_system7_0_0 || ORIG_REF_NAME==lab5_bd_processing_system7_0_0} -quiet] {/inst } ]/inst ] -quiet] -quiet
-
-# XDC: c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_rst_ps7_0_100M_0/lab5_bd_rst_ps7_0_100M_0_board.xdc
-set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==lab5_bd_rst_ps7_0_100M_0 || ORIG_REF_NAME==lab5_bd_rst_ps7_0_100M_0} -quiet] {/U0 } ]/U0 ] -quiet] -quiet
-
-# XDC: c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_rst_ps7_0_100M_0/lab5_bd_rst_ps7_0_100M_0.xdc
-#dup# set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==lab5_bd_rst_ps7_0_100M_0 || ORIG_REF_NAME==lab5_bd_rst_ps7_0_100M_0} -quiet] {/U0 } ]/U0 ] -quiet] -quiet
-
-# XDC: c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_gen_fun_top_0_1/src/test_gen_fun.xdc
-set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==lab5_bd_gen_fun_top_0_1 || ORIG_REF_NAME==lab5_bd_gen_fun_top_0_1} -quiet] {/U0 } ]/U0 ] -quiet] -quiet
-
-# XDC: c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_axi_gpio_0_0/lab5_bd_axi_gpio_0_0_board.xdc
-set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==lab5_bd_axi_gpio_0_0 || ORIG_REF_NAME==lab5_bd_axi_gpio_0_0} -quiet] {/U0 } ]/U0 ] -quiet] -quiet
-
-# XDC: c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_axi_gpio_0_0/lab5_bd_axi_gpio_0_0_ooc.xdc
-
-# XDC: c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_axi_gpio_0_0/lab5_bd_axi_gpio_0_0.xdc
-#dup# set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==lab5_bd_axi_gpio_0_0 || ORIG_REF_NAME==lab5_bd_axi_gpio_0_0} -quiet] {/U0 } ]/U0 ] -quiet] -quiet
-
-# XDC: c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_auto_pc_0/lab5_bd_auto_pc_0_ooc.xdc
 
 # XDC: c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/lab5_bd_ooc.xdc

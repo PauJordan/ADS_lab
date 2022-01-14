@@ -5,12 +5,12 @@ use IEEE.NUMERIC_STD.ALL;
 entity temperature_plotter is
     generic(
         --threshold display -> it does have a width of 35 lines
-        threshold_y_start : integer := 540;
-        threshold_y_finish: integer := 575;
+        threshold_y_start : integer := 768 + 30;
+        threshold_y_finish: integer := 768 + 30 + 35;
         
         --temperature bar display -> it does have a width of 30 lines
-        temp_bar_y_start : integer := 542;
-        temp_bar_y_finish : integer := 572;
+        temp_bar_y_start : integer := 768 + 30;
+        temp_bar_y_finish : integer := 768 + 30 + 30;
         temp_bar_x_start : integer := 0
 
     );
@@ -42,12 +42,12 @@ begin
         -- as the screen is "painted" from left to righ and up to down, the first element that 
         -- we will need to 'paint' is the threshold of the temperature, which is defined by t_temperature
         -- we know that in the y_axis it will be from 540 to 575 (as it does have a width of 35 lines, statement defined)
-        if PX = unsigned(t_temperature) then --if we are in where the threshold should be placed, print it blue
+        if PX = shift_left(unsigned(t_temperature), 4) then --if we are in where the threshold should be placed, print it blue
             RGB_internal_out <= blue; --ARA NO SE COM POSAR ELS COLORS -_- HA DE SER BLAU
         else -- now we should take into account that the temperature bar, does have an smaller number of lines that the threshold, it goes from 542 to 572 (30 lines)
             if temp_bar_y_start <= PY and PY <= temp_bar_y_finish then-- an smaller range
                 --now the x_axis range will be from 0 to 80 (in the worst case), but in fact depends on the temperature
-                if temp_bar_x_start <= PX and PX <= unsigned(temperature) then
+                if temp_bar_x_start <= PX and PX <= shift_left(unsigned(temperature), 4) then
                     --HOWEVER we must take into account whether the temperature is higher than the threshold
                     --and therefore we need to check it with alarm
                     if alarm = '0' then

@@ -1,73 +1,75 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"0.341121",
-   "Default View_TopLeft":"-237,-67",
+   "Default View_ScaleFactor":"0.425018",
+   "Default View_TopLeft":"-134,-75",
    "ExpandedHierarchyInLayout":"",
    "PinnedBlocks":"",
-   "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
+   "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS-threadsafe
 #  -string -flagsOSRD
-preplace port DDR -pg 1 -lvl 4 -x 1450 -y 60 -defaultsOSRD
-preplace port FIXED_IO -pg 1 -lvl 4 -x 1450 -y 80 -defaultsOSRD
-preplace port hsync -pg 1 -lvl 4 -x 1450 -y 830 -defaultsOSRD
-preplace port vsync -pg 1 -lvl 4 -x 1450 -y 850 -defaultsOSRD
-preplace port ncs -pg 1 -lvl 4 -x 1450 -y 870 -defaultsOSRD
-preplace port sclk -pg 1 -lvl 4 -x 1450 -y 890 -defaultsOSRD
-preplace port sdata1 -pg 1 -lvl 0 -x -40 -y 860 -defaultsOSRD
-preplace port sdata2 -pg 1 -lvl 0 -x -40 -y 880 -defaultsOSRD
-preplace port nsync -pg 1 -lvl 4 -x 1450 -y 300 -defaultsOSRD
-preplace port D1 -pg 1 -lvl 4 -x 1450 -y 320 -defaultsOSRD
-preplace port D2 -pg 1 -lvl 4 -x 1450 -y 340 -defaultsOSRD
-preplace port clk_out -pg 1 -lvl 4 -x 1450 -y 280 -defaultsOSRD
-preplace port trigger_n_p -pg 1 -lvl 0 -x -40 -y 760 -defaultsOSRD
-preplace port trigger_down -pg 1 -lvl 0 -x -40 -y 780 -defaultsOSRD
-preplace port trigger_up -pg 1 -lvl 0 -x -40 -y 800 -defaultsOSRD
-preplace port reset -pg 1 -lvl 0 -x -40 -y 300 -defaultsOSRD
-preplace port enable -pg 1 -lvl 0 -x -40 -y 410 -defaultsOSRD
-preplace port temp_up -pg 1 -lvl 0 -x -40 -y 0 -defaultsOSRD
-preplace port temp_down -pg 1 -lvl 0 -x -40 -y 20 -defaultsOSRD
-preplace portBus red -pg 1 -lvl 4 -x 1450 -y 770 -defaultsOSRD
-preplace portBus green -pg 1 -lvl 4 -x 1450 -y 790 -defaultsOSRD
-preplace portBus blue -pg 1 -lvl 4 -x 1450 -y 810 -defaultsOSRD
-preplace portBus select_in -pg 1 -lvl 0 -x -40 -y 610 -defaultsOSRD
+preplace port DDR -pg 1 -lvl 4 -x 1120 -y 60 -defaultsOSRD
+preplace port FIXED_IO -pg 1 -lvl 4 -x 1120 -y 80 -defaultsOSRD
+preplace port hsync -pg 1 -lvl 4 -x 1120 -y 740 -defaultsOSRD
+preplace port vsync -pg 1 -lvl 4 -x 1120 -y 760 -defaultsOSRD
+preplace port ncs -pg 1 -lvl 4 -x 1120 -y 780 -defaultsOSRD
+preplace port sclk -pg 1 -lvl 4 -x 1120 -y 800 -defaultsOSRD
+preplace port sdata1 -pg 1 -lvl 0 -x 0 -y 740 -defaultsOSRD
+preplace port sdata2 -pg 1 -lvl 0 -x 0 -y 760 -defaultsOSRD
+preplace port nsync -pg 1 -lvl 4 -x 1120 -y 490 -defaultsOSRD
+preplace port D1 -pg 1 -lvl 4 -x 1120 -y 510 -defaultsOSRD
+preplace port D2 -pg 1 -lvl 4 -x 1120 -y 530 -defaultsOSRD
+preplace port clk_out -pg 1 -lvl 4 -x 1120 -y 470 -defaultsOSRD
+preplace port trigger_n_p -pg 1 -lvl 0 -x 0 -y 680 -defaultsOSRD
+preplace port trigger_down -pg 1 -lvl 0 -x 0 -y 700 -defaultsOSRD
+preplace port trigger_up -pg 1 -lvl 0 -x 0 -y 720 -defaultsOSRD
+preplace port reset -pg 1 -lvl 0 -x 0 -y 490 -defaultsOSRD
+preplace port enable -pg 1 -lvl 0 -x 0 -y 510 -defaultsOSRD
+preplace port temp_up -pg 1 -lvl 0 -x 0 -y 590 -defaultsOSRD
+preplace port temp_down -pg 1 -lvl 0 -x 0 -y 610 -defaultsOSRD
+preplace portBus red -pg 1 -lvl 4 -x 1120 -y 680 -defaultsOSRD
+preplace portBus green -pg 1 -lvl 4 -x 1120 -y 700 -defaultsOSRD
+preplace portBus blue -pg 1 -lvl 4 -x 1120 -y 720 -defaultsOSRD
+preplace portBus select_in -pg 1 -lvl 0 -x 0 -y 530 -defaultsOSRD
+preplace portBus leds -pg 1 -lvl 4 -x 1120 -y 660 -defaultsOSRD
 preplace inst processing_system7_0 -pg 1 -lvl 1 -x 240 -y 140 -defaultsOSRD
-preplace inst rst_ps7_0_100M -pg 1 -lvl 1 -x 240 -y 420 -defaultsOSRD
-preplace inst ps7_0_axi_periph -pg 1 -lvl 2 -x 920 -y 440 -defaultsOSRD
-preplace inst gen_fun_top_0 -pg 1 -lvl 3 -x 1240 -y 310 -defaultsOSRD
-preplace inst axi_gpio_0 -pg 1 -lvl 3 -x 1240 -y 470 -defaultsOSRD
-preplace inst xlconcat_0 -pg 1 -lvl 1 -x 240 -y 570 -defaultsOSRD
-preplace inst lab5_axi_do_0 -pg 1 -lvl 3 -x 1240 -y 780 -defaultsOSRD
-preplace netloc processing_system7_0_FCLK_CLK0 1 0 3 20 0 490 260 1100
-preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 2 30 310 450
-preplace netloc rst_ps7_0_100M_peripheral_aresetn 1 1 2 480 300 1070
-preplace netloc reset_1 1 0 3 NJ 300 460J 270 1110J
-preplace netloc enable_1 1 0 3 -20J 280 NJ 280 1090J
-preplace netloc select_in_1 1 0 3 0J 290 NJ 290 1080J
-preplace netloc gen_fun_top_0_clk_out 1 3 1 NJ 280
-preplace netloc gen_fun_top_0_nsync 1 3 1 NJ 300
-preplace netloc gen_fun_top_0_D1 1 3 1 NJ 320
-preplace netloc gen_fun_top_0_D2 1 3 1 NJ 340
-preplace netloc xlconcat_0_dout 1 1 3 460J 580 NJ 580 1430
-preplace netloc trigger_n_p_1 1 0 3 N 760 N 760 1080
-preplace netloc trigger_down_1 1 0 3 N 780 N 780 1090
-preplace netloc trigger_up_1 1 0 3 N 800 N 800 1110
-preplace netloc sdata1_1 1 0 3 10 790 N 790 N
-preplace netloc sdata2_1 1 0 3 N 880 N 880 1110
-preplace netloc lab5_axi_do_0_red 1 3 1 1430 720n
-preplace netloc lab5_axi_do_0_green 1 3 1 1420 740n
-preplace netloc lab5_axi_do_0_blue 1 3 1 1410 760n
-preplace netloc lab5_axi_do_0_hsync 1 3 1 1400 780n
-preplace netloc lab5_axi_do_0_vsync 1 3 1 1390 800n
-preplace netloc lab5_axi_do_0_ncs 1 3 1 1380 820n
-preplace netloc lab5_axi_do_0_sclk 1 3 1 1370 840n
-preplace netloc temp_up_1 1 0 1 10 0n
-preplace netloc temp_down_1 1 0 1 -10 20n
-preplace netloc ps7_0_axi_periph_M01_AXI 1 2 1 N 450
-preplace netloc processing_system7_0_FIXED_IO 1 1 3 NJ 80 NJ 80 NJ
-preplace netloc processing_system7_0_M_AXI_GP0 1 1 1 470 120n
+preplace inst rst_ps7_0_100M -pg 1 -lvl 1 -x 240 -y 390 -defaultsOSRD
+preplace inst ps7_0_axi_periph -pg 1 -lvl 2 -x 630 -y 320 -defaultsOSRD
+preplace inst gen_fun_top_0 -pg 1 -lvl 3 -x 950 -y 500 -defaultsOSRD
+preplace inst axi_gpio_0 -pg 1 -lvl 3 -x 950 -y 350 -defaultsOSRD
+preplace inst xlconcat_0 -pg 1 -lvl 1 -x 240 -y 600 -defaultsOSRD
+preplace inst lab5_axi_do_0 -pg 1 -lvl 3 -x 950 -y 730 -defaultsOSRD
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 3 20 280 470 170 800
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 2 30 290 450
+preplace netloc rst_ps7_0_100M_peripheral_aresetn 1 1 2 480 180 780
+preplace netloc reset_1 1 0 3 NJ 490 NJ 490 NJ
+preplace netloc enable_1 1 0 3 NJ 510 NJ 510 NJ
+preplace netloc select_in_1 1 0 3 NJ 530 NJ 530 NJ
+preplace netloc gen_fun_top_0_clk_out 1 3 1 NJ 470
+preplace netloc gen_fun_top_0_nsync 1 3 1 NJ 490
+preplace netloc gen_fun_top_0_D1 1 3 1 NJ 510
+preplace netloc gen_fun_top_0_D2 1 3 1 NJ 530
+preplace netloc xlconcat_0_dout 1 1 3 NJ 600 NJ 600 1100
+preplace netloc trigger_n_p_1 1 0 3 NJ 680 NJ 680 NJ
+preplace netloc trigger_down_1 1 0 3 NJ 700 NJ 700 NJ
+preplace netloc trigger_up_1 1 0 3 NJ 720 NJ 720 NJ
+preplace netloc sdata1_1 1 0 3 NJ 740 NJ 740 NJ
+preplace netloc sdata2_1 1 0 3 NJ 760 NJ 760 NJ
+preplace netloc lab5_axi_do_0_red 1 3 1 NJ 680
+preplace netloc lab5_axi_do_0_green 1 3 1 NJ 700
+preplace netloc lab5_axi_do_0_blue 1 3 1 NJ 720
+preplace netloc lab5_axi_do_0_hsync 1 3 1 NJ 740
+preplace netloc lab5_axi_do_0_vsync 1 3 1 NJ 760
+preplace netloc lab5_axi_do_0_ncs 1 3 1 NJ 780
+preplace netloc lab5_axi_do_0_sclk 1 3 1 NJ 800
+preplace netloc temp_up_1 1 0 1 NJ 590
+preplace netloc temp_down_1 1 0 1 NJ 610
+preplace netloc lab5_axi_do_0_mode_indicator 1 3 1 NJ 660
 preplace netloc processing_system7_0_DDR 1 1 3 NJ 60 NJ 60 NJ
-preplace netloc ps7_0_axi_periph_M00_AXI 1 2 1 1080 430n
-levelinfo -pg 1 -40 240 920 1240 1450
-pagesize -pg 1 -db -bbox -sgen -180 -20 1570 1100
+preplace netloc ps7_0_axi_periph_M01_AXI 1 2 1 N 330
+preplace netloc processing_system7_0_FIXED_IO 1 1 3 NJ 80 NJ 80 NJ
+preplace netloc ps7_0_axi_periph_M00_AXI 1 2 1 790 310n
+preplace netloc processing_system7_0_M_AXI_GP0 1 1 1 460 120n
+levelinfo -pg 1 0 240 630 950 1120
+pagesize -pg 1 -db -bbox -sgen -140 0 1240 860
 "
 }
 {

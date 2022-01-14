@@ -15,7 +15,7 @@ end threshold_plotter;
 
 architecture signal_plotter_arc of threshold_plotter is
 
-    constant offset : integer range 0 to 1023 := 511;
+    constant offset : integer range 0 to 1023 := 768;
     signal trigger_padded, trigger_scaled, trigger_level_s : unsigned (trigger_level'length + 8 downto 0);
     constant trigger_color : std_logic_vector (11 downto 0) := x"22F";
 

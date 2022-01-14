@@ -71,6 +71,8 @@ proc create_report { reportName command } {
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 1
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7z020clg484-1
 
@@ -90,14 +92,17 @@ set_property ip_repo_paths {
 } [current_project]
 update_ip_catalog
 set_property ip_output_repo c:/ads_lab5_project_do/ads_lab5_project_do.cache/ip [current_project]
-set_property ip_cache_permissions {read write} [current_project]
+set_property ip_cache_permissions disable [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_vhdl -library xil_defaultlib C:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/hdl/lab5_bd_wrapper.vhd
+read_vhdl -library xil_defaultlib c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/hdl/lab5_bd_wrapper.vhd
 add_files C:/ads_lab5_project_do/ads_lab5_project_do.srcs/sources_1/bd/lab5_bd/lab5_bd.bd
+set_property used_in_implementation 1 [get_files -all C:/ads_lab5_project_do/ads_lab5_project_do.srcs/sources_1/bd/lab5_bd/ip/lab5_bd_lab5_axi_do_0_1/lab5_bd_lab5_axi_do_0_1.xci]
 set_property used_in_implementation false [get_files -all c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_processing_system7_0_0/lab5_bd_processing_system7_0_0.xdc]
 set_property used_in_implementation false [get_files -all c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_rst_ps7_0_100M_0/lab5_bd_rst_ps7_0_100M_0_board.xdc]
 set_property used_in_implementation false [get_files -all c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_rst_ps7_0_100M_0/lab5_bd_rst_ps7_0_100M_0.xdc]
+set_property used_in_implementation false [get_files -all c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_rst_ps7_0_100M_0/lab5_bd_rst_ps7_0_100M_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_xbar_0/lab5_bd_xbar_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_gen_fun_top_0_1/src/test_gen_fun.xdc]
 set_property used_in_implementation false [get_files -all c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_axi_gpio_0_0/lab5_bd_axi_gpio_0_0_board.xdc]
 set_property used_in_implementation false [get_files -all c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_axi_gpio_0_0/lab5_bd_axi_gpio_0_0_ooc.xdc]
