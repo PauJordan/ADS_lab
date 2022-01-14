@@ -3,7 +3,7 @@
   <spirit:vendor>ALU</spirit:vendor>
   <spirit:library>user</spirit:library>
   <spirit:name>lab5_axi_do</spirit:name>
-  <spirit:version>1.1</spirit:version>
+  <spirit:version>1.4</spirit:version>
   <spirit:busInterfaces>
     <spirit:busInterface>
       <spirit:name>S00_AXI</spirit:name>
@@ -266,7 +266,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>706c9502</spirit:value>
+            <spirit:value>a4fed78e</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -282,7 +282,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>706c9502</spirit:value>
+            <spirit:value>a4fed78e</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -358,32 +358,6 @@
       </spirit:port>
       <spirit:port>
         <spirit:name>trigger_up</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_vhdlsynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_vhdlbehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>temp_down</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_vhdlsynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_vhdlbehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>temp_up</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -873,6 +847,10 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
+        <spirit:name>../../src/button_frontend.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>../../src/cross_generator.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
@@ -890,6 +868,10 @@
       </spirit:file>
       <spirit:file>
         <spirit:name>../../src/o_generic_sr.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../src/signal_plotter.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -911,13 +893,17 @@
       <spirit:file>
         <spirit:name>hdl/lab5_axi_do_v1_0.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_21fb2084</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_dede3593</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
       <spirit:name>xilinx_vhdlbehavioralsimulation_view_fileset</spirit:name>
       <spirit:file>
         <spirit:name>../../src/ads_driver.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../src/button_frontend.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -938,6 +924,10 @@
       </spirit:file>
       <spirit:file>
         <spirit:name>../../src/o_generic_sr.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../src/signal_plotter.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -996,7 +986,7 @@
     <spirit:fileSet>
       <spirit:name>xilinx_xpgui_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>xgui/lab5_axi_do_v1_1.tcl</spirit:name>
+        <spirit:name>xgui/lab5_axi_do_v1_4.tcl</spirit:name>
         <spirit:fileType>tclSource</spirit:fileType>
         <spirit:userFileType>CHECKSUM_0e5443b4</spirit:userFileType>
         <spirit:userFileType>XGUI_VERSION_2</spirit:userFileType>
@@ -1076,8 +1066,12 @@
         <xilinx:taxonomy>AXI_Peripheral</xilinx:taxonomy>
       </xilinx:taxonomies>
       <xilinx:displayName>lab5_axi_do_v1.0</xilinx:displayName>
-      <xilinx:coreRevision>6</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2022-01-11T19:16:26Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>1</xilinx:coreRevision>
+      <xilinx:upgrades>
+        <xilinx:canUpgradeFrom>ALU:user:lab5_axi_do:1.1</xilinx:canUpgradeFrom>
+        <xilinx:canUpgradeFrom>ALU:user:lab5_axi_do:1.3</xilinx:canUpgradeFrom>
+      </xilinx:upgrades>
+      <xilinx:coreCreationDateTime>2022-01-13T19:25:07Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@7666798a_ARCHIVE_LOCATION">c:/ADS_do/lab5/ip_repo_p5/lab5_axi_do_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@1646ef64_ARCHIVE_LOCATION">c:/ADS_do/lab5/ip_repo_p5/lab5_axi_do_1.0</xilinx:tag>
@@ -1210,14 +1204,55 @@
         <xilinx:tag xilinx:name="ui.data.coregen.dd@1babeff2_ARCHIVE_LOCATION">c:/ADS_do/lab5/ip_repo_p5/lab5_axi_do_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@5a848762_ARCHIVE_LOCATION">c:/ADS_do/lab5/ip_repo_p5/lab5_axi_do_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@45b9d0ea_ARCHIVE_LOCATION">c:/ADS_do/lab5/ip_repo_p5/lab5_axi_do_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4b57f7c1_ARCHIVE_LOCATION">c:/ADS_do/lab5/ip_repo_p5/lab5_axi_do_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@14fab173_ARCHIVE_LOCATION">c:/ADS_do/lab5/ip_repo_p5/lab5_axi_do_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@21cbdf41_ARCHIVE_LOCATION">c:/ADS_do/lab5/ip_repo_p5/lab5_axi_do_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6c4fcea4_ARCHIVE_LOCATION">c:/ADS_do/lab5/ip_repo_p5/lab5_axi_do_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@798a75ff_ARCHIVE_LOCATION">c:/ADS_do/lab5/ip_repo_p5/lab5_axi_do_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@61840afc_ARCHIVE_LOCATION">c:/ADS_do/lab5/ip_repo_p5/lab5_axi_do_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4bf372a5_ARCHIVE_LOCATION">c:/ADS_do/lab5/ip_repo_p5/lab5_axi_do_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2204134c_ARCHIVE_LOCATION">c:/ADS_do/lab5/ip_repo_p5/lab5_axi_do_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6781528e_ARCHIVE_LOCATION">c:/ADS_do/lab5/ip_repo_p5/lab5_axi_do_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@a1da814_ARCHIVE_LOCATION">c:/ADS_do/lab5/ip_repo_p5/lab5_axi_do_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5ea7ac41_ARCHIVE_LOCATION">c:/ADS_do/lab5/ip_repo_p5/lab5_axi_do_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2b3ee250_ARCHIVE_LOCATION">c:/ADS_do/lab5/ip_repo_p5/lab5_axi_do_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@52d5f443_ARCHIVE_LOCATION">c:/ADS_do/lab5/ip_repo_p5/lab5_axi_do_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7be97e7c_ARCHIVE_LOCATION">c:/ADS_do/lab5/ip_repo_p5/lab5_axi_do_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@55cdb479_ARCHIVE_LOCATION">c:/ADS_do/lab5/ip_repo_p5/lab5_axi_do_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4aa54895_ARCHIVE_LOCATION">c:/ADS_do/lab5/ip_repo_p5/lab5_axi_do_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3ba1b5f0_ARCHIVE_LOCATION">c:/ADS_do/lab5/ip_repo_p5/lab5_axi_do_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7ba702da_ARCHIVE_LOCATION">c:/ADS_do/lab5/ip_repo_p5/lab5_axi_do_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2876e587_ARCHIVE_LOCATION">c:/ADS_do/lab5/ip_repo_p5/lab5_axi_do_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4dfa8870_ARCHIVE_LOCATION">c:/ADS_do/lab5/ip_repo_p5/lab5_axi_do_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@73c31fd_ARCHIVE_LOCATION">c:/ADS_do/lab5/ip_repo_p5/lab5_axi_do_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5c34193b_ARCHIVE_LOCATION">c:/ADS_do/lab5/ip_repo_p5/lab5_axi_do_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5420b522_ARCHIVE_LOCATION">c:/ADS_do/lab5/ip_repo_p5/lab5_axi_do_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@45a295a9_ARCHIVE_LOCATION">c:/ADS_do/lab5/ip_repo_p5/lab5_axi_do_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7dff52b1_ARCHIVE_LOCATION">c:/ADS_do/lab5/ip_repo_p5/lab5_axi_do_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@ee0d609_ARCHIVE_LOCATION">c:/ADS_do/lab5/ip_repo_p5/lab5_axi_do_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1f23979e_ARCHIVE_LOCATION">c:/ADS_do/lab5/ip_repo_p5/lab5_axi_do_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@53b6a6d1_ARCHIVE_LOCATION">c:/ADS_do/lab5/ip_repo_p5/lab5_axi_do_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5a8ad7ca_ARCHIVE_LOCATION">c:/ADS_do/lab5/ip_repo_p5/lab5_axi_do_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2c1431ef_ARCHIVE_LOCATION">c:/ADS_do/lab5/ip_repo_p5/lab5_axi_do_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1972138c_ARCHIVE_LOCATION">c:/ADS_do/lab5/ip_repo_p5/lab5_axi_do_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@b85ccf3_ARCHIVE_LOCATION">c:/ADS_do/lab5/ip_repo_p5/lab5_axi_do_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@18fd40c9_ARCHIVE_LOCATION">c:/ADS_do/lab5/ip_repo_p5/lab5_axi_do_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3ba29495_ARCHIVE_LOCATION">c:/ADS_do/lab5/ip_repo_p5/lab5_axi_do_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2a53a771_ARCHIVE_LOCATION">c:/ADS_do/lab5/ip_repo_p5/lab5_axi_do_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@338cbe57_ARCHIVE_LOCATION">c:/ADS_do/lab5/ip_repo_p5/lab5_axi_do_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@29108f7b_ARCHIVE_LOCATION">c:/ADS_do/lab5/ip_repo_p5/lab5_axi_do_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@47e20f0e_ARCHIVE_LOCATION">c:/ADS_do/lab5/ip_repo_p5/lab5_axi_do_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@57048958_ARCHIVE_LOCATION">c:/ADS_do/lab5/ip_repo_p5/lab5_axi_do_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3f7e2c00_ARCHIVE_LOCATION">c:/ADS_do/lab5/ip_repo_p5/lab5_axi_do_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@37b46a7a_ARCHIVE_LOCATION">c:/ADS_do/lab5/ip_repo_p5/lab5_axi_do_1.0</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2020.2</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="7a63f3fc"/>
       <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="ed1368d5"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="2ec23859"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="48837309"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="7f6ed06e"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="e5796892"/>
       <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="6992ea72"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="c35fae7b"/>
     </xilinx:packagingInfo>

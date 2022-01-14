@@ -46,8 +46,8 @@
 -- 
 -- DO NOT MODIFY THIS FILE.
 
--- IP VLNV: ALU:user:lab5_axi_do:1.1
--- IP Revision: 6
+-- IP VLNV: ALU:user:lab5_axi_do:1.3
+-- IP Revision: 1
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;

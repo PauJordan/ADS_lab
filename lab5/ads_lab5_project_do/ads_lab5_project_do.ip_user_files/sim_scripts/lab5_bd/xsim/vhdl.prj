@@ -1,7 +1,5 @@
 vhdl xil_defaultlib  \
-"../../../bd/lab5_bd/ip/lab5_bd_processing_system7_0_0/lab5_bd_processing_system7_0_0_sim_netlist.vhdl" \
 "../../../bd/lab5_bd/ip/lab5_bd_rst_ps7_0_100M_0/sim/lab5_bd_rst_ps7_0_100M_0.vhd" \
-"../../../bd/lab5_bd/ip/lab5_bd_xbar_0/lab5_bd_xbar_0_sim_netlist.vhdl" \
 
 vhdl xbip_utils_v3_0_10  \
 "../../../../ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_gen_fun_top_0_1/src/sin10K/hdl/xbip_utils_v3_0_vh_rfs.vhd" \
@@ -38,18 +36,19 @@ vhdl xil_defaultlib  \
 "../../../bd/lab5_bd/ip/lab5_bd_gen_fun_top_0_1/sim/lab5_bd_gen_fun_top_0_1.vhd" \
 "../../../bd/lab5_bd/ip/lab5_bd_axi_gpio_0_0/sim/lab5_bd_axi_gpio_0_0.vhd" \
 "../../../bd/lab5_bd/src/ads_driver.vhd" \
+"../../../bd/lab5_bd/src/button_frontend.vhd" \
 "../../../bd/lab5_bd/src/cross_generator.vhd" \
 "../../../bd/lab5_bd/src/daq_top_do.vhd" \
 "../../../bd/lab5_bd/src/daq_trigger_controller.vhd" \
-"../../../bd/lab5_bd/ipshared/7e21/hdl/lab5_axi_do_v1_0_S00_AXI.vhd" \
+"../../../bd/lab5_bd/ipshared/77a0/hdl/lab5_axi_do_v1_0_S00_AXI.vhd" \
 "../../../bd/lab5_bd/src/o_generic_sr.vhd" \
+"../../../bd/lab5_bd/src/signal_plotter.vhd" \
 "../../../bd/lab5_bd/src/sync_ram_dualport.vhd" \
 "../../../bd/lab5_bd/src/temperature_plotter.vhd" \
 "../../../bd/lab5_bd/src/vga_port_test.vhd" \
 "../../../bd/lab5_bd/src/vga_sync_gen.vhd" \
-"../../../bd/lab5_bd/ipshared/7e21/hdl/lab5_axi_do_v1_0.vhd" \
+"../../../bd/lab5_bd/ipshared/77a0/hdl/lab5_axi_do_v1_0.vhd" \
 "../../../bd/lab5_bd/ip/lab5_bd_lab5_axi_do_0_1/sim/lab5_bd_lab5_axi_do_0_1.vhd" \
-"../../../bd/lab5_bd/ip/lab5_bd_auto_pc_0/lab5_bd_auto_pc_0_sim_netlist.vhdl" \
 "../../../bd/lab5_bd/sim/lab5_bd.vhd" \
 
 nosort

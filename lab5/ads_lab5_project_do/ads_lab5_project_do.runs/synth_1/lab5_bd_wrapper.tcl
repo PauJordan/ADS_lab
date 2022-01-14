@@ -71,7 +71,6 @@ proc create_report { reportName command } {
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 1
-set_msg_config -id {Common 17-41} -limit 10000000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7z020clg484-1
 
@@ -99,8 +98,6 @@ add_files C:/ads_lab5_project_do/ads_lab5_project_do.srcs/sources_1/bd/lab5_bd/l
 set_property used_in_implementation false [get_files -all c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_processing_system7_0_0/lab5_bd_processing_system7_0_0.xdc]
 set_property used_in_implementation false [get_files -all c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_rst_ps7_0_100M_0/lab5_bd_rst_ps7_0_100M_0_board.xdc]
 set_property used_in_implementation false [get_files -all c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_rst_ps7_0_100M_0/lab5_bd_rst_ps7_0_100M_0.xdc]
-set_property used_in_implementation false [get_files -all c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_rst_ps7_0_100M_0/lab5_bd_rst_ps7_0_100M_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_xbar_0/lab5_bd_xbar_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_gen_fun_top_0_1/src/test_gen_fun.xdc]
 set_property used_in_implementation false [get_files -all c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_axi_gpio_0_0/lab5_bd_axi_gpio_0_0_board.xdc]
 set_property used_in_implementation false [get_files -all c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_axi_gpio_0_0/lab5_bd_axi_gpio_0_0_ooc.xdc]

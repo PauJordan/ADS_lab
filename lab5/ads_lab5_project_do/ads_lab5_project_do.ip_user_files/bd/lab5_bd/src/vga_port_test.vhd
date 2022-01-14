@@ -24,7 +24,10 @@ entity daq_vga_controller is
         -- Temperature managment
         alarm : in STD_LOGIC;
         temperature : in STD_LOGIC_VECTOR (11 downto 0);
-        t_temperature : in STD_LOGIC_VECTOR (11 downto 0)
+        t_temperature : in STD_LOGIC_VECTOR (11 downto 0);
+
+        -- Scaling
+        y_scale_select : in std_logic_vector (2 downto 0)
 );
 end daq_vga_controller;
 
@@ -50,14 +53,26 @@ architecture beh of daq_vga_controller is
              DISPLAY_E : out STD_LOGIC);
   	end component;
 
-  component signal_plotter
+  component threshold_plotter
         Port ( PX : in unsigned(11 downto 0);
                PY : in unsigned(11 downto 0);
                RGB_in : in STD_LOGIC_VECTOR (11 downto 0);
                RGB_out : out STD_LOGIC_VECTOR (11 downto 0);
-               TIMING_IN : in STD_LOGIC;
                 -- Trigger level
-                trigger_level   : in std_logic_vector (8 downto 0)
+               trigger_level   : in std_logic_vector (8 downto 0);
+               vertical_scale : in unsigned (2 downto 0)
+            );
+    end component;
+    
+      component signal_plotter
+        Port ( PX : in unsigned(11 downto 0);
+               PY : in unsigned(11 downto 0);
+               RGB_in : in STD_LOGIC_VECTOR (11 downto 0);
+               RGB_out : out STD_LOGIC_VECTOR (11 downto 0);
+               alarm : in std_logic;
+                -- Trigger level
+               signal_data   : in std_logic_vector (11 downto 0);
+               vertical_scale : in unsigned (2 downto 0)
             );
     end component;
     
@@ -76,7 +91,7 @@ architecture beh of daq_vga_controller is
   --vga test signals
     signal pixel_presc_s, disp_s, VGA_VS_s, VGA_HR_s : std_logic;
     signal pixel_x_s, pixel_y_s : unsigned(11 downto 0);
-    signal signal_rgb, RGB_s : std_logic_vector(11 downto 0);
+    signal RGB_s : std_logic_vector(11 downto 0);
     signal line_counter : integer range 0 to 1023;
     
     -- vga signal
@@ -84,12 +99,13 @@ architecture beh of daq_vga_controller is
     
     -- constants
     constant rst_val : std_logic := '1';
-    constant signal_color : std_logic_vector (11 downto 0) := x"FF0";
     constant black : std_logic_vector (11 downto 0) := (others => '0');
    
     -- interconnects:
-       --  signal_plotter <-> temperature_plotter
-    signal i_RGB : std_logic_vector(11 downto 0);    
+        -- signal_plotter <-> threshold_plotter
+    signal i_rgb_1 : std_logic_vector(11 downto 0);
+       --  threshold_plotter <-> temperature_plotter
+    signal i_rgb_2 : std_logic_vector(11 downto 0);    
      
 
 begin
@@ -97,9 +113,7 @@ begin
 	vsync <= VGA_VS_s;
 	
     addr <=  std_logic_vector(pixel_x_s);
-    signal_value <= unsigned(data(11 downto 3));
-    
-	signal_rgb <= signal_color when pixel_y_s = signal_value else black;
+	
 	
     RGB <= RGB_s when disp_s = '1' else (others => '0');
     
@@ -124,22 +138,33 @@ begin
         PIXEL_X => pixel_x_s,
         PIXEL_Y => pixel_y_s,
         DISPLAY_E => disp_s);
-                                  
+   
     signal_plotter_1 : signal_plotter 
     port map ( 
             PX      => pixel_x_s,
             PY      => pixel_y_s,
-            RGB_in  => signal_rgb,
-            RGB_out => i_RGB, 
-            TIMING_IN => VGA_VS_s,
-            trigger_level => trigger_level
+            RGB_in  => i_RGB_1,
+            RGB_out => i_RGB_2, 
+            signal_data => data,
+            vertical_scale => unsigned(y_scale_select),
+            alarm => alarm
+            );                     
+    
+    threshold_plotter_1 : threshold_plotter 
+    port map ( 
+            PX      => pixel_x_s,
+            PY      => pixel_y_s,
+            RGB_in  => black,
+            RGB_out => i_rgb_1, 
+            trigger_level => trigger_level,
+            vertical_scale => unsigned(y_scale_select)
             );
 
     temperature_plotter_1 : temperature_plotter
     port map (
             PX      => pixel_x_s,
             PY      => pixel_y_s,
-            RGB_in  => i_RGB,
+            RGB_in  => i_RGB_2,
             RGB_out => RGB_s,
             alarm  => alarm,
             temperature => temperature,
