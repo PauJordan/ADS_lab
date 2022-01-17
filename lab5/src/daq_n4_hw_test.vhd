@@ -41,7 +41,7 @@ architecture Behavioral of daq_n4_hw_test is
         trigger_n_p, trigger_down,  trigger_up: in std_logic;
         mode_indicator  : out std_logic_vector (3 downto 0);
         y_scale_select : out std_logic_vector (2 downto 0);
-
+        trigger_mode    : in std_logic;
         -- VGA signals
         red, green, blue    : out std_logic_vector (3 downto 0);
         hsync, vsync        : out std_logic;
@@ -102,11 +102,12 @@ begin
             sdata2 => d2,
             ncs => ncs,
             sclk => sclk,
-            alarm => SW(15),
+            alarm => SW(14),
             temperature => x"040",
             t_temperature => x"050",
             mode_indicator => LED(3 downto 0),
-            y_scale_select => LED(15 downto 13)   
+            y_scale_select => LED(15 downto 13)   ,
+            trigger_mode => SW(15)
         );
     
     virtual_gen_fun_1 : virtual_gen_fun

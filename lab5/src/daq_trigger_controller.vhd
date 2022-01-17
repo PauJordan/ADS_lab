@@ -27,7 +27,7 @@ entity daq_trigger_controller is
         trigger_n_p     : in std_logic;
         trigger_level   : out std_logic_vector (8 downto 0);
         mode_indicator  : out std_logic_vector (3 downto 0);
-
+        trigger_mode    : in std_logic; -- 0 as per lab5 specifications, 1 >= trigger
         -- Data input port
         adc_data1       : in std_logic_vector (data_width - 1 downto 0);
 
@@ -207,9 +207,16 @@ begin
                 end if;
 
                 if vsync_edge = '1' and trigger = '0' then
-                    if ( (trigger_np_s = positive_edge) xor (signal_level >= trigger_level_s)) and ( (trigger_np_s = positive_edge) xor (last_value < trigger_level_s)) then
+                    if(trigger_mode = '1') then
+                        if ( (trigger_np_s = positive_edge) xor (signal_level >= trigger_level_s)) and ( (trigger_np_s = positive_edge) xor (last_value < trigger_level_s)) then
                         trigger <= '1';
                         vsync_edge <= '0';
+                        end if;
+                    else
+                        if ( (signal_level = trigger_level_s) and ( (trigger_np_s = positive_edge and last_value < trigger_level_s) or (trigger_np_s = negative_edge and last_value > trigger_level_s))) then
+                            trigger <= '1';
+                            vsync_edge <= '0';
+                        end if;
                     end if;
                 else
                     trigger <= '0';

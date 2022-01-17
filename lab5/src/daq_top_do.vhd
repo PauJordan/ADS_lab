@@ -25,6 +25,7 @@ entity daq_top is
         trigger_n_p, trigger_down,  trigger_up: in std_logic;
         mode_indicator  : out std_logic_vector (3 downto 0);
         y_scale_select  : out std_logic_vector (2 downto 0);
+        trigger_mode    : in std_logic;
         
         -- VGA signals
         red, green, blue    : out std_logic_vector (3 downto 0);
@@ -62,6 +63,7 @@ architecture daq_top_b_arc of daq_top is
 
             -- Trigger level
             trigger_level   : in std_logic_vector (8 downto 0);
+            
             
             -- Temperature management
            alarm : in std_logic;
@@ -113,7 +115,7 @@ architecture daq_top_b_arc of daq_top is
             trigger_n_p     : in std_logic;
             trigger_level   : out std_logic_vector (8 downto 0);
             mode_indicator  : out std_logic_vector (3 downto 0);
-
+            trigger_mode    : in std_logic;
             -- Data input port
             adc_data1       : in std_logic_vector (data_width - 1 downto 0);
             
@@ -218,7 +220,8 @@ begin
         adc_data1 => data1,
         vsync => vsync_s,
         mode_indicator => mode_indicator,
-        y_scale_select => y_scale_s
+        y_scale_select => y_scale_s,
+        trigger_mode => trigger_mode
     );
 
     daq_adc_controller_1 : daq_adc_controller

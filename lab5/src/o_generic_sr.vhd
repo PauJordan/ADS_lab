@@ -1,23 +1,18 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
+-- Company: UPC
+-- Engineer: Eva Deltor, Pau Oliveras
 -- 
 -- Create Date: 11/25/2021 01:22:30 PM
 -- Design Name: 
 -- Module Name: o_generic_sr - o_generic_sr_arc
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
 -- Revision:
 -- Revision 0.01 - File Created
 -- Additional Comments:
 -- 
 ----------------------------------------------------------------------------------
 
+-- This component shifts incoming serial data into an arbitray size shift register.
+-- A rising edge in the output enable signal latches the current shift register contents to the output.
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
@@ -39,18 +34,15 @@ begin
     process (clk)
         variable sr : std_logic_vector(Q_width - 1 downto 0);
         begin
-        if rising_edge(clk) then
-            if CE = '1' then
-                sr := sr(Q_width - 2 downto 0) & D;
+        if rising_edge(clk) then -- Syncronous process, rising edge.
+            if CE = '1' then -- If the clock is enabled:
+                sr := sr(Q_width - 2 downto 0) & D; -- Shift register to the left.
             end if;
-            if OE = '1' and OE_s = '0' then
-                Q <= sr;
+            if OE = '1' and OE_s = '0' then -- Output enable rising edge. Then:
+                Q <= sr; -- Latch shift register contents to the output.
             end if;
             OE_s <= OE;
             buf <= sr;
         end if;
     end process;
-   
-    -- Q <= buf when (OE = '1') else (others => 'Z');
-    
 end o_generic_sr_arc;
