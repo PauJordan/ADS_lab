@@ -5,7 +5,8 @@ use ieee.NUMERIC_STD.ALL;
 entity daq_vga_controller is
     Generic (
         addr_width : natural := 12;
-        data_width : natural := 12
+        data_width : natural := 12;
+        frequency_width : natural := 32
     );
     Port ( 
         clk, rst        : in std_logic;
@@ -27,7 +28,10 @@ entity daq_vga_controller is
         t_temperature : in STD_LOGIC_VECTOR (11 downto 0);
 
         -- Scaling
-        y_scale_select : in std_logic_vector (2 downto 0)
+        y_scale_select : in std_logic_vector (2 downto 0);
+        
+        -- Frequency Measurement
+        frequency_hz : in unsigned (frequency_width-1 downto 0)
 );
 end daq_vga_controller;
 
@@ -85,6 +89,19 @@ architecture beh of daq_vga_controller is
            t_temperature : in STD_LOGIC_VECTOR (11 downto 0);
            RGB_out : out STD_LOGIC_VECTOR (11 downto 0));
     end component;
+    
+    component frequency_plotter
+    Generic (
+        frequency_width : natural := 32
+    );
+    Port ( PX : in unsigned(11 downto 0);
+           PY : in unsigned(11 downto 0);
+           RGB_in : in STD_LOGIC_VECTOR (11 downto 0);
+           RGB_out : out STD_LOGIC_VECTOR (11 downto 0);
+           frequency_hz : in unsigned(frequency_width - 1 downto 0);
+           alarm : in STD_LOGIC
+        );
+end component;
 
 -- Signal Declarations
 
@@ -102,10 +119,8 @@ architecture beh of daq_vga_controller is
     constant black : std_logic_vector (11 downto 0) := (others => '0');
    
     -- interconnects:
-        -- signal_plotter <-> threshold_plotter
-    signal i_rgb_1 : std_logic_vector(11 downto 0);
-       --  threshold_plotter <-> temperature_plotter
-    signal i_rgb_2 : std_logic_vector(11 downto 0);    
+        -- plotters RGB interconnect
+    signal i_rgb_1, i_rgb_2, i_rgb_3 : std_logic_vector(11 downto 0);
      
 
 begin
@@ -165,10 +180,23 @@ begin
             PX      => pixel_x_s,
             PY      => pixel_y_s,
             RGB_in  => i_RGB_2,
-            RGB_out => RGB_s,
+            RGB_out => i_RGB_3,
             alarm  => alarm,
             temperature => temperature,
             t_temperature => t_temperature        
+    );
+    
+    frequency_plotter_1 : frequency_plotter
+    generic map (
+        frequency_width => frequency_width
+    )
+    port map (
+            PX      => pixel_x_s,
+            PY      => pixel_y_s,
+            RGB_in  => i_RGB_3,
+            RGB_out => RGB_s,
+            alarm => alarm,
+            frequency_hz => frequency_hz
     );
 
 end beh;

@@ -15,6 +15,7 @@
 
 library IEEE;
 use IEEE.std_logic_1164.ALL;
+use IEEE.numeric_std.all;
 
 entity daq_top is
     Port ( -- Clock and negated reset
@@ -71,7 +72,9 @@ architecture daq_top_b_arc of daq_top is
            t_temperature : in std_logic_vector (11 downto 0);
 
            -- Scaling
-           y_scale_select : in std_logic_vector (2 downto 0)
+           y_scale_select : in std_logic_vector (2 downto 0);
+           
+           frequency_hz : unsigned (31 downto 0)
 
         );
     end component;
@@ -123,7 +126,10 @@ architecture daq_top_b_arc of daq_top is
             vsync           : in std_logic;
             
             -- Scaling
-            y_scale_select : out std_logic_vector (2 downto 0)
+            y_scale_select : out std_logic_vector (2 downto 0);
+            
+            -- Frequency measurement.
+            trigger_crossing : out std_logic
         );
     end component;
 
@@ -133,6 +139,14 @@ architecture daq_top_b_arc of daq_top is
             sdata1, sdata2  : in std_logic;
             ncs, sclk       : out std_logic;
             data1, data2    : out std_logic_vector (11 downto 0)
+        );
+    end component;
+
+    component frequency_meter
+    Port ( trigger_edge : in STD_LOGIC;
+           clk : in STD_LOGIC;
+           rst : in STD_LOGIC;
+           frequency : out unsigned (31 downto 0)
         );
     end component;
     
@@ -158,6 +172,11 @@ architecture daq_top_b_arc of daq_top is
         -- ADC controller <-> Trigger Controller
         signal data1 : std_logic_vector (11 downto 0);
 
+        -- Trigger contrller <-> Frequency Meter
+        signal trigger : std_logic;
+
+        -- Frequency Meter <-> VGA
+        signal frequency_hz : unsigned (31 downto 0);
 
 begin
     rst <= NOT RSTN;
@@ -183,7 +202,8 @@ begin
         alarm => alarm,
         temperature => temperature,
         t_temperature => t_temperature,
-        y_scale_select => y_scale_s
+        y_scale_select => y_scale_s,
+        frequency_hz => frequency_hz
         
     );
 
@@ -221,7 +241,8 @@ begin
         vsync => vsync_s,
         mode_indicator => mode_indicator,
         y_scale_select => y_scale_s,
-        trigger_mode => trigger_mode
+        trigger_mode => trigger_mode,
+        trigger_crossing => trigger
     );
 
     daq_adc_controller_1 : daq_adc_controller
@@ -235,6 +256,14 @@ begin
         data1 => data1,
         data2 => open
     );
+    
+
+    frequency_meter_1 : frequency_meter
+    port map ( trigger_edge => trigger,
+        clk => clk,
+        rst => rst,
+        frequency => frequency_hz 
+        );
     
 
 end daq_top_b_arc;
