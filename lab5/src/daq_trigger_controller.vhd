@@ -34,8 +34,9 @@ entity daq_trigger_controller is
         -- VGA sync port
         vsync           : in std_logic;
 
-        -- Scaling
-        y_scale_select : out std_logic_vector (2 downto 0);
+        -- UI
+        y_scale_select, x_scale_select : out std_logic_vector (2 downto 0);
+        polarity : out std_logic;
         
         -- Frequency measurement.
         trigger_crossing : out std_logic
@@ -44,18 +45,22 @@ entity daq_trigger_controller is
 end daq_trigger_controller;
 
 architecture Behavioral of daq_trigger_controller is
+    -- types
+    type x_scale_t is array (7 downto 0) of integer range 4000 downto 0;
+    
     -- config
+    constant x_scales : x_scale_t := (3375, 844, 423, 169, 108, 81, 54, 27);
     constant rst_val : std_logic := '1';
     constant max_signal_level : integer := 2**9 - 1;
     constant initial_trigger_level : integer := 256; --Initial value defined by the lab assigment
     constant trigger_button_chg_amount : integer := 16; -- Increase defined by the lab assigment.
-    constant initial_sample_period_ticks : integer := 100;
-    constant max_sample_period_ticks : integer := 1000;
+    constant initial_sample_period_ticks : integer := 108;
+    constant max_sample_period_ticks : integer := 2**12-1;
     constant max_samples : integer := 1280;
     constant debounce_counter_max : integer := 2**23-1 ; --minimum number of clocks that we need to wait until the next press of the button is dected
     constant initial_y_scale : unsigned := "011";
-    constant initial_x_scale : integer := 100;
-    constant x_scale_chg_amount : integer := 25;
+    constant initial_x_scale : unsigned := "011";
+    
     -- components
     component button_frontend
         Generic (
@@ -86,7 +91,7 @@ architecture Behavioral of daq_trigger_controller is
     signal trigger_level_s : integer range 0 to max_signal_level;
     signal trigger_np_s : trigger_mode_t; -- zero positive edge, 1 negative edge.
     signal select_mode : integer range 0 to 3;
-    signal y_scale_s : unsigned ( 2 downto 0);
+    signal y_scale_s, x_scale_s : unsigned ( 2 downto 0);
 
     -- trigger_p signals
     signal vsync_edge : std_logic;
@@ -111,9 +116,13 @@ begin
     -- Signal level
     signal_level <= to_integer(unsigned(adc_data1(data_width - 1 downto data_width - 9)));
 
-    -- Yscale
+    -- Scales and UI
     y_scale_select <= std_logic_vector(y_scale_s);
-
+    x_scale_select <= std_logic_vector(x_scale_s);
+    polarity <= '1' when (trigger_np_s = negative_edge) else '0';
+    -- Sample period
+    sample_period <= x_scales(to_integer(x_scale_s));
+    
     -- Select mode indicator
     with select_mode select mode_indicator <=
         "0001" when 0,
@@ -135,7 +144,7 @@ begin
         if rst = rst_val then --we set the default values that are a initial trigger of 256, half of the signal screen area and a positive edge trigger
             trigger_level_s <= initial_trigger_level;
             trigger_np_s <= positive_edge;
-            sample_period <= initial_sample_period_ticks;
+            x_scale_s <= initial_x_scale;
             y_scale_s <= initial_y_scale;
             select_mode <= 0;
         else
@@ -176,15 +185,16 @@ begin
                     end if;
                 
                 when 3 => 
-                    if t_up_pressed = '1' and sample_period <= max_sample_period_ticks - x_scale_chg_amount then
+                    if t_up_pressed = '1' and x_scale_s > 0 then
                         
-                        sample_period <= sample_period + x_scale_chg_amount;
+                        x_scale_s <= x_scale_s - 1;
+                        
 
-                    elsif t_down_pressed = '1' and sample_period >= 25 + x_scale_chg_amount then
+                    elsif t_down_pressed = '1'  and x_scale_s < 7 then
 
-                        sample_period <= sample_period - x_scale_chg_amount;
+                        x_scale_s <= x_scale_s + 1;
 
-                    end if; 
+                    end if;
             end case;  
 
             -- Select mode change
@@ -198,7 +208,7 @@ begin
         end if;
     end if;
     end process trigger_control_p ;
-
+    
     -- trigger process
     trigger_p: process(clk)
     begin
@@ -258,7 +268,7 @@ begin
                 period_counter <= 0; 
                 sample_index <= 0; 
             elsif sample_index < max_samples then -- Samples are still to be acquired.
-                if (period_counter = sample_period - 1)  then  -- Sampling period has ellapsed.
+                if (period_counter >= sample_period - 1)  then  -- Sampling period has ellapsed.
                     period_counter <= 0; -- Reset sampling period counter.
 
                     -- Memory write

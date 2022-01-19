@@ -27,8 +27,9 @@ entity daq_vga_controller is
         temperature : in STD_LOGIC_VECTOR (11 downto 0);
         t_temperature : in STD_LOGIC_VECTOR (11 downto 0);
 
-        -- Scaling
-        y_scale_select : in std_logic_vector (2 downto 0);
+        -- UI
+        y_scale_select, x_scale_select : in std_logic_vector (2 downto 0);
+        polarity : in std_logic;
         
         -- Frequency Measurement
         frequency_hz : in unsigned (frequency_width-1 downto 0)
@@ -94,12 +95,17 @@ architecture beh of daq_vga_controller is
     Generic (
         frequency_width : natural := 32
     );
-    Port ( PX : in unsigned(11 downto 0);
+    Port ( 
+           clk : std_logic;
+           PX : in unsigned(11 downto 0);
            PY : in unsigned(11 downto 0);
            RGB_in : in STD_LOGIC_VECTOR (11 downto 0);
            RGB_out : out STD_LOGIC_VECTOR (11 downto 0);
            frequency_hz : in unsigned(frequency_width - 1 downto 0);
+           y_scale_select, x_scale_select : in std_logic_vector (2 downto 0);
+           polarity : std_logic;
            alarm : in STD_LOGIC
+        
         );
 end component;
 
@@ -197,11 +203,15 @@ begin
         frequency_width => frequency_width
     )
     port map (
+            clk => clk,
             PX      => fp_x,
             PY      => fp_y,
             RGB_in  => i_RGB_3,
             RGB_out => RGB_s,
             alarm => alarm,
+            y_scale_select => y_scale_select,
+            x_scale_select => x_scale_select,
+            polarity => polarity,
             frequency_hz => frequency_hz
     );
 

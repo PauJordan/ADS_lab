@@ -7,7 +7,7 @@
 -- Revision:
 -- Revision 0.01 - File Created
 -- Revision 1.0 - Design working and tested.
--- 
+-- Revision 1.1 - Sample rate changed from 1.x to 1.0 MS/s with a 108 MHz clock.
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
@@ -85,11 +85,11 @@ begin
                     oe <= '0'; -- Return shift register output enable to low.
                end if;
                
-               if clk_counter = 99 then -- Idle time end. Restart conversion.
+               if clk_counter = 107 then -- Idle time end. Restart conversion.
                     clk_counter <= 0;
                     presc_counter <= 0;
                else
-                clk_counter <= clk_counter + 1; -- If the end has not been reached, increment clock cycle counter.
+                    clk_counter <= clk_counter + 1; -- If the end has not been reached, increment clock cycle counter.
                end if;
              end if;
            end if;

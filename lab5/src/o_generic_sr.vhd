@@ -28,7 +28,6 @@ end o_generic_sr;
 
 architecture o_generic_sr_arc of o_generic_sr is
 signal OE_s : std_logic;
-signal  buf : std_logic_vector(Q_width - 1 downto 0);
 
 begin
     process (clk)
@@ -42,7 +41,6 @@ begin
                 Q <= sr; -- Latch shift register contents to the output.
             end if;
             OE_s <= OE;
-            buf <= sr;
         end if;
     end process;
 end o_generic_sr_arc;

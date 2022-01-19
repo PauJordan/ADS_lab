@@ -71,9 +71,9 @@ architecture daq_top_b_arc of daq_top is
            temperature : in std_logic_vector (11 downto 0);
            t_temperature : in std_logic_vector (11 downto 0);
 
-           -- Scaling
-           y_scale_select : in std_logic_vector (2 downto 0);
-           
+           -- Scaling and UI
+           y_scale_select, x_scale_select : in std_logic_vector (2 downto 0);
+           polarity : in std_logic;           
            frequency_hz : unsigned (31 downto 0)
 
         );
@@ -125,9 +125,9 @@ architecture daq_top_b_arc of daq_top is
             -- VGA sync port
             vsync           : in std_logic;
             
-            -- Scaling
-            y_scale_select : out std_logic_vector (2 downto 0);
-            
+            -- Scaling and UI
+            y_scale_select, x_scale_select : out std_logic_vector (2 downto 0);
+            polarity : out std_logic; 
             -- Frequency measurement.
             trigger_crossing : out std_logic
         );
@@ -160,9 +160,10 @@ architecture daq_top_b_arc of daq_top is
         signal data_out : std_logic_vector (11 downto 0);
 
         -- VGA <-> Trigger Controller
-        signal y_scale_s : std_logic_vector (2 downto 0);
+        signal y_scale_s, x_scale_s : std_logic_vector (2 downto 0);
         signal trigger_level : std_logic_vector (8 downto 0);
         signal vsync_s      : std_logic;
+        signal polarity : std_logic;
 
         -- Memory Unit <-> Trigger Controller
         signal we : std_logic;
@@ -203,6 +204,8 @@ begin
         temperature => temperature,
         t_temperature => t_temperature,
         y_scale_select => y_scale_s,
+        x_scale_select => x_scale_s,
+        polarity => polarity,
         frequency_hz => frequency_hz
         
     );
@@ -241,6 +244,8 @@ begin
         vsync => vsync_s,
         mode_indicator => mode_indicator,
         y_scale_select => y_scale_s,
+        x_scale_select => x_scale_s,
+        polarity => polarity,
         trigger_mode => trigger_mode,
         trigger_crossing => trigger
     );

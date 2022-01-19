@@ -5,18 +5,14 @@ use ieee.numeric_std.all;
 
 entity memoria_char is
 port(
- clk : in std_logic;
- we : in std_logic;
- en : in std_logic;
  addr : in std_logic_vector(10 downto 0);
- di : in std_logic_vector(15 downto 0);
  do : out std_logic_vector(7 downto 0)
  );
 end memoria_char;
 
 architecture syn of memoria_char is
 type char_mem is array (0 to 1791) of std_logic_vector(7 downto 0);
-signal RAM_char : char_mem := ( 
+constant char_ROM : char_mem := ( 
      x"00", x"00", x"00", x"00", x"00", x"00", x"00", x"00",   -- U+00 (nul)
      x"00", x"00", x"00", x"00", x"00", x"00", x"00", x"00",   -- U+01
      x"00", x"00", x"00", x"00", x"00", x"00", x"00", x"00",   -- U+02
@@ -243,17 +239,7 @@ signal RAM_char : char_mem := (
      x"00", x"33", x"00", x"33", x"33", x"3E", x"30", x"1F");   -- U+FF (y umlaut)
 
 begin
- process(clk)
- begin
- 	if clk'event and clk = '1' then
- 		if en = '1' then
- 			if we = '1' then
- 				RAM_char(to_integer(unsigned(addr))) <= di;
-	 			do <= di;
- 			else
- 				do <= RAM_char(to_integer(unsigned(addr)));
- 			end if;
- 		end if;
- 	end if;
- end process;
+
+    do <= char_ROM(to_integer(unsigned(addr)));
+
 end syn;
