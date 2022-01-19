@@ -121,13 +121,19 @@ end component;
     -- interconnects:
         -- plotters RGB interconnect
     signal i_rgb_1, i_rgb_2, i_rgb_3 : std_logic_vector(11 downto 0);
-     
+    
+    signal fp_x : unsigned (11 downto 0);
+    signal fp_y : unsigned (11 downto 0);
+    
 
 begin
 	hsync <= VGA_HR_s;
 	vsync <= VGA_VS_s;
 	
     addr <=  std_logic_vector(pixel_x_s);
+	
+	fp_x <= pixel_x_s - 100 when pixel_x_s >= 100 else (others=>'1');
+	fp_y <= pixel_y_s - 900 when pixel_y_s >= 900 else (others=>'1');
 	
 	
     RGB <= RGB_s when disp_s = '1' else (others => '0');
@@ -191,8 +197,8 @@ begin
         frequency_width => frequency_width
     )
     port map (
-            PX      => pixel_x_s,
-            PY      => pixel_y_s,
+            PX      => fp_x,
+            PY      => fp_y,
             RGB_in  => i_RGB_3,
             RGB_out => RGB_s,
             alarm => alarm,

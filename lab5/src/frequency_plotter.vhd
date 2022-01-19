@@ -38,7 +38,14 @@ end frequency_plotter;
 
 architecture combinational of frequency_plotter is
 
+signal test : character;
+signal test2 : string ;
+
+
 begin
 
-RGB_out <= RGB_in;
+    test <= 'a';
+    test2 <= "abcdef";
+
+RGB_out <= (others => '1') when (PX < 200 and PY < 9) else RGB_in;
 end combinational;
