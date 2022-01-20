@@ -5,8 +5,7 @@ use ieee.NUMERIC_STD.ALL;
 entity daq_vga_controller is
     Generic (
         addr_width : natural := 12;
-        data_width : natural := 12;
-        frequency_width : natural := 32
+        data_width : natural := 12
     );
     Port ( 
         clk, rst        : in std_logic;
@@ -32,7 +31,7 @@ entity daq_vga_controller is
         polarity : in std_logic;
         
         -- Frequency Measurement
-        frequency_hz : in unsigned (frequency_width-1 downto 0)
+        frequency_x100_bcd : in std_logic_vector(27 downto 0)
 );
 end daq_vga_controller;
 
@@ -101,7 +100,7 @@ architecture beh of daq_vga_controller is
            PY : in unsigned(11 downto 0);
            RGB_in : in STD_LOGIC_VECTOR (11 downto 0);
            RGB_out : out STD_LOGIC_VECTOR (11 downto 0);
-           frequency_hz : in unsigned(frequency_width - 1 downto 0);
+           frequency_x100_bcd : in std_logic_vector(27 downto 0);
            y_scale_select, x_scale_select : in std_logic_vector (2 downto 0);
            polarity : std_logic;
            alarm : in STD_LOGIC
@@ -199,9 +198,6 @@ begin
     );
     
     frequency_plotter_1 : frequency_plotter
-    generic map (
-        frequency_width => frequency_width
-    )
     port map (
             clk => clk,
             PX      => fp_x,
@@ -212,7 +208,7 @@ begin
             y_scale_select => y_scale_select,
             x_scale_select => x_scale_select,
             polarity => polarity,
-            frequency_hz => frequency_hz
+            frequency_x100_bcd => frequency_x100_bcd
     );
 
 end beh;

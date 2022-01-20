@@ -33,7 +33,7 @@ entity frequency_plotter is
            PY : in unsigned(11 downto 0);
            RGB_in : in STD_LOGIC_VECTOR (11 downto 0);
            RGB_out : out STD_LOGIC_VECTOR (11 downto 0);
-           frequency_hz : in unsigned(frequency_width - 1 downto 0);
+           frequency_x100_bcd : in std_logic_vector(27 downto 0);
            y_scale_select, x_scale_select : std_logic_vector(2 downto 0);
            polarity : std_logic;
            alarm : in STD_LOGIC
@@ -58,6 +58,7 @@ constant polarity_text : polarity_text_t  := ("positive", "negative");
 -- UI
 signal y_scale_index, x_scale_index : natural range 0 to 7;
 signal polarity_index : natural range 0 to 1;
+signal frequency_text : string(0 to 8);
 
     -- Text
 signal lines : text_t;
@@ -80,12 +81,21 @@ component memoria_char
 end component;
 
 begin
-
+    frequency_text(0) <= character'val(48 + to_integer(unsigned(frequency_x100_bcd(27 downto 24))));
+    frequency_text(1) <= character'val(48 + to_integer(unsigned(frequency_x100_bcd(23 downto 20))));
+    frequency_text(2) <= character'val(48 + to_integer(unsigned(frequency_x100_bcd(19 downto 16))));
+    frequency_text(3) <= '.';
+    frequency_text(4) <= character'val(48 + to_integer(unsigned(frequency_x100_bcd(15 downto 12))));
+    frequency_text(5) <= character'val(48 + to_integer(unsigned(frequency_x100_bcd(11 downto 8))));
+    frequency_text(6) <= character'val(48 + to_integer(unsigned(frequency_x100_bcd(7 downto 4))));
+    frequency_text(7) <= ',';
+    frequency_text(8) <= character'val(48 + to_integer(unsigned(frequency_x100_bcd(3 downto 0))));
+    
     y_scale_index <= to_integer(unsigned(y_scale_select));
     x_scale_index <= to_integer(unsigned(x_scale_select));
     polarity_index <= 1 when polarity = '1' else 0;
      
-    lines(0) <= "Frequency =    123456.789 kHz   ";
+    lines(0) <= "Frequency =   " & frequency_text &             " kHz     ";
     lines(1) <= "Horizontal scale: " & scale_2(x_scale_index) & "s/div    ";
     lines(2) <= "Vertical scale: " & scale_1(y_scale_index) & " counts/div";
     lines(3) <= "Trigger polarity: " & polarity_text(polarity_index) & "              ";   

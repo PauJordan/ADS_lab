@@ -74,7 +74,7 @@ architecture daq_top_b_arc of daq_top is
            -- Scaling and UI
            y_scale_select, x_scale_select : in std_logic_vector (2 downto 0);
            polarity : in std_logic;           
-           frequency_hz : unsigned (31 downto 0)
+           frequency_x100_bcd : in std_logic_vector(27 downto 0)
 
         );
     end component;
@@ -146,7 +146,7 @@ architecture daq_top_b_arc of daq_top is
     Port ( trigger_edge : in STD_LOGIC;
            clk : in STD_LOGIC;
            rst : in STD_LOGIC;
-           frequency : out unsigned (31 downto 0)
+           frequency_x100_bcd : out std_logic_vector(27 downto 0)
         );
     end component;
     
@@ -177,7 +177,7 @@ architecture daq_top_b_arc of daq_top is
         signal trigger : std_logic;
 
         -- Frequency Meter <-> VGA
-        signal frequency_hz : unsigned (31 downto 0);
+        signal frequency_x100_bcd : std_logic_vector(27 downto 0);
 
 begin
     rst <= NOT RSTN;
@@ -206,7 +206,7 @@ begin
         y_scale_select => y_scale_s,
         x_scale_select => x_scale_s,
         polarity => polarity,
-        frequency_hz => frequency_hz
+        frequency_x100_bcd => frequency_x100_bcd
         
     );
 
@@ -267,7 +267,7 @@ begin
     port map ( trigger_edge => trigger,
         clk => clk,
         rst => rst,
-        frequency => frequency_hz 
+        frequency_x100_bcd => frequency_x100_bcd 
         );
     
 
