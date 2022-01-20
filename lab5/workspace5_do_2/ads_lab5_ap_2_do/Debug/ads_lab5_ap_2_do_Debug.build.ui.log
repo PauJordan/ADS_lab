@@ -1,0 +1,7 @@
+2022-01-20T17:43:31.761557400255-17:43:31 **** Clean-only build of configuration Debug for project ads_lab5_ap_2_do ****
+000-make clean 
+000-rm -rf  ./src/freertos_hello_world.o  ./src/freertos_hello_world.d  ads_lab5_ap_2_do.elf.size  ads_lab5_ap_2_do.elf
+000-' '
+00255-
+17:43:31 Build Finished (took 168ms)
+

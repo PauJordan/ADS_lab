@@ -1,0 +1,8 @@
+2022-01-20T17:43:31.940079700255-17:43:31 **** Clean-only build of configuration Debug for project ads_lab5_ap_2_do_system ****
+000-make clean 
+000-rm -rf ./_sds
+000-rm -rf package
+000-rm -f system.bif
+00255-
+17:43:32 Build Finished (took 112ms)
+
