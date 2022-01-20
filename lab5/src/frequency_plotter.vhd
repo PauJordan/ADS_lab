@@ -98,7 +98,7 @@ begin
     lines(0) <= "Frequency =   " & frequency_text &             " kHz     ";
     lines(1) <= "Horizontal scale: " & scale_2(x_scale_index) & "s/div    ";
     lines(2) <= "Vertical scale: " & scale_1(y_scale_index) & " counts/div";
-    lines(3) <= "Trigger polarity: " & polarity_text(polarity_index) & "              ";   
+    lines(3) <= "Trigger polarity: " & polarity_text(polarity_index) & "      ";   
     process(CLK)
 
 

@@ -19,6 +19,7 @@ entity lab5_axi_do_v1_0 is
         -- Trigger control buttons input
         trigger_n_p, trigger_down,  trigger_up: in std_logic;
 		mode_indicator  : out std_logic_vector (3 downto 0);
+		trigger_mode    : in std_logic;
 		
         -- VGA signals
         red, green, blue    : out std_logic_vector (3 downto 0);
@@ -68,6 +69,7 @@ architecture arch_imp of lab5_axi_do_v1_0 is
 		port (
 		trigger_n_p, trigger_down,  trigger_up: in std_logic;
 		mode_indicator  : out std_logic_vector (3 downto 0);
+		trigger_mode    : in std_logic;
 		
         -- VGA signals
         red, green, blue    : out std_logic_vector (3 downto 0);
@@ -76,6 +78,8 @@ architecture arch_imp of lab5_axi_do_v1_0 is
         -- ADC ports
         ncs, sclk           : out std_logic;
         sdata1, sdata2      : in std_logic;
+        
+        
         
 		S_AXI_ACLK	: in std_logic;
 		S_AXI_ARESETN	: in std_logic;
@@ -137,6 +141,7 @@ lab5_axi_do_v1_0_S00_AXI_inst : lab5_axi_do_v1_0_S00_AXI
         trigger_up => trigger_up,
         trigger_down => trigger_down,
         mode_indicator => mode_indicator,
+        trigger_mode => trigger_mode,
         red => red,
         green => green,
         blue => blue,

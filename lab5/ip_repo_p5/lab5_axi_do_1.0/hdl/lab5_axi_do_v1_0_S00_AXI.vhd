@@ -26,7 +26,7 @@ entity lab5_axi_do_v1_0_S00_AXI is
         ncs, sclk           : out std_logic;
         sdata1, sdata2      : in std_logic;
         
-
+		trigger_mode    : in std_logic;
 		-- User ports ends
 		-- Do not modify the ports beyond this line
 
@@ -136,6 +136,8 @@ architecture arch_imp of lab5_axi_do_v1_0_S00_AXI is
         -- Trigger control buttons input
         trigger_n_p, trigger_down,  trigger_up: in std_logic;
 		mode_indicator  : out std_logic_vector (3 downto 0);
+		trigger_mode    : in std_logic;
+		
         -- VGA signals
         red, green, blue    : out std_logic_vector (3 downto 0);
         hsync, vsync        : out std_logic;
@@ -439,6 +441,7 @@ begin
             ncs => ncs,
             sclk => sclk,
             mode_indicator => mode_indicator,
+            trigger_mode => trigger_mode,
             alarm => slv_reg0(24),
             temperature => slv_reg0(23 downto 12),
             t_temperature => slv_reg0(11 downto 0)
