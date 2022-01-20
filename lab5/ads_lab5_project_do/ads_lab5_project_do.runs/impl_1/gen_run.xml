@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7z020clg484-1" LaunchTime="1642180144">
+<GenRun Id="impl_1" LaunchPart="xc7z020clg484-1" LaunchTime="1642696488">
   <File Type="BITSTR-BMM" Name="lab5_bd_wrapper_bd.bmm"/>
   <File Type="OPT-METHODOLOGY-DRC" Name="lab5_bd_wrapper_methodology_drc_opted.rpt"/>
   <File Type="INIT-TIMING" Name="lab5_bd_wrapper_timing_summary_init.rpt"/>
@@ -90,6 +90,13 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/frequency_value.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
       <Option Name="TopModule" Val="lab5_bd_wrapper"/>
@@ -98,7 +105,7 @@
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
     <Filter Type="Constrs"/>
-    <File Path="$PPRDIR/../ADS_do/lab5/xdc/lab5_dac.xdc">
+    <File Path="$PPRDIR/../xdc/lab5_dac.xdc">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>

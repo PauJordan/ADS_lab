@@ -1,7 +1,7 @@
 --Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
---Date        : Fri Jan 14 18:08:06 2022
+--Date        : Thu Jan 20 17:27:53 2022
 --Host        : c5b1 running 64-bit major release  (build 9200)
 --Command     : generate_target lab5_bd_wrapper.bd
 --Design      : lab5_bd_wrapper
@@ -53,6 +53,7 @@ entity lab5_bd_wrapper is
     temp_down : in STD_LOGIC;
     temp_up : in STD_LOGIC;
     trigger_down : in STD_LOGIC;
+    trigger_mode : in STD_LOGIC;
     trigger_n_p : in STD_LOGIC;
     trigger_up : in STD_LOGIC;
     vsync : out STD_LOGIC
@@ -83,6 +84,8 @@ architecture STRUCTURE of lab5_bd_wrapper is
     select_in : in STD_LOGIC_VECTOR ( 1 downto 0 );
     temp_up : in STD_LOGIC;
     temp_down : in STD_LOGIC;
+    leds : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    trigger_mode : in STD_LOGIC;
     DDR_cas_n : inout STD_LOGIC;
     DDR_cke : inout STD_LOGIC;
     DDR_ck_n : inout STD_LOGIC;
@@ -103,8 +106,7 @@ architecture STRUCTURE of lab5_bd_wrapper is
     FIXED_IO_ddr_vrp : inout STD_LOGIC;
     FIXED_IO_ps_srstb : inout STD_LOGIC;
     FIXED_IO_ps_clk : inout STD_LOGIC;
-    FIXED_IO_ps_porb : inout STD_LOGIC;
-    leds : out STD_LOGIC_VECTOR ( 3 downto 0 )
+    FIXED_IO_ps_porb : inout STD_LOGIC
   );
   end component lab5_bd;
 begin
@@ -150,6 +152,7 @@ lab5_bd_i: component lab5_bd
       temp_down => temp_down,
       temp_up => temp_up,
       trigger_down => trigger_down,
+      trigger_mode => trigger_mode,
       trigger_n_p => trigger_n_p,
       trigger_up => trigger_up,
       vsync => vsync

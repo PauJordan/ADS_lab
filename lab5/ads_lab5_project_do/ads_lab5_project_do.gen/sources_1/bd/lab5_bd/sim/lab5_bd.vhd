@@ -1,7 +1,7 @@
 --Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
---Date        : Fri Jan 14 18:08:06 2022
+--Date        : Thu Jan 20 17:27:53 2022
 --Host        : c5b1 running 64-bit major release  (build 9200)
 --Command     : generate_target lab5_bd.bd
 --Design      : lab5_bd
@@ -1140,6 +1140,7 @@ entity lab5_bd is
     temp_down : in STD_LOGIC;
     temp_up : in STD_LOGIC;
     trigger_down : in STD_LOGIC;
+    trigger_mode : in STD_LOGIC;
     trigger_n_p : in STD_LOGIC;
     trigger_up : in STD_LOGIC;
     vsync : out STD_LOGIC
@@ -1286,6 +1287,7 @@ architecture STRUCTURE of lab5_bd is
     trigger_down : in STD_LOGIC;
     trigger_up : in STD_LOGIC;
     mode_indicator : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    trigger_mode : in STD_LOGIC;
     red : out STD_LOGIC_VECTOR ( 3 downto 0 );
     green : out STD_LOGIC_VECTOR ( 3 downto 0 );
     blue : out STD_LOGIC_VECTOR ( 3 downto 0 );
@@ -1436,6 +1438,7 @@ architecture STRUCTURE of lab5_bd is
   signal temp_down_1 : STD_LOGIC;
   signal temp_up_1 : STD_LOGIC;
   signal trigger_down_1 : STD_LOGIC;
+  signal trigger_mode_1 : STD_LOGIC;
   signal trigger_n_p_1 : STD_LOGIC;
   signal trigger_up_1 : STD_LOGIC;
   signal xlconcat_0_dout : STD_LOGIC_VECTOR ( 1 downto 0 );
@@ -1495,6 +1498,7 @@ begin
   temp_down_1 <= temp_down;
   temp_up_1 <= temp_up;
   trigger_down_1 <= trigger_down;
+  trigger_mode_1 <= trigger_mode;
   trigger_n_p_1 <= trigger_n_p;
   trigger_up_1 <= trigger_up;
   vsync <= lab5_axi_do_0_vsync;
@@ -1565,6 +1569,7 @@ lab5_axi_do_0: component lab5_bd_lab5_axi_do_0_1
       sdata1 => sdata1_1,
       sdata2 => sdata2_1,
       trigger_down => trigger_down_1,
+      trigger_mode => trigger_mode_1,
       trigger_n_p => trigger_n_p_1,
       trigger_up => trigger_up_1,
       vsync => lab5_axi_do_0_vsync

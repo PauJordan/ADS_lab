@@ -70,9 +70,10 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "lab5_bd_lab5_axi_do_0_1_synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 1
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
+set_msg_config  -string {{sin10k}}  -suppress 
+set_msg_config  -id {IP_Flow 19-5905}  -string {{WARNING: [IP_Flow 19-5905] All packaged files should be located below the IP definition file (xml)}}  -suppress 
+set_msg_config  -id {Vivado 12-584}  -suppress 
+set_msg_config  -string {{test_gen_fun}}  -suppress 
 set_param project.vivado.isBlockSynthRun true
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7z020clg484-1

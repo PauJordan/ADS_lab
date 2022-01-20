@@ -115,8 +115,10 @@ proc step_failed { step } {
 OPTRACE "impl_1" END { }
 }
 
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
+set_msg_config  -string {{sin10k}}  -suppress 
+set_msg_config  -id {IP_Flow 19-5905}  -string {{WARNING: [IP_Flow 19-5905] All packaged files should be located below the IP definition file (xml)}}  -suppress 
+set_msg_config  -id {Vivado 12-584}  -suppress 
+set_msg_config  -string {{test_gen_fun}}  -suppress 
 
 OPTRACE "impl_1" START { ROLLUP_1 }
 OPTRACE "Phase: Init Design" START { ROLLUP_AUTO }
@@ -151,7 +153,7 @@ OPTRACE "add files" START { }
   set_property used_in_implementation 1 [get_files -all C:/ads_lab5_project_do/ads_lab5_project_do.srcs/sources_1/bd/lab5_bd/ip/lab5_bd_lab5_axi_do_0_1/lab5_bd_lab5_axi_do_0_1.xci]
   set_param project.isImplRun false
 OPTRACE "read constraints: implementation" START { }
-  read_xdc C:/ADS_do/lab5/xdc/lab5_dac.xdc
+  read_xdc C:/xdc/lab5_dac.xdc
 OPTRACE "read constraints: implementation" END { }
 OPTRACE "add files" END { }
 OPTRACE "link_design" START { }

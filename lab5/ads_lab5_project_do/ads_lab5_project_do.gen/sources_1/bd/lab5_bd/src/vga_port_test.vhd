@@ -26,8 +26,12 @@ entity daq_vga_controller is
         temperature : in STD_LOGIC_VECTOR (11 downto 0);
         t_temperature : in STD_LOGIC_VECTOR (11 downto 0);
 
-        -- Scaling
-        y_scale_select : in std_logic_vector (2 downto 0)
+        -- UI
+        y_scale_select, x_scale_select : in std_logic_vector (2 downto 0);
+        polarity : in std_logic;
+        
+        -- Frequency Measurement
+        frequency_x100_bcd : in std_logic_vector(27 downto 0)
 );
 end daq_vga_controller;
 
@@ -85,6 +89,24 @@ architecture beh of daq_vga_controller is
            t_temperature : in STD_LOGIC_VECTOR (11 downto 0);
            RGB_out : out STD_LOGIC_VECTOR (11 downto 0));
     end component;
+    
+    component frequency_plotter
+    Generic (
+        frequency_width : natural := 32
+    );
+    Port ( 
+           clk : std_logic;
+           PX : in unsigned(11 downto 0);
+           PY : in unsigned(11 downto 0);
+           RGB_in : in STD_LOGIC_VECTOR (11 downto 0);
+           RGB_out : out STD_LOGIC_VECTOR (11 downto 0);
+           frequency_x100_bcd : in std_logic_vector(27 downto 0);
+           y_scale_select, x_scale_select : in std_logic_vector (2 downto 0);
+           polarity : std_logic;
+           alarm : in STD_LOGIC
+        
+        );
+end component;
 
 -- Signal Declarations
 
@@ -102,17 +124,21 @@ architecture beh of daq_vga_controller is
     constant black : std_logic_vector (11 downto 0) := (others => '0');
    
     -- interconnects:
-        -- signal_plotter <-> threshold_plotter
-    signal i_rgb_1 : std_logic_vector(11 downto 0);
-       --  threshold_plotter <-> temperature_plotter
-    signal i_rgb_2 : std_logic_vector(11 downto 0);    
-     
+        -- plotters RGB interconnect
+    signal i_rgb_1, i_rgb_2, i_rgb_3 : std_logic_vector(11 downto 0);
+    
+    signal fp_x : unsigned (11 downto 0);
+    signal fp_y : unsigned (11 downto 0);
+    
 
 begin
 	hsync <= VGA_HR_s;
 	vsync <= VGA_VS_s;
 	
     addr <=  std_logic_vector(pixel_x_s);
+	
+	fp_x <= pixel_x_s - 100 when pixel_x_s >= 100 else (others=>'1');
+	fp_y <= pixel_y_s - 900 when pixel_y_s >= 900 else (others=>'1');
 	
 	
     RGB <= RGB_s when disp_s = '1' else (others => '0');
@@ -165,10 +191,24 @@ begin
             PX      => pixel_x_s,
             PY      => pixel_y_s,
             RGB_in  => i_RGB_2,
-            RGB_out => RGB_s,
+            RGB_out => i_RGB_3,
             alarm  => alarm,
             temperature => temperature,
             t_temperature => t_temperature        
+    );
+    
+    frequency_plotter_1 : frequency_plotter
+    port map (
+            clk => clk,
+            PX      => fp_x,
+            PY      => fp_y,
+            RGB_in  => i_RGB_3,
+            RGB_out => RGB_s,
+            alarm => alarm,
+            y_scale_select => y_scale_select,
+            x_scale_select => x_scale_select,
+            polarity => polarity,
+            frequency_x100_bcd => frequency_x100_bcd
     );
 
 end beh;

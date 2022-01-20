@@ -181,6 +181,7 @@ proc create_root_design { parentCell } {
   set temp_down [ create_bd_port -dir I temp_down ]
   set temp_up [ create_bd_port -dir I temp_up ]
   set trigger_down [ create_bd_port -dir I trigger_down ]
+  set trigger_mode [ create_bd_port -dir I trigger_mode ]
   set trigger_n_p [ create_bd_port -dir I trigger_n_p ]
   set trigger_up [ create_bd_port -dir I trigger_up ]
   set vsync [ create_bd_port -dir O vsync ]
@@ -197,7 +198,7 @@ proc create_root_design { parentCell } {
   set gen_fun_top_0 [ create_bd_cell -type ip -vlnv xilinx.com:user:gen_fun_top:1.0 gen_fun_top_0 ]
 
   # Create instance: lab5_axi_do_0, and set properties
-  set lab5_axi_do_0 [ create_bd_cell -type ip -vlnv UPC:user:lab5_axi_do:2.2 lab5_axi_do_0 ]
+  set lab5_axi_do_0 [ create_bd_cell -type ip -vlnv UPC:user:lab5_axi_do:2.5 lab5_axi_do_0 ]
 
   # Create instance: processing_system7_0, and set properties
   set processing_system7_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:processing_system7:5.5 processing_system7_0 ]
@@ -638,6 +639,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net temp_down_1 [get_bd_ports temp_down] [get_bd_pins xlconcat_0/In1]
   connect_bd_net -net temp_up_1 [get_bd_ports temp_up] [get_bd_pins xlconcat_0/In0]
   connect_bd_net -net trigger_down_1 [get_bd_ports trigger_down] [get_bd_pins lab5_axi_do_0/trigger_down]
+  connect_bd_net -net trigger_mode_1 [get_bd_ports trigger_mode] [get_bd_pins lab5_axi_do_0/trigger_mode]
   connect_bd_net -net trigger_n_p_1 [get_bd_ports trigger_n_p] [get_bd_pins lab5_axi_do_0/trigger_n_p]
   connect_bd_net -net trigger_up_1 [get_bd_ports trigger_up] [get_bd_pins lab5_axi_do_0/trigger_up]
   connect_bd_net -net xlconcat_0_dout [get_bd_pins axi_gpio_0/gpio_io_i] [get_bd_pins xlconcat_0/dout]

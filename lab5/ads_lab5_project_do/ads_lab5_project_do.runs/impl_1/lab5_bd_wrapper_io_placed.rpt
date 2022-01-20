@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------
 | Tool Version              : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-| Date                      : Fri Jan 14 18:13:10 2022
+| Date                      : Thu Jan 20 17:36:47 2022
 | Host                      : c5b1 running 64-bit major release  (build 9200)
 | Command                   : report_io -file lab5_bd_wrapper_io_placed.rpt
 | Design                    : lab5_bd_wrapper
@@ -25,7 +25,7 @@ Table of Contents
 +---------------+
 | Total User IO |
 +---------------+
-|           165 |
+|           166 |
 +---------------+
 
 
@@ -335,7 +335,7 @@ Table of Contents
 | M12        |                   | Dedicated  | VN_0                    | XADC        |                   |       0 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | M13        |                   |            | VCCINT                  | VCCINT      |                   |         |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | M14        |                   |            | GND                     | GND         |                   |         |            |      |                     |                      |     0.0 |            |           |          |      |                  |              |                   |              |
-| M15        |                   | High Range | IO_L6P_T0_34            | User IO     |                   |      34 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
+| M15        | trigger_mode      | High Range | IO_L6P_T0_34            | INPUT       | LVCMOS18          |      34 |            |      |                     |                 NONE |         | FIXED      |           |          |      | NONE             |              |                   |              |
 | M16        |                   | High Range | IO_L6N_T0_VREF_34       | User IO     |                   |      34 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | M17        |                   | High Range | IO_L4N_T0_34            | User IO     |                   |      34 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | M18        |                   |            | GND                     | GND         |                   |         |            |      |                     |                      |     0.0 |            |           |          |      |                  |              |                   |              |

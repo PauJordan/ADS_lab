@@ -46,8 +46,8 @@
 -- 
 -- DO NOT MODIFY THIS FILE.
 
--- IP VLNV: UPC:user:lab5_axi_do:2.2
--- IP Revision: 13
+-- IP VLNV: UPC:user:lab5_axi_do:2.5
+-- IP Revision: 2
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
@@ -59,6 +59,7 @@ ENTITY lab5_bd_lab5_axi_do_0_1 IS
     trigger_down : IN STD_LOGIC;
     trigger_up : IN STD_LOGIC;
     mode_indicator : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+    trigger_mode : IN STD_LOGIC;
     red : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
     green : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
     blue : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -105,6 +106,7 @@ ARCHITECTURE lab5_bd_lab5_axi_do_0_1_arch OF lab5_bd_lab5_axi_do_0_1 IS
       trigger_down : IN STD_LOGIC;
       trigger_up : IN STD_LOGIC;
       mode_indicator : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+      trigger_mode : IN STD_LOGIC;
       red : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
       green : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
       blue : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -179,6 +181,7 @@ BEGIN
       trigger_down => trigger_down,
       trigger_up => trigger_up,
       mode_indicator => mode_indicator,
+      trigger_mode => trigger_mode,
       red => red,
       green => green,
       blue => blue,

@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "C:/ads_lab5_project_do/ads_lab5_project_do.runs/lab5_bd_gen_fun_top_0_1_synth_1/lab5_bd_gen_fun_top_0_1.tcl"
+  variable script "C:/ADS_do/lab5/ads_lab5_project_do/ads_lab5_project_do.runs/lab5_bd_gen_fun_top_0_1_synth_1/lab5_bd_gen_fun_top_0_1.tcl"
   variable category "vivado_synth"
 }
 
@@ -70,9 +70,10 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "lab5_bd_gen_fun_top_0_1_synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 1
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
+set_msg_config  -string {{sin10k}}  -suppress 
+set_msg_config  -id {IP_Flow 19-5905}  -string {{WARNING: [IP_Flow 19-5905] All packaged files should be located below the IP definition file (xml)}}  -suppress 
+set_msg_config  -id {Vivado 12-584}  -suppress 
+set_msg_config  -string {{test_gen_fun}}  -suppress 
 set_param project.vivado.isBlockSynthRun true
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7z020clg484-1
@@ -81,8 +82,8 @@ set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property webtalk.parent_dir C:/ads_lab5_project_do/ads_lab5_project_do.cache/wt [current_project]
-set_property parent.project_path C:/ads_lab5_project_do/ads_lab5_project_do.xpr [current_project]
+set_property webtalk.parent_dir C:/ADS_do/lab5/ads_lab5_project_do/ads_lab5_project_do.cache/wt [current_project]
+set_property parent.project_path C:/ADS_do/lab5/ads_lab5_project_do/ads_lab5_project_do.xpr [current_project]
 set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
@@ -92,12 +93,12 @@ set_property ip_repo_paths {
   c:/ADS/ipcores/ip_repo
 } [current_project]
 update_ip_catalog
-set_property ip_output_repo c:/ads_lab5_project_do/ads_lab5_project_do.cache/ip [current_project]
+set_property ip_output_repo c:/ADS_do/lab5/ads_lab5_project_do/ads_lab5_project_do.cache/ip [current_project]
 set_property ip_cache_permissions disable [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_ip -quiet C:/ads_lab5_project_do/ads_lab5_project_do.srcs/sources_1/bd/lab5_bd/ip/lab5_bd_gen_fun_top_0_1/lab5_bd_gen_fun_top_0_1.xci
-set_property used_in_implementation false [get_files -all c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_gen_fun_top_0_1/src/test_gen_fun.xdc]
+read_ip -quiet C:/ADS_do/lab5/ads_lab5_project_do/ads_lab5_project_do.srcs/sources_1/bd/lab5_bd/ip/lab5_bd_gen_fun_top_0_1/lab5_bd_gen_fun_top_0_1.xci
+set_property used_in_implementation false [get_files -all c:/ADS_do/lab5/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_gen_fun_top_0_1/src/test_gen_fun.xdc]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -132,45 +133,45 @@ create_report "lab5_bd_gen_fun_top_0_1_synth_1_synth_report_utilization_0" "repo
 OPTRACE "synth reports" END { }
 
 if { [catch {
-  file copy -force C:/ads_lab5_project_do/ads_lab5_project_do.runs/lab5_bd_gen_fun_top_0_1_synth_1/lab5_bd_gen_fun_top_0_1.dcp c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_gen_fun_top_0_1/lab5_bd_gen_fun_top_0_1.dcp
+  file copy -force C:/ADS_do/lab5/ads_lab5_project_do/ads_lab5_project_do.runs/lab5_bd_gen_fun_top_0_1_synth_1/lab5_bd_gen_fun_top_0_1.dcp c:/ADS_do/lab5/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_gen_fun_top_0_1/lab5_bd_gen_fun_top_0_1.dcp
 } _RESULT ] } { 
   send_msg_id runtcl-3 status "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
   error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
 }
 
 if { [catch {
-  write_verilog -force -mode synth_stub c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_gen_fun_top_0_1/lab5_bd_gen_fun_top_0_1_stub.v
+  write_verilog -force -mode synth_stub c:/ADS_do/lab5/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_gen_fun_top_0_1/lab5_bd_gen_fun_top_0_1_stub.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a Verilog synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_vhdl -force -mode synth_stub c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_gen_fun_top_0_1/lab5_bd_gen_fun_top_0_1_stub.vhdl
+  write_vhdl -force -mode synth_stub c:/ADS_do/lab5/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_gen_fun_top_0_1/lab5_bd_gen_fun_top_0_1_stub.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a VHDL synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_verilog -force -mode funcsim c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_gen_fun_top_0_1/lab5_bd_gen_fun_top_0_1_sim_netlist.v
+  write_verilog -force -mode funcsim c:/ADS_do/lab5/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_gen_fun_top_0_1/lab5_bd_gen_fun_top_0_1_sim_netlist.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the Verilog functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_vhdl -force -mode funcsim c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_gen_fun_top_0_1/lab5_bd_gen_fun_top_0_1_sim_netlist.vhdl
+  write_vhdl -force -mode funcsim c:/ADS_do/lab5/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_gen_fun_top_0_1/lab5_bd_gen_fun_top_0_1_sim_netlist.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the VHDL functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
 
-if {[file isdir C:/ads_lab5_project_do/ads_lab5_project_do.ip_user_files/ip/lab5_bd_gen_fun_top_0_1]} {
+if {[file isdir C:/ADS_do/lab5/ads_lab5_project_do/ads_lab5_project_do.ip_user_files/ip/lab5_bd_gen_fun_top_0_1]} {
   catch { 
-    file copy -force c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_gen_fun_top_0_1/lab5_bd_gen_fun_top_0_1_stub.v C:/ads_lab5_project_do/ads_lab5_project_do.ip_user_files/ip/lab5_bd_gen_fun_top_0_1
+    file copy -force c:/ADS_do/lab5/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_gen_fun_top_0_1/lab5_bd_gen_fun_top_0_1_stub.v C:/ADS_do/lab5/ads_lab5_project_do/ads_lab5_project_do.ip_user_files/ip/lab5_bd_gen_fun_top_0_1
   }
 }
 
-if {[file isdir C:/ads_lab5_project_do/ads_lab5_project_do.ip_user_files/ip/lab5_bd_gen_fun_top_0_1]} {
+if {[file isdir C:/ADS_do/lab5/ads_lab5_project_do/ads_lab5_project_do.ip_user_files/ip/lab5_bd_gen_fun_top_0_1]} {
   catch { 
-    file copy -force c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_gen_fun_top_0_1/lab5_bd_gen_fun_top_0_1_stub.vhdl C:/ads_lab5_project_do/ads_lab5_project_do.ip_user_files/ip/lab5_bd_gen_fun_top_0_1
+    file copy -force c:/ADS_do/lab5/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_gen_fun_top_0_1/lab5_bd_gen_fun_top_0_1_stub.vhdl C:/ADS_do/lab5/ads_lab5_project_do/ads_lab5_project_do.ip_user_files/ip/lab5_bd_gen_fun_top_0_1
   }
 }
 file delete __synthesis_is_running__

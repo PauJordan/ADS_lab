@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="lab5_bd_auto_pc_0_synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1642180144">
+<GenRun Id="lab5_bd_auto_pc_0_synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1642696074">
   <File Type="PA-TCL" Name="lab5_bd_auto_pc_0.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="lab5_bd_auto_pc_0_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="lab5_bd_auto_pc_0_reports.tcl"/>

@@ -2,8 +2,8 @@
 # Vivado v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Fri Jan 14 18:11:13 2022
-# Process ID: 98160
+# Start of session at: Thu Jan 20 17:34:50 2022
+# Process ID: 12100
 # Current directory: C:/ads_lab5_project_do/ads_lab5_project_do.runs/synth_1
 # Command line: vivado.exe -log lab5_bd_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source lab5_bd_wrapper.tcl
 # Log file: C:/ads_lab5_project_do/ads_lab5_project_do.runs/synth_1/lab5_bd_wrapper.vds
@@ -21,37 +21,37 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020
 INFO: [Device 21-403] Loading part xc7z020clg484-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 83500
+INFO: [Synth 8-7075] Helper process launched with PID 4324
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1117.770 ; gain = 2.145
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1117.531 ; gain = 3.160
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'lab5_bd_wrapper' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/hdl/lab5_bd_wrapper.vhd:62]
-INFO: [Synth 8-3491] module 'lab5_bd' declared at 'c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/synth/lab5_bd.vhd:1101' bound to instance 'lab5_bd_i' of component 'lab5_bd' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/hdl/lab5_bd_wrapper.vhd:111]
-INFO: [Synth 8-638] synthesizing module 'lab5_bd' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/synth/lab5_bd.vhd:1153]
-INFO: [Synth 8-3491] module 'lab5_bd_axi_gpio_0_0' declared at 'C:/ads_lab5_project_do/ads_lab5_project_do.runs/synth_1/.Xil/Vivado-98160-c5b1/realtime/lab5_bd_axi_gpio_0_0_stub.vhdl:5' bound to instance 'axi_gpio_0' of component 'lab5_bd_axi_gpio_0_0' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/synth/lab5_bd.vhd:1501]
-INFO: [Synth 8-638] synthesizing module 'lab5_bd_axi_gpio_0_0' [C:/ads_lab5_project_do/ads_lab5_project_do.runs/synth_1/.Xil/Vivado-98160-c5b1/realtime/lab5_bd_axi_gpio_0_0_stub.vhdl:31]
-INFO: [Synth 8-3491] module 'lab5_bd_gen_fun_top_0_1' declared at 'C:/ads_lab5_project_do/ads_lab5_project_do.runs/synth_1/.Xil/Vivado-98160-c5b1/realtime/lab5_bd_gen_fun_top_0_1_stub.vhdl:5' bound to instance 'gen_fun_top_0' of component 'lab5_bd_gen_fun_top_0_1' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/synth/lab5_bd.vhd:1524]
-INFO: [Synth 8-638] synthesizing module 'lab5_bd_gen_fun_top_0_1' [C:/ads_lab5_project_do/ads_lab5_project_do.runs/synth_1/.Xil/Vivado-98160-c5b1/realtime/lab5_bd_gen_fun_top_0_1_stub.vhdl:19]
-INFO: [Synth 8-3491] module 'lab5_bd_lab5_axi_do_0_1' declared at 'C:/ads_lab5_project_do/ads_lab5_project_do.runs/synth_1/.Xil/Vivado-98160-c5b1/realtime/lab5_bd_lab5_axi_do_0_1_stub.vhdl:5' bound to instance 'lab5_axi_do_0' of component 'lab5_bd_lab5_axi_do_0_1' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/synth/lab5_bd.vhd:1535]
-INFO: [Synth 8-638] synthesizing module 'lab5_bd_lab5_axi_do_0_1' [C:/ads_lab5_project_do/ads_lab5_project_do.runs/synth_1/.Xil/Vivado-98160-c5b1/realtime/lab5_bd_lab5_axi_do_0_1_stub.vhdl:45]
-INFO: [Synth 8-3491] module 'lab5_bd_processing_system7_0_0' declared at 'C:/ads_lab5_project_do/ads_lab5_project_do.runs/synth_1/.Xil/Vivado-98160-c5b1/realtime/lab5_bd_processing_system7_0_0_stub.vhdl:5' bound to instance 'processing_system7_0' of component 'lab5_bd_processing_system7_0_0' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/synth/lab5_bd.vhd:1572]
-INFO: [Synth 8-638] synthesizing module 'lab5_bd_processing_system7_0_0' [C:/ads_lab5_project_do/ads_lab5_project_do.runs/synth_1/.Xil/Vivado-98160-c5b1/realtime/lab5_bd_processing_system7_0_0_stub.vhdl:79]
+INFO: [Synth 8-638] synthesizing module 'lab5_bd_wrapper' [C:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/hdl/lab5_bd_wrapper.vhd:63]
+INFO: [Synth 8-3491] module 'lab5_bd' declared at 'c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/synth/lab5_bd.vhd:1101' bound to instance 'lab5_bd_i' of component 'lab5_bd' [C:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/hdl/lab5_bd_wrapper.vhd:113]
+INFO: [Synth 8-638] synthesizing module 'lab5_bd' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/synth/lab5_bd.vhd:1154]
+INFO: [Synth 8-3491] module 'lab5_bd_axi_gpio_0_0' declared at 'C:/ads_lab5_project_do/ads_lab5_project_do.runs/synth_1/.Xil/Vivado-12100-c5b1/realtime/lab5_bd_axi_gpio_0_0_stub.vhdl:5' bound to instance 'axi_gpio_0' of component 'lab5_bd_axi_gpio_0_0' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/synth/lab5_bd.vhd:1505]
+INFO: [Synth 8-638] synthesizing module 'lab5_bd_axi_gpio_0_0' [C:/ads_lab5_project_do/ads_lab5_project_do.runs/synth_1/.Xil/Vivado-12100-c5b1/realtime/lab5_bd_axi_gpio_0_0_stub.vhdl:31]
+INFO: [Synth 8-3491] module 'lab5_bd_gen_fun_top_0_1' declared at 'C:/ads_lab5_project_do/ads_lab5_project_do.runs/synth_1/.Xil/Vivado-12100-c5b1/realtime/lab5_bd_gen_fun_top_0_1_stub.vhdl:5' bound to instance 'gen_fun_top_0' of component 'lab5_bd_gen_fun_top_0_1' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/synth/lab5_bd.vhd:1528]
+INFO: [Synth 8-638] synthesizing module 'lab5_bd_gen_fun_top_0_1' [C:/ads_lab5_project_do/ads_lab5_project_do.runs/synth_1/.Xil/Vivado-12100-c5b1/realtime/lab5_bd_gen_fun_top_0_1_stub.vhdl:19]
+INFO: [Synth 8-3491] module 'lab5_bd_lab5_axi_do_0_1' declared at 'C:/ads_lab5_project_do/ads_lab5_project_do.runs/synth_1/.Xil/Vivado-12100-c5b1/realtime/lab5_bd_lab5_axi_do_0_1_stub.vhdl:5' bound to instance 'lab5_axi_do_0' of component 'lab5_bd_lab5_axi_do_0_1' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/synth/lab5_bd.vhd:1539]
+INFO: [Synth 8-638] synthesizing module 'lab5_bd_lab5_axi_do_0_1' [C:/ads_lab5_project_do/ads_lab5_project_do.runs/synth_1/.Xil/Vivado-12100-c5b1/realtime/lab5_bd_lab5_axi_do_0_1_stub.vhdl:46]
+INFO: [Synth 8-3491] module 'lab5_bd_processing_system7_0_0' declared at 'C:/ads_lab5_project_do/ads_lab5_project_do.runs/synth_1/.Xil/Vivado-12100-c5b1/realtime/lab5_bd_processing_system7_0_0_stub.vhdl:5' bound to instance 'processing_system7_0' of component 'lab5_bd_processing_system7_0_0' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/synth/lab5_bd.vhd:1577]
+INFO: [Synth 8-638] synthesizing module 'lab5_bd_processing_system7_0_0' [C:/ads_lab5_project_do/ads_lab5_project_do.runs/synth_1/.Xil/Vivado-12100-c5b1/realtime/lab5_bd_processing_system7_0_0_stub.vhdl:79]
 INFO: [Synth 8-638] synthesizing module 'lab5_bd_ps7_0_axi_periph_0' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/synth/lab5_bd.vhd:629]
 INFO: [Synth 8-638] synthesizing module 'm00_couplers_imp_1QHD2BO' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/synth/lab5_bd.vhd:61]
 INFO: [Synth 8-256] done synthesizing module 'm00_couplers_imp_1QHD2BO' (1#1) [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/synth/lab5_bd.vhd:61]
 INFO: [Synth 8-638] synthesizing module 'm01_couplers_imp_SGPYYV' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/synth/lab5_bd.vhd:168]
 INFO: [Synth 8-256] done synthesizing module 'm01_couplers_imp_SGPYYV' (2#1) [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/synth/lab5_bd.vhd:168]
 INFO: [Synth 8-638] synthesizing module 's00_couplers_imp_SBGIAG' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/synth/lab5_bd.vhd:292]
-INFO: [Synth 8-3491] module 'lab5_bd_auto_pc_0' declared at 'C:/ads_lab5_project_do/ads_lab5_project_do.runs/synth_1/.Xil/Vivado-98160-c5b1/realtime/lab5_bd_auto_pc_0_stub.vhdl:5' bound to instance 'auto_pc' of component 'lab5_bd_auto_pc_0' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/synth/lab5_bd.vhd:475]
-INFO: [Synth 8-638] synthesizing module 'lab5_bd_auto_pc_0' [C:/ads_lab5_project_do/ads_lab5_project_do.runs/synth_1/.Xil/Vivado-98160-c5b1/realtime/lab5_bd_auto_pc_0_stub.vhdl:70]
+INFO: [Synth 8-3491] module 'lab5_bd_auto_pc_0' declared at 'C:/ads_lab5_project_do/ads_lab5_project_do.runs/synth_1/.Xil/Vivado-12100-c5b1/realtime/lab5_bd_auto_pc_0_stub.vhdl:5' bound to instance 'auto_pc' of component 'lab5_bd_auto_pc_0' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/synth/lab5_bd.vhd:475]
+INFO: [Synth 8-638] synthesizing module 'lab5_bd_auto_pc_0' [C:/ads_lab5_project_do/ads_lab5_project_do.runs/synth_1/.Xil/Vivado-12100-c5b1/realtime/lab5_bd_auto_pc_0_stub.vhdl:70]
 INFO: [Synth 8-256] done synthesizing module 's00_couplers_imp_SBGIAG' (3#1) [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/synth/lab5_bd.vhd:292]
-INFO: [Synth 8-3491] module 'lab5_bd_xbar_0' declared at 'C:/ads_lab5_project_do/ads_lab5_project_do.runs/synth_1/.Xil/Vivado-98160-c5b1/realtime/lab5_bd_xbar_0_stub.vhdl:5' bound to instance 'xbar' of component 'lab5_bd_xbar_0' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/synth/lab5_bd.vhd:1034]
-INFO: [Synth 8-638] synthesizing module 'lab5_bd_xbar_0' [C:/ads_lab5_project_do/ads_lab5_project_do.runs/synth_1/.Xil/Vivado-98160-c5b1/realtime/lab5_bd_xbar_0_stub.vhdl:51]
+INFO: [Synth 8-3491] module 'lab5_bd_xbar_0' declared at 'C:/ads_lab5_project_do/ads_lab5_project_do.runs/synth_1/.Xil/Vivado-12100-c5b1/realtime/lab5_bd_xbar_0_stub.vhdl:5' bound to instance 'xbar' of component 'lab5_bd_xbar_0' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/synth/lab5_bd.vhd:1034]
+INFO: [Synth 8-638] synthesizing module 'lab5_bd_xbar_0' [C:/ads_lab5_project_do/ads_lab5_project_do.runs/synth_1/.Xil/Vivado-12100-c5b1/realtime/lab5_bd_xbar_0_stub.vhdl:51]
 INFO: [Synth 8-256] done synthesizing module 'lab5_bd_ps7_0_axi_periph_0' (4#1) [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/synth/lab5_bd.vhd:629]
-INFO: [Synth 8-3491] module 'lab5_bd_rst_ps7_0_100M_0' declared at 'C:/ads_lab5_project_do/ads_lab5_project_do.runs/synth_1/.Xil/Vivado-98160-c5b1/realtime/lab5_bd_rst_ps7_0_100M_0_stub.vhdl:5' bound to instance 'rst_ps7_0_100M' of component 'lab5_bd_rst_ps7_0_100M_0' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/synth/lab5_bd.vhd:1728]
-INFO: [Synth 8-638] synthesizing module 'lab5_bd_rst_ps7_0_100M_0' [C:/ads_lab5_project_do/ads_lab5_project_do.runs/synth_1/.Xil/Vivado-98160-c5b1/realtime/lab5_bd_rst_ps7_0_100M_0_stub.vhdl:21]
-INFO: [Synth 8-3491] module 'lab5_bd_xlconcat_0_0' declared at 'c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_xlconcat_0_0/synth/lab5_bd_xlconcat_0_0.v:60' bound to instance 'xlconcat_0' of component 'lab5_bd_xlconcat_0_0' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/synth/lab5_bd.vhd:1741]
-INFO: [Synth 8-6157] synthesizing module 'lab5_bd_xlconcat_0_0' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_xlconcat_0_0/synth/lab5_bd_xlconcat_0_0.v:60]
+INFO: [Synth 8-3491] module 'lab5_bd_rst_ps7_0_100M_0' declared at 'C:/ads_lab5_project_do/ads_lab5_project_do.runs/synth_1/.Xil/Vivado-12100-c5b1/realtime/lab5_bd_rst_ps7_0_100M_0_stub.vhdl:5' bound to instance 'rst_ps7_0_100M' of component 'lab5_bd_rst_ps7_0_100M_0' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/synth/lab5_bd.vhd:1733]
+INFO: [Synth 8-638] synthesizing module 'lab5_bd_rst_ps7_0_100M_0' [C:/ads_lab5_project_do/ads_lab5_project_do.runs/synth_1/.Xil/Vivado-12100-c5b1/realtime/lab5_bd_rst_ps7_0_100M_0_stub.vhdl:21]
+INFO: [Synth 8-3491] module 'lab5_bd_xlconcat_0_0' declared at 'c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_xlconcat_0_0/synth/lab5_bd_xlconcat_0_0.v:57' bound to instance 'xlconcat_0' of component 'lab5_bd_xlconcat_0_0' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/synth/lab5_bd.vhd:1746]
+INFO: [Synth 8-6157] synthesizing module 'lab5_bd_xlconcat_0_0' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_xlconcat_0_0/synth/lab5_bd_xlconcat_0_0.v:57]
 INFO: [Synth 8-6157] synthesizing module 'xlconcat_v2_1_4_xlconcat' [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ipshared/4b67/hdl/xlconcat_v2_1_vl_rfs.v:14]
 	Parameter IN0_WIDTH bound to: 1 - type: integer 
 	Parameter IN1_WIDTH bound to: 1 - type: integer 
@@ -184,22 +184,22 @@ INFO: [Synth 8-6157] synthesizing module 'xlconcat_v2_1_4_xlconcat' [c:/ads_lab5
 	Parameter dout_width bound to: 2 - type: integer 
 	Parameter NUM_PORTS bound to: 2 - type: integer 
 INFO: [Synth 8-6155] done synthesizing module 'xlconcat_v2_1_4_xlconcat' (5#1) [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ipshared/4b67/hdl/xlconcat_v2_1_vl_rfs.v:14]
-INFO: [Synth 8-6155] done synthesizing module 'lab5_bd_xlconcat_0_0' (6#1) [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_xlconcat_0_0/synth/lab5_bd_xlconcat_0_0.v:60]
-INFO: [Synth 8-256] done synthesizing module 'lab5_bd' (7#1) [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/synth/lab5_bd.vhd:1153]
-INFO: [Synth 8-256] done synthesizing module 'lab5_bd_wrapper' (8#1) [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/hdl/lab5_bd_wrapper.vhd:62]
+INFO: [Synth 8-6155] done synthesizing module 'lab5_bd_xlconcat_0_0' (6#1) [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_xlconcat_0_0/synth/lab5_bd_xlconcat_0_0.v:57]
+INFO: [Synth 8-256] done synthesizing module 'lab5_bd' (7#1) [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/synth/lab5_bd.vhd:1154]
+INFO: [Synth 8-256] done synthesizing module 'lab5_bd_wrapper' (8#1) [C:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/hdl/lab5_bd_wrapper.vhd:63]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1177.789 ; gain = 62.164
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1176.816 ; gain = 62.445
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1177.789 ; gain = 62.164
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1194.738 ; gain = 80.367
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1177.789 ; gain = 62.164
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1194.738 ; gain = 80.367
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.027 . Memory (MB): peak = 1177.789 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.029 . Memory (MB): peak = 1194.738 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -218,32 +218,28 @@ Parsing XDC File [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/la
 Finished Parsing XDC File [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_axi_gpio_0_0/lab5_bd_axi_gpio_0_0/lab5_bd_axi_gpio_0_0_in_context.xdc] for cell 'lab5_bd_i/axi_gpio_0'
 Parsing XDC File [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_lab5_axi_do_0_1/lab5_bd_lab5_axi_do_0_1/lab5_bd_lab5_axi_do_0_1_in_context.xdc] for cell 'lab5_bd_i/lab5_axi_do_0'
 Finished Parsing XDC File [c:/ads_lab5_project_do/ads_lab5_project_do.gen/sources_1/bd/lab5_bd/ip/lab5_bd_lab5_axi_do_0_1/lab5_bd_lab5_axi_do_0_1/lab5_bd_lab5_axi_do_0_1_in_context.xdc] for cell 'lab5_bd_i/lab5_axi_do_0'
-Parsing XDC File [C:/ADS_do/lab5/xdc/lab5_dac.xdc]
-WARNING: [Vivado 12-584] No ports matched '[get_ports -of_objects [get_iobanks 33]]'. [C:/ADS_do/lab5/xdc/lab5_dac.xdc:79]
-WARNING: [Vivado 12-584] No ports matched '[get_ports -of_objects [get_iobanks 34]]'. [C:/ADS_do/lab5/xdc/lab5_dac.xdc:84]
-WARNING: [Vivado 12-584] No ports matched '[get_ports -of_objects [get_iobanks 13]]'. [C:/ADS_do/lab5/xdc/lab5_dac.xdc:87]
-WARNING: [Vivado 12-584] No ports matched '[get_ports -of_objects [get_iobanks 35]]'. [C:/ADS_do/lab5/xdc/lab5_dac.xdc:89]
-Finished Parsing XDC File [C:/ADS_do/lab5/xdc/lab5_dac.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/ADS_do/lab5/xdc/lab5_dac.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/lab5_bd_wrapper_propImpl.xdc].
+Parsing XDC File [C:/xdc/lab5_dac.xdc]
+Finished Parsing XDC File [C:/xdc/lab5_dac.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/xdc/lab5_dac.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/lab5_bd_wrapper_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/lab5_bd_wrapper_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Parsing XDC File [C:/ads_lab5_project_do/ads_lab5_project_do.runs/synth_1/dont_touch.xdc]
 Finished Parsing XDC File [C:/ads_lab5_project_do/ads_lab5_project_do.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1215.578 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1229.484 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 1215.578 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1229.484 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1215.578 ; gain = 99.953
+Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1229.484 ; gain = 115.113
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1215.578 ; gain = 99.953
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1229.484 ; gain = 115.113
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -519,10 +515,10 @@ Applied set_property KEEP_HIERARCHY = SOFT for lab5_bd_i/axi_gpio_0. (constraint
 Applied set_property KEEP_HIERARCHY = SOFT for lab5_bd_i/xlconcat_0. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for lab5_bd_i/lab5_axi_do_0. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1215.578 ; gain = 99.953
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1229.484 ; gain = 115.113
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1215.578 ; gain = 99.953
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1229.484 ; gain = 115.113
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -544,25 +540,25 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1215.578 ; gain = 99.953
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1229.484 ; gain = 115.113
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1250.777 ; gain = 135.152
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 1251.754 ; gain = 137.383
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1251.078 ; gain = 135.453
+Finished Timing Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 1252.055 ; gain = 137.684
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1270.191 ; gain = 154.566
+Finished Technology Mapping : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 1271.168 ; gain = 156.797
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -580,37 +576,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1276.926 ; gain = 161.301
+Finished IO Insertion : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1277.930 ; gain = 163.559
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1276.926 ; gain = 161.301
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1277.930 ; gain = 163.559
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1276.926 ; gain = 161.301
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1277.930 ; gain = 163.559
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1276.926 ; gain = 161.301
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1277.930 ; gain = 163.559
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1276.926 ; gain = 161.301
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1277.930 ; gain = 163.559
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1276.926 ; gain = 161.301
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1277.930 ; gain = 163.559
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -640,27 +636,27 @@ Report Cell Usage:
 |5     |lab5_bd_processing_system7_0_0_bbox |     1|
 |6     |lab5_bd_rst_ps7_0_100M_0_bbox       |     1|
 |7     |lab5_bd_xbar_0_bbox                 |     1|
-|8     |IBUF                                |    11|
+|8     |IBUF                                |    12|
 |9     |OBUF                                |    24|
 +------+------------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1276.926 ; gain = 161.301
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1277.930 ; gain = 163.559
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:16 ; elapsed = 00:00:22 . Memory (MB): peak = 1276.926 ; gain = 123.512
-Synthesis Optimization Complete : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1276.926 ; gain = 161.301
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:16 ; elapsed = 00:00:22 . Memory (MB): peak = 1277.930 ; gain = 128.813
+Synthesis Optimization Complete : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1277.930 ; gain = 163.559
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.022 . Memory (MB): peak = 1288.980 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.021 . Memory (MB): peak = 1290.004 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1295.953 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1291.965 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-49 Infos, 4 Warnings, 0 Critical Warnings and 0 Errors encountered.
+49 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:29 ; elapsed = 00:00:45 . Memory (MB): peak = 1295.953 ; gain = 180.328
+synth_design: Time (s): cpu = 00:00:29 ; elapsed = 00:00:45 . Memory (MB): peak = 1291.965 ; gain = 177.594
 INFO: [Common 17-1381] The checkpoint 'C:/ads_lab5_project_do/ads_lab5_project_do.runs/synth_1/lab5_bd_wrapper.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file lab5_bd_wrapper_utilization_synth.rpt -pb lab5_bd_wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Fri Jan 14 18:12:05 2022...
+INFO: [Common 17-206] Exiting Vivado at Thu Jan 20 17:35:42 2022...
