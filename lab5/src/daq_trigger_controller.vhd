@@ -1,5 +1,5 @@
 ----------------------------------------------------------------------------------
--- Engineer: 
+-- Engineer: Pau Oliveras, Eva Deltor
 -- Create Date: 12/06/2021 03:05:30 PM
 -- Module Name: daq_trigger_controller - Behavioral
 ----------------------------------------------------------------------------------
@@ -10,7 +10,7 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity daq_trigger_controller is
     Generic (
-        addr_width : natural := 11; 
+        addr_width : natural := 11; -- Parametrize data dimensions.
         data_width : natural := 12 
     );
     Port (
@@ -36,7 +36,7 @@ entity daq_trigger_controller is
 
         -- UI
         y_scale_select, x_scale_select : out std_logic_vector (2 downto 0);
-        polarity : out std_logic;
+        polarity : out std_logic_vector(1 downto 0);
         
         -- Frequency measurement.
         trigger_crossing : out std_logic
@@ -45,24 +45,26 @@ entity daq_trigger_controller is
 end daq_trigger_controller;
 
 architecture Behavioral of daq_trigger_controller is
+    constant max_sample_period_ticks : integer := 843751;
+
     -- types
-    type x_scale_t is array (7 downto 0) of integer range 4000 downto 0;
+    type x_scale_t is array (7 downto 0) of integer range max_sample_period_ticks - 1 downto 0;
     
     -- config
-    constant x_scales : x_scale_t := (3375, 844, 423, 169, 108, 81, 54, 27);
+    constant x_scales : x_scale_t := (843750, 3375, 844, 423, 169, 108, 81, 54);
     constant rst_val : std_logic := '1';
     constant max_signal_level : integer := 2**9 - 1;
     constant initial_trigger_level : integer := 256; --Initial value defined by the lab assigment
     constant trigger_button_chg_amount : integer := 16; -- Increase defined by the lab assigment.
     constant initial_sample_period_ticks : integer := 108;
-    constant max_sample_period_ticks : integer := 2**12-1;
     constant max_samples : integer := 1280;
     constant debounce_counter_max : integer := 2**23-1 ; --minimum number of clocks that we need to wait until the next press of the button is dected
-    constant initial_y_scale : unsigned := "011";
-    constant initial_x_scale : unsigned := "011";
-    
+    constant initial_y_scale : unsigned := "011"; -- Initial selected vertical scale.
+    constant initial_x_scale : unsigned := "011"; -- Initial selected horizontal scale.
+    constant hold_off_ticks : natural := 100; -- Hold off period after a trigger condition.
+
     -- components
-    component button_frontend
+    component button_frontend -- Used for debouncing button inputs.
         Generic (
             debounce_period : integer := 2**24-1;
             continous_press_period : integer := 2*23-1
@@ -75,7 +77,7 @@ architecture Behavioral of daq_trigger_controller is
     -- button_sync_p signals
     signal t_up_pressed, t_down_pressed, t_np_pressed : std_logic; -- Button press signals.
 
-    -- button ui
+    -- button ui. Different available modes to change parameters.
     type select_mode_t is (
         edge_select,
         trigger_level_modify,
@@ -85,9 +87,11 @@ architecture Behavioral of daq_trigger_controller is
 
     -- trigger_control_p signals
     type trigger_mode_t is (
-        positive_edge,
-        negative_edge
+        trig_rising_edge,
+        trig_falling_edge,
+        trig_free_run
     );
+    
     signal trigger_level_s : integer range 0 to max_signal_level;
     signal trigger_np_s : trigger_mode_t; -- zero positive edge, 1 negative edge.
     signal select_mode : integer range 0 to 3;
@@ -95,11 +99,12 @@ architecture Behavioral of daq_trigger_controller is
 
     -- trigger_p signals
     signal vsync_edge : std_logic;
-    signal trigger : std_logic; -- Indicates that the trigger condition has been met.
+    signal trigger, trigger_exact : std_logic; -- Indicates that the trigger condition has been met.
     signal last_value : integer range 0 to max_signal_level;
     signal last_vsync : std_logic;
     signal signal_level : integer range 0 to max_signal_level;
-
+    signal hold_off_counter : integer range 0 to 255;
+    
     -- memwrite_p signals
     signal memwrite_flag : std_logic;
     signal sample_period : integer range 0 to max_sample_period_ticks;
@@ -119,11 +124,15 @@ begin
     -- Scales and UI
     y_scale_select <= std_logic_vector(y_scale_s);
     x_scale_select <= std_logic_vector(x_scale_s);
-    polarity <= '1' when (trigger_np_s = negative_edge) else '0';
+    polarity <= "00" when trigger_np_s = trig_rising_edge else
+                "01" when trigger_np_s = trig_falling_edge else
+                "10" when trigger_np_s = trig_free_run else
+                "00";
+
     -- Sample period
     sample_period <= x_scales(to_integer(x_scale_s));
     
-    -- Select mode indicator
+    -- Select mode one-hot indicator 
     with select_mode select mode_indicator <=
         "0001" when 0,
         "0010" when 1,
@@ -131,8 +140,9 @@ begin
         "1000" when 3,
         "0000" when others;
 
-    -- Raw trigger output
+    -- Trigger flags
     trigger_crossing <= trigger;
+    
 
 -- Processes
 
@@ -141,25 +151,24 @@ begin
     trigger_control_p : process(clk, rst)
     begin
     if rising_edge(clk) then
-        if rst = rst_val then --we set the default values that are a initial trigger of 256, half of the signal screen area and a positive edge trigger
+        if rst = rst_val then -- Trigger control parameters set to default values.
             trigger_level_s <= initial_trigger_level;
-            trigger_np_s <= positive_edge;
+            trigger_np_s <= trig_rising_edge;
             x_scale_s <= initial_x_scale;
             y_scale_s <= initial_y_scale;
             select_mode <= 0;
         else
-
-            case select_mode is
+            case select_mode is -- Selection mode.
 
                 when 0 => -- Trigger polarity control. (positive edge, negative edge)
                     if t_up_pressed = '1' then
-                        
-                        trigger_np_s <= positive_edge;
-
+                        if trigger_np_s = trig_rising_edge then
+                            trigger_np_s <= trig_falling_edge;
+                            else
+                            trigger_np_s <= trig_rising_edge;
+                        end if;
                     elsif t_down_pressed = '1' then
-
-                        trigger_np_s <= negative_edge;
-
+                        trigger_np_s <= trig_free_run;
                     end if; 
 
                 when 1 => -- Trigger level position control. (up, down)
@@ -170,31 +179,27 @@ begin
                     elsif t_down_pressed = '1' and trigger_level_s >= 0 + trigger_button_chg_amount then
                     --if we want to decrease the trigger level
                         trigger_level_s <= trigger_level_s - trigger_button_chg_amount;
+
                     end if; -- if no button is pressed we mantain the previous trigger level
 
-                when 2 => 
+                when 2 =>  -- Vertical scale adjust.
                     if t_up_pressed = '1' and y_scale_s > 0 then
-                        
                         y_scale_s <= y_scale_s - 1;
-                        
 
                     elsif t_down_pressed = '1'  and y_scale_s < 7 then
-
                         y_scale_s <= y_scale_s + 1;
 
                     end if;
                 
-                when 3 => 
+                when 3 =>  -- Horiztontal scale adjust.
                     if t_up_pressed = '1' and x_scale_s > 0 then
-                        
                         x_scale_s <= x_scale_s - 1;
-                        
 
                     elsif t_down_pressed = '1'  and x_scale_s < 7 then
-
                         x_scale_s <= x_scale_s + 1;
 
                     end if;
+
             end case;  
 
             -- Select mode change
@@ -213,25 +218,36 @@ begin
     trigger_p: process(clk)
     begin
         if rising_edge(clk) then
-            if rst = rst_val then
-                last_value <= 0;
+            if rst = rst_val then -- Set trigger flags to initial values.
+                hold_off_counter <= 0;
+                trigger_exact <= '0';
                 trigger <= '0';
             else
-                if trigger = '0' then
-                    if(trigger_mode = '1') then
-                        if ( (trigger_np_s = positive_edge) xor (signal_level >= trigger_level_s)) and ( (trigger_np_s = positive_edge) xor (last_value < trigger_level_s)) then
-                            trigger <= '1';
-                        end if;
-                    else
-                        if ( (signal_level = trigger_level_s) and ( (trigger_np_s = positive_edge and last_value < trigger_level_s) or (trigger_np_s = negative_edge and last_value > trigger_level_s))) then
-                            trigger <= '1';
-                        end if;
+                -- There are two trigger flags. trigger_exact and trigger. 
+                -- The former fires only when the significant bits of the signal equal the threshold exactly, 
+                -- as per lab 5 specifications.
+                -- The latter is more permisive, as it fires when the signal crosses the treshold. This one is used for frequency measurement and
+                -- if trigger_mode set to 1 also for signal display. When a trigger flag fires, a hold off period is enforced to avoid repeated trigger conditions for high
+                -- frequency signals. trigger_exact flag does not need this, as the trigger flag is only used for display, so only the first time it fires causes an effect.
+
+                if hold_off_counter = 0 then -- Hold off period has ellapsed.
+                    if ( (trigger_np_s = trig_rising_edge) xor (signal_level <= trigger_level_s)) and ( (trigger_np_s = trig_rising_edge) xor (last_value > trigger_level_s)) then
+                        trigger <= '1'; -- If trigger condition according to falling or rising edge is true, set trigger flag.
+                        hold_off_counter <= hold_off_ticks; -- Start hold off countdown.
                     end if;
                 else
                     trigger <= '0';
+                    hold_off_counter <= hold_off_counter - 1;
                 end if;
-                
-                last_value <= signal_level;              
+
+                if ( (signal_level = trigger_level_s) and ( (trigger_np_s = trig_rising_edge and last_value < trigger_level_s) or (trigger_np_s = trig_falling_edge and last_value > trigger_level_s))) then
+                    trigger_exact <= '1'; -- If lab 5 trigger condition occurs, set flag.
+                else
+                    trigger_exact <= '0'; -- Else keep the flag unset.
+                end if;
+
+                last_value <= signal_level; -- Remember last value to detect edge polarity.
+
             end if;
         end if;
     end process trigger_p;
@@ -250,7 +266,7 @@ begin
                 end if;
                 last_vsync <= vsync;  -- Record last vsync value for detecting edges.
 
-                if(vsync_edge = '1' and trigger = '1') then -- When a falling edge has happened and the trigger condition is met, start the memwrite process.
+                if vsync_edge = '1' and ((trigger = '1' and trigger_mode = '1') or (trigger_exact = '1' and trigger_mode = '0') or trigger_np_s = trig_free_run) then -- When a falling edge has happened and the trigger condition is met, start the memwrite process.
                     memwrite_flag <= '1'; -- Set the memwriteflag.
                     vsync_edge <= '0'; -- Clear the vsync edge flag.
                 else
@@ -264,7 +280,7 @@ begin
     memwrite: process(clk)
     begin
         if rising_edge(clk) then
-            if rst = rst_val or memwrite_flag = '1' then 
+            if rst = rst_val or (memwrite_flag = '1' and sample_index = max_samples) then -- Check that memory write is not taking place before servicing flag.
                 period_counter <= 0; 
                 sample_index <= 0; 
             elsif sample_index < max_samples then -- Samples are still to be acquired.
@@ -289,7 +305,7 @@ begin
         end if;
     end process memwrite;
 
-    -- component mapping
+    -- component mapping. Button debounce.
 
     bf_1 : button_frontend
     Generic Map (

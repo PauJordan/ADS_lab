@@ -1,3 +1,14 @@
+----------------------------------------------------------------------------------
+-- Company: UPC
+-- Engineer: Eva Deltor, Pau Oliveras
+-- Revision:
+-- Revision 0.01 - File Created
+-- 
+----------------------------------------------------------------------------------
+
+-- This component does not contain any design logic, just interconnects the smaller components and presents
+-- an interface for the vga controller.
+
 library ieee;
 use ieee.STD_LOGIC_1164.ALL;
 use ieee.NUMERIC_STD.ALL;
@@ -28,7 +39,8 @@ entity daq_vga_controller is
 
         -- UI
         y_scale_select, x_scale_select : in std_logic_vector (2 downto 0);
-        polarity : in std_logic;
+        mode_indicator : in std_logic_vector(3 downto 0);
+        polarity : in std_logic_vector(1 downto 0);
         
         -- Frequency Measurement
         frequency_x100_bcd : in std_logic_vector(27 downto 0)
@@ -102,7 +114,8 @@ architecture beh of daq_vga_controller is
            RGB_out : out STD_LOGIC_VECTOR (11 downto 0);
            frequency_x100_bcd : in std_logic_vector(27 downto 0);
            y_scale_select, x_scale_select : in std_logic_vector (2 downto 0);
-           polarity : std_logic;
+           mode_indicator : in std_logic_vector(3 downto 0);
+           polarity : std_logic_vector(1 downto 0);
            alarm : in STD_LOGIC
         
         );
@@ -137,8 +150,8 @@ begin
 	
     addr <=  std_logic_vector(pixel_x_s);
 	
-	fp_x <= pixel_x_s - 100 when pixel_x_s >= 100 else (others=>'1');
-	fp_y <= pixel_y_s - 900 when pixel_y_s >= 900 else (others=>'1');
+	fp_x <= pixel_x_s - 900 when pixel_x_s >= 900 else (others=>'1');
+	fp_y <= pixel_y_s - 850 when pixel_y_s >= 850 else (others=>'1');
 	
 	
     RGB <= RGB_s when disp_s = '1' else (others => '0');
@@ -208,6 +221,7 @@ begin
             y_scale_select => y_scale_select,
             x_scale_select => x_scale_select,
             polarity => polarity,
+            mode_indicator => mode_indicator,
             frequency_x100_bcd => frequency_x100_bcd
     );
 

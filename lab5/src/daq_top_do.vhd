@@ -13,10 +13,12 @@
 -- 
 ----------------------------------------------------------------------------------
 
+-- This component does not contain any design logic, just interconnects the smaller components and presents
+-- an interface to wrap within an axi peripheral.
+
 library IEEE;
 use IEEE.std_logic_1164.ALL;
 use IEEE.numeric_std.all;
-
 entity daq_top is
     Port ( -- Clock and negated reset
         CLK                 : in std_logic;
@@ -73,7 +75,8 @@ architecture daq_top_b_arc of daq_top is
 
            -- Scaling and UI
            y_scale_select, x_scale_select : in std_logic_vector (2 downto 0);
-           polarity : in std_logic;           
+           polarity : in std_logic_vector(1 downto 0);  
+           mode_indicator : in std_logic_vector( 3 downto 0);         
            frequency_x100_bcd : in std_logic_vector(27 downto 0)
 
         );
@@ -127,7 +130,7 @@ architecture daq_top_b_arc of daq_top is
             
             -- Scaling and UI
             y_scale_select, x_scale_select : out std_logic_vector (2 downto 0);
-            polarity : out std_logic; 
+            polarity : out std_logic_vector(1 downto 0); 
             -- Frequency measurement.
             trigger_crossing : out std_logic
         );
@@ -163,8 +166,8 @@ architecture daq_top_b_arc of daq_top is
         signal y_scale_s, x_scale_s : std_logic_vector (2 downto 0);
         signal trigger_level : std_logic_vector (8 downto 0);
         signal vsync_s      : std_logic;
-        signal polarity : std_logic;
-
+        signal polarity : std_logic_vector( 1 downto 0);
+        signal select_mode_s : std_logic_vector(3 downto 0);
         -- Memory Unit <-> Trigger Controller
         signal we : std_logic;
         signal addr_in : std_logic_vector (11 downto 0);
@@ -182,8 +185,10 @@ architecture daq_top_b_arc of daq_top is
 begin
     rst <= NOT RSTN;
     vsync <= vsync_s;
-    y_scale_select <= y_scale_s;
-    
+    y_scale_select(1 downto 0) <= polarity;
+    y_scale_select(2) <= trigger_mode;
+    mode_indicator <= select_mode_s;
+
     daq_vga_controller_1 : daq_vga_controller
     generic map (
         addr_width => 12,
@@ -205,6 +210,7 @@ begin
         t_temperature => t_temperature,
         y_scale_select => y_scale_s,
         x_scale_select => x_scale_s,
+        mode_indicator => select_mode_s,
         polarity => polarity,
         frequency_x100_bcd => frequency_x100_bcd
         
@@ -242,7 +248,7 @@ begin
         trigger_n_p => trigger_n_p,
         adc_data1 => data1,
         vsync => vsync_s,
-        mode_indicator => mode_indicator,
+        mode_indicator => select_mode_s,
         y_scale_select => y_scale_s,
         x_scale_select => x_scale_s,
         polarity => polarity,
