@@ -106,7 +106,7 @@ begin
     lines(0) <= " "& "Frequency =   " & frequency_text &             " kHz            "; --40
     lines(1) <= (others => ' '); 
     
-    lines(2) <= arrow(0) & "Trigger polarity: " & polarity_text(polarity_index) & "              "; --40
+    lines(2) <= arrow(0) & "Trigger polarity: " & polarity_text(polarity_index) & "             "; --40
     lines(3) <= arrow(1) & "Trigger level                          " ;
     lines(4) <= arrow(2) & "Vertical scale: " & scale_1(y_scale_index) & " counts/div       "; --40
     lines(5) <= arrow(3) & "Horizontal scale: " & scale_2(x_scale_index) & "s/div           "; --40
